@@ -1,0 +1,63 @@
+import { n as require_jsx_runtime } from "../_libs/react+tanstack__react-query.mjs";
+import { n as Navbar, t as Footer } from "./Footer-BXwmlAwJ.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/cookies-CSu_boiy.js
+var import_jsx_runtime = require_jsx_runtime();
+function CookiesPage() {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "min-h-screen bg-background flex flex-col",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Navbar, {}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("main", {
+				className: "flex-1 mx-auto max-w-4xl px-6 py-32 sm:py-40",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+					className: "text-4xl font-bold tracking-tight mb-8",
+					children: "Política de Cookies"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "prose prose-neutral dark:prose-invert max-w-none",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "Como é prática comum em quase todos os sites profissionais, este site usa cookies, que são pequenos arquivos baixados no seu computador, para melhorar sua experiência." }),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+							className: "text-2xl font-semibold mt-8 mb-4",
+							children: "O que são cookies?"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "Os cookies são pequenos arquivos de texto que um site, quando visitado, coloca no computador do usuário ou no seu dispositivo móvel, através do navegador de internet. A colocação de cookies ajudará o site a reconhecer o seu dispositivo na próxima visita." }),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+							className: "text-2xl font-semibold mt-8 mb-4",
+							children: "Como usamos os cookies?"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "Utilizamos cookies por vários motivos, detalhados abaixo:" }),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("ul", {
+							className: "list-disc pl-6 mb-4",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
+									className: "mb-2",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Cookies Essenciais:" }), " Necessários para o funcionamento do site. Sem eles, o site não funcionaria corretamente."]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
+									className: "mb-2",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Cookies de Análise:" }), " Permitem anonimamente monitorar o tráfego do site e como os usuários interagem com nosso conteúdo."]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
+									className: "mb-2",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Cookies de Preferências:" }), " Armazenam informações como se você já aceitou a nossa política de cookies, para não mostrar o aviso novamente."]
+								})
+							]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+							className: "text-2xl font-semibold mt-8 mb-4",
+							children: "Desativar Cookies"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "Você pode impedir a configuração de cookies ajustando as configurações do seu navegador (consulte a Ajuda do navegador para saber como fazer isso). Esteja ciente de que a desativação de cookies afetará a funcionalidade deste e de muitos outros sites que você visita." }),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "mt-8 text-sm text-muted-foreground",
+							children: "Esta política é efetiva a partir de Janeiro de 2024."
+						})
+					]
+				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Footer, {})
+		]
+	});
+}
+//#endregion
+export { CookiesPage as component };

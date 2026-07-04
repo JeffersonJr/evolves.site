@@ -1,0 +1,981 @@
+import { n as __toESM } from "../_runtime.mjs";
+import { s as performance_default } from "../_libs/h3+rou3+srvx+unenv.mjs";
+import { n as require_jsx_runtime, r as require_react, t as QueryClientProvider } from "../_libs/react+tanstack__react-query.mjs";
+import { _ as useRouter, c as HeadContent, d as Outlet, f as lazyRouteComponent, h as Link, m as createRootRouteWithContext, p as createFileRoute, s as Scripts, u as createRouter } from "../_libs/@tanstack/react-router+[...].mjs";
+import { t as Route$10 } from "../_slug-C-sg-clT.mjs";
+import { E as Cookie, F as Bot, L as ArrowLeft, N as Bug, c as Skull, f as Rocket, p as RefreshCcw, r as Trophy, t as X } from "../_libs/lucide-react.mjs";
+import { t as Route$11 } from "../_slug-CBeiZ_en.mjs";
+import { t as Route$12 } from "../_slug-tT_Ew9Lw.mjs";
+import { t as QueryClient } from "../_libs/tanstack__query-core.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/router-H_sEMk7e.js
+var import_react = /* @__PURE__ */ __toESM(require_react());
+var import_jsx_runtime = require_jsx_runtime();
+var styles_default = "/assets/styles-Bym8-rvc.css";
+function reportLovableError(error, context = {}) {
+	if (typeof window === "undefined") return;
+	window.__lovableEvents?.captureException?.(error, {
+		source: "react_error_boundary",
+		route: window.location.pathname,
+		...context
+	}, {
+		mechanism: "react_error_boundary",
+		handled: false,
+		severity: "error"
+	});
+}
+var STORAGE_KEY$1 = "lgpd_consent";
+function LgpdModal() {
+	const [show, setShow] = (0, import_react.useState)(false);
+	(0, import_react.useEffect)(() => {
+		if (!localStorage.getItem(STORAGE_KEY$1)) {
+			const timer = setTimeout(() => setShow(true), 800);
+			return () => clearTimeout(timer);
+		}
+	}, []);
+	const accept = () => {
+		localStorage.setItem(STORAGE_KEY$1, "accepted");
+		setShow(false);
+	};
+	const decline = () => {
+		localStorage.setItem(STORAGE_KEY$1, "declined");
+		setShow(false);
+	};
+	if (!show) return null;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "fixed bottom-6 left-1/2 -translate-x-1/2 z-[300] w-[calc(100%-2rem)] max-w-xl animate-fade-up",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "rounded-2xl border border-border bg-card/95 backdrop-blur-xl px-5 py-4 shadow-[var(--shadow-card)] flex flex-col sm:flex-row items-start sm:items-center gap-4",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Cookie, { className: "h-5 w-5 text-primary shrink-0 mt-0.5 sm:mt-0" }),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+					className: "text-xs text-muted-foreground leading-relaxed flex-1",
+					children: [
+						"Usamos cookies para melhorar sua experiência.",
+						" ",
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+							to: "/privacy",
+							className: "text-primary font-medium underline underline-offset-2 hover:text-primary/80",
+							children: "Saiba mais"
+						})
+					]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "flex items-center gap-2 shrink-0 w-full sm:w-auto",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						onClick: decline,
+						className: "cursor-pointer flex-1 sm:flex-none rounded-full border border-border px-4 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-secondary",
+						children: "Recusar"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						onClick: accept,
+						className: "cursor-pointer flex-1 sm:flex-none rounded-full bg-primary px-4 py-1.5 text-xs font-bold text-primary-foreground transition-transform hover:scale-[1.02]",
+						children: "Aceitar"
+					})]
+				})
+			]
+		})
+	});
+}
+var WHATSAPP_NUMBER$1 = "5513981326869";
+var STORAGE_KEY = "evolves_exit_dismissed";
+function ExitIntentModal() {
+	const [isOpen, setIsOpen] = (0, import_react.useState)(false);
+	const [formData, setFormData] = (0, import_react.useState)({
+		name: "",
+		email: "",
+		message: ""
+	});
+	const dismiss = (0, import_react.useCallback)(() => {
+		setIsOpen(false);
+		sessionStorage.setItem(STORAGE_KEY, "1");
+	}, []);
+	(0, import_react.useEffect)(() => {
+		if (sessionStorage.getItem(STORAGE_KEY)) return;
+		let triggered = false;
+		const handleMouseLeave = (e) => {
+			if (e.clientY <= 5 && !triggered) {
+				triggered = true;
+				setIsOpen(true);
+			}
+		};
+		const timer = setTimeout(() => {
+			document.addEventListener("mouseleave", handleMouseLeave);
+		}, 3e3);
+		return () => {
+			clearTimeout(timer);
+			document.removeEventListener("mouseleave", handleMouseLeave);
+		};
+	}, []);
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		const text = `Olá, me chamo ${formData.name}.\nMeu e-mail é ${formData.email}.\n\n${formData.message}`;
+		const url = `https://wa.me/${WHATSAPP_NUMBER$1}?text=${encodeURIComponent(text)}`;
+		window.open(url, "_blank");
+		dismiss();
+		setFormData({
+			name: "",
+			email: "",
+			message: ""
+		});
+	};
+	if (!isOpen) return null;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "fixed inset-0 z-[200] flex items-center justify-center bg-background/80 backdrop-blur-sm p-4",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "w-full max-w-lg rounded-4xl border border-border bg-card p-8 sm:p-10 shadow-[var(--shadow-card)] animate-fade-up relative overflow-hidden",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute -top-20 -right-20 w-56 h-56 bg-primary/10 rounded-full blur-3xl pointer-events-none" }),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+					onClick: dismiss,
+					className: "absolute top-5 right-5 text-muted-foreground hover:text-foreground transition-colors cursor-pointer",
+					"aria-label": "Fechar",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, { className: "h-5 w-5" })
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "relative z-10",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "mb-2 text-4xl",
+							children: "👋"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+							className: "text-2xl sm:text-3xl font-bold tracking-tight mb-3",
+							children: "Espere! Antes de ir..."
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "text-muted-foreground mb-8 max-w-sm",
+							children: "Que tal uma conversa rápida? Nos conte sobre seu projeto e receba uma proposta sob medida. Sem compromisso."
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
+							onSubmit: handleSubmit,
+							className: "space-y-4",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "grid grid-cols-1 sm:grid-cols-2 gap-4",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+										htmlFor: "exit-name",
+										className: "block text-sm font-medium mb-1",
+										children: "Nome"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+										id: "exit-name",
+										required: true,
+										value: formData.name,
+										onChange: (e) => setFormData({
+											...formData,
+											name: e.target.value
+										}),
+										className: "w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all",
+										placeholder: "Seu nome"
+									})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+										htmlFor: "exit-email",
+										className: "block text-sm font-medium mb-1",
+										children: "E-mail"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+										id: "exit-email",
+										type: "email",
+										required: true,
+										value: formData.email,
+										onChange: (e) => setFormData({
+											...formData,
+											email: e.target.value
+										}),
+										className: "w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all",
+										placeholder: "seu@email.com"
+									})] })]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+									htmlFor: "exit-msg",
+									className: "block text-sm font-medium mb-1",
+									children: "Como podemos ajudar?"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("textarea", {
+									id: "exit-msg",
+									required: true,
+									value: formData.message,
+									onChange: (e) => setFormData({
+										...formData,
+										message: e.target.value
+									}),
+									className: "w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm min-h-[80px] resize-none focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all",
+									placeholder: "Descreva brevemente o que precisa..."
+								})] }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+									type: "submit",
+									className: "w-full cursor-pointer rounded-full bg-primary px-6 py-3 text-sm font-bold text-primary-foreground transition-transform hover:scale-[1.02]",
+									children: "Enviar pelo WhatsApp"
+								})
+							]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							onClick: dismiss,
+							className: "mt-4 w-full text-center text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer",
+							children: "Não, obrigado. Quero sair."
+						})
+					]
+				})
+			]
+		})
+	});
+}
+var WHATSAPP_NUMBER = "5513981326869";
+var subjects = [
+	"Sites Inteligentes",
+	"Sistemas Customizados",
+	"Hospedagem & Performance",
+	"Branding & Design",
+	"Outro"
+];
+function WhatsAppButton() {
+	const [isOpen, setIsOpen] = (0, import_react.useState)(false);
+	const [formData, setFormData] = (0, import_react.useState)({
+		name: "",
+		email: "",
+		subject: subjects[0],
+		message: ""
+	});
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		const text = `Olá, vim pelo site da Evolves!\n\nNome: ${formData.name}\nE-mail: ${formData.email}\nAssunto: ${formData.subject}\n\n${formData.message}`;
+		const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+		window.open(url, "_blank");
+		setIsOpen(false);
+		setFormData({
+			name: "",
+			email: "",
+			subject: subjects[0],
+			message: ""
+		});
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+		onClick: () => setIsOpen(true),
+		"aria-label": "Fale conosco no WhatsApp",
+		className: "fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center cursor-pointer rounded-full bg-primary text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-110",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
+			viewBox: "0 0 24 24",
+			className: "h-7 w-7",
+			fill: "currentColor",
+			"aria-hidden": "true",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" })
+		})
+	}), isOpen && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "fixed inset-0 z-[100] flex items-center justify-center bg-background/80 backdrop-blur-sm p-4",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "w-full max-w-md rounded-3xl border border-border bg-card p-6 shadow-[var(--shadow-card)] animate-fade-up",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "flex items-center justify-between mb-6",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+						className: "text-xl font-semibold",
+						children: "Fale com um Especialista"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						onClick: () => setIsOpen(false),
+						className: "text-muted-foreground hover:text-foreground cursor-pointer",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, { className: "h-5 w-5" })
+					})]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "text-sm text-muted-foreground mb-6",
+					children: "Preencha os dados abaixo para enviarmos sua mensagem diretamente para o nosso WhatsApp."
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
+					onSubmit: handleSubmit,
+					className: "space-y-4",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+							htmlFor: "wa-name",
+							className: "block text-sm font-medium mb-1",
+							children: "Nome completo"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+							id: "wa-name",
+							required: true,
+							value: formData.name,
+							onChange: (e) => setFormData({
+								...formData,
+								name: e.target.value
+							}),
+							className: "w-full rounded-xl border border-border bg-background px-4 py-2 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none",
+							placeholder: "Seu nome"
+						})] }),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+							htmlFor: "wa-email",
+							className: "block text-sm font-medium mb-1",
+							children: "E-mail corporativo"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+							id: "wa-email",
+							type: "email",
+							required: true,
+							value: formData.email,
+							onChange: (e) => setFormData({
+								...formData,
+								email: e.target.value
+							}),
+							className: "w-full rounded-xl border border-border bg-background px-4 py-2 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none",
+							placeholder: "seu@email.com.br"
+						})] }),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+							htmlFor: "wa-subject",
+							className: "block text-sm font-medium mb-1",
+							children: "Assunto"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("select", {
+							id: "wa-subject",
+							value: formData.subject,
+							onChange: (e) => setFormData({
+								...formData,
+								subject: e.target.value
+							}),
+							className: "w-full rounded-xl border border-border bg-background px-4 py-2 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none",
+							children: subjects.map((s) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { children: s }, s))
+						})] }),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+							htmlFor: "wa-message",
+							className: "block text-sm font-medium mb-1",
+							children: "Como podemos te ajudar?"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("textarea", {
+							id: "wa-message",
+							required: true,
+							value: formData.message,
+							onChange: (e) => setFormData({
+								...formData,
+								message: e.target.value
+							}),
+							className: "w-full rounded-xl border border-border bg-background px-4 py-2 text-sm min-h-[100px] resize-none focus:border-primary focus:ring-1 focus:ring-primary outline-none",
+							placeholder: "Descreva brevemente o seu projeto..."
+						})] }),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							type: "submit",
+							className: "mt-2 w-full cursor-pointer rounded-full bg-primary px-4 py-3 text-sm font-bold text-primary-foreground transition-transform hover:scale-[1.02]",
+							children: "Iniciar Conversa"
+						})
+					]
+				})
+			]
+		})
+	})] });
+}
+function NotFoundGame() {
+	const [renderTick, setRenderTick] = (0, import_react.useState)(0);
+	const gameState = (0, import_react.useRef)({
+		playerX: 50,
+		enemies: [],
+		projectiles: [],
+		score: 0,
+		isPlaying: false,
+		gameOver: false,
+		highScore: 0
+	});
+	const requestRef = (0, import_react.useRef)(0);
+	const lastTimeRef = (0, import_react.useRef)(0);
+	const containerRef = (0, import_react.useRef)(null);
+	const PLAYER_WIDTH = 12;
+	const ENEMY_SIZE = 8;
+	const PROJECTILE_SPEED = .08;
+	const ENEMY_PROJECTILE_SPEED = .05;
+	const startGame = (0, import_react.useCallback)(() => {
+		gameState.current.isPlaying = true;
+		gameState.current.gameOver = false;
+		gameState.current.score = 0;
+		gameState.current.enemies = [];
+		gameState.current.projectiles = [];
+		gameState.current.playerX = 50;
+		lastTimeRef.current = 0;
+		setRenderTick((t) => t + 1);
+		if (requestRef.current) cancelAnimationFrame(requestRef.current);
+		requestRef.current = requestAnimationFrame(gameLoop);
+	}, []);
+	const stopGame = (0, import_react.useCallback)(() => {
+		gameState.current.isPlaying = false;
+		gameState.current.gameOver = true;
+		if (gameState.current.score > gameState.current.highScore) gameState.current.highScore = gameState.current.score;
+		cancelAnimationFrame(requestRef.current);
+		setRenderTick((t) => t + 1);
+	}, []);
+	const lastFireTimeRef = (0, import_react.useRef)(0);
+	const fireProjectile = (0, import_react.useCallback)(() => {
+		if (!gameState.current.isPlaying || gameState.current.gameOver) return;
+		const now = performance_default.now();
+		if (now - lastFireTimeRef.current < 200) return;
+		lastFireTimeRef.current = now;
+		gameState.current.projectiles.push({
+			id: Math.random(),
+			x: gameState.current.playerX,
+			y: 85,
+			isEnemy: false
+		});
+	}, []);
+	(0, import_react.useEffect)(() => {
+		const handleKeyDown = (e) => {
+			if (e.code === "Space") {
+				e.preventDefault();
+				fireProjectile();
+			}
+		};
+		window.addEventListener("keydown", handleKeyDown);
+		return () => window.removeEventListener("keydown", handleKeyDown);
+	}, [fireProjectile]);
+	const handlePointerDown = (0, import_react.useCallback)((e) => {
+		if (!gameState.current.isPlaying || gameState.current.gameOver) return;
+		if (e.target.tagName.toLowerCase() === "button") return;
+		fireProjectile();
+	}, [fireProjectile]);
+	const handlePointerMove = (0, import_react.useCallback)((e) => {
+		if (!gameState.current.isPlaying || gameState.current.gameOver || !containerRef.current) return;
+		e.preventDefault();
+		const rect = containerRef.current.getBoundingClientRect();
+		const x = (e.clientX - rect.left) / rect.width * 100;
+		gameState.current.playerX = Math.max(PLAYER_WIDTH / 2, Math.min(100 - PLAYER_WIDTH / 2, x));
+	}, []);
+	(0, import_react.useEffect)(() => {
+		const container = containerRef.current;
+		if (container) {
+			container.addEventListener("pointermove", handlePointerMove, { passive: false });
+			container.addEventListener("pointerdown", handlePointerDown);
+		}
+		return () => {
+			if (container) {
+				container.removeEventListener("pointermove", handlePointerMove);
+				container.removeEventListener("pointerdown", handlePointerDown);
+			}
+		};
+	}, [handlePointerMove, handlePointerDown]);
+	const gameLoop = (0, import_react.useCallback)((time) => {
+		if (!gameState.current.isPlaying) return;
+		if (lastTimeRef.current === 0) lastTimeRef.current = time;
+		const deltaTime = time - lastTimeRef.current;
+		lastTimeRef.current = time;
+		const state = gameState.current;
+		let isGameOver = false;
+		let scoreToAdd = 0;
+		const spawnRate = Math.max(400, 1500 - state.score * 20);
+		if (Math.random() < deltaTime / spawnRate) {
+			let type = "bug";
+			let hp = 1;
+			let rand = Math.random();
+			if (state.score > 300 && rand > .85) {
+				type = "boss";
+				hp = 3;
+			} else if (state.score > 100 && rand > .6) type = "drone";
+			const initialX = Math.random() * 90 + 5;
+			state.enemies.push({
+				id: Math.random(),
+				type,
+				initialX,
+				x: initialX,
+				y: -10,
+				speed: Math.random() * .02 + .015 + state.score * 3e-4,
+				rotation: type === "bug" ? Math.random() * 360 : 0,
+				hp,
+				lastShotTime: time,
+				flashEndTime: 0
+			});
+		}
+		for (let i = state.projectiles.length - 1; i >= 0; i--) {
+			const p = state.projectiles[i];
+			p.y = p.isEnemy ? p.y + ENEMY_PROJECTILE_SPEED * deltaTime : p.y - PROJECTILE_SPEED * deltaTime;
+			if (p.y < -10 || p.y > 110) state.projectiles.splice(i, 1);
+		}
+		for (let i = state.enemies.length - 1; i >= 0; i--) {
+			const e = state.enemies[i];
+			if (e.type === "bug") {
+				e.y += e.speed * deltaTime;
+				e.rotation += 1;
+			} else if (e.type === "drone") {
+				e.y += e.speed * 1.5 * deltaTime;
+				e.x = e.initialX + Math.sin(time / 200) * 15;
+			} else if (e.type === "boss") {
+				e.y += e.speed * .5 * deltaTime;
+				if (time - e.lastShotTime > 1500 && e.y > 0 && e.y < 80) {
+					state.projectiles.push({
+						id: Math.random(),
+						x: e.x,
+						y: e.y + 5,
+						isEnemy: true
+					});
+					e.lastShotTime = time;
+				}
+			}
+			if (e.y > 80 && e.y < 95) {
+				const hitRadius = e.type === "boss" ? ENEMY_SIZE * 1.5 : ENEMY_SIZE;
+				if (Math.abs(e.x - state.playerX) < PLAYER_WIDTH / 2 + hitRadius / 2) isGameOver = true;
+			}
+			if (e.y > 110) state.enemies.splice(i, 1);
+		}
+		for (let i = state.projectiles.length - 1; i >= 0; i--) {
+			const proj = state.projectiles[i];
+			let projDestroyed = false;
+			if (proj.isEnemy) {
+				if (proj.y > 80 && proj.y < 95) {
+					if (Math.abs(proj.x - state.playerX) < PLAYER_WIDTH / 2) {
+						isGameOver = true;
+						projDestroyed = true;
+					}
+				}
+			} else for (let j = state.enemies.length - 1; j >= 0; j--) {
+				const enemy = state.enemies[j];
+				const hitRadius = enemy.type === "boss" ? ENEMY_SIZE * 1.5 : ENEMY_SIZE;
+				if (Math.abs(proj.x - enemy.x) < hitRadius && Math.abs(proj.y - enemy.y) < hitRadius) {
+					projDestroyed = true;
+					enemy.hp -= 1;
+					enemy.flashEndTime = time + 100;
+					if (enemy.hp <= 0) {
+						state.enemies.splice(j, 1);
+						if (enemy.type === "boss") scoreToAdd += 50;
+						else if (enemy.type === "drone") scoreToAdd += 20;
+						else scoreToAdd += 10;
+					}
+					break;
+				}
+			}
+			if (projDestroyed) state.projectiles.splice(i, 1);
+		}
+		if (scoreToAdd > 0) state.score += scoreToAdd;
+		if (isGameOver) {
+			stopGame();
+			return;
+		}
+		setRenderTick((t) => t + 1);
+		requestRef.current = requestAnimationFrame(gameLoop);
+	}, [stopGame]);
+	(0, import_react.useEffect)(() => {
+		return () => {
+			if (requestRef.current) cancelAnimationFrame(requestRef.current);
+		};
+	}, []);
+	const renderEnemy = (enemy, time) => {
+		const isFlashing = enemy.flashEndTime > time;
+		const baseClass = "absolute will-change-transform flex items-center justify-center transition-all duration-75";
+		let content = null;
+		let scale = 1;
+		if (enemy.type === "bug") content = /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: `p-3 rounded-xl border transition-colors duration-75 ${isFlashing ? "bg-white text-destructive border-white" : "bg-destructive/10 text-destructive border-destructive/30"}`,
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Bug, { className: "w-8 h-8" })
+		});
+		else if (enemy.type === "drone") content = /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: `p-3 rounded-full border transition-colors duration-75 ${isFlashing ? "bg-white text-purple-500 border-white" : "bg-purple-500/20 text-purple-500 border-purple-500/40"}`,
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Bot, { className: "w-8 h-8" })
+		});
+		else if (enemy.type === "boss") {
+			scale = 1.5;
+			content = /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: `p-4 rounded-2xl border transition-colors duration-75 ${isFlashing ? "bg-white text-orange-500 border-white" : "bg-orange-500/20 text-orange-500 border-orange-500/40"}`,
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Skull, { className: "w-10 h-10" })
+			});
+		}
+		return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: baseClass,
+			style: {
+				left: `${enemy.x}%`,
+				top: `${enemy.y}%`,
+				transform: `translate(-50%, -50%) rotate(${enemy.rotation}deg) scale(${scale})`
+			},
+			children: content
+		}, enemy.id);
+	};
+	const { isPlaying, gameOver, score, highScore, projectiles, enemies, playerX } = gameState.current;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "flex min-h-screen flex-col bg-background relative overflow-hidden select-none",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "absolute top-0 left-0 right-0 h-20 bg-background/80 backdrop-blur-sm z-50 border-b border-border flex items-center px-6",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
+					to: "/",
+					className: "inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowLeft, { className: "h-4 w-4" }), "Voltar para a Home"]
+				})
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("main", {
+				className: "flex-1 flex flex-col items-center justify-center pt-20 px-4 relative z-10",
+				children: [
+					!isPlaying && !gameOver && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "text-center max-w-2xl animate-fade-up",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+								className: "text-8xl sm:text-9xl font-bold tracking-tighter text-primary mb-6 drop-shadow-2xl",
+								children: "404"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+								className: "text-3xl sm:text-4xl font-bold mb-4",
+								children: "Invasão Crítica no Sistema"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "text-lg text-muted-foreground mb-12 leading-relaxed",
+								children: "O ciberespaço está sob ataque! Toque na tela ou aperte ESPAÇO para atirar. Arraste para mover a nave e limpe a rede."
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+								onClick: startGame,
+								className: "inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-base font-bold text-primary-foreground transition-all hover:bg-primary/90 hover:scale-105 shadow-xl shadow-primary/25",
+								children: "Iniciar Missão"
+							})
+						]
+					}),
+					gameOver && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "text-center z-50 bg-card/80 backdrop-blur-xl p-10 rounded-4xl border border-border shadow-[var(--shadow-card)] animate-scale-in pointer-events-auto",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+								className: "text-4xl font-bold text-destructive mb-2",
+								children: "Sistema Corrompido!"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "text-muted-foreground mb-8",
+								children: "A nave não suportou os danos."
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "flex items-center justify-center gap-8 mb-10",
+								children: [
+									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										className: "text-center",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+											className: "text-sm text-muted-foreground font-medium mb-1",
+											children: "Pontuação Final"
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+											className: "text-5xl font-bold text-primary",
+											children: score
+										})]
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-px h-16 bg-border" }),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										className: "text-center",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+											className: "text-sm text-muted-foreground font-medium mb-1 flex items-center justify-center gap-1",
+											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Trophy, { className: "w-4 h-4 text-yellow-500" }), "Recorde"]
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+											className: "text-5xl font-bold",
+											children: highScore
+										})]
+									})
+								]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "flex flex-col sm:flex-row items-center justify-center gap-4",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+									onClick: startGame,
+									className: "w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-3 text-sm font-bold text-primary-foreground transition-all hover:bg-primary/90 hover:scale-105",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RefreshCcw, { className: "w-4 h-4" }), "Tentar novamente"]
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+									to: "/",
+									className: "w-full sm:w-auto inline-flex items-center justify-center rounded-full border border-input bg-background/50 backdrop-blur-sm px-8 py-3 text-sm font-medium text-foreground transition-all hover:bg-accent hover:text-accent-foreground",
+									children: "Voltar para o site"
+								})]
+							})
+						]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						ref: containerRef,
+						className: `absolute inset-x-0 bottom-0 top-20 overflow-hidden cursor-crosshair touch-none ${isPlaying || gameOver ? "opacity-100" : "opacity-0 pointer-events-none"} transition-opacity duration-500`,
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "absolute inset-0 bg-background overflow-hidden -z-20 pointer-events-none",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-background to-background" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] opacity-50 animate-slide-down" })]
+							}),
+							isPlaying && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "absolute top-6 right-6 z-40 bg-card/80 backdrop-blur-md border border-border px-6 py-3 rounded-full shadow-[var(--shadow-soft)] flex items-center gap-4 font-bold text-xl pointer-events-none",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: ["Score: ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-primary",
+									children: score
+								})] })
+							}),
+							projectiles.map((proj) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: `absolute w-2 h-8 rounded-full will-change-transform pointer-events-none ${proj.isEnemy ? "bg-orange-500 shadow-[0_0_15px_rgba(249,115,22,0.8)]" : "bg-primary shadow-[0_0_15px_rgba(var(--primary),0.8)]"}`,
+								style: {
+									left: `${proj.x}%`,
+									top: `${proj.y}%`,
+									transform: `translate(-50%, -50%)`
+								}
+							}, proj.id)),
+							enemies.map((e) => renderEnemy(e, performance_default.now())),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "absolute bottom-8 will-change-transform pointer-events-none",
+								style: {
+									left: `${playerX}%`,
+									transform: "translateX(-50%)"
+								},
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "relative flex flex-col items-center justify-center",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										className: "text-primary bg-primary/10 p-3 rounded-full border border-primary/30 shadow-[0_0_30px_rgba(var(--primary),0.2)] backdrop-blur-sm z-10",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Rocket, { className: "w-10 h-10 -rotate-45" })
+									}), isPlaying && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-4 h-12 bg-gradient-to-t from-transparent via-orange-500 to-yellow-300 blur-sm rounded-full absolute -bottom-8 animate-pulse" })]
+								})
+							})
+						]
+					})
+				]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("style", { dangerouslySetInnerHTML: { __html: `
+        @keyframes slide-down {
+          from { background-position: 0 0; }
+          to { background-position: 0 1000px; }
+        }
+        .animate-slide-down {
+          animation: slide-down 20s linear infinite;
+        }
+      ` } })
+		]
+	});
+}
+function NotFoundComponent() {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(NotFoundGame, {});
+}
+function ErrorComponent({ error, reset }) {
+	console.error(error);
+	const router = useRouter();
+	(0, import_react.useEffect)(() => {
+		reportLovableError(error, { boundary: "tanstack_root_error_component" });
+	}, [error]);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "flex min-h-screen items-center justify-center bg-background px-4",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "max-w-md text-center",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+					className: "text-xl font-semibold tracking-tight text-foreground",
+					children: "This page didn't load"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "mt-2 text-sm text-muted-foreground",
+					children: "Something went wrong on our end. You can try refreshing or head back home."
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "mt-6 flex flex-wrap justify-center gap-2",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						onClick: () => {
+							router.invalidate();
+							reset();
+						},
+						className: "inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90",
+						children: "Try again"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+						href: "/",
+						className: "inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent",
+						children: "Go home"
+					})]
+				})
+			]
+		})
+	});
+}
+var Route$9 = createRootRouteWithContext()({
+	head: () => ({
+		meta: [
+			{ charSet: "utf-8" },
+			{
+				name: "viewport",
+				content: "width=device-width, initial-scale=1"
+			},
+			{
+				name: "robots",
+				content: "index, follow"
+			},
+			{
+				name: "keywords",
+				content: "criação de sites, sistemas web, automação, Inteligência Artificial, IA, hospedagem cloud, branding corporativo, desenvolvimento web, marketing digital, SEO"
+			},
+			{ title: "Evolves | Criação de Sites, Sistemas, Hospedagem e Branding" },
+			{
+				name: "description",
+				content: "Criação de sites, sistemas customizados, hospedagem e branding com inteligência artificial e design de vanguarda."
+			},
+			{
+				name: "author",
+				content: "Evolves Tecnologia"
+			},
+			{
+				property: "og:title",
+				content: "Evolves | Criação de Sites, Sistemas, Hospedagem e Branding"
+			},
+			{
+				property: "og:description",
+				content: "Transformamos ideias em experiências digitais de alto impacto."
+			},
+			{
+				property: "og:type",
+				content: "website"
+			},
+			{
+				name: "twitter:card",
+				content: "summary_large_image"
+			},
+			{
+				name: "twitter:title",
+				content: "Evolves | Criação de Sites, Sistemas, Hospedagem e Branding"
+			},
+			{
+				name: "description",
+				content: "Evolves Tecnologia cria sites inteligentes, sistemas customizados, hospedagem de alta performance e branding com IA e design de vanguarda."
+			},
+			{
+				property: "og:description",
+				content: "Evolves Tecnologia cria sites inteligentes, sistemas customizados, hospedagem de alta performance e branding com IA e design de vanguarda."
+			},
+			{
+				name: "twitter:description",
+				content: "Evolves Tecnologia cria sites inteligentes, sistemas customizados, hospedagem de alta performance e branding com IA e design de vanguarda."
+			},
+			{
+				property: "og:image",
+				content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/fb55e15d-dd84-4441-8254-64bd5127bd10"
+			},
+			{
+				name: "twitter:image",
+				content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/fb55e15d-dd84-4441-8254-64bd5127bd10"
+			}
+		],
+		links: [{
+			rel: "stylesheet",
+			href: styles_default
+		}, {
+			rel: "icon",
+			href: "/favicon.png",
+			type: "image/png"
+		}]
+	}),
+	shellComponent: RootShell,
+	component: RootComponent,
+	notFoundComponent: NotFoundComponent,
+	errorComponent: ErrorComponent
+});
+function RootShell({ children }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("html", {
+		lang: "en",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("head", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HeadContent, {}) }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("body", { children: [children, /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Scripts, {})] })]
+	});
+}
+function RootComponent() {
+	const { queryClient } = Route$9.useRouteContext();
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(QueryClientProvider, {
+		client: queryClient,
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Outlet, {}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(WhatsAppButton, {}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LgpdModal, {}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ExitIntentModal, {})
+		]
+	});
+}
+var $$splitComponentImporter$8 = () => import("./services-C5swur1F.mjs");
+var Route$8 = createFileRoute("/services")({ component: lazyRouteComponent($$splitComponentImporter$8, "component") });
+var $$splitComponentImporter$7 = () => import("./privacy-Dqfxd7sl.mjs");
+var Route$7 = createFileRoute("/privacy")({ component: lazyRouteComponent($$splitComponentImporter$7, "component") });
+var $$splitComponentImporter$6 = () => import("./cookies-CSu_boiy.mjs");
+var Route$6 = createFileRoute("/cookies")({ component: lazyRouteComponent($$splitComponentImporter$6, "component") });
+var $$splitComponentImporter$5 = () => import("./contact-Bk--nbe9.mjs");
+var Route$5 = createFileRoute("/contact")({ component: lazyRouteComponent($$splitComponentImporter$5, "component") });
+var $$splitComponentImporter$4 = () => import("./about-DRphKKsm.mjs");
+var Route$4 = createFileRoute("/about")({ component: lazyRouteComponent($$splitComponentImporter$4, "component") });
+var $$splitComponentImporter$3 = () => import("./routes-CxEcRegI.mjs");
+var Route$3 = createFileRoute("/")({
+	head: () => ({ meta: [
+		{ title: "Evolves | Criação de Sites, Sistemas, Hospedagem e Branding" },
+		{
+			name: "description",
+			content: "Evolves Tecnologia cria sites inteligentes, sistemas customizados, hospedagem de alta performance e branding com IA e design de vanguarda."
+		},
+		{
+			property: "og:title",
+			content: "Evolves | Soluções Digitais com IA e Design Inteligente"
+		},
+		{
+			property: "og:description",
+			content: "Transformamos ideias em experiências digitais de alto impacto: sites, sistemas, hospedagem e branding."
+		},
+		{
+			property: "og:type",
+			content: "website"
+		},
+		{
+			name: "twitter:card",
+			content: "summary_large_image"
+		}
+	] }),
+	component: lazyRouteComponent($$splitComponentImporter$3, "component")
+});
+var $$splitComponentImporter$2 = () => import("./services-dY-FYUrZ.mjs");
+var Route$2 = createFileRoute("/services/")({ component: lazyRouteComponent($$splitComponentImporter$2, "component") });
+var $$splitComponentImporter$1 = () => import("./cases-C6-EX9Cf.mjs");
+var Route$1 = createFileRoute("/cases/")({ component: lazyRouteComponent($$splitComponentImporter$1, "component") });
+var $$splitComponentImporter = () => import("./blog-Cyl8ZTwC.mjs");
+var Route = createFileRoute("/blog/")({ component: lazyRouteComponent($$splitComponentImporter, "component") });
+var ServicesRoute = Route$8.update({
+	id: "/services",
+	path: "/services",
+	getParentRoute: () => Route$9
+});
+var PrivacyRoute = Route$7.update({
+	id: "/privacy",
+	path: "/privacy",
+	getParentRoute: () => Route$9
+});
+var CookiesRoute = Route$6.update({
+	id: "/cookies",
+	path: "/cookies",
+	getParentRoute: () => Route$9
+});
+var ContactRoute = Route$5.update({
+	id: "/contact",
+	path: "/contact",
+	getParentRoute: () => Route$9
+});
+var AboutRoute = Route$4.update({
+	id: "/about",
+	path: "/about",
+	getParentRoute: () => Route$9
+});
+var IndexRoute = Route$3.update({
+	id: "/",
+	path: "/",
+	getParentRoute: () => Route$9
+});
+var ServicesIndexRoute = Route$2.update({
+	id: "/",
+	path: "/",
+	getParentRoute: () => ServicesRoute
+});
+var CasesIndexRoute = Route$1.update({
+	id: "/cases/",
+	path: "/cases/",
+	getParentRoute: () => Route$9
+});
+var BlogIndexRoute = Route.update({
+	id: "/blog/",
+	path: "/blog/",
+	getParentRoute: () => Route$9
+});
+var ServicesSlugRoute = Route$12.update({
+	id: "/$slug",
+	path: "/$slug",
+	getParentRoute: () => ServicesRoute
+});
+var CasesSlugRoute = Route$11.update({
+	id: "/cases/$slug",
+	path: "/cases/$slug",
+	getParentRoute: () => Route$9
+});
+var BlogSlugRoute = Route$10.update({
+	id: "/blog/$slug",
+	path: "/blog/$slug",
+	getParentRoute: () => Route$9
+});
+var ServicesRouteChildren = {
+	ServicesSlugRoute,
+	ServicesIndexRoute
+};
+var rootRouteChildren = {
+	IndexRoute,
+	AboutRoute,
+	ContactRoute,
+	CookiesRoute,
+	PrivacyRoute,
+	ServicesRoute: ServicesRoute._addFileChildren(ServicesRouteChildren),
+	BlogSlugRoute,
+	CasesSlugRoute,
+	BlogIndexRoute,
+	CasesIndexRoute
+};
+var routeTree = Route$9._addFileChildren(rootRouteChildren)._addFileTypes();
+var getRouter = () => {
+	return createRouter({
+		routeTree,
+		context: { queryClient: new QueryClient() },
+		scrollRestoration: true,
+		defaultPreloadStaleTime: 0
+	});
+};
+//#endregion
+export { getRouter };

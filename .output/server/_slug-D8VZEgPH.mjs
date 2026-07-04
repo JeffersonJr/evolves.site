@@ -1,0 +1,174 @@
+import { n as require_jsx_runtime } from "./_libs/react+tanstack__react-query.mjs";
+import { h as Link } from "./_libs/@tanstack/react-router+[...].mjs";
+import { L as ArrowLeft, S as Lightbulb, a as Target, k as CircleCheck } from "./_libs/lucide-react.mjs";
+import { n as Navbar, t as Footer } from "./_ssr/Footer-BXwmlAwJ.mjs";
+import { t as Route } from "./_slug-CBeiZ_en.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/_slug-D8VZEgPH.js
+var import_jsx_runtime = require_jsx_runtime();
+function CaseStudyPage() {
+	const { project } = Route.useLoaderData();
+	if (!project) return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "min-h-screen bg-background flex flex-col items-center justify-center",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Navbar, {}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("main", {
+				className: "flex-1 flex flex-col items-center justify-center text-center px-6",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+						className: "text-6xl font-bold mb-4",
+						children: "404"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "text-xl text-muted-foreground mb-8",
+						children: "Case não encontrado."
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+						to: "/cases",
+						className: "rounded-md bg-primary px-6 py-3 font-medium text-primary-foreground hover:bg-primary/90 transition-colors",
+						children: "Voltar para Cases"
+					})
+				]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Footer, {})
+		]
+	});
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "min-h-screen bg-background flex flex-col",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Navbar, {}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("main", {
+				className: "flex-1 mx-auto max-w-4xl px-6 py-32 sm:py-40",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
+					to: "/cases",
+					className: "inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors mb-12",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowLeft, { className: "h-4 w-4" }), "Voltar para Cases"]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", { children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "text-center mb-16",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "inline-block rounded-full bg-secondary px-4 py-1.5 text-sm font-medium text-secondary-foreground mb-6",
+								children: project.category
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+								className: "text-4xl sm:text-6xl font-bold tracking-tight mb-8",
+								children: project.title
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "text-xl text-muted-foreground max-w-2xl mx-auto",
+								children: project.text
+							})
+						]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "rounded-4xl mb-20 shadow-[var(--shadow-card)] border border-border bg-gradient-to-b from-surface to-background/50 p-6 sm:p-12 lg:p-16 flex items-center justify-center relative overflow-hidden",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-primary/10 blur-3xl rounded-full pointer-events-none" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-secondary/10 blur-3xl rounded-full pointer-events-none" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+								src: project.img,
+								alt: `Mockup do projeto ${project.title}`,
+								className: "w-full h-auto max-h-[60vh] object-contain rounded-2xl drop-shadow-2xl relative z-10 transition-transform duration-700 hover:scale-[1.02]"
+							})
+						]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "space-y-16",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "grid sm:grid-cols-[1fr_2fr] gap-8 items-start",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "flex items-center gap-3 text-primary font-bold text-xl",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Target, { className: "h-6 w-6" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "O Desafio" })]
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									className: "text-lg text-muted-foreground leading-relaxed",
+									children: project.challenge
+								})]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-px w-full bg-border" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "grid sm:grid-cols-[1fr_2fr] gap-8 items-start",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "flex items-center gap-3 text-primary font-bold text-xl",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Lightbulb, { className: "h-6 w-6" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "A Solução" })]
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									className: "text-lg text-muted-foreground leading-relaxed",
+									children: project.solution
+								})]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-px w-full bg-border" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "grid sm:grid-cols-[1fr_2fr] gap-8 items-start",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "flex items-center gap-3 text-primary font-bold text-xl",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "h-6 w-6" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Os Resultados" })]
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8",
+									children: project.stats?.map((stat, idx) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										className: "bg-surface rounded-3xl p-6 border border-border flex flex-col items-center justify-center text-center shadow-[var(--shadow-soft)] transition-transform hover:-translate-y-1",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+											className: "text-4xl font-bold text-primary mb-2 flex items-baseline",
+											children: [stat.value, stat.suffix && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+												className: "text-2xl text-primary/70 ml-1",
+												children: stat.suffix
+											})]
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+											className: "text-sm font-medium text-muted-foreground",
+											children: stat.label
+										})]
+									}, idx))
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
+									className: "space-y-4",
+									children: project.results.map((result, idx) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
+										className: "flex items-start gap-3",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "mt-1.5 h-2 w-2 rounded-full bg-primary shrink-0" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+											className: "text-lg text-muted-foreground leading-relaxed",
+											children: result
+										})]
+									}, idx))
+								})] })]
+							})
+						]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "mt-20 flex flex-col items-center",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-6",
+							children: "Tecnologias Utilizadas"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "flex flex-wrap justify-center gap-3",
+							children: project.tags.map((tag) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "px-5 py-2.5 rounded-full bg-surface border border-border text-sm font-medium",
+								children: tag
+							}, tag))
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "mt-32 rounded-4xl bg-primary p-10 sm:p-16 text-center text-primary-foreground relative overflow-hidden",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute top-0 right-0 -translate-y-1/2 translate-x-1/3 w-96 h-96 bg-white/10 blur-3xl rounded-full" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "relative z-10",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+									className: "text-3xl sm:text-4xl font-bold mb-6",
+									children: "Quer resultados como esse?"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									className: "text-primary-foreground/80 text-lg mb-10 max-w-xl mx-auto",
+									children: "Vamos conversar sobre o seu projeto e descobrir como podemos ajudar a sua empresa a alcançar o próximo nível."
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+									to: "/contact",
+									className: "inline-flex h-14 items-center justify-center rounded-full bg-background px-8 text-sm font-semibold text-foreground shadow-lg transition-transform hover:scale-105",
+									children: "Falar com um especialista"
+								})
+							]
+						})]
+					})
+				] })]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Footer, {})
+		]
+	});
+}
+//#endregion
+export { CaseStudyPage as component };

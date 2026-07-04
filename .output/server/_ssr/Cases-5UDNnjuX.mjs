@@ -1,0 +1,67 @@
+import { n as require_jsx_runtime } from "../_libs/react+tanstack__react-query.mjs";
+import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
+import { t as casesData } from "./cases-C_6utvqr.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/Cases-5UDNnjuX.js
+var import_jsx_runtime = require_jsx_runtime();
+function Cases() {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
+		id: "cases",
+		className: "py-24 sm:py-32",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "mx-auto max-w-6xl px-6",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "mx-auto max-w-3xl text-center",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+					className: "text-balance text-4xl font-semibold tracking-tight sm:text-5xl",
+					children: "Cases de sucesso"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "mt-5 text-lg text-muted-foreground",
+					children: "Projetos que transformaram negócios e elevaram o patamar digital de nossos clientes."
+				})]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "mt-14 grid gap-6 md:grid-cols-3",
+				children: casesData.map((c) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+					to: "/cases/$slug",
+					params: { slug: c.slug },
+					className: "block group overflow-hidden rounded-4xl border border-border bg-card shadow-[var(--shadow-soft)] transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-card)]",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "aspect-[4/3] overflow-hidden bg-gradient-to-br from-surface to-secondary/20 p-6 flex items-center justify-center relative",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+							src: c.img,
+							alt: c.title,
+							width: 1200,
+							height: 900,
+							loading: "lazy",
+							className: "h-full w-full object-contain filter drop-shadow-xl transition-all duration-500 group-hover:scale-105 group-hover:-translate-y-2 group-hover:drop-shadow-2xl"
+						})]
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "p-7",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "text-xs font-medium uppercase tracking-wide text-primary",
+								children: c.category
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+								className: "mt-2 text-xl font-semibold tracking-tight group-hover:text-primary transition-colors",
+								children: c.title
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "mt-2 text-sm text-muted-foreground",
+								children: c.text
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "mt-4 flex flex-wrap gap-2",
+								children: c.tags.map((t) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "rounded-full bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground",
+									children: t
+								}, t))
+							})
+						]
+					})] })
+				}, c.slug))
+			})]
+		})
+	});
+}
+//#endregion
+export { Cases as t };
