@@ -1,111 +1,162 @@
-import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { useState, type FormEvent } from "react";
+import { Mail, MessageCircle, MapPin } from "lucide-react";
+import { toast } from "sonner";
 
-const Contact = () => {
-    return (
-        <section id="contact" className="py-24 bg-secondary/80">
-            <div className="container mx-auto px-6">
-                <div className="bg-white/5 border border-white/10 rounded-[40px] p-8 lg:p-16 overflow-hidden relative">
-                    <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-primary/10 rounded-full blur-[100px] -mr-32 -mt-32"></div>
+const info = [
+  { icon: Mail, label: "Email", value: "contato@evolves.site", href: "mailto:contato@evolves.site" },
+  {
+    icon: MessageCircle,
+    label: "WhatsApp",
+    value: "+55 (13) 98132-6869",
+    href: "https://wa.me/5513981326869",
+  },
+  { icon: MapPin, label: "Localização", value: "São Paulo, Brasil" },
+];
 
-                    <div className="grid lg:grid-cols-2 gap-16 relative z-10">
-                        <div>
-                            <h2 className="text-4xl lg:text-6xl font-extrabold mb-8 italic text-white">Vamos <span className="text-primary">Evoluir</span> Seu Projeto?</h2>
-                            <p className="text-gray-400 text-lg mb-12">Entre em contato hoje mesmo e descubra como podemos transformar seu negócio com tecnologia inteligente.</p>
+const subjects = [
+  "Sites Inteligentes",
+  "Sistemas Customizados",
+  "Hospedagem & Performance",
+  "Branding & Design",
+  "Outro",
+];
 
-                            <div className="space-y-6">
-                                <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
-                                        <Mail size={20} />
-                                    </div>
-                                    <div>
-                                        <div className="text-xs text-gray-500 font-bold uppercase tracking-wider">Email</div>
-                                        <div className="text-lg text-white">contato@evolves.site</div>
-                                    </div>
-                                </div>
+export function Contact() {
+  const [form, setForm] = useState({ name: "", email: "", subject: subjects[0], message: "" });
 
-                                <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
-                                        <Phone size={20} />
-                                    </div>
-                                    <div>
-                                        <div className="text-xs text-gray-500 font-bold uppercase tracking-wider">Telefone</div>
-                                        <div className="text-lg text-white">+55 (13) 98132-6869</div>
-                                    </div>
-                                </div>
+  function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    const name = form.name.trim();
+    const email = form.email.trim();
+    const message = form.message.trim();
 
-                                <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
-                                        <MapPin size={20} />
-                                    </div>
-                                    <div>
-                                        <div className="text-xs text-gray-500 font-bold uppercase tracking-wider">Localização</div>
-                                        <div className="text-lg text-white">São Paulo - Brasil</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+    if (!name || !email || !message) {
+      toast.error("Por favor, preencha nome, email e mensagem.");
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      toast.error("Informe um email válido.");
+      return;
+    }
 
-                        <div>
-                            <form
-                                className="space-y-6"
-                                action="https://formspree.io/f/contato@evolves.site"
-                                method="POST"
-                            >
-                                <div className="grid md:grid-cols-2 gap-6">
-                                    <div className="space-y-2">
-                                        <label className="text-sm font-medium text-gray-400 ml-1">Nome</label>
-                                        <input
-                                            type="text"
-                                            placeholder="Seu nome completo"
-                                            className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:border-primary outline-none transition-all text-white placeholder:text-gray-600"
-                                        />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <label className="text-sm font-medium text-gray-400 ml-1">Email</label>
-                                        <input
-                                            type="email"
-                                            placeholder="seu@email.com"
-                                            className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:border-primary outline-none transition-all text-white placeholder:text-gray-600"
-                                        />
-                                    </div>
-                                </div>
+    const text = `Olá, vim pelo site da Evolves!\n\nNome: ${name}\nE-mail: ${email}\nAssunto: ${form.subject}\n\n${message}`;
+    const url = `https://wa.me/5513981326869?text=${encodeURIComponent(text)}`;
+    window.open(url, "_blank");
+    toast.success("Abrindo WhatsApp para enviar a solicitação.");
+  }
 
-                                <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-400 ml-1">Assunto</label>
-                                    <select className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:border-primary outline-none transition-all appearance-none cursor-pointer text-white">
-                                        <option className="bg-secondary">Sites Inteligentes</option>
-                                        <option className="bg-secondary">HSistemas Customizados</option>
-                                        <option className="bg-secondary">Hospedagem & Performance</option>
-                                        <option className="bg-secondary">Branding & Design</option>
-                                        <option className="bg-secondary">Outro</option>
-                                    </select>
-                                </div>
+  const field =
+    "w-full rounded-xl border border-input bg-card px-4 py-3 text-sm outline-none transition-shadow focus:ring-2 focus:ring-ring";
 
-                                <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-400 ml-1">Mensagem</label>
-                                    <textarea
-                                        rows={4}
-                                        placeholder="Como podemos te ajudar?"
-                                        className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:border-primary outline-none transition-all resize-none text-white placeholder:text-gray-600"
-                                    ></textarea>
-                                </div>
+  return (
+    <section id="contact" className="bg-surface py-24 sm:py-32">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
+            Vamos evoluir seu projeto?
+          </h2>
+          <p className="mt-5 text-lg text-muted-foreground">
+            Entre em contato hoje mesmo e descubra como podemos transformar seu
+            negócio com tecnologia inteligente.
+          </p>
+        </div>
 
-                                <motion.button
-                                    whileHover={{ scale: 1.02 }}
-                                    whileTap={{ scale: 0.98 }}
-                                    className="w-full py-5 bg-primary hover:bg-accent text-secondary font-extrabold rounded-2xl transition-all shadow-xl shadow-primary/20 flex items-center justify-center gap-3 group"
-                                >
-                                    Enviar Solicitação
-                                    <Send size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                                </motion.button>
-                            </form>
-                        </div>
-                    </div>
+        <div className="mt-14 grid gap-8 md:grid-cols-5">
+          <div className="space-y-4 md:col-span-2">
+            {info.map((i) => (
+              <div
+                key={i.label}
+                className="flex items-start gap-4 rounded-3xl border border-border bg-card p-6 shadow-[var(--shadow-soft)]"
+              >
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-accent text-accent-foreground">
+                  <i.icon className="h-5 w-5" strokeWidth={1.75} />
                 </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">{i.label}</p>
+                  {i.href ? (
+                    <a
+                      href={i.href}
+                      target={i.href.startsWith("http") ? "_blank" : undefined}
+                      rel={i.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                      className="font-medium hover:text-primary"
+                    >
+                      {i.value}
+                    </a>
+                  ) : (
+                    <p className="font-medium">{i.value}</p>
+                  )}
+                </div>
+              </div>
+            ))}
+            
+            <div className="flex items-center gap-4 pt-4 border-t border-border/50">
+              <a href="https://www.linkedin.com/company/71072104/" target="_blank" rel="noreferrer" className="flex h-12 w-12 items-center justify-center rounded-2xl bg-card border border-border text-muted-foreground shadow-[var(--shadow-soft)] transition-all hover:-translate-y-1 hover:text-[#0a66c2] hover:border-[#0a66c2]/30" aria-label="LinkedIn Evolves">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+              <a href="https://wa.me/5513981326869" target="_blank" rel="noreferrer" className="flex h-12 w-12 items-center justify-center rounded-2xl bg-card border border-border text-muted-foreground shadow-[var(--shadow-soft)] transition-all hover:-translate-y-1 hover:text-[#25D366] hover:border-[#25D366]/30" aria-label="WhatsApp Evolves">
+                <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </a>
             </div>
-        </section>
-    );
-};
+          </div>
 
-export default Contact;
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-4 rounded-4xl border border-border bg-card p-8 shadow-[var(--shadow-card)] md:col-span-3"
+          >
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div>
+                <label className="mb-1.5 block text-sm font-medium">Nome</label>
+                <input
+                  className={field}
+                  value={form.name}
+                  maxLength={100}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  placeholder="Seu nome"
+                />
+              </div>
+              <div>
+                <label className="mb-1.5 block text-sm font-medium">Email</label>
+                <input
+                  type="email"
+                  className={field}
+                  value={form.email}
+                  maxLength={255}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  placeholder="voce@email.com"
+                />
+              </div>
+            </div>
+            <div>
+              <label className="mb-1.5 block text-sm font-medium">Assunto</label>
+              <select
+                className={field}
+                value={form.subject}
+                onChange={(e) => setForm({ ...form, subject: e.target.value })}
+              >
+                {subjects.map((s) => (
+                  <option key={s}>{s}</option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label className="mb-1.5 block text-sm font-medium">Mensagem</label>
+              <textarea
+                className={`${field} min-h-32 resize-none`}
+                value={form.message}
+                maxLength={1000}
+                onChange={(e) => setForm({ ...form, message: e.target.value })}
+                placeholder="Conte sobre seu projeto..."
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground transition-transform hover:scale-[1.01]"
+            >
+              Enviar solicitação
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+}

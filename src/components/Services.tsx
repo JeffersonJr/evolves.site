@@ -1,72 +1,60 @@
-import { motion } from 'framer-motion';
-import { Globe, Server, Palette, Cpu, CheckCircle2 } from 'lucide-react';
+import { Check, Sparkles, ArrowRight } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { servicesData } from "@/data/services";
 
-const services = [
-    {
-        title: "Sites Inteligentes",
-        description: "Websites profissionais focados em conversão, com performance otimizada e arquitetura SEO.",
-        icon: Globe,
-        features: ["Design Responsivo", "Otimização de Velocidade", "Integração com IA"]
-    },
-    {
-        title: "Sistemas Customizados",
-        description: "Desenvolvimento de software sob medida com inteligência artificial para otimizar seus processos.",
-        icon: Cpu,
-        features: ["Automação de Tarefas", "Análise de Dados", "Escalabilidade"]
-    },
-    {
-        title: "Hospedagem & Performance",
-        description: "Servidores de alta performance com segurança máxima para garantir que seu site nunca pare.",
-        icon: Server,
-        features: ["Backup Automático", "Suporte Humanizado", "Certificado SSL"]
-    },
-    {
-        title: "Branding & Design",
-        description: "Criação de identidades visuais modernas que conectam sua marca ao público-alvo.",
-        icon: Palette,
-        features: ["Logotipos", "Guia de Estilo", "UI/UX Design"]
-    }
-];
+const differential = "Nosso diferencial: um olhar de qualidade e de UX/UI com mais de 8 anos de experiência prática.";
 
-const Services = () => {
-    return (
-        <section id="services" className="py-24 bg-secondary/50">
-            <div className="container mx-auto px-6">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl lg:text-5xl font-bold mb-4">Serviços que Impulsionam seu <span className="text-primary">Crescimento</span></h2>
-                    <p className="text-gray-400 max-w-2xl mx-auto">Combinamos design de vanguarda com as tecnologias mais recentes para entregar resultados reais.</p>
-                </div>
+export function Services() {
+  return (
+    <section id="services" className="bg-surface py-24 sm:py-32">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
+            Serviços que impulsionam seu crescimento
+          </h2>
+          <p className="mt-5 text-lg text-muted-foreground">
+            Combinamos design de vanguarda com as tecnologias mais recentes para
+            entregar resultados reais.
+          </p>
+          <div className="mx-auto mt-6 inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-medium text-accent-foreground">
+            <Sparkles className="h-4 w-4" strokeWidth={2} />
+            {differential}
+          </div>
+        </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {services.map((service, index) => (
-                        <motion.div
-                            key={service.title}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-white/[0.08] transition-all flex flex-col h-full"
-                        >
-                            <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
-                                <service.icon size={28} />
-                            </div>
-                            <h3 className="text-xl font-bold mb-4">{service.title}</h3>
-                            <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">{service.description}</p>
 
-                            <ul className="space-y-3 mt-auto">
-                                {service.features.map(feature => (
-                                    <li key={feature} className="flex items-center gap-2 text-xs text-gray-300">
-                                        <CheckCircle2 size={14} className="text-primary" />
-                                        {feature}
-                                    </li>
-                                ))}
-                            </ul>
-                        </motion.div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
-};
-
-export default Services;
+        <div className="mt-14 grid gap-5 sm:grid-cols-2">
+          {servicesData.map((s) => (
+            <Link
+              key={s.slug}
+              to="/services/$slug"
+              params={{ slug: s.slug }}
+              className="group flex flex-col rounded-4xl border border-border bg-card p-8 shadow-[var(--shadow-soft)] transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-card)] sm:p-10 block"
+            >
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-blue text-primary-foreground shadow-[var(--shadow-glow)]">
+                <s.icon className="h-7 w-7" strokeWidth={1.75} />
+              </div>
+              <h3 className="mt-6 text-2xl font-semibold tracking-tight group-hover:text-primary transition-colors">{s.title}</h3>
+              <p className="mt-3 text-muted-foreground">{s.text}</p>
+              <ul className="mt-6 space-y-3 mb-8">
+                {s.features.map((f) => (
+                  <li key={f} className="flex items-center gap-3 text-sm">
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-accent text-accent-foreground">
+                      <Check className="h-3 w-3" strokeWidth={3} />
+                    </span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              
+              <div className="mt-auto pt-6 border-t border-border flex items-center text-sm font-medium text-primary">
+                Ver detalhes do serviço
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

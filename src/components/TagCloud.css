@@ -1,0 +1,23 @@
+.tag-cloud-container {
+  width: 100%;
+}
+
+.tag-cloud-track {
+  animation: scroll-left 40s linear infinite;
+  width: max-content;
+  will-change: transform;
+}
+
+@keyframes scroll-left {
+  0% { 
+    transform: translateX(0); 
+  }
+  100% { 
+    /* The trick is to translate exactly 1/3 of the width because the array is tripled */
+    transform: translateX(calc(-33.333% - 0.5rem)); 
+  }
+}
+
+.tag-cloud-container:hover .tag-cloud-track {
+  animation-play-state: paused;
+}
