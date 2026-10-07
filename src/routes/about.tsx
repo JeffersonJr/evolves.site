@@ -1,9 +1,11 @@
+import { pageHead } from "@/lib/seo";
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { About } from "@/components/About";
 
 export const Route = createFileRoute("/about")({
+  head: () => pageHead("/about"),
   component: AboutPage,
 });
 

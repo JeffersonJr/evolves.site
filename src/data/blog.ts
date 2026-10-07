@@ -17,18 +17,19 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Descubra por que a velocidade do seu site é um dos fatores mais críticos para alcançar a primeira página do Google e como otimizá-lo.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop",
     content: `
-      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop" alt="Performance web e SEO" class="rounded-2xl w-full mb-8" />
+      <img loading="lazy" decoding="async" width="1200" height="600" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop" alt="Performance web e SEO" class="rounded-2xl w-full mb-8" />
       <h2>A Nova Era da Velocidade na Web</h2>
       <p>O tempo de carregamento de uma página não afeta apenas a experiência do usuário; é também um dos principais fatores de ranqueamento do Google. Com a introdução do <strong>Core Web Vitals</strong>, o algoritmo passou a priorizar sites que oferecem uma navegação fluida e rápida.</p>
       
       <h2>Métricas que Importam</h2>
+      <p>Nota de atualização: as métricas abaixo refletem a substituição do FID pelo INP. Consulte a <a href="https://developers.google.com/search/docs/appearance/core-web-vitals" target="_blank" rel="noreferrer">documentação de Core Web Vitals do Google</a> para acompanhar os critérios atuais.</p>
       <ul>
         <li><strong>LCP (Largest Contentful Paint):</strong> Mede o tempo de carregamento do conteúdo principal.</li>
-        <li><strong>FID (First Input Delay):</strong> Mede a interatividade e a responsividade.</li>
+        <li><strong>INP (Interaction to Next Paint):</strong> Mede a resposta da página às interações, como cliques e digitação. Substituiu o FID como Core Web Vital em março de 2024.</li>
         <li><strong>CLS (Cumulative Layout Shift):</strong> Mede a estabilidade visual da página.</li>
       </ul>
 
-      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=500&fit=crop" alt="Métricas de performance" class="rounded-2xl w-full my-8" />
+      <img loading="lazy" decoding="async" width="1200" height="500" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=500&fit=crop" alt="Métricas de performance" class="rounded-2xl w-full my-8" />
 
       <h2>Como Melhorar a Performance</h2>
       <p>Para otimizar o seu site, é fundamental focar em três pilares principais:</p>
@@ -50,7 +51,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Entenda as vantagens e desvantagens de investir em um software sob medida em comparação a soluções de prateleira.",
     image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=450&fit=crop",
     content: `
-      <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1200&h=600&fit=crop" alt="Sistemas customizados" class="rounded-2xl w-full mb-8" />
+      <img loading="lazy" decoding="async" width="1200" height="600" src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1200&h=600&fit=crop" alt="Sistemas customizados" class="rounded-2xl w-full mb-8" />
       <h2>O Paradoxo da Solução Padrão</h2>
       <p>Quando uma empresa cresce, as ferramentas padrão do mercado (as chamadas soluções de prateleira ou SaaS genéricos) muitas vezes deixam de atender às suas necessidades específicas. Elas forçam a sua empresa a adaptar seus processos ao software, e não o contrário.</p>
       
@@ -76,7 +77,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "A IA não é apenas o futuro, é o presente. Veja como ferramentas inteligentes estão moldando a nova geração de interfaces web.",
     image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=450&fit=crop",
     content: `
-      <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=600&fit=crop" alt="Inteligência Artificial" class="rounded-2xl w-full mb-8" />
+      <img loading="lazy" decoding="async" width="1200" height="600" src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=600&fit=crop" alt="Inteligência Artificial" class="rounded-2xl w-full mb-8" />
       <h2>Uma Revolução no Código</h2>
       <p>O desenvolvimento web está passando por uma disrupção sem precedentes com o auxílio da Inteligência Artificial. Ferramentas como o <strong>GitHub Copilot</strong> e o <strong>ChatGPT</strong> estão acelerando a escrita de código, permitindo que engenheiros foquem em arquitetura e solução de problemas de negócios em vez de sintaxe.</p>
       
@@ -102,7 +103,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Por que tornar o seu site acessível é uma obrigação moral, legal e uma grande oportunidade de negócios.",
     image: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&h=450&fit=crop",
     content: `
-      <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=1200&h=600&fit=crop" alt="Acessibilidade web" class="rounded-2xl w-full mb-8" />
+      <img loading="lazy" decoding="async" width="1200" height="600" src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=1200&h=600&fit=crop" alt="Acessibilidade web" class="rounded-2xl w-full mb-8" />
       <h2>A Internet para Todos</h2>
       <p>Acessibilidade na web significa garantir que pessoas com deficiência visual, motora, auditiva ou cognitiva possam utilizar a internet sem barreiras. No entanto, é um erro comum achar que a acessibilidade atende a um público "pequeno". Mais de 15% da população global tem algum tipo de deficiência.</p>
       
@@ -128,7 +129,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Do Glassmorphism ao Bento Box: o que está em alta no design de interfaces neste ano e como aplicar no seu projeto.",
     image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=450&fit=crop",
     content: `
-      <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=600&fit=crop" alt="UI UX Design" class="rounded-2xl w-full mb-8" />
+      <img loading="lazy" decoding="async" width="1200" height="600" src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=600&fit=crop" alt="UI UX Design" class="rounded-2xl w-full mb-8" />
       <h2>A Estética da Funcionalidade</h2>
       <p>O design digital está sempre em constante movimento. Em 2024, notamos uma evolução que equilibra a beleza extrema com usabilidade instantânea. As interfaces tornaram-se mais imersivas e limpas.</p>
       
@@ -154,7 +155,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Descubra por que tantas empresas estão abandonando temas tradicionais e apostando no modelo Headless CMS.",
     image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=450&fit=crop",
     content: `
-      <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200&h=600&fit=crop" alt="React e WordPress" class="rounded-2xl w-full mb-8" />
+      <img loading="lazy" decoding="async" width="1200" height="600" src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200&h=600&fit=crop" alt="React e WordPress" class="rounded-2xl w-full mb-8" />
       <h2>Os Limites do WordPress Tradicional</h2>
       <p>O WordPress é uma ferramenta fantástica que democratizou a internet. Contudo, quando a necessidade de performance extrema, alto tráfego e segurança militar entra em cena, temas monolíticos cheios de plugins pesados se tornam um grande gargalo.</p>
       
@@ -179,7 +180,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Sua página coleta dados? Veja os passos básicos para garantir a adequação à Lei Geral de Proteção de Dados.",
     image: "https://images.unsplash.com/photo-1614064641913-a530a500b522?w=800&h=450&fit=crop",
     content: `
-      <img src="https://images.unsplash.com/photo-1614064641913-a530a500b522?w=1200&h=600&fit=crop" alt="LGPD segurança" class="rounded-2xl w-full mb-8" />
+      <img loading="lazy" decoding="async" width="1200" height="600" src="https://images.unsplash.com/photo-1614064641913-a530a500b522?w=1200&h=600&fit=crop" alt="LGPD segurança" class="rounded-2xl w-full mb-8" />
       <h2>Por Que a LGPD Importa?</h2>
       <p>Muitas empresas acreditam que a LGPD (Lei Geral de Proteção de Dados) aplica-se apenas a e-commerces gigantes. A realidade é outra: se o seu site possui um formulário de contato, Google Analytics ou o Pixel do Facebook, você está ativamente lidando com dados pessoais.</p>
       
@@ -204,7 +205,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Entenda as diferenças arquitetônicas e de performance que tornam a computação em nuvem essencial hoje.",
     image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=450&fit=crop",
     content: `
-      <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=600&fit=crop" alt="Cloud computing" class="rounded-2xl w-full mb-8" />
+      <img loading="lazy" decoding="async" width="1200" height="600" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=600&fit=crop" alt="Cloud computing" class="rounded-2xl w-full mb-8" />
       <h2>O Problema da Hospedagem Tradicional</h2>
       <p>Na hospedagem compartilhada (o modelo antigo de cPanel de 15 anos atrás), o seu site divide memória e processador com milhares de outros sites no mesmo servidor físico. Se o site do vizinho for atacado ou receber muito tráfego, o seu site cai junto. Isso é inaceitável para negócios profissionais.</p>
       
@@ -229,7 +230,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Técnicas validadas de Copywriting e Design para transformar visitantes corporativos em leads qualificados.",
     image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=450&fit=crop",
     content: `
-      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop" alt="Conversão B2B" class="rounded-2xl w-full mb-8" />
+      <img loading="lazy" decoding="async" width="1200" height="600" src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop" alt="Conversão B2B" class="rounded-2xl w-full mb-8" />
       <h2>Vender B2B é Vender Confiança</h2>
       <p>Diferente do varejo digital (B2C), onde compras são impulsionadas pela emoção do momento, vendas B2B requerem a construção de uma confiança técnica e institucional profunda. O seu site precisa atuar como o melhor consultor de vendas da sua empresa, 24 horas por dia.</p>
       
@@ -254,7 +255,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Por que uma interface bem polida e uma identidade forte permitem que você cobre mais pelos seus serviços.",
     image: "https://images.unsplash.com/photo-1634942537034-2531766767d1?w=800&h=450&fit=crop",
     content: `
-      <img src="https://images.unsplash.com/photo-1634942537034-2531766767d1?w=1200&h=600&fit=crop" alt="Branding digital" class="rounded-2xl w-full mb-8" />
+      <img loading="lazy" decoding="async" width="1200" height="600" src="https://images.unsplash.com/photo-1634942537034-2531766767d1?w=1200&h=600&fit=crop" alt="Branding digital" class="rounded-2xl w-full mb-8" />
       <h2>A Primeira Impressão Tecnológica</h2>
       <p>Na tecnologia, muitas vezes um código fenomenal e uma lógica de backend brilhante são completamente invisíveis ao usuário final. A única coisa com a qual ele interage é a Interface do Usuário (UI) e o Design (Branding). Se a sua plataforma custa R$ 50.000 mas tem a aparência visual de um software de 1998, a venda não vai acontecer.</p>
       

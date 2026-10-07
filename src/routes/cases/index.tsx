@@ -1,9 +1,11 @@
+import { pageHead } from "@/lib/seo";
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Cases } from "@/components/Cases";
 
 export const Route = createFileRoute("/cases/")({
+  head: () => pageHead("/cases"),
   component: CasesIndexPage,
 });
 
@@ -12,7 +14,7 @@ function CasesIndexPage() {
     <div className="min-h-screen bg-background flex flex-col">
       <Navbar />
       <main className="flex-1 pt-20">
-        <Cases />
+        <Cases standalone />
       </main>
       <Footer />
     </div>

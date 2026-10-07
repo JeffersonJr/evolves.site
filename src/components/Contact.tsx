@@ -21,7 +21,8 @@ const subjects = [
   "Outro",
 ];
 
-export function Contact() {
+export function Contact({ standalone = false }: { standalone?: boolean } = {}) {
+  const Heading = standalone ? "h1" : "h2";
   const [form, setForm] = useState({ name: "", email: "", subject: subjects[0], message: "" });
 
   function handleSubmit(e: FormEvent) {
@@ -52,9 +53,9 @@ export function Contact() {
     <section id="contact" className="bg-surface py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
+          <Heading className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
             Vamos evoluir seu projeto?
-          </h2>
+          </Heading>
           <p className="mt-5 text-lg text-muted-foreground">
             Entre em contato hoje mesmo e descubra como podemos transformar seu
             negócio com tecnologia inteligente.

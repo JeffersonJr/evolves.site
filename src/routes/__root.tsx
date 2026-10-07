@@ -18,7 +18,12 @@ import { WhatsAppButton } from "../components/WhatsAppButton";
 import { NotFoundGame } from "../components/NotFoundGame";
 
 function NotFoundComponent() {
-  return <NotFoundGame />;
+  return (
+    <>
+      <meta name="robots" content="noindex, follow" />
+      <NotFoundGame />
+    </>
+  );
 }
 
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
@@ -64,35 +69,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "robots", content: "index, follow" },
-      { name: "keywords", content: "criação de sites, sistemas web, automação, Inteligência Artificial, IA, hospedagem cloud, branding corporativo, desenvolvimento web, marketing digital, SEO" },
-      { title: "Evolves | Criação de Sites, Sistemas, Hospedagem e Branding" },
-      {
-        name: "description",
-        content:
-          "Criação de sites, sistemas customizados, hospedagem e branding com inteligência artificial e design de vanguarda.",
-      },
+      { title: "Evolves Tecnologia" },
       { name: "author", content: "Evolves Tecnologia" },
-      { property: "og:title", content: "Evolves | Criação de Sites, Sistemas, Hospedagem e Branding" },
-      {
-        property: "og:description",
-        content:
-          "Transformamos ideias em experiências digitais de alto impacto.",
-      },
-      { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Evolves Tecnologia" },
+      { property: "og:locale", content: "pt_BR" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Evolves | Criação de Sites, Sistemas, Hospedagem e Branding" },
-      { name: "description", content: "Evolves Tecnologia cria sites inteligentes, sistemas customizados, hospedagem de alta performance e branding com IA e design de vanguarda." },
-      { property: "og:description", content: "Evolves Tecnologia cria sites inteligentes, sistemas customizados, hospedagem de alta performance e branding com IA e design de vanguarda." },
-      { name: "twitter:description", content: "Evolves Tecnologia cria sites inteligentes, sistemas customizados, hospedagem de alta performance e branding com IA e design de vanguarda." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/fb55e15d-dd84-4441-8254-64bd5127bd10" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/fb55e15d-dd84-4441-8254-64bd5127bd10" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
+      { rel: "describedby", href: "/llms.txt", type: "text/plain" },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
     ],
   }),
@@ -104,7 +92,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
       </head>

@@ -1,4 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { RelatedLinks } from "@/components/RelatedLinks";
+import { contentConnections } from "@/data/related-content";
+import { seoHead } from "@/lib/seo";
+import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { casesData } from "@/data/cases";
@@ -7,29 +10,23 @@ import { ArrowLeft, CheckCircle2, Target, Lightbulb } from "lucide-react";
 export const Route = createFileRoute("/cases/$slug")({
   loader: ({ params }) => {
     const project = casesData.find((p) => p.slug === params.slug);
+    if (!project) throw notFound();
     return { project };
+  },
+  head: ({ loaderData }) => {
+    const item = loaderData?.project;
+    if (!item) return { meta: [{ name: "robots", content: "noindex, follow" }] };
+    return seoHead({
+      title: `${item.title} | Evolves`,
+      description: item.text,
+      path: `/cases/${item.slug}`,
+    });
   },
   component: CaseStudyPage,
 });
 
 function CaseStudyPage() {
   const { project } = Route.useLoaderData();
-
-  if (!project) {
-    return (
-      <div className="min-h-screen bg-background flex flex-col items-center justify-center">
-        <Navbar />
-        <main className="flex-1 flex flex-col items-center justify-center text-center px-6">
-          <h1 className="text-6xl font-bold mb-4">404</h1>
-          <p className="text-xl text-muted-foreground mb-8">Case não encontrado.</p>
-          <Link to="/cases" className="rounded-md bg-primary px-6 py-3 font-medium text-primary-foreground hover:bg-primary/90 transition-colors">
-            Voltar para Cases
-          </Link>
-        </main>
-        <Footer />
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -150,6 +147,12 @@ function CaseStudyPage() {
               </Link>
             </div>
           </div>
+          <RelatedLinks
+            title="Conheça os serviços relacionados"
+            links={
+              contentConnections.filter((entry) => entry.cases.includes(project.slug)).map((entry) => entry.service)
+            }
+          />
         </article>
       </main>
       <Footer />

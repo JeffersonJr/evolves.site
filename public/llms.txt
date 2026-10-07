@@ -1,0 +1,47 @@
+# Evolves Tecnologia
+
+> Desenvolvimento de sites e sistemas, consultoria UX/UI, hospedagem e branding para empresas.
+
+Site oficial: https://www.evolves.site. Conteúdo em português do Brasil. Propostas e condições comerciais devem ser consultadas na página de contato. Os cases descrevem projetos individuais; seus resultados não são garantias para outros projetos.
+
+## Institucional
+
+- [Evolves | Criação de Sites, Sistemas, Hospedagem e Branding](https://www.evolves.site/): Evolves Tecnologia cria sites, sistemas customizados, hospedagem e branding com inteligência artificial e design para empresas.
+- [Sobre a Evolves | Tecnologia e Design para Empresas](https://www.evolves.site/about): Conheça a Evolves Tecnologia e nossa abordagem de desenvolvimento web, inteligência artificial e design para negócios digitais.
+- [Serviços de Desenvolvimento, UX/UI e Branding | Evolves](https://www.evolves.site/services): Conheça nossos serviços de criação de sites, sistemas customizados, consultoria UX/UI, hospedagem e branding. Veja as entregas e etapas de cada solução.
+- [Cases de Sites, Sistemas e Branding | Evolves](https://www.evolves.site/cases): Explore os projetos da Evolves para Zion Tecnologia, DuimpWeb e ProjecTi: desafios, soluções, tecnologias e resultados apresentados em cada case.
+- [Blog de Tecnologia, SEO e Design | Evolves](https://www.evolves.site/blog): Artigos sobre desenvolvimento web, SEO, inteligência artificial, UX/UI, hospedagem e branding para ajudar sua empresa a planejar projetos digitais.
+- [Contato e Propostas para Projetos Digitais | Evolves](https://www.evolves.site/contact): Converse com a Evolves sobre seu projeto de site, sistema, hospedagem ou branding. Conte suas necessidades e solicite uma proposta.
+
+## Serviços
+
+- [Consultoria em UX/UI](https://www.evolves.site/services/consultoria-ux-ui): Nossa consultoria de UX/UI vai além de fazer telas bonitas. Realizamos um mergulho profundo no comportamento do seu usuário para entender os gargalos de conversão do seu sistema ou site atual. O resultado é uma interface altamente intuitiva que reduz fricção e aumenta o faturamento.
+- [Sites Inteligentes](https://www.evolves.site/services/sites-inteligentes): Um site institucional hoje precisa ser o seu melhor vendedor. Construímos páginas ultrarrápidas utilizando tecnologias modernas (React, Vite, Next.js) que engajam o visitante e comunicam o valor da sua empresa de forma clara e assertiva nos primeiros 3 segundos.
+- [Sistemas Customizados](https://www.evolves.site/services/sistemas-customizados): Sistemas de prateleira travam o crescimento de negócios complexos. Desenvolvemos softwares, portais e dashboards sob medida que se adaptam exatamente ao fluxo da sua operação, automatizando o trabalho manual e integrando APIs avançadas.
+- [Hospedagem & Performance](https://www.evolves.site/services/hospedagem-performance): A infraestrutura em que sua aplicação roda é tão importante quanto o código. Oferecemos soluções de hospedagem Cloud dedicadas que garantem estabilidade, velocidade global e segurança contra ataques, acabando com as dores de cabeça das hospedagens compartilhadas.
+- [Branding & Design](https://www.evolves.site/services/branding-design): Branding não é só um logotipo bonito. É a promessa que sua empresa faz ao mercado. Criamos identidades visuais sólidas, confiáveis e altamente reconhecíveis que posicionam o seu negócio B2B como autoridade incontestável no seu segmento de atuação.
+
+## Cases
+
+- [Zion Tecnologia](https://www.evolves.site/cases/zion-tecnologia): Uma plataforma moderna para líderes em sistemas de importação.
+- [DuimpWeb](https://www.evolves.site/cases/duimpweb): Portal de conhecimento e suporte essencial para os clientes do sistema Zion.
+- [ProjecTi](https://www.evolves.site/cases/projecti): Referência em soluções digitais e inteligência aplicada.
+
+## Artigos
+
+- [A importância de um site rápido para o SEO: Como o Google avalia sua página](https://www.evolves.site/blog/importancia-de-um-site-rapido-para-seo): Descubra por que a velocidade do seu site é um dos fatores mais críticos para alcançar a primeira página do Google e como otimizá-lo.
+- [Sistemas Customizados vs Sistemas Prontos: Qual o melhor para sua empresa?](https://www.evolves.site/blog/sistemas-customizados-vs-prontos): Entenda as vantagens e desvantagens de investir em um software sob medida em comparação a soluções de prateleira.
+- [Como a Inteligência Artificial está mudando o Desenvolvimento Web](https://www.evolves.site/blog/como-a-ia-esta-mudando-o-desenvolvimento-web): A IA não é apenas o futuro, é o presente. Veja como ferramentas inteligentes estão moldando a nova geração de interfaces web.
+- [O Guia Definitivo de Acessibilidade Web (WCAG)](https://www.evolves.site/blog/o-guia-definitivo-de-acessibilidade-web): Por que tornar o seu site acessível é uma obrigação moral, legal e uma grande oportunidade de negócios.
+- [Principais Tendências de UI/UX para 2024](https://www.evolves.site/blog/tendencias-de-ui-ux-para-2024): Do Glassmorphism ao Bento Box: o que está em alta no design de interfaces neste ano e como aplicar no seu projeto.
+- [Migrando do WordPress para um site em React (Next.js/Vite)](https://www.evolves.site/blog/migrando-do-wordpress-para-react): Descubra por que tantas empresas estão abandonando temas tradicionais e apostando no modelo Headless CMS.
+- [LGPD para Sites Institucionais: O Guia Prático](https://www.evolves.site/blog/lgpd-o-que-voce-precisa-saber): Sua página coleta dados? Veja os passos básicos para garantir a adequação à Lei Geral de Proteção de Dados.
+- [O que é Hospedagem Cloud e por que abandonar a hospedagem compartilhada](https://www.evolves.site/blog/o-que-e-hospedagem-cloud): Entenda as diferenças arquitetônicas e de performance que tornam a computação em nuvem essencial hoje.
+- [Como otimizar seu site para aumentar a conversão B2B](https://www.evolves.site/blog/estrategias-de-conversao-b2b): Técnicas validadas de Copywriting e Design para transformar visitantes corporativos em leads qualificados.
+- [O impacto do Branding no valor percebido do seu Software](https://www.evolves.site/blog/impacto-do-branding-na-percepcao-de-valor): Por que uma interface bem polida e uma identidade forte permitem que você cobre mais pelos seus serviços.
+
+## Optional
+
+- [Política de Privacidade](https://www.evolves.site/privacy)
+- [Política de Cookies](https://www.evolves.site/cookies)
+- [Sitemap XML](https://www.evolves.site/sitemap.xml)

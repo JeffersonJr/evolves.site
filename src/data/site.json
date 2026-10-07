@@ -1,0 +1,47 @@
+{
+  "url": "https://www.evolves.site",
+  "name": "Evolves Tecnologia",
+  "image": "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/fb55e15d-dd84-4441-8254-64bd5127bd10",
+  "pages": [
+    {
+      "path": "/",
+      "title": "Evolves | Criação de Sites, Sistemas, Hospedagem e Branding",
+      "description": "Evolves Tecnologia cria sites, sistemas customizados, hospedagem e branding com inteligência artificial e design para empresas."
+    },
+    {
+      "path": "/about",
+      "title": "Sobre a Evolves | Tecnologia e Design para Empresas",
+      "description": "Conheça a Evolves Tecnologia e nossa abordagem de desenvolvimento web, inteligência artificial e design para negócios digitais."
+    },
+    {
+      "path": "/services",
+      "title": "Serviços de Desenvolvimento, UX/UI e Branding | Evolves",
+      "description": "Conheça nossos serviços de criação de sites, sistemas customizados, consultoria UX/UI, hospedagem e branding. Veja as entregas e etapas de cada solução."
+    },
+    {
+      "path": "/cases",
+      "title": "Cases de Sites, Sistemas e Branding | Evolves",
+      "description": "Explore os projetos da Evolves para Zion Tecnologia, DuimpWeb e ProjecTi: desafios, soluções, tecnologias e resultados apresentados em cada case."
+    },
+    {
+      "path": "/blog",
+      "title": "Blog de Tecnologia, SEO e Design | Evolves",
+      "description": "Artigos sobre desenvolvimento web, SEO, inteligência artificial, UX/UI, hospedagem e branding para ajudar sua empresa a planejar projetos digitais."
+    },
+    {
+      "path": "/contact",
+      "title": "Contato e Propostas para Projetos Digitais | Evolves",
+      "description": "Converse com a Evolves sobre seu projeto de site, sistema, hospedagem ou branding. Conte suas necessidades e solicite uma proposta."
+    },
+    {
+      "path": "/privacy",
+      "title": "Política de Privacidade | Evolves",
+      "description": "Saiba como a Evolves trata informações pessoais, quais são as finalidades da coleta e como entrar em contato sobre sua privacidade."
+    },
+    {
+      "path": "/cookies",
+      "title": "Política de Cookies | Evolves",
+      "description": "Entenda o uso de cookies no site da Evolves, suas finalidades e as opções para gerenciar suas preferências de navegação."
+    }
+  ]
+}

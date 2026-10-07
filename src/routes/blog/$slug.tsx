@@ -1,4 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { RelatedLinks } from "@/components/RelatedLinks";
+import { contentConnections } from "@/data/related-content";
+import { seoHead } from "@/lib/seo";
+import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { blogPosts } from "@/data/blog";
@@ -7,29 +10,25 @@ import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
     const post = blogPosts.find((p) => p.slug === params.slug);
+    if (!post) throw notFound();
     return { post };
+  },
+  head: ({ loaderData }) => {
+    const item = loaderData?.post;
+    if (!item) return { meta: [{ name: "robots", content: "noindex, follow" }] };
+    return seoHead({
+      title: `${item.title} | Evolves`,
+      description: item.excerpt,
+      path: `/blog/${item.slug}`,
+      type: "article",
+      image: item.image,
+    });
   },
   component: BlogPostPage,
 });
 
 function BlogPostPage() {
   const { post } = Route.useLoaderData();
-
-  if (!post) {
-    return (
-      <div className="min-h-screen bg-background flex flex-col items-center justify-center">
-        <Navbar />
-        <main className="flex-1 flex flex-col items-center justify-center text-center px-6">
-          <h1 className="text-6xl font-bold mb-4">404</h1>
-          <p className="text-xl text-muted-foreground mb-8">Artigo não encontrado.</p>
-          <Link to="/blog" className="rounded-md bg-primary px-6 py-3 font-medium text-primary-foreground hover:bg-primary/90 transition-colors">
-            Voltar para o Blog
-          </Link>
-        </main>
-        <Footer />
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -85,6 +84,12 @@ function BlogPostPage() {
               </a>
             </div>
           </div>
+          <RelatedLinks
+            title="Soluções relacionadas a este artigo"
+            links={
+              contentConnections.filter((entry) => entry.articles.some((article) => article.href === `/blog/${post.slug}`)).map((entry) => entry.service)
+            }
+          />
         </article>
       </main>
       <Footer />

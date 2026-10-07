@@ -1,8 +1,10 @@
+import { pageHead } from "@/lib/seo";
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
 export const Route = createFileRoute("/cookies")({
+  head: () => pageHead("/cookies"),
   component: CookiesPage,
 });
 

@@ -1,3 +1,4 @@
+import { pageHead } from "@/lib/seo";
 import { createFileRoute } from "@tanstack/react-router";
 import { Toaster } from "sonner";
 import { Navbar } from "@/components/Navbar";
@@ -10,27 +11,7 @@ import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Evolves | Criação de Sites, Sistemas, Hospedagem e Branding" },
-      {
-        name: "description",
-        content:
-          "Evolves Tecnologia cria sites inteligentes, sistemas customizados, hospedagem de alta performance e branding com IA e design de vanguarda.",
-      },
-      {
-        property: "og:title",
-        content: "Evolves | Soluções Digitais com IA e Design Inteligente",
-      },
-      {
-        property: "og:description",
-        content:
-          "Transformamos ideias em experiências digitais de alto impacto: sites, sistemas, hospedagem e branding.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
+  head: () => pageHead("/"),
   component: Index,
 });
 

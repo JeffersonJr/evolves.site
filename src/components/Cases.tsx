@@ -1,14 +1,15 @@
 import { Link } from "@tanstack/react-router";
 import { casesData } from "@/data/cases";
 
-export function Cases() {
+export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
+  const Heading = standalone ? "h1" : "h2";
   return (
     <section id="cases" className="py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
+          <Heading className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
             Cases de sucesso
-          </h2>
+          </Heading>
           <p className="mt-5 text-lg text-muted-foreground">
             Projetos que transformaram negócios e elevaram o patamar digital de
             nossos clientes.

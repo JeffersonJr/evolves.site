@@ -42,8 +42,8 @@ export function Footer() {
               <li><Link to="/services/$slug" params={{ slug: "consultoria-ux-ui" }} className="hover:text-white transition-colors">Consultoria em UX/UI</Link></li>
               <li><Link to="/services/$slug" params={{ slug: "sites-inteligentes" }} className="hover:text-white transition-colors">Sites Inteligentes</Link></li>
               <li><Link to="/services/$slug" params={{ slug: "sistemas-customizados" }} className="hover:text-white transition-colors">Sistemas Customizados</Link></li>
-              <li><Link to="/services/$slug" params={{ slug: "hospedagem-e-performance" }} className="hover:text-white transition-colors">Hospedagem & Performance</Link></li>
-              <li><Link to="/services/$slug" params={{ slug: "branding-e-design" }} className="hover:text-white transition-colors">Branding & Design</Link></li>
+              <li><Link to="/services/$slug" params={{ slug: "hospedagem-performance" }} className="hover:text-white transition-colors">Hospedagem & Performance</Link></li>
+              <li><Link to="/services/$slug" params={{ slug: "branding-design" }} className="hover:text-white transition-colors">Branding & Design</Link></li>
             </ul>
           </div>
 

@@ -12,8 +12,7 @@ export function Hero() {
           Soluções digitais com IA e design inteligente
         </p>
         <h1
-          className="animate-fade-up mx-auto mt-4 max-w-4xl text-balance text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl"
-          style={{ animationDelay: "80ms" }}
+          className="mx-auto mt-4 max-w-4xl text-balance text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl"
         >
           Transformamos ideias em{" "}
           <span className="gradient-text">experiências digitais</span> de alto impacto.

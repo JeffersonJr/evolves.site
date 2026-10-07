@@ -1,3 +1,4 @@
+import { pageHead } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -6,6 +7,7 @@ import { ArrowRight, Search } from "lucide-react";
 import { useState } from "react";
 
 export const Route = createFileRoute("/blog/")({
+  head: () => pageHead("/blog"),
   component: BlogIndex,
 });
 
@@ -120,7 +122,7 @@ function BlogIndex() {
                 </div>
               </div>
               <div className="flex-1 hidden md:block">
-                <img src={featuredPost.image} alt={featuredPost.title} className="w-full h-full object-cover rounded-3xl" />
+                <img width={800} height={450} fetchPriority="high" decoding="async" src={featuredPost.image} alt={featuredPost.title} className="w-full h-full object-cover rounded-3xl" />
               </div>
             </Link>
           </div>
@@ -148,7 +150,7 @@ function BlogIndex() {
                 className="group flex flex-col justify-between rounded-3xl border border-border bg-card overflow-hidden shadow-[var(--shadow-soft)] transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-card)]"
               >
                 <div className="h-48 w-full shrink-0 overflow-hidden">
-                  <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <img width={800} height={450} loading="lazy" decoding="async" src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 </div>
                 <div className="p-6 flex-1 flex flex-col">
                   <div className="flex items-center gap-2 mb-4">

@@ -1,4 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { RelatedLinks } from "@/components/RelatedLinks";
+import { contentConnections } from "@/data/related-content";
+import { seoHead } from "@/lib/seo";
+import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { servicesData } from "@/data/services";
@@ -7,7 +10,19 @@ import { ArrowLeft, CheckCircle2, ChevronRight } from "lucide-react";
 export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
     const service = servicesData.find((s) => s.slug === params.slug);
-    return { service };
+    if (!service) throw notFound();
+    // React icon components cannot be serialized in the server loader payload.
+    const { icon: _icon, ...serviceContent } = service;
+    return { service: serviceContent };
+  },
+  head: ({ loaderData }) => {
+    const item = loaderData?.service;
+    if (!item) return { meta: [{ name: "robots", content: "noindex, follow" }] };
+    return seoHead({
+      title: `${item.title} | Evolves`,
+      description: item.text,
+      path: `/services/${item.slug}`,
+    });
   },
   component: ServicePage,
 });
@@ -15,23 +30,7 @@ export const Route = createFileRoute("/services/$slug")({
 function ServicePage() {
   const { service } = Route.useLoaderData();
 
-  if (!service) {
-    return (
-      <div className="min-h-screen bg-background flex flex-col items-center justify-center">
-        <Navbar />
-        <main className="flex-1 flex flex-col items-center justify-center text-center px-6">
-          <h1 className="text-6xl font-bold mb-4">404</h1>
-          <p className="text-xl text-muted-foreground mb-8">Serviço não encontrado.</p>
-          <Link to="/services" className="rounded-md bg-primary px-6 py-3 font-medium text-primary-foreground hover:bg-primary/90 transition-colors">
-            Voltar para Serviços
-          </Link>
-        </main>
-        <Footer />
-      </div>
-    );
-  }
-
-  const Icon = service.icon;
+  const Icon = servicesData.find((item) => item.slug === service.slug)!.icon;
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -147,6 +146,12 @@ function ServicePage() {
               </Link>
             </div>
           </div>
+          <RelatedLinks
+            title="Saiba mais antes de iniciar seu projeto"
+            links={
+              contentConnections.find((entry) => entry.service.href === `/services/${service.slug}`)?.articles ?? []
+            }
+          />
         </article>
       </main>
       <Footer />

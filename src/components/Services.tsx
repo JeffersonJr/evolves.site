@@ -4,14 +4,15 @@ import { servicesData } from "@/data/services";
 
 const differential = "Nosso diferencial: um olhar de qualidade e de UX/UI com mais de 8 anos de experiência prática.";
 
-export function Services() {
+export function Services({ standalone = false }: { standalone?: boolean } = {}) {
+  const Heading = standalone ? "h1" : "h2";
   return (
     <section id="services" className="bg-surface py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
+          <Heading className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
             Serviços que impulsionam seu crescimento
-          </h2>
+          </Heading>
           <p className="mt-5 text-lg text-muted-foreground">
             Combinamos design de vanguarda com as tecnologias mais recentes para
             entregar resultados reais.
