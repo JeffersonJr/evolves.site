@@ -22,10 +22,10 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
               key={c.slug}
               to="/cases/$slug"
               params={{ slug: c.slug }}
-              className="block group overflow-hidden rounded-4xl border border-border bg-card shadow-[var(--shadow-soft)] transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-card)]"
+              className="group block overflow-hidden rounded-[1.75rem] border border-black/[.04] bg-white shadow-[0_12px_40px_-30px_rgba(0,0,0,.25)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_48px_-28px_rgba(0,0,0,.3)] dark:border-border dark:bg-card"
             >
               <article>
-                <div className="aspect-[4/3] overflow-hidden bg-gradient-to-br from-surface to-secondary/20 p-6 flex items-center justify-center relative">
+                <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-[#f5f5f7] p-6 dark:bg-surface">
                   <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <img
                     src={c.img}
@@ -40,7 +40,9 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
                   <p className="text-xs font-medium uppercase tracking-wide text-primary">
                     {c.category}
                   </p>
-                  <h3 className="mt-2 text-xl font-semibold tracking-tight group-hover:text-primary transition-colors">{c.title}</h3>
+                  <h3 className="mt-2 text-xl font-semibold tracking-tight group-hover:text-primary transition-colors">
+                    {c.title}
+                  </h3>
                   <p className="mt-2 text-sm text-muted-foreground">{c.text}</p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {c.tags.map((t) => (
