@@ -84,10 +84,17 @@ export function Contact({ standalone = false }: { standalone?: boolean } = {}) {
     "w-full rounded-xl border border-input bg-card px-4 py-3 text-sm outline-none transition-shadow focus:ring-2 focus:ring-ring";
 
   return (
-    <section id="contact" className="bg-surface py-24 sm:py-32">
+    <section
+      id="contact"
+      aria-labelledby="contact-heading"
+      className="bg-surface py-24 sm:py-32"
+    >
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <Heading className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
+          <Heading
+            id="contact-heading"
+            className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl"
+          >
             Vamos evoluir seu projeto?
           </Heading>
           <p className="mt-5 text-lg text-muted-foreground">
@@ -172,6 +179,8 @@ export function Contact({ standalone = false }: { standalone?: boolean } = {}) {
 
           <form
             onSubmit={handleSubmit}
+            toolname="submit_project_inquiry"
+            tooldescription="Prepare uma solicitação de contato para a Evolves com nome, e-mail, assunto e mensagem. O visitante deve revisar e clicar em enviar para abrir o WhatsApp."
             className="space-y-4 rounded-4xl bg-background p-6 sm:p-8 md:col-span-3"
           >
             <div className="grid gap-4 sm:grid-cols-2">
@@ -179,7 +188,9 @@ export function Contact({ standalone = false }: { standalone?: boolean } = {}) {
                 <label htmlFor="contact-name" className="mb-1.5 block text-sm font-medium">Nome</label>
                 <input
                   id="contact-name"
+                  name="name"
                   className={field}
+                  required
                   value={form.name}
                   maxLength={100}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
@@ -192,7 +203,9 @@ export function Contact({ standalone = false }: { standalone?: boolean } = {}) {
                 </label>
                 <input
                   id="contact-email"
+                  name="email"
                   type="email"
+                  required
                   className={field}
                   value={form.email}
                   maxLength={255}
@@ -207,6 +220,7 @@ export function Contact({ standalone = false }: { standalone?: boolean } = {}) {
               </label>
               <select
                 id="contact-subject"
+                name="subject"
                 className={field}
                 value={form.subject}
                 onChange={(e) => setForm({ ...form, subject: e.target.value })}
@@ -222,7 +236,9 @@ export function Contact({ standalone = false }: { standalone?: boolean } = {}) {
               </label>
               <textarea
                 id="contact-message"
+                name="message"
                 className={`${field} min-h-32 resize-none`}
+                required
                 value={form.message}
                 maxLength={1000}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}

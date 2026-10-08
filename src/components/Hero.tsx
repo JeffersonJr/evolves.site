@@ -4,13 +4,17 @@ export function Hero() {
   return (
     <section
       id="top"
+      aria-labelledby="home-heading"
       className="overflow-hidden bg-[#f5f5f7] px-6 pb-16 pt-32 sm:pb-24 sm:pt-40 lg:pt-44 dark:bg-background"
     >
       <div className="mx-auto max-w-6xl text-center">
         <p className="mb-5 text-sm font-medium tracking-wide text-muted-foreground sm:text-base">
           Evolves Digital Studio
         </p>
-        <h1 className="mx-auto max-w-5xl text-balance text-[clamp(2.75rem,8vw,7rem)] font-semibold leading-[.98] tracking-[-.075em]">
+        <h1
+          id="home-heading"
+          className="mx-auto max-w-5xl text-balance text-[clamp(2.75rem,8vw,7rem)] font-semibold leading-[.98] tracking-[-.075em]"
+        >
           Tecnologia para
           <span className="block">
             o que vem <span className="text-primary">a seguir.</span>

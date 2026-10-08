@@ -47,7 +47,7 @@ export function Navbar() {
             alt="Evolves"
             className="h-7 w-auto hidden dark:block"
           />
-          <span className="text-[10px] text-muted-foreground/50 font-medium">
+          <span className="text-[10px] text-muted-foreground font-medium">
             ®
           </span>
         </Link>

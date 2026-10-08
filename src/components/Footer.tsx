@@ -11,7 +11,7 @@ export function Footer() {
           <div className="md:col-span-2">
             <Link to="/" className="inline-flex items-center gap-1 mb-6">
               <img src={logo} alt="Evolves" className="h-8 w-auto" />
-              <span className="text-xs text-muted-foreground/50 font-medium">
+              <span className="text-xs text-muted-foreground font-medium">
                 ®
               </span>
             </Link>

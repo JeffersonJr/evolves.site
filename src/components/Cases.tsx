@@ -4,10 +4,17 @@ import { casesData } from "@/data/cases";
 export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
   const Heading = standalone ? "h1" : "h2";
   return (
-    <section id="cases" className="py-24 sm:py-32">
+    <section
+      id="cases"
+      aria-labelledby="cases-heading"
+      className="py-24 sm:py-32"
+    >
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <Heading className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
+          <Heading
+            id="cases-heading"
+            className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl"
+          >
             Cases de sucesso
           </Heading>
           <p className="mt-5 text-lg text-muted-foreground">

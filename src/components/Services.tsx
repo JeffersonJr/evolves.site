@@ -14,11 +14,15 @@ export function Services({
   return (
     <section
       id="services"
+      aria-labelledby="services-heading"
       className="bg-[#f5f5f7] py-24 sm:py-32 dark:bg-surface"
     >
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <Heading className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
+          <Heading
+            id="services-heading"
+            className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl"
+          >
             Serviços que impulsionam seu crescimento
           </Heading>
           <p className="mt-5 text-lg text-muted-foreground">
