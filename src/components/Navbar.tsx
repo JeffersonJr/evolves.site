@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import logo from "@/assets/evolves-logo.png";
+import logo from "@/assets/evolves-logo.webp";
 import logoGray from "@/assets/evolves-logo-gray.png";
-import logoWhite from "@/assets/evolves-logo-white.png";
+import logoWhite from "@/assets/evolves-logo-white.webp";
 import { ThemeToggle } from "./ThemeToggle";
 
 const links = [
@@ -71,6 +71,7 @@ export function Navbar() {
             href="https://wa.me/5513981326869?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Evolves%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20de%20voc%C3%AAs!"
             target="_blank"
             rel="noreferrer"
+            aria-label="Conversar sobre soluções da Evolves pelo WhatsApp"
             className="hidden items-center gap-2 rounded-full bg-primary px-4 py-1.5 text-sm font-medium text-primary-foreground transition hover:brightness-105 md:inline-flex"
           >
             <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
@@ -106,6 +107,7 @@ export function Navbar() {
               href="https://wa.me/5513981326869?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Evolves%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20de%20voc%C3%AAs!"
               target="_blank"
               rel="noreferrer"
+              aria-label="Conversar sobre soluções da Evolves pelo WhatsApp"
               onClick={() => setOpen(false)}
               className="mt-2 flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-2 text-center text-sm font-medium text-primary-foreground"
             >

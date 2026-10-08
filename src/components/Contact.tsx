@@ -164,7 +164,7 @@ export function Contact({ standalone = false }: { standalone?: boolean } = {}) {
                 target="_blank"
                 rel="noreferrer"
                 className="flex h-10 w-10 items-center justify-center text-muted-foreground transition-colors hover:text-primary"
-                aria-label="WhatsApp Evolves"
+                aria-label="WhatsApp da Evolves"
               >
                 <svg
                   viewBox="0 0 24 24"

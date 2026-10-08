@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import logo from "@/assets/evolves-logo.png";
+import logo from "@/assets/evolves-logo.webp";
 import { servicesData } from "@/data/services";
 import { Linkedin, Phone, Mail, MapPin } from "lucide-react";
 
@@ -35,7 +35,7 @@ export function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-white hover:bg-[#25D366] transition-colors dark:bg-card"
-                aria-label="WhatsApp"
+                aria-label="WhatsApp da Evolves"
               >
                 <svg
                   viewBox="0 0 24 24"
