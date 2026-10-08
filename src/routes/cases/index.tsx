@@ -1,11 +1,25 @@
-import { pageHead } from "@/lib/seo";
+import { breadcrumbSchema, pageHead, siteUrl } from "@/lib/seo";
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Cases } from "@/components/Cases";
 
 export const Route = createFileRoute("/cases/")({
-  head: () => pageHead("/cases"),
+  head: () =>
+    pageHead("/cases", [
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: "Cases da Evolves",
+        description:
+          "Projetos de sites, sistemas e branding com desafios, soluções e resultados.",
+        url: new URL("/cases", siteUrl).href,
+      },
+      breadcrumbSchema([
+        { name: "Início", path: "/" },
+        { name: "Cases", path: "/cases" },
+      ]),
+    ]),
   component: CasesIndexPage,
 });
 

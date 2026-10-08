@@ -22,10 +22,10 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
               key={c.slug}
               to="/cases/$slug"
               params={{ slug: c.slug }}
-              className="group block overflow-hidden rounded-[1.75rem] border border-black/[.04] bg-white shadow-[0_12px_40px_-30px_rgba(0,0,0,.25)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_48px_-28px_rgba(0,0,0,.3)] dark:border-border dark:bg-card"
+              className="group block overflow-hidden rounded-[1.75rem] bg-[#f5f5f7] transition-colors duration-300 hover:bg-[#efeff2] dark:bg-card dark:hover:bg-secondary/70"
             >
               <article>
-                <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-[#f5f5f7] p-6 dark:bg-surface">
+                <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden p-6 dark:bg-surface">
                   <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <img
                     src={c.img}
@@ -36,7 +36,7 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
                     className="h-full w-full object-contain filter drop-shadow-xl transition-all duration-500 group-hover:scale-105 group-hover:-translate-y-2 group-hover:drop-shadow-2xl"
                   />
                 </div>
-                <div className="p-7">
+                <div className="p-7 sm:p-8">
                   <p className="text-xs font-medium uppercase tracking-wide text-primary">
                     {c.category}
                   </p>
@@ -45,11 +45,9 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
                   </h3>
                   <p className="mt-2 text-sm text-muted-foreground">{c.text}</p>
                   <div className="mt-4 flex flex-wrap gap-2">
-                    {c.tags.map((t) => (
-                      <span
-                        key={t}
-                        className="rounded-full bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground"
-                      >
+                    {c.tags.map((t, index) => (
+                      <span key={t} className="text-xs text-muted-foreground">
+                        {index > 0 && <span aria-hidden="true"> · </span>}
                         {t}
                       </span>
                     ))}

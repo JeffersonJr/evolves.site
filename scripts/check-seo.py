@@ -87,11 +87,25 @@ for url in urls:
         if absolute.netloc == urlsplit(SITE).netloc:
             all_links.add(absolute.path)
 
-# Every sitemap page is linked, and every internal HTML link points to a known page.
+# Filtered blog views are shareable but intentionally noindex and outside the sitemap.
+dynamic_noindex = {
+    path for path in all_links
+    if re.fullmatch(r'/blog/(?:busca|categoria)/[a-z0-9-]+', path)
+}
+dynamic_noindex.update(['/blog/busca/ux-ui', '/blog/categoria/seo'])
+unknown = all_links - known - dynamic_noindex
+assert not unknown, ('Unknown internal links', unknown)
+
+# Every sitemap page is linked, and dynamic filtered URLs remain canonical to themselves.
 assert known <= all_links, ('Orphan pages', known - all_links)
-assert all_links <= known, ('Unknown internal links', all_links - known)
+for path in dynamic_noindex:
+    status, html, mime = fetch(path)
+    page = Page(html)
+    assert status == 200 and mime == 'text/html', (path, status, mime)
+    assert page.canonicals == [SITE + path], (path, page.canonicals)
+    assert any('noindex' in value for value in page.values('robots')), (path, 'missing noindex')
 for path in ['/blog/seo-test-missing', '/services/seo-test-missing', '/cases/seo-test-missing', '/seo-test-missing']:
     status, html, _ = fetch(path)
     assert status == 404, (path, status)
     assert any('noindex' in value for value in Page(html).values('robots')), (path, 'missing noindex')
-print(f'PASS: {len(urls)} pages, unique metadata, canonicals, pt-BR, H1, internal links, XML, robots.txt, llms.txt and four real 404 responses.')
+print(f'PASS: {len(urls)} sitemap pages, {len(dynamic_noindex)} filtered blog URLs, unique metadata, canonicals, pt-BR, H1, internal links, XML, robots.txt, llms.txt and four real 404 responses.')

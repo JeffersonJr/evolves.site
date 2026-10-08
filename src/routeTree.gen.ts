@@ -21,6 +21,8 @@ import { Route as BlogIndexRouteImport } from './routes/blog/index'
 import { Route as ServicesSlugRouteImport } from './routes/services/$slug'
 import { Route as CasesSlugRouteImport } from './routes/cases/$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
+import { Route as BlogCategoriaCategoriaRouteImport } from './routes/blog/categoria/$categoria'
+import { Route as BlogBuscaTermoRouteImport } from './routes/blog/busca/$termo'
 
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
@@ -82,6 +84,16 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogCategoriaCategoriaRoute = BlogCategoriaCategoriaRouteImport.update({
+  id: '/blog/categoria/$categoria',
+  path: '/blog/categoria/$categoria',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogBuscaTermoRoute = BlogBuscaTermoRouteImport.update({
+  id: '/blog/busca/$termo',
+  path: '/blog/busca/$termo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -96,6 +108,8 @@ export interface FileRoutesByFullPath {
   '/blog/': typeof BlogIndexRoute
   '/cases/': typeof CasesIndexRoute
   '/services/': typeof ServicesIndexRoute
+  '/blog/busca/$termo': typeof BlogBuscaTermoRoute
+  '/blog/categoria/$categoria': typeof BlogCategoriaCategoriaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -109,6 +123,8 @@ export interface FileRoutesByTo {
   '/blog': typeof BlogIndexRoute
   '/cases': typeof CasesIndexRoute
   '/services': typeof ServicesIndexRoute
+  '/blog/busca/$termo': typeof BlogBuscaTermoRoute
+  '/blog/categoria/$categoria': typeof BlogCategoriaCategoriaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -124,6 +140,8 @@ export interface FileRoutesById {
   '/blog/': typeof BlogIndexRoute
   '/cases/': typeof CasesIndexRoute
   '/services/': typeof ServicesIndexRoute
+  '/blog/busca/$termo': typeof BlogBuscaTermoRoute
+  '/blog/categoria/$categoria': typeof BlogCategoriaCategoriaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -140,6 +158,8 @@ export interface FileRouteTypes {
     | '/blog/'
     | '/cases/'
     | '/services/'
+    | '/blog/busca/$termo'
+    | '/blog/categoria/$categoria'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -153,6 +173,8 @@ export interface FileRouteTypes {
     | '/blog'
     | '/cases'
     | '/services'
+    | '/blog/busca/$termo'
+    | '/blog/categoria/$categoria'
   id:
     | '__root__'
     | '/'
@@ -167,6 +189,8 @@ export interface FileRouteTypes {
     | '/blog/'
     | '/cases/'
     | '/services/'
+    | '/blog/busca/$termo'
+    | '/blog/categoria/$categoria'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -180,6 +204,8 @@ export interface RootRouteChildren {
   CasesSlugRoute: typeof CasesSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
   CasesIndexRoute: typeof CasesIndexRoute
+  BlogBuscaTermoRoute: typeof BlogBuscaTermoRoute
+  BlogCategoriaCategoriaRoute: typeof BlogCategoriaCategoriaRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -268,6 +294,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/categoria/$categoria': {
+      id: '/blog/categoria/$categoria'
+      path: '/blog/categoria/$categoria'
+      fullPath: '/blog/categoria/$categoria'
+      preLoaderRoute: typeof BlogCategoriaCategoriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/busca/$termo': {
+      id: '/blog/busca/$termo'
+      path: '/blog/busca/$termo'
+      fullPath: '/blog/busca/$termo'
+      preLoaderRoute: typeof BlogBuscaTermoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -296,6 +336,8 @@ const rootRouteChildren: RootRouteChildren = {
   CasesSlugRoute: CasesSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
   CasesIndexRoute: CasesIndexRoute,
+  BlogBuscaTermoRoute: BlogBuscaTermoRoute,
+  BlogCategoriaCategoriaRoute: BlogCategoriaCategoriaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

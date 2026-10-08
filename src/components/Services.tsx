@@ -9,6 +9,8 @@ export function Services({
   standalone = false,
 }: { standalone?: boolean } = {}) {
   const Heading = standalone ? "h1" : "h2";
+  const visibleServices = standalone ? servicesData : servicesData.slice(0, 5);
+  const additionalServices = standalone ? [] : servicesData.slice(5);
   return (
     <section
       id="services"
@@ -23,21 +25,21 @@ export function Services({
             Combinamos design de vanguarda com as tecnologias mais recentes para
             entregar resultados reais.
           </p>
-          <div className="mx-auto mt-6 inline-flex max-w-full items-center gap-2 rounded-full border border-blue-100 bg-white/70 px-4 py-2 text-sm font-medium text-accent-foreground dark:border-border dark:bg-card">
-            <Sparkles className="h-4 w-4" strokeWidth={2} />
+          <div className="mx-auto mt-6 inline-flex max-w-full items-center gap-2 text-sm text-muted-foreground">
+            <Sparkles className="h-4 w-4 text-primary" strokeWidth={1.8} />
             {differential}
           </div>
         </div>
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2">
-          {servicesData.map((s) => (
+          {visibleServices.map((s) => (
             <Link
               key={s.slug}
               to="/services/$slug"
               params={{ slug: s.slug }}
-              className="group flex flex-col rounded-[1.75rem] border border-black/[.04] bg-white p-8 shadow-[0_12px_40px_-30px_rgba(0,0,0,.25)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_48px_-28px_rgba(0,0,0,.3)] dark:border-border dark:bg-card sm:p-10"
+              className="group flex flex-col rounded-[1.75rem] bg-white p-8 transition-colors duration-300 hover:bg-[#fafafa] dark:bg-card dark:hover:bg-secondary/70 sm:p-10"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-primary dark:bg-accent">
+              <div className="text-primary">
                 <s.icon className="h-6 w-6" strokeWidth={1.75} />
               </div>
               <h3 className="mt-6 text-2xl font-semibold tracking-tight group-hover:text-primary transition-colors">
@@ -47,7 +49,7 @@ export function Services({
               <ul className="mt-6 space-y-3 mb-8">
                 {s.features.map((f) => (
                   <li key={f} className="flex items-center gap-3 text-sm">
-                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-50 text-primary dark:bg-accent">
+                    <span className="text-primary">
                       <Check className="h-3 w-3" strokeWidth={3} />
                     </span>
                     {f}
@@ -62,6 +64,21 @@ export function Services({
             </Link>
           ))}
         </div>
+        {additionalServices.length > 0 && (
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-muted-foreground">
+            <span className="font-medium text-foreground">Mais soluções:</span>
+            {additionalServices.map((service) => (
+              <Link
+                key={service.slug}
+                to="/services/$slug"
+                params={{ slug: service.slug }}
+                className="underline decoration-border underline-offset-4 transition-colors hover:text-primary"
+              >
+                {service.title}
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

@@ -5,8 +5,8 @@
   "pages": [
     {
       "path": "/",
-      "title": "Evolves | Criação de Sites, Sistemas, Hospedagem e Branding",
-      "description": "Evolves Tecnologia cria sites, sistemas customizados, hospedagem e branding com inteligência artificial e design para empresas."
+      "title": "Criação de Sites, Sistemas e Soluções Digitais | Evolves",
+      "description": "A Evolves cria sites profissionais, sistemas customizados e produtos digitais para empresas, com desenvolvimento web, UX/UI, SEO técnico, hospedagem cloud e branding B2B."
     },
     {
       "path": "/about",
@@ -15,8 +15,8 @@
     },
     {
       "path": "/services",
-      "title": "Serviços de Desenvolvimento, UX/UI e Branding | Evolves",
-      "description": "Conheça nossos serviços de criação de sites, sistemas customizados, consultoria UX/UI, hospedagem e branding. Veja as entregas e etapas de cada solução."
+      "title": "Sites, Sistemas, SEO e Design Digital | Serviços Evolves",
+      "description": "Conheça os serviços da Evolves para empresas: criação de sites, sistemas customizados, SEO técnico, hospedagem cloud, UX/UI, inteligência artificial e branding B2B."
     },
     {
       "path": "/cases",

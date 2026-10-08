@@ -13,7 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { LgpdModal } from "../components/LgpdModal";
 import { ExitIntentModal } from "../components/ExitIntentModal";
-import { WhatsAppButton } from "../components/WhatsAppButton";
+import { EvoAssistant } from "../components/EvoAssistant";
 
 import { NotFoundGame } from "../components/NotFoundGame";
 
@@ -40,7 +40,8 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
           This page didn't load
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
+          Something went wrong on our end. You can try refreshing or head back
+          home.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
@@ -64,31 +65,33 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
-export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Evolves Tecnologia" },
-      { name: "author", content: "Evolves Tecnologia" },
-      { property: "og:site_name", content: "Evolves Tecnologia" },
-      { property: "og:locale", content: "pt_BR" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-      { rel: "describedby", href: "/llms.txt", type: "text/plain" },
-      { rel: "icon", href: "/favicon.png", type: "image/png" },
-    ],
-  }),
-  shellComponent: RootShell,
-  component: RootComponent,
-  notFoundComponent: NotFoundComponent,
-  errorComponent: ErrorComponent,
-});
+export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
+  {
+    head: () => ({
+      meta: [
+        { charSet: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { title: "Evolves Tecnologia" },
+        { name: "author", content: "Evolves Tecnologia" },
+        { property: "og:site_name", content: "Evolves Tecnologia" },
+        { property: "og:locale", content: "pt_BR" },
+        { name: "twitter:card", content: "summary_large_image" },
+      ],
+      links: [
+        {
+          rel: "stylesheet",
+          href: appCss,
+        },
+        { rel: "describedby", href: "/llms.txt", type: "text/plain" },
+        { rel: "icon", href: "/favicon.png", type: "image/png" },
+      ],
+    }),
+    shellComponent: RootShell,
+    component: RootComponent,
+    notFoundComponent: NotFoundComponent,
+    errorComponent: ErrorComponent,
+  },
+);
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
@@ -111,7 +114,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
-      <WhatsAppButton />
+      <EvoAssistant />
       <LgpdModal />
       <ExitIntentModal />
     </QueryClientProvider>

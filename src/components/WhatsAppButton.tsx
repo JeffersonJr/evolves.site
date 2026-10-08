@@ -13,7 +13,12 @@ const subjects = [
 
 export function WhatsAppButton() {
   const [isOpen, setIsOpen] = useState(false);
-  const [formData, setFormData] = useState({ name: "", email: "", subject: subjects[0], message: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: subjects[0],
+    message: "",
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,7 +34,7 @@ export function WhatsAppButton() {
       <button
         onClick={() => setIsOpen(true)}
         aria-label="Fale conosco no WhatsApp"
-        className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center cursor-pointer rounded-full bg-primary text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-110"
+        className="fixed bottom-5 right-5 z-50 flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-primary text-primary-foreground transition-transform hover:scale-105"
       >
         <svg
           viewBox="0 0 24 24"
@@ -43,51 +48,75 @@ export function WhatsAppButton() {
 
       {isOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-background/80 backdrop-blur-sm p-4">
-          <div className="w-full max-w-md rounded-3xl border border-border bg-card p-6 shadow-[var(--shadow-card)] animate-fade-up">
+          <div className="w-full max-w-md rounded-3xl border border-border bg-card p-6 animate-fade-up">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xl font-semibold">Fale com um Especialista</h3>
-              <button 
+              <h3 className="text-xl font-semibold">
+                Fale com um Especialista
+              </h3>
+              <button
                 onClick={() => setIsOpen(false)}
                 className="text-muted-foreground hover:text-foreground cursor-pointer"
               >
                 <X className="h-5 w-5" />
               </button>
             </div>
-            
+
             <p className="text-sm text-muted-foreground mb-6">
-              Preencha os dados abaixo para enviarmos sua mensagem diretamente para o nosso WhatsApp.
+              Preencha os dados abaixo para enviarmos sua mensagem diretamente
+              para o nosso WhatsApp.
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label htmlFor="wa-name" className="block text-sm font-medium mb-1">Nome completo</label>
-                <input 
-                  id="wa-name" 
-                  required 
+                <label
+                  htmlFor="wa-name"
+                  className="block text-sm font-medium mb-1"
+                >
+                  Nome completo
+                </label>
+                <input
+                  id="wa-name"
+                  required
                   value={formData.name}
-                  onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  className="w-full rounded-xl border border-border bg-background px-4 py-2 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none" 
-                  placeholder="Seu nome" 
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
+                  className="w-full rounded-xl border border-border bg-background px-4 py-2 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none"
+                  placeholder="Seu nome"
                 />
               </div>
               <div>
-                <label htmlFor="wa-email" className="block text-sm font-medium mb-1">E-mail corporativo</label>
-                <input 
-                  id="wa-email" 
-                  type="email" 
-                  required 
+                <label
+                  htmlFor="wa-email"
+                  className="block text-sm font-medium mb-1"
+                >
+                  E-mail corporativo
+                </label>
+                <input
+                  id="wa-email"
+                  type="email"
+                  required
                   value={formData.email}
-                  onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  className="w-full rounded-xl border border-border bg-background px-4 py-2 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none" 
-                  placeholder="seu@email.com.br" 
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
+                  className="w-full rounded-xl border border-border bg-background px-4 py-2 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none"
+                  placeholder="seu@email.com.br"
                 />
               </div>
               <div>
-                <label htmlFor="wa-subject" className="block text-sm font-medium mb-1">Assunto</label>
+                <label
+                  htmlFor="wa-subject"
+                  className="block text-sm font-medium mb-1"
+                >
+                  Assunto
+                </label>
                 <select
                   id="wa-subject"
                   value={formData.subject}
-                  onChange={(e) => setFormData({...formData, subject: e.target.value})}
+                  onChange={(e) =>
+                    setFormData({ ...formData, subject: e.target.value })
+                  }
                   className="w-full rounded-xl border border-border bg-background px-4 py-2 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none"
                 >
                   {subjects.map((s) => (
@@ -96,18 +125,25 @@ export function WhatsAppButton() {
                 </select>
               </div>
               <div>
-                <label htmlFor="wa-message" className="block text-sm font-medium mb-1">Como podemos te ajudar?</label>
-                <textarea 
-                  id="wa-message" 
-                  required 
+                <label
+                  htmlFor="wa-message"
+                  className="block text-sm font-medium mb-1"
+                >
+                  Como podemos te ajudar?
+                </label>
+                <textarea
+                  id="wa-message"
+                  required
                   value={formData.message}
-                  onChange={(e) => setFormData({...formData, message: e.target.value})}
-                  className="w-full rounded-xl border border-border bg-background px-4 py-2 text-sm min-h-[100px] resize-none focus:border-primary focus:ring-1 focus:ring-primary outline-none" 
-                  placeholder="Descreva brevemente o seu projeto..." 
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
+                  className="w-full rounded-xl border border-border bg-background px-4 py-2 text-sm min-h-[100px] resize-none focus:border-primary focus:ring-1 focus:ring-primary outline-none"
+                  placeholder="Descreva brevemente o seu projeto..."
                 />
               </div>
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 className="mt-2 w-full cursor-pointer rounded-full bg-primary px-4 py-3 text-sm font-bold text-primary-foreground transition-transform hover:scale-[1.02]"
               >
                 Iniciar Conversa

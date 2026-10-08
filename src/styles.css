@@ -76,7 +76,8 @@
   --surface-foreground: oklch(0.18 0.006 264);
 
   --muted: oklch(0.968 0.003 200);
-  --muted-foreground: oklch(0.55 0.01 264);
+  /* Keep secondary copy readable on both white and Apple-gray surfaces. */
+  --muted-foreground: oklch(0.46 0.01 264);
 
   --accent: oklch(0.96 0.025 255);
   --accent-foreground: oklch(0.48 0.18 255);
@@ -200,6 +201,66 @@
 
 @utility animate-fade-up {
   animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* A single, quiet brand canvas in place of stacked interface mockups. */
+.studio-art {
+  isolation: isolate;
+  background:
+    radial-gradient(
+      ellipse at 24% 22%,
+      rgb(255 255 255 / 0.85),
+      transparent 36%
+    ),
+    linear-gradient(135deg, #d9e8fb 0%, #e5e4f5 52%, #f1e2e9 100%);
+}
+
+.studio-art__orb {
+  position: absolute;
+  left: 50%;
+  top: 47%;
+  width: min(44vw, 470px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.studio-art__orb--one {
+  background: radial-gradient(
+    circle at 34% 27%,
+    #e5efff 0%,
+    #a9c7ed 29%,
+    #7894cb 62%,
+    #4d5c99 100%
+  );
+  box-shadow:
+    inset -18px -22px 48px rgb(29 42 94 / 0.2),
+    0 24px 54px rgb(46 56 130 / 0.14);
+}
+
+.studio-art__wordmark {
+  position: absolute;
+  left: 50%;
+  top: 47%;
+  transform: translate(-50%, -50%);
+  color: rgb(255 255 255 / 0.91);
+  font-size: clamp(3.5rem, 11vw, 9rem);
+  font-weight: 600;
+  letter-spacing: -0.09em;
+  text-shadow: 0 2px 14px rgb(52 55 109 / 0.12);
+}
+
+.studio-art__wordmark span {
+  margin-left: 0.25em;
+  font-size: 0.12em;
+  vertical-align: top;
+  letter-spacing: 0;
+}
+
+@media (max-width: 640px) {
+  .studio-art__orb {
+    width: 66vw;
+  }
 }
 
 /* Keep content visible and avoid continuous motion when the user requests it. */

@@ -29,11 +29,14 @@ export function LgpdModal() {
 
   return (
     <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[300] w-[calc(100%-2rem)] max-w-xl animate-fade-up">
-      <div className="rounded-2xl border border-border bg-card/95 backdrop-blur-xl px-5 py-4 shadow-[var(--shadow-card)] flex flex-col sm:flex-row items-start sm:items-center gap-4">
+      <div className="flex flex-col items-start gap-4 rounded-2xl border border-border bg-card/95 px-5 py-4 backdrop-blur-xl sm:flex-row sm:items-center">
         <Cookie className="h-5 w-5 text-primary shrink-0 mt-0.5 sm:mt-0" />
         <p className="text-xs text-muted-foreground leading-relaxed flex-1">
           Usamos cookies para melhorar sua experiência.{" "}
-          <Link to="/privacy" className="text-primary font-medium underline underline-offset-2 hover:text-primary/80">
+          <Link
+            to="/privacy"
+            className="text-primary font-medium underline underline-offset-2 hover:text-primary/80"
+          >
             Saiba mais
           </Link>
         </p>

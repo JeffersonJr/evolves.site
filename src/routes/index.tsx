@@ -1,4 +1,4 @@
-import { pageHead } from "@/lib/seo";
+import { organizationSchema, pageHead, websiteSchema } from "@/lib/seo";
 import { createFileRoute } from "@tanstack/react-router";
 import { Toaster } from "sonner";
 import { Navbar } from "@/components/Navbar";
@@ -11,7 +11,7 @@ import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 
 export const Route = createFileRoute("/")({
-  head: () => pageHead("/"),
+  head: () => pageHead("/", [organizationSchema, websiteSchema]),
   component: Index,
 });
 

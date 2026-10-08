@@ -3,7 +3,7 @@ export const contentConnections = [
   {
     service: {
       href: "/services/consultoria-ux-ui",
-      label: "Consultoria em UX/UI",
+      label: "Consultoria UX/UI e Design de Produto",
     },
     articles: [
       {
@@ -12,7 +12,7 @@ export const contentConnections = [
       },
       {
         href: "/blog/tendencias-de-ui-ux-para-2024",
-        label: "Design de interfaces: tendências de 2024",
+        label: "Princípios para interfaces UI/UX claras",
       },
     ],
     cases: ["projecti"],
@@ -20,7 +20,7 @@ export const contentConnections = [
   {
     service: {
       href: "/services/sites-inteligentes",
-      label: "Criação de sites para empresas",
+      label: "Criação de Sites Profissionais",
     },
     articles: [
       {
@@ -45,7 +45,7 @@ export const contentConnections = [
   {
     service: {
       href: "/services/sistemas-customizados",
-      label: "Desenvolvimento de sistemas customizados",
+      label: "Desenvolvimento de Sistemas Sob Medida",
     },
     articles: [
       {
@@ -62,7 +62,7 @@ export const contentConnections = [
   {
     service: {
       href: "/services/hospedagem-performance",
-      label: "Hospedagem e performance",
+      label: "Hospedagem Cloud e Performance",
     },
     articles: [
       {
@@ -79,7 +79,7 @@ export const contentConnections = [
   {
     service: {
       href: "/services/branding-design",
-      label: "Branding e design para empresas",
+      label: "Branding B2B e Identidade Visual",
     },
     articles: [
       {
@@ -88,5 +88,73 @@ export const contentConnections = [
       },
     ],
     cases: ["projecti"],
+  },
+  {
+    service: {
+      href: "/services/seo-tecnico",
+      label: "SEO Técnico para Sites",
+    },
+    articles: [
+      {
+        href: "/blog/importancia-de-um-site-rapido-para-seo",
+        label: "Velocidade, rastreamento e SEO técnico",
+      },
+      {
+        href: "/blog/migrando-do-wordpress-para-react",
+        label: "Planejamento técnico de uma migração de site",
+      },
+    ],
+    cases: ["zion-tecnologia"],
+  },
+  {
+    service: {
+      href: "/services/inteligencia-artificial",
+      label: "Inteligência Artificial para Empresas",
+    },
+    articles: [
+      {
+        href: "/blog/como-a-ia-esta-mudando-o-desenvolvimento-web",
+        label: "Inteligência artificial em produtos digitais",
+      },
+    ],
+    cases: ["duimpweb"],
+  },
+  {
+    service: {
+      href: "/services/lojas-virtuais",
+      label: "Desenvolvimento de Lojas Virtuais",
+    },
+    articles: [],
+    cases: [],
+  },
+  {
+    service: {
+      href: "/services/acessibilidade-digital",
+      label: "Acessibilidade Digital para Sites",
+    },
+    articles: [
+      {
+        href: "/blog/o-guia-definitivo-de-acessibilidade-web",
+        label: "Acessibilidade digital e critérios WCAG",
+      },
+    ],
+    cases: [],
+  },
+  {
+    service: {
+      href: "/services/consultoria-tech",
+      label: "Consultoria Tech e Arquitetura de Software",
+    },
+    articles: [
+      {
+        href: "/blog/sistemas-customizados-vs-prontos",
+        label: "Como avaliar sistemas sob medida e soluções prontas",
+      },
+      {
+        href: "/blog/migrando-do-wordpress-para-react",
+        label: "Como planejar uma mudança de arquitetura web",
+      },
+    ],
+    cases: [],
   },
 ];
