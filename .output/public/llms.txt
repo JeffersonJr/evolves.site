@@ -1,0 +1,53 @@
+# Evolves Tecnologia
+
+> Desenvolvimento de sites e sistemas, consultoria UX/UI, hospedagem e branding para empresas.
+
+Site oficial: https://www.evolves.site. Conteúdo em português do Brasil. Propostas e condições comerciais devem ser consultadas na página de contato. Os cases descrevem projetos individuais; seus resultados não são garantias para outros projetos.
+
+## Institucional
+
+- [Criação de Sites, Sistemas e Soluções Digitais | Evolves](https://www.evolves.site/): A Evolves cria sites profissionais, sistemas customizados e produtos digitais para empresas, com desenvolvimento web, UX/UI, SEO técnico, hospedagem cloud e branding B2B.
+- [Sobre a Evolves | Tecnologia e Design para Empresas](https://www.evolves.site/about): Conheça a Evolves Tecnologia e nossa abordagem de desenvolvimento web, inteligência artificial e design para negócios digitais.
+- [Sites, Sistemas, SEO e Design Digital | Serviços Evolves](https://www.evolves.site/services): Conheça os serviços da Evolves para empresas: criação de sites, sistemas customizados, SEO técnico, hospedagem cloud, UX/UI, inteligência artificial e branding B2B.
+- [Cases de Sites, Sistemas e Branding | Evolves](https://www.evolves.site/cases): Explore os projetos da Evolves para Zion Tecnologia, DuimpWeb e ProjecTi: desafios, soluções, tecnologias e resultados apresentados em cada case.
+- [Blog de Tecnologia, SEO e Design | Evolves](https://www.evolves.site/blog): Artigos sobre desenvolvimento web, SEO, inteligência artificial, UX/UI, hospedagem e branding para ajudar sua empresa a planejar projetos digitais.
+- [Contato e Propostas para Projetos Digitais | Evolves](https://www.evolves.site/contact): Converse com a Evolves sobre seu projeto de site, sistema, hospedagem ou branding. Conte suas necessidades e solicite uma proposta.
+
+## Serviços
+
+- [Consultoria UX/UI e Design de Produto](https://www.evolves.site/services/consultoria-ux-ui): A consultoria UX/UI da Evolves ajuda empresas a entender onde sites e sistemas criam atrito para seus usuários. Analisamos fluxos, conteúdo e interface, e então propomos melhorias sustentadas por pesquisa, avaliação de usabilidade e protótipos. O escopo é definido conforme o produto e os dados disponíveis.
+- [Criação de Sites Profissionais](https://www.evolves.site/services/sites-inteligentes): A Evolves planeja e desenvolve sites profissionais para empresas que precisam apresentar seus serviços, explicar soluções complexas e facilitar o contato comercial. O projeto combina arquitetura de informação, conteúdo, design responsivo e desenvolvimento web. A tecnologia e as integrações são escolhidas conforme os objetivos e a operação de cada negócio.
+- [Sistemas Customizados para Empresas](https://www.evolves.site/services/sistemas-customizados): Desenvolvemos sistemas sob medida para empresas cujos processos não são atendidos por ferramentas prontas. O trabalho começa pelo mapeamento das regras de negócio e dos usuários; depois definimos fluxos, dados, integrações e uma arquitetura que possa ser mantida e evoluída. O escopo pode incluir portais, dashboards, APIs e automações.
+- [Hospedagem Cloud e Performance](https://www.evolves.site/services/hospedagem-performance): A Evolves planeja e configura hospedagem cloud para sites e sistemas considerando tráfego, dependências, armazenamento, disponibilidade e orçamento. A escolha da infraestrutura, as rotinas de backup, os controles de segurança e o monitoramento precisam refletir os requisitos reais da aplicação; recursos e níveis de serviço são definidos no escopo contratado.
+- [Branding B2B e Identidade Visual](https://www.evolves.site/services/branding-design): O branding B2B organiza como uma empresa se posiciona e se apresenta a clientes, parceiros e equipes. A Evolves trabalha estratégia e identidade visual para traduzir atributos e diferenciais em uma linguagem consistente, que pode ser aplicada no site, em apresentações e nos demais pontos de contato da marca.
+- [SEO Técnico para Sites](https://www.evolves.site/services/seo-tecnico): SEO técnico é a base que ajuda mecanismos de busca a acessar e compreender um site. A Evolves revisa rastreamento, indexação, arquitetura de URLs, links internos, metadados, renderização e dados estruturados. O diagnóstico prioriza correções por impacto e esforço; conteúdo útil e autoridade seguem essenciais para competir por posições orgânicas.
+- [Inteligência Artificial para Empresas](https://www.evolves.site/services/inteligencia-artificial): A Evolves ajuda empresas a avaliar onde inteligência artificial pode apoiar produtos e processos. O trabalho começa com um caso de uso delimitado e considera dados disponíveis, integrações, privacidade, custos e revisão humana. A implementação pode conectar serviços de IA a sistemas, portais ou fluxos existentes, com critérios de qualidade definidos para cada projeto.
+- [Desenvolvimento de Lojas Virtuais](https://www.evolves.site/services/lojas-virtuais): A criação de uma loja virtual envolve mais que as páginas de produto: catálogo, estoque, pagamento, frete, atendimento e gestão precisam funcionar juntos. A Evolves planeja e desenvolve experiências de e-commerce conforme o modelo de venda, os sistemas existentes e as necessidades da equipe, avaliando se uma plataforma pronta ou uma solução customizada é mais adequada.
+- [Acessibilidade Digital para Sites](https://www.evolves.site/services/acessibilidade-digital): A acessibilidade digital busca reduzir barreiras para pessoas com diferentes capacidades e formas de interação. A Evolves avalia sites e sistemas com verificações de estrutura semântica, foco e teclado, contraste, formulários e conteúdo. Os achados são priorizados e transformados em recomendações ou correções conforme o escopo. Uma auditoria não substitui avaliação jurídica de conformidade.
+- [Consultoria Tech e Arquitetura de Software](https://www.evolves.site/services/consultoria-tech): A consultoria tech da Evolves ajuda equipes a tomar decisões sobre software, arquitetura e integrações com base no contexto do negócio. O trabalho pode revisar uma aplicação existente, comparar caminhos de migração, esclarecer requisitos e organizar um roadmap. A recomendação considera capacidade da equipe, riscos, manutenção e restrições técnicas já identificadas.
+
+## Cases
+
+- [Hidrolinfa Detox Portugal](https://www.evolves.site/cases/hidrolinfa-portugal): Plataforma de alta conversão e presença europeia para tratamentos estéticos e equipamentos terapêuticos.
+- [Zion Tecnologia](https://www.evolves.site/cases/zion-tecnologia): Uma plataforma moderna para líderes em sistemas de importação.
+- [DuimpWeb](https://www.evolves.site/cases/duimpweb): Portal de conhecimento e suporte essencial para os clientes do sistema Zion.
+- [ProjecTi](https://www.evolves.site/cases/projecti): Referência em soluções digitais e inteligência aplicada.
+
+## Artigos
+
+- [Velocidade de Site, Core Web Vitals e SEO: Como Avaliar](https://www.evolves.site/blog/importancia-de-um-site-rapido-para-seo): Saiba como medir LCP, INP e CLS, separar dados reais de testes de laboratório e priorizar melhorias de desempenho sem promessas de posição no Google.
+- [Sistemas Customizados vs Sistemas Prontos: Qual o melhor para sua empresa?](https://www.evolves.site/blog/sistemas-customizados-vs-prontos): Entenda as vantagens e desvantagens de investir em um software sob medida em comparação a soluções de prateleira.
+- [Como Avaliar Inteligência Artificial em Produtos Digitais](https://www.evolves.site/blog/como-a-ia-esta-mudando-o-desenvolvimento-web): Veja onde IA pode apoiar produtos digitais, como delimitar um caso de uso e quais cuidados considerar com dados, qualidade, custos e revisão humana.
+- [Acessibilidade Digital: Como Avaliar um Site com a WCAG 2.2](https://www.evolves.site/blog/o-guia-definitivo-de-acessibilidade-web): Conheça critérios da WCAG 2.2 e um roteiro inicial para avaliar semântica, teclado, foco, formulários e conteúdo em sites e sistemas.
+- [Design UI/UX: Princípios para Interfaces Digitais Claras](https://www.evolves.site/blog/tendencias-de-ui-ux-para-2024): Princípios práticos de hierarquia, consistência, acessibilidade e feedback para planejar interfaces que ajudem as pessoas a concluir tarefas.
+- [Migrando do WordPress para um site em React (Next.js/Vite)](https://www.evolves.site/blog/migrando-do-wordpress-para-react): Descubra por que tantas empresas estão abandonando temas tradicionais e apostando no modelo Headless CMS.
+- [LGPD para Sites Institucionais: O Guia Prático](https://www.evolves.site/blog/lgpd-o-que-voce-precisa-saber): Sua página coleta dados? Veja os passos básicos para garantir a adequação à Lei Geral de Proteção de Dados.
+- [Hospedagem Cloud: Como Comparar Arquitetura e Requisitos](https://www.evolves.site/blog/o-que-e-hospedagem-cloud): Entenda o que avaliar ao escolher hospedagem cloud: carga da aplicação, disponibilidade, backup, monitoramento, segurança e custo operacional.
+- [Como otimizar seu site para aumentar a conversão B2B](https://www.evolves.site/blog/estrategias-de-conversao-b2b): Técnicas validadas de Copywriting e Design para transformar visitantes corporativos em leads qualificados.
+- [O impacto do Branding no valor percebido do seu Software](https://www.evolves.site/blog/impacto-do-branding-na-percepcao-de-valor): Por que uma interface bem polida e uma identidade forte permitem que você cobre mais pelos seus serviços.
+
+## Optional
+
+- [Política de Privacidade](https://www.evolves.site/privacy)
+- [Política de Cookies](https://www.evolves.site/cookies)
+- [Sitemap XML](https://www.evolves.site/sitemap.xml)

@@ -1,0 +1,1 @@
+import{o as e}from"./useStore-DAs5vFz2.js";import{t}from"./BlogIndex-P6F4OLIP.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as component};
