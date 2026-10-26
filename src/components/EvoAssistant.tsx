@@ -1,22 +1,6 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { ArrowRight, Check, MessageCircle, X } from "lucide-react";
-
-const services = [
-  "Sites Inteligentes",
-  "Sistemas Customizados",
-  "Consultoria UX/UI",
-  "Hospedagem & Performance",
-  "Branding & Design",
-  "Outro",
-];
-
-const otherOptions = [
-  "SEO e crescimento digital",
-  "Integrações e automações",
-  "Estratégia e consultoria digital",
-  "Ainda estou definindo o que preciso",
-  "Tenho outra ideia",
-];
+import { useI18n } from "@/contexts/I18nContext";
 
 type Message = { from: "evo" | "visitor"; text: string };
 type Stage = "services" | "other" | "other-details" | "name" | "channels";
@@ -62,12 +46,13 @@ function EvoAvatar({ small = false }: { small?: boolean }) {
 }
 
 export function EvoAssistant() {
+  const { t, language } = useI18n();
   const [open, setOpen] = useState(false);
   const [stage, setStage] = useState<Stage>("services");
   const [messages, setMessages] = useState<Message[]>([
     {
       from: "evo",
-      text: "Olá, meu nome é Evo, agente da Evolves. O que você busca para o seu negócio?",
+      text: t.assistant.initialGreeting,
     },
   ]);
   const [interest, setInterest] = useState("");
@@ -76,6 +61,18 @@ export function EvoAssistant() {
   const [name, setName] = useState("");
   const [nameDraft, setNameDraft] = useState("");
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // When language changes and conversation is at the start, refresh initial greeting
+  useEffect(() => {
+    if (stage === "services" && messages.length <= 1) {
+      setMessages([
+        {
+          from: "evo",
+          text: t.assistant.initialGreeting,
+        },
+      ]);
+    }
+  }, [language, t.assistant.initialGreeting, stage, messages.length]);
 
   useEffect(() => {
     if (open) messagesEndRef.current?.scrollIntoView({ block: "end" });
@@ -88,12 +85,13 @@ export function EvoAssistant() {
   function chooseService(service: string) {
     setInterest(service);
     answer(service);
-    if (service === "Outro") {
+    const lastServiceIndex = t.assistant.services.length - 1;
+    if (service === t.assistant.services[lastServiceIndex]) {
       setMessages((current) => [
         ...current,
         {
           from: "evo",
-          text: "Tudo bem. Qual dessas opções chega mais perto do que você precisa?",
+          text: t.assistant.whichClosest,
         },
       ]);
       setStage("other");
@@ -101,19 +99,20 @@ export function EvoAssistant() {
     }
     setMessages((current) => [
       ...current,
-      { from: "evo", text: "Legal. Como posso chamar você?" },
+      { from: "evo", text: t.assistant.howToCallYou },
     ]);
     setStage("name");
   }
 
   function chooseOther(option: string) {
     answer(option);
-    if (option === "Tenho outra ideia") {
+    const lastOptionIndex = t.assistant.otherOptions.length - 1;
+    if (option === t.assistant.otherOptions[lastOptionIndex]) {
       setMessages((current) => [
         ...current,
         {
           from: "evo",
-          text: "Conte em poucas palavras o que você tem em mente.",
+          text: t.assistant.tellInFewWords,
         },
       ]);
       setStage("other-details");
@@ -122,7 +121,7 @@ export function EvoAssistant() {
     setOtherDetail(option);
     setMessages((current) => [
       ...current,
-      { from: "evo", text: "Entendi. Como posso chamar você?" },
+      { from: "evo", text: t.assistant.howToCallYou },
     ]);
     setStage("name");
   }
@@ -135,7 +134,7 @@ export function EvoAssistant() {
     answer(detail);
     setMessages((current) => [
       ...current,
-      { from: "evo", text: "Obrigado por explicar. Como posso chamar você?" },
+      { from: "evo", text: t.assistant.thanksExplaining },
     ]);
     setStage("name");
   }
@@ -150,33 +149,33 @@ export function EvoAssistant() {
       ...current,
       {
         from: "evo",
-        text: `Prazer, ${firstName}! Quer continuar pelo WhatsApp ou preencher o formulário?`,
+        text: `${t.assistant.pleasedMeeting}, ${firstName}! ${t.assistant.channelsPrompt}`,
       },
     ]);
     setStage("channels");
   }
 
-  const fullInterest = otherDetail ? `Outro — ${otherDetail}` : interest;
+  const fullInterest = otherDetail ? `${interest} — ${otherDetail}` : interest;
   const whatsappMessage = [
-    "Olá! Vim pelo site da Evolves e conversei com a Evo.",
+    t.assistant.whatsappIntro,
     "",
-    `Meu nome é ${name}.`,
-    `Tenho interesse em: ${fullInterest}.`,
+    `Nome: ${name}`,
+    `Interesse / Scope: ${fullInterest}`,
+    `Idioma: ${language}`,
   ].join("\n");
   const whatsappUrl = `https://wa.me/5513981326869?text=${encodeURIComponent(whatsappMessage)}`;
 
   function openContactForm() {
     const message = [
-      "Olá, vim pelo site da Evolves e conversei com a Evo.",
-      `Tenho interesse em: ${fullInterest}.`,
+      t.assistant.whatsappIntro,
+      `Interesse: ${fullInterest}`,
       "",
-      "Conte aqui um pouco mais sobre o seu projeto.",
     ].join("\n");
     sessionStorage.setItem(
       "evo-contact-prefill",
       JSON.stringify({
         name,
-        subject: interest === "Outro" ? "Outro" : interest,
+        subject: interest,
         message,
       }),
     );
@@ -187,7 +186,7 @@ export function EvoAssistant() {
     setMessages([
       {
         from: "evo",
-        text: "Olá, meu nome é Evo, agente da Evolves. O que você busca para o seu negócio?",
+        text: t.assistant.initialGreeting,
       },
     ]);
     setStage("services");
@@ -202,27 +201,27 @@ export function EvoAssistant() {
     <div className="fixed bottom-5 right-5 z-[150]">
       {open && (
         <section
-          className="absolute bottom-[4.5rem] right-0 flex h-[min(42rem,calc(100dvh-7.5rem))] w-[min(23rem,calc(100vw-2.5rem))] flex-col overflow-hidden rounded-3xl border border-border bg-background shadow-[0_20px_70px_-24px_rgba(15,23,42,.38)]"
-          aria-label="Conversa com Evo, agente da Evolves"
+          className="absolute bottom-[4.5rem] right-0 flex h-[min(42rem,calc(100dvh-7.5rem))] w-[min(24rem,calc(100vw-2.5rem))] flex-col overflow-hidden rounded-3xl border border-border bg-background shadow-[0_20px_70px_-24px_rgba(15,23,42,.38)] backdrop-blur-2xl"
+          aria-label={t.assistant.agentTitle}
         >
-          <header className="flex items-center gap-3 border-b border-border/70 px-4 py-3">
+          <header className="flex items-center gap-3 border-b border-border/70 px-4 py-3 bg-surface/50">
             <EvoAvatar small />
             <div className="min-w-0 flex-1">
-              <p className="text-sm font-semibold">Evo</p>
-              <p className="text-xs text-muted-foreground">Agente da Evolves</p>
+              <p className="text-sm font-semibold">{t.assistant.agentTitle}</p>
+              <p className="text-xs text-muted-foreground">{t.assistant.agentSub}</p>
             </div>
             <button
               type="button"
               onClick={restart}
-              className="rounded-full px-2 py-1 text-xs text-muted-foreground transition hover:text-foreground"
+              className="rounded-full px-2.5 py-1 text-xs text-muted-foreground transition hover:bg-secondary hover:text-foreground cursor-pointer"
             >
-              Reiniciar
+              {t.assistant.restart}
             </button>
             <button
               type="button"
               onClick={() => setOpen(false)}
-              aria-label="Fechar conversa"
-              className="flex h-8 w-8 items-center justify-center rounded-full text-muted-foreground transition hover:bg-secondary hover:text-foreground"
+              aria-label={t.assistant.close}
+              className="flex h-8 w-8 items-center justify-center rounded-full text-muted-foreground transition hover:bg-secondary hover:text-foreground cursor-pointer"
             >
               <X className="h-4 w-4" />
             </button>
@@ -240,10 +239,10 @@ export function EvoAssistant() {
               >
                 {message.from === "evo" && <EvoAvatar small />}
                 <p
-                  className={`max-w-[84%] whitespace-pre-line rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${
+                  className={`max-w-[85%] whitespace-pre-line rounded-2xl px-3.5 py-2.5 text-xs sm:text-sm leading-relaxed ${
                     message.from === "evo"
-                      ? "rounded-bl-md bg-[#f3f4f6] text-foreground dark:bg-secondary"
-                      : "rounded-br-md bg-primary text-primary-foreground"
+                      ? "rounded-bl-md bg-secondary text-foreground"
+                      : "rounded-br-md bg-primary text-primary-foreground font-medium"
                   }`}
                 >
                   {message.text}
@@ -252,118 +251,115 @@ export function EvoAssistant() {
             ))}
 
             {stage === "services" && (
-              <div className="ml-10 flex flex-wrap gap-2 pt-1">
-                {services.map((service) => (
+              <div className="space-y-1.5 pt-2">
+                {t.assistant.services.map((service) => (
                   <button
-                    type="button"
                     key={service}
+                    type="button"
                     onClick={() => chooseService(service)}
-                    className="rounded-full border border-border bg-background px-3 py-2 text-left text-xs font-medium transition hover:border-primary/50 hover:text-primary"
+                    className="flex w-full items-center justify-between rounded-xl border border-border bg-card px-3.5 py-2.5 text-left text-xs font-medium text-foreground transition hover:border-primary/50 hover:bg-secondary/60 cursor-pointer"
                   >
-                    {service}
+                    <span>{service}</span>
+                    <ArrowRight className="h-3.5 w-3.5 text-muted-foreground" />
                   </button>
                 ))}
               </div>
             )}
 
             {stage === "other" && (
-              <div className="ml-10 flex flex-col gap-2 pt-1">
-                {otherOptions.map((option) => (
+              <div className="space-y-1.5 pt-2">
+                {t.assistant.otherOptions.map((opt) => (
                   <button
+                    key={opt}
                     type="button"
-                    key={option}
-                    onClick={() => chooseOther(option)}
-                    className="rounded-xl border border-border bg-background px-3 py-2.5 text-left text-xs transition hover:border-primary/50 hover:text-primary"
+                    onClick={() => chooseOther(opt)}
+                    className="flex w-full items-center justify-between rounded-xl border border-border bg-card px-3.5 py-2.5 text-left text-xs font-medium text-foreground transition hover:border-primary/50 hover:bg-secondary/60 cursor-pointer"
                   >
-                    {option}
+                    <span>{opt}</span>
+                    <ArrowRight className="h-3.5 w-3.5 text-muted-foreground" />
                   </button>
                 ))}
               </div>
             )}
 
             {stage === "other-details" && (
-              <form onSubmit={submitCustomDetail} className="ml-10 flex gap-2">
-                <input
-                  autoFocus
-                  value={customDetail}
-                  maxLength={180}
-                  onChange={(event) => setCustomDetail(event.target.value)}
-                  placeholder="O que você precisa?"
-                  className="min-w-0 flex-1 rounded-full border border-border bg-background px-3 py-2 text-sm outline-none focus:border-primary"
-                  aria-label="Descreva sua necessidade"
-                />
-                <button
-                  type="submit"
-                  aria-label="Enviar necessidade"
-                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground"
-                >
-                  <ArrowRight className="h-4 w-4" />
-                </button>
+              <form onSubmit={submitCustomDetail} className="pt-2">
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    value={customDetail}
+                    onChange={(e) => setCustomDetail(e.target.value)}
+                    placeholder={t.assistant.placeholder}
+                    className="flex-1 rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground focus:border-primary focus:outline-none"
+                    autoFocus
+                  />
+                  <button
+                    type="submit"
+                    className="rounded-xl bg-primary px-3 py-2 text-xs font-medium text-primary-foreground hover:brightness-105 cursor-pointer"
+                  >
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </button>
+                </div>
               </form>
             )}
 
             {stage === "name" && (
-              <form onSubmit={submitName} className="ml-10 flex gap-2">
-                <input
-                  autoFocus
-                  value={nameDraft}
-                  maxLength={80}
-                  onChange={(event) => setNameDraft(event.target.value)}
-                  placeholder="Seu primeiro nome"
-                  autoComplete="given-name"
-                  className="min-w-0 flex-1 rounded-full border border-border bg-background px-3 py-2 text-sm outline-none focus:border-primary"
-                  aria-label="Seu primeiro nome"
-                />
-                <button
-                  type="submit"
-                  aria-label="Continuar"
-                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground"
-                >
-                  <Check className="h-4 w-4" />
-                </button>
+              <form onSubmit={submitName} className="pt-2">
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    value={nameDraft}
+                    onChange={(e) => setNameDraft(e.target.value)}
+                    placeholder={t.contact.nameLabel}
+                    className="flex-1 rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground focus:border-primary focus:outline-none"
+                    autoFocus
+                  />
+                  <button
+                    type="submit"
+                    className="rounded-xl bg-primary px-3 py-2 text-xs font-medium text-primary-foreground hover:brightness-105 cursor-pointer"
+                  >
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </button>
+                </div>
               </form>
             )}
 
             {stage === "channels" && (
-              <div className="ml-10 grid gap-2 pt-1">
+              <div className="space-y-2 pt-2">
                 <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-4 py-3 text-sm font-medium text-primary-foreground transition hover:brightness-105"
+                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 py-2.5 text-xs font-medium text-white transition hover:brightness-105 shadow-xs"
                 >
                   <MessageCircle className="h-4 w-4" />
-                  Continuar pelo WhatsApp
+                  <span>{t.assistant.continueWhatsapp}</span>
                 </a>
                 <button
                   type="button"
                   onClick={openContactForm}
-                  className="rounded-full border border-border bg-background px-4 py-3 text-sm font-medium transition hover:bg-secondary"
+                  className="flex w-full items-center justify-center gap-2 rounded-xl border border-border bg-card px-4 py-2.5 text-xs font-medium text-foreground transition hover:bg-secondary cursor-pointer"
                 >
-                  Preencher formulário
+                  <span>{t.assistant.fillForm}</span>
                 </button>
               </div>
             )}
+
             <div ref={messagesEndRef} />
           </div>
-          <p className="border-t border-border/70 px-4 py-2.5 text-center text-[11px] text-muted-foreground">
-            Suas respostas só são usadas para preparar seu contato com a
-            Evolves.
-          </p>
         </section>
       )}
 
+      {/* Floating launcher button */}
       <button
         type="button"
-        onClick={() => setOpen((value) => !value)}
-        aria-label={open ? "Fechar conversa com Evo" : "Conversar com Evo"}
+        onClick={() => setOpen((prev) => !prev)}
+        aria-label={t.assistant.agentTitle}
         aria-expanded={open}
-        className="relative flex h-14 w-14 items-center justify-center rounded-full border border-white/60 bg-white shadow-[0_8px_28px_-12px_rgba(15,23,42,.45)] transition-transform hover:scale-105 dark:border-border dark:bg-card"
+        className="relative flex h-14 w-14 items-center justify-center rounded-full border border-white/60 bg-white shadow-[0_8px_28px_-12px_rgba(15,23,42,.45)] transition-transform hover:scale-105 dark:border-border dark:bg-card cursor-pointer"
       >
-        {open ? <X className="h-5 w-5" /> : <EvoAvatar />}
-        {!open && (
-          <span className="absolute -right-0.5 -top-0.5 h-3.5 w-3.5 rounded-full border-2 border-background bg-emerald-500" />
-        )}
+        <EvoAvatar />
+        <span className="absolute -right-0.5 -top-0.5 h-3.5 w-3.5 rounded-full border-2 border-background bg-emerald-500"></span>
       </button>
     </div>
   );

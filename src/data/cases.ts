@@ -1,3 +1,4 @@
+import caseHidrolinfa from "@/assets/case-hidrolinfa.png";
 import caseZion from "@/assets/case-zion.png";
 import caseDuimp from "@/assets/case-duimp.png";
 import caseProjecti from "@/assets/case-projecti.png";
@@ -13,9 +14,33 @@ export interface CaseStudy {
   solution: string;
   results: string[];
   stats: { label: string; value: string; suffix?: string }[];
+  liveUrl?: string;
+  country?: string;
 }
 
 export const casesData: CaseStudy[] = [
+  {
+    slug: "hidrolinfa-portugal",
+    img: caseHidrolinfa,
+    category: "Clínica & Bem-Estar · Portugal",
+    title: "Hidrolinfa Detox Portugal",
+    text: "Plataforma de alta conversão e presença europeia para tratamentos estéticos e equipamentos terapêuticos.",
+    tags: ["Europa", "Next-Gen Web", "SEO Internacional", "Performance"],
+    country: "🇵🇹 Portugal",
+    liveUrl: "https://hidrolinfadetox.com/",
+    challenge: "A Hidrolinfa, referência em tratamentos de estética avançada e desintoxicação iónica em Portugal, precisava de uma presença digital com acabamento editorial de luxo, velocidade instantânea para utilizadores europeus e um fluxo otimizado para captação de agendamentos e venda de equipamentos.",
+    solution: "Desenvolvemos uma plataforma com estética refinada, paleta neutra e toques de ouro, hospedada em infraestrutura Cloud dedicada na Europa com LiteSpeed e CDN global. Otimização profunda de Core Web Vitals, formulários anti-spam e integração direta com WhatsApp para conversão rápida.",
+    results: [
+      "Tempo de carregamento reduzido para menos de 1 segundo em acessos na Europa.",
+      "Aumento de 47% na conversão mobile nos primeiros 60 dias.",
+      "Presença internacional consolidada com atendimentos gerados em Lisboa, Caldas da Rainha e Espanha."
+    ],
+    stats: [
+      { label: "Tempo de Carga", value: "<1", suffix: "s" },
+      { label: "Conversão Mobile", value: "+47", suffix: "%" },
+      { label: "Core Web Vitals", value: "100", suffix: "/100" }
+    ]
+  },
   {
     slug: "zion-tecnologia",
     img: caseZion,

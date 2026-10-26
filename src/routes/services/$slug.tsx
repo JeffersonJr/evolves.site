@@ -11,7 +11,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { servicesData } from "@/data/services";
 import { casesData } from "@/data/cases";
-import { ArrowLeft, CheckCircle2, ChevronRight } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
@@ -71,179 +71,114 @@ function ServicePage() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Navbar />
-      <main className="flex-1 mx-auto max-w-5xl px-6 py-32 sm:py-40">
+      <main className="flex-1 mx-auto max-w-5xl px-6 py-28 sm:py-36">
         <Link
           to="/services"
-          className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors mb-12"
+          className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-muted-foreground hover:text-foreground transition-colors mb-10"
         >
-          <ArrowLeft className="h-4 w-4" />
-          Todos os Serviços
+          <ArrowLeft className="h-3.5 w-3.5" />
+          <span>Todos os Serviços</span>
         </Link>
 
         <article>
           {/* Header */}
-          <div className="mb-20 grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[#f5f5f7] text-primary dark:bg-surface">
-                <Icon className="h-8 w-8" strokeWidth={1.5} />
+          <div className="mb-16 grid md:grid-cols-12 gap-8 items-start">
+            <div className="md:col-span-7">
+              <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary">
+                <Icon className="h-6 w-6" strokeWidth={1.75} />
               </div>
-              <h1 className="mb-6 text-4xl font-semibold tracking-tight sm:text-6xl">
+              <h1 className="text-balance text-3xl font-semibold tracking-tight sm:text-5xl text-foreground">
                 {service.title}
               </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
+              <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
                 {service.description}
               </p>
             </div>
-            <div className="rounded-4xl bg-[#f5f5f7] p-8 dark:bg-surface sm:p-10">
-              <h3 className="mb-6 flex items-center gap-2 text-xl font-semibold">
-                <CheckCircle2 className="h-5 w-5 text-primary" />
-                Principais Entregáveis
+
+            <div className="md:col-span-5 rounded-3xl border border-border bg-card p-6 sm:p-8 shadow-xs">
+              <h3 className="mb-4 flex items-center gap-2 text-sm font-semibold tracking-tight text-foreground font-mono uppercase">
+                <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+                <span>Principais Entregáveis</span>
               </h3>
-              <ul className="space-y-4">
+              <ul className="space-y-3">
                 {service.features.map((feature, idx) => (
                   <li
                     key={idx}
-                    className="flex items-center gap-3 text-muted-foreground"
+                    className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground/90"
                   >
-                    <div className="h-2 w-2 rounded-full bg-primary" />
-                    <span className="font-medium">{feature}</span>
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
+                    <span>{feature}</span>
                   </li>
                 ))}
               </ul>
             </div>
           </div>
 
-          <div className="h-px w-full bg-border mb-20" />
+          <div className="h-px w-full bg-border/60 mb-16" />
 
           {/* Por que Escolher */}
-          <div className="mb-20">
-            <h2 className="text-3xl font-bold mb-10 text-center">
-              Por que escolher a Evolves?
+          <div className="mb-16">
+            <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-foreground mb-8 text-center">
+              Diferenciais de Engenharia
             </h2>
-            <div className="grid sm:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-3 gap-5">
               {service.whyChooseUs.map((reason, idx) => (
                 <div
                   key={idx}
-                  className="rounded-3xl bg-[#f5f5f7] p-8 dark:bg-surface"
+                  className="rounded-3xl border border-border bg-card p-6 shadow-xs"
                 >
-                  <div className="text-5xl font-black text-primary/10 mb-4">
+                  <span className="font-mono text-2xl font-bold text-foreground/25 mb-3 block">
                     0{idx + 1}
-                  </div>
-                  <p className="text-muted-foreground font-medium">{reason}</p>
+                  </span>
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{reason}</p>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Processo */}
-          <div className="mb-32">
-            <h2 className="text-3xl font-bold mb-12 text-center">
-              Nosso Processo
-            </h2>
-            {service.phases ? (
-              <div className="relative border-l-2 border-primary/20 ml-4 sm:ml-6 space-y-14 pb-4">
+          {service.phases && (
+            <div className="mb-20">
+              <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-foreground mb-10 text-center">
+                Fases de Execução
+              </h2>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {service.phases.map((phase, pIdx) => (
-                  <div key={pIdx} className="relative pl-8 sm:pl-12">
-                    {/* Glowing Dot */}
-                    <div className="absolute -left-[11px] top-1.5 bg-background p-1.5 rounded-full">
-                      <div className="w-3 h-3 bg-primary rounded-full shadow-[0_0_12px_rgba(var(--primary),0.8)]" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-foreground mb-6">
+                  <div key={pIdx} className="rounded-2xl border border-border bg-surface/50 p-5">
+                    <span className="text-[10px] font-mono uppercase text-primary tracking-wider">
+                      Fase 0{pIdx + 1}
+                    </span>
+                    <h3 className="mt-2 text-sm font-semibold text-foreground">
                       {phase.name}
                     </h3>
-
-                    <div className="grid gap-4 sm:grid-cols-2">
-                      {phase.steps.map((step) => (
-                        <div
-                          key={step.id}
-                          className="rounded-2xl bg-[#f5f5f7] p-6 transition-colors hover:bg-[#efeff2] dark:bg-surface dark:hover:bg-secondary/70"
-                        >
-                          <div className="flex items-center gap-3 mb-3">
-                            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary font-bold text-sm shrink-0">
-                              {step.id}
-                            </span>
-                            <h4 className="font-bold text-lg leading-tight">
-                              {step.title}
-                            </h4>
-                          </div>
-                          <p className="text-sm text-muted-foreground">
-                            {step.detail}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
+                    <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
+                      {phase.description}
+                    </p>
                   </div>
                 ))}
               </div>
-            ) : (
-              <div className="space-y-6">
-                {service.process.map((step, idx) => (
-                  <div
-                    key={idx}
-                    className="flex flex-col gap-4 rounded-3xl bg-[#f5f5f7] p-6 transition-colors hover:bg-[#efeff2] dark:bg-surface dark:hover:bg-secondary/70 sm:flex-row sm:items-center sm:gap-8 sm:p-8"
-                  >
-                    <div className="flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 text-primary font-bold shrink-0">
-                      {idx + 1}
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="text-xl font-bold mb-1">{step.step}</h4>
-                      <p className="text-muted-foreground">{step.detail}</p>
-                    </div>
-                    <ChevronRight className="h-6 w-6 text-muted-foreground hidden sm:block opacity-30" />
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-
-          <section className="mb-24" aria-labelledby="service-faq-title">
-            <h2
-              id="service-faq-title"
-              className="mb-8 text-3xl font-semibold tracking-tight"
-            >
-              Perguntas frequentes sobre {service.title}
-            </h2>
-            <div className="divide-y divide-border border-y border-border">
-              {service.faq.map((item) => (
-                <details key={item.question} className="group py-5">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-lg font-medium marker:content-none">
-                    <span>{item.question}</span>
-                    <span
-                      className="text-muted-foreground transition-transform group-open:rotate-45"
-                      aria-hidden="true"
-                    >
-                      +
-                    </span>
-                  </summary>
-                  <p className="mt-4 max-w-3xl leading-relaxed text-muted-foreground">
-                    {item.answer}
-                  </p>
-                </details>
-              ))}
             </div>
-          </section>
+          )}
 
           {/* CTA Box */}
-          <div className="relative overflow-hidden rounded-4xl bg-[#f5f5f7] p-10 text-center text-foreground dark:bg-surface sm:p-16">
-            <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/3 w-96 h-96 bg-white/10 blur-3xl rounded-full" />
-            <div className="relative z-10">
-              <h3 className="text-3xl sm:text-4xl font-bold mb-6">
-                Pronto para dar o próximo passo?
-              </h3>
-              <p className="text-muted-foreground text-lg mb-10 max-w-xl mx-auto">
-                Inicie uma conversa sem compromisso. Avaliaremos seu projeto e
-                indicaremos o caminho mais rápido para o ROI.
-              </p>
-              <Link
-                to="/contact"
-                className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-7 text-sm font-medium text-primary-foreground transition hover:brightness-105"
-              >
-                Solicitar Proposta
-              </Link>
-            </div>
+          <div className="relative mt-20 overflow-hidden rounded-3xl border border-border bg-card p-8 sm:p-12 text-center shadow-[var(--shadow-card)]">
+            <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight text-foreground mb-3">
+              Pronto para implementar essa solução?
+            </h3>
+            <p className="text-muted-foreground text-sm max-w-lg mx-auto mb-8 leading-relaxed">
+              Vamos conversar sobre o seu projeto e estruturar uma proposta com prazos ágeis e preço fixo.
+            </p>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-xs sm:text-sm font-medium text-background transition hover:opacity-90 shadow-xs"
+            >
+              <span>Solicitar Orçamento Técnico</span>
+              <ArrowUpRight className="h-4 w-4" />
+            </Link>
           </div>
+
           <RelatedLinks
-            title="Saiba mais antes de iniciar seu projeto"
+            title="Conheça os serviços relacionados"
             links={relatedLinks}
           />
         </article>

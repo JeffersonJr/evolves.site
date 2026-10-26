@@ -107,16 +107,23 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+import { RegionProvider } from "../contexts/RegionContext";
+import { I18nProvider } from "../contexts/I18nContext";
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
-      <EvoAssistant />
-      <LgpdModal />
-      <ExitIntentModal />
+      <RegionProvider>
+        <I18nProvider>
+          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+          <Outlet />
+          <EvoAssistant />
+          <LgpdModal />
+          <ExitIntentModal />
+        </I18nProvider>
+      </RegionProvider>
     </QueryClientProvider>
   );
 }
