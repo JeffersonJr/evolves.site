@@ -1,4 +1,4 @@
-import { Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight, Code2 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { servicesData } from "@/data/services";
 import { useI18n } from "@/contexts/I18nContext";
@@ -15,23 +15,25 @@ export function Services({
     <section
       id="services"
       aria-labelledby="services-heading"
-      className="border-t border-border/60 bg-surface/30 py-24 sm:py-32"
+      className="relative border-t border-white/[0.08] bg-surface/20 py-24 sm:py-32"
     >
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-mono uppercase tracking-widest text-primary">
-            {t.services.eyebrow}
-          </p>
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-[11px] font-mono tracking-wider text-primary uppercase">
+            <Code2 className="h-3 w-3" />
+            <span>{t.services.eyebrow}</span>
+          </div>
+
           <Heading
             id="services-heading"
-            className="mt-3 text-balance text-3xl font-semibold tracking-tight sm:text-5xl text-foreground"
+            className="mt-4 text-balance text-3xl font-medium tracking-tight sm:text-5xl text-foreground"
           >
             {t.services.title}
           </Heading>
-          <p className="mt-4 text-base text-muted-foreground sm:text-lg">
+          <p className="mt-3 text-base text-muted-foreground sm:text-lg">
             {t.services.description}
           </p>
-          <p className="mx-auto mt-4 text-xs font-mono text-muted-foreground">
+          <p className="mx-auto mt-3 text-xs font-mono text-muted-foreground/80">
             {t.services.differential}
           </p>
         </div>
@@ -42,23 +44,23 @@ export function Services({
               key={s.slug}
               to="/services/$slug"
               params={{ slug: s.slug }}
-              className="group flex flex-col justify-between rounded-3xl border border-border bg-card p-8 sm:p-10 transition-all duration-300 hover:border-primary/40 hover:shadow-[var(--shadow-soft)]"
+              className="group flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-white/[0.02] p-8 sm:p-9 transition-all duration-300 hover:border-white/[0.14] hover:bg-white/[0.04]"
             >
               <div>
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary">
-                  <s.icon className="h-6 w-6" strokeWidth={1.75} />
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.04] text-primary">
+                  <s.icon className="h-5 w-5" strokeWidth={1.5} />
                 </div>
-                <h3 className="mt-6 text-xl sm:text-2xl font-semibold tracking-tight text-foreground group-hover:text-primary transition-colors">
+                <h3 className="mt-6 text-xl font-medium tracking-tight text-foreground group-hover:text-primary transition-colors">
                   {s.title}
                 </h3>
-                <p className="mt-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                <p className="mt-2.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">
                   {s.text}
                 </p>
-                <ul className="mt-6 space-y-2.5 mb-8">
+                <ul className="mt-6 space-y-2 mb-8">
                   {s.features.slice(0, 4).map((f) => (
-                    <li key={f} className="flex items-center gap-2.5 text-xs sm:text-sm text-foreground/90">
-                      <span className="text-emerald-500">
-                        <Check className="h-3.5 w-3.5" strokeWidth={2.5} />
+                    <li key={f} className="flex items-center gap-2.5 text-xs sm:text-sm text-foreground/85">
+                      <span className="text-primary">
+                        <Check className="h-3.5 w-3.5" strokeWidth={2} />
                       </span>
                       <span>{f}</span>
                     </li>
@@ -66,9 +68,9 @@ export function Services({
                 </ul>
               </div>
 
-              <div className="pt-6 border-t border-border/60 flex items-center justify-between text-xs font-medium text-primary">
+              <div className="pt-5 border-t border-white/[0.06] flex items-center justify-between text-xs font-mono text-primary">
                 <span>{t.services.viewDetails}</span>
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
               </div>
             </Link>
           ))}
@@ -82,7 +84,7 @@ export function Services({
                 key={service.slug}
                 to="/services/$slug"
                 params={{ slug: service.slug }}
-                className="underline decoration-border/80 underline-offset-4 transition-colors hover:text-primary"
+                className="underline decoration-white/[0.2] underline-offset-4 transition-colors hover:text-primary"
               >
                 {service.title}
               </Link>

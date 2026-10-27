@@ -2,42 +2,43 @@ import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  // Default is dark — matches the html.dark class set in __root.tsx
+  const [theme, setTheme] = useState<"light" | "dark">("dark");
 
   useEffect(() => {
-    // Check initial state
-    const isDark = document.documentElement.classList.contains("dark");
-    const stored = localStorage.getItem("theme");
-    
-    if (stored === "dark") {
-      setTheme("dark");
-      document.documentElement.classList.add("dark");
-    } else {
+    const stored = localStorage.getItem("evolves_theme");
+    if (stored === "light") {
       setTheme("light");
       document.documentElement.classList.remove("dark");
+    } else {
+      setTheme("dark");
+      document.documentElement.classList.add("dark");
     }
   }, []);
 
   const toggleTheme = () => {
-    if (theme === "light") {
-      setTheme("dark");
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
+    if (theme === "dark") {
       setTheme("light");
       document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
+      localStorage.setItem("evolves_theme", "light");
+    } else {
+      setTheme("dark");
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("evolves_theme", "dark");
     }
   };
 
   return (
     <button
       onClick={toggleTheme}
-      className="flex h-10 w-10 items-center justify-center rounded-full text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors"
-      aria-label="Alternar tema escuro/claro"
-      title="Alternar tema escuro/claro"
+      className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-white/[0.06] hover:text-foreground"
+      aria-label="Toggle dark/light theme"
+      title="Toggle theme"
     >
-      {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+      {theme === "dark"
+        ? <Sun  className="h-4 w-4" aria-hidden="true" />
+        : <Moon className="h-4 w-4" aria-hidden="true" />
+      }
     </button>
   );
 }

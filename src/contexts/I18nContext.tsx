@@ -1518,9 +1518,11 @@ export const I18nProvider: React.FC<{ children: React.ReactNode }> = ({
       // ignore
     }
 
-    // Automatically adapt regional currency context if user hasn't explicitly locked it
+    // Automatically adapt regional currency context based on language selection
     if (newLang === "pt-BR") {
       setRegion("BRL");
+    } else if (newLang === "en") {
+      setRegion("USD");
     } else {
       setRegion("EUR");
     }

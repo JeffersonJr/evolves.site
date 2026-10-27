@@ -4,7 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { MessageSquare } from "lucide-react";
+import { MessageSquare, HelpCircle } from "lucide-react";
 import { useI18n } from "@/contexts/I18nContext";
 
 export function Faq() {
@@ -41,7 +41,7 @@ export function Faq() {
           id: "item-5",
           question: "Is the monthly cloud maintenance plan mandatory?",
           answer:
-            "The managed plan provides high-speed isolated cloud infrastructure, daily automated backups, active SSL certificates, and monthly content updates. If your company prefers hosting on its own internal cloud (AWS, GCP, or Hetzner), we conduct the deployment and hand over full access with no recurring retainers.",
+            "The managed plan provides high-speed isolated cloud infrastructure, daily automated backups, active SSL certificates, and continuous monitoring. If your company prefers hosting on its own internal cloud (AWS, GCP, or Hetzner), we conduct the deployment and hand over full access with no recurring retainers.",
         },
         {
           id: "item-6",
@@ -64,7 +64,7 @@ export function Faq() {
           id: "item-2",
           question: "¿Cuáles son las opciones de facturación y métodos de pago aceptados?",
           answer:
-            "Adaptamos el pago a la jurisdicción de su empresa:\n• Europa e Internacional: Transferencia bancaria SEPA, MB WAY, Wise o tarjeta en Euros (€).\n• Brasil: PIX, transferencia o tarjeta corporativa en hasta 12 cuotas con Factura Electrónica (NFS-e).",
+            "Adaptamos el pago a la jurisdicción de su empresa:\n• Europa e Internacional: Transferencia bancaria SEPA, MB WAY, Wise o tarjeta en Euros (€) o USD ($).\n• Brasil: PIX, transferencia o tarjeta corporativa en hasta 12 cuotas con Factura Electrónica (NFS-e).",
         },
         {
           id: "item-3",
@@ -82,7 +82,7 @@ export function Faq() {
           id: "item-5",
           question: "¿El mantenimiento y hosting mensual es obligatorio?",
           answer:
-            "Incluye infraestructura Cloud dedicada, copias de seguridad diarias, certificados SSL y pequeños cambios de contenido. Si dispone de servidores propios (AWS, Hetzner), realizamos el despliegue inicial sin cuotas recurrentes.",
+            "Incluye infraestructura Cloud dedicada, copias de seguridad diarias, certificados SSL y soporte técnico. Si dispone de servidores propios (AWS, Hetzner), realizamos el despliegue inicial sin cuotas recurrentes.",
         },
         {
           id: "item-6",
@@ -105,7 +105,7 @@ export function Faq() {
         id: "item-2",
         question: "Quais são as opções de faturação e métodos de pagamento aceites?",
         answer:
-          "Adaptamos a faturação e o meio de pagamento à jurisdição da sua empresa:\n• Clientes na Europa: Transferência bancária SEPA, pagamentos via MB WAY, Wise ou faturação eletrónica emitida em Euros (€).\n• Clientes no Brasil: PIX, Boleto bancário ou Cartão de Crédito corporativo em até 12x, com emissão de Nota Fiscal de Serviços eletrónica (NFS-e).",
+          "Adaptamos a faturação e o meio de pagamento à jurisdição da sua empresa:\n• Clientes na Europa e Internacional: Transferência bancária SEPA, pagamentos via MB WAY, Wise ou faturação eletrónica emitida em Euros (€) ou Dólares ($).\n• Clientes no Brasil: PIX, Boleto bancário ou Cartão de Crédito corporativo em até 12x, com emissão de Nota Fiscal de Serviços eletrónica (NFS-e).",
       },
       {
         id: "item-3",
@@ -123,7 +123,7 @@ export function Faq() {
         id: "item-5",
         question: "A manutenção e hospedagem mensal é obrigatória?",
         answer:
-          "A mensalidade inclui a nossa infraestrutura Cloud dedicada (Hostinger Cloud / LiteSpeed / Redis Cache), backups automáticos diários, certificados SSL sempre válidos, proteção contra ataques e um pacote de horas para pequenas alterações de conteúdo. Caso a sua empresa possua equipa interna de TI e prefira hospedar nos seus próprios servidores (AWS, Google Cloud ou Hetzner), realizamos o deploy inicial e encerramos a entrega sem mensalidades recorrentes.",
+          "A mensalidade inclui a nossa infraestrutura Cloud dedicada de alta performance, backups automáticos diários, certificados SSL sempre válidos, proteção contra ataques e suporte contínuo. Caso a sua empresa possua equipa interna de TI e prefira hospedar nos seus próprios servidores (AWS, Google Cloud ou Hetzner), realizamos o deploy inicial e encerramos a entrega sem mensalidades recorrentes.",
       },
       {
         id: "item-6",
@@ -140,30 +140,32 @@ export function Faq() {
     <section
       id="faq"
       aria-labelledby="faq-heading"
-      className="border-t border-border/60 bg-background py-24 sm:py-32"
+      className="relative border-t border-white/[0.08] bg-background py-24 sm:py-32"
     >
       <div className="mx-auto max-w-4xl px-6">
         {/* Section Header */}
         <div className="text-center">
-          <p className="text-xs font-mono uppercase tracking-widest text-primary">
-            {t.faq.eyebrow}
-          </p>
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-[11px] font-mono tracking-wider text-primary uppercase">
+            <HelpCircle className="h-3 w-3" />
+            <span>{t.faq.eyebrow}</span>
+          </div>
+
           <h2
             id="faq-heading"
-            className="mt-3 text-balance text-3xl font-semibold tracking-tight sm:text-5xl text-foreground"
+            className="mt-4 text-balance text-3xl font-medium tracking-tight text-foreground sm:text-5xl"
           >
             {t.faq.title}
           </h2>
-          <p className="mt-4 text-base text-muted-foreground">
+          <p className="mt-3 text-base text-muted-foreground">
             {t.faq.description}
           </p>
         </div>
 
         {/* Accordion Component */}
-        <div className="mt-12 rounded-3xl border border-border bg-card p-6 sm:p-10 shadow-xs">
+        <div className="mt-12 rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 sm:p-8 shadow-xs">
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((f) => (
-              <AccordionItem key={f.id} value={f.id} className="border-border/60 py-2">
+              <AccordionItem key={f.id} value={f.id} className="border-white/[0.06] py-2">
                 <AccordionTrigger className="text-left font-medium text-foreground hover:no-underline hover:text-primary transition-colors text-sm sm:text-base cursor-pointer">
                   {f.question}
                 </AccordionTrigger>
@@ -183,7 +185,7 @@ export function Faq() {
             href="https://wa.me/5513981326869?text=Ol%C3%A1%2C%20tenho%20uma%20d%C3%BAvida%20espec%C3%ADfica%20antes%20de%20iniciar%20meu%20projeto%20com%20a%20Evolves."
             target="_blank"
             rel="noreferrer"
-            className="text-primary font-medium hover:underline"
+            className="text-primary font-mono hover:underline"
           >
             {t.faq.chatWhatsapp}
           </a>

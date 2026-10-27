@@ -1,30 +1,31 @@
 import { useI18n } from "@/contexts/I18nContext";
+import { GitCommit, ArrowRight, Layers } from "lucide-react";
 
 export function Process() {
   const { t } = useI18n();
 
   const steps = [
     {
-      step: "01",
-      title: t.process.s1Title,
+      num: "01",
+      title: t.process.s1Title.replace(/^01\.\s*/, ""),
       description: t.process.s1Desc,
       tag: t.process.s1Tag,
     },
     {
-      step: "02",
-      title: t.process.s2Title,
+      num: "02",
+      title: t.process.s2Title.replace(/^02\.\s*/, ""),
       description: t.process.s2Desc,
       tag: t.process.s2Tag,
     },
     {
-      step: "03",
-      title: t.process.s3Title,
+      num: "03",
+      title: t.process.s3Title.replace(/^03\.\s*/, ""),
       description: t.process.s3Desc,
       tag: t.process.s3Tag,
     },
     {
-      step: "04",
-      title: t.process.s4Title,
+      num: "04",
+      title: t.process.s4Title.replace(/^04\.\s*/, ""),
       description: t.process.s4Desc,
       tag: t.process.s4Tag,
     },
@@ -34,21 +35,23 @@ export function Process() {
     <section
       id="process"
       aria-labelledby="process-heading"
-      className="border-t border-border/60 bg-background py-24 sm:py-32"
+      className="relative border-t border-white/[0.08] bg-background py-24 sm:py-32"
     >
       <div className="mx-auto max-w-6xl px-6">
         {/* Section Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-mono uppercase tracking-widest text-primary">
-            {t.process.eyebrow}
-          </p>
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-[11px] font-mono tracking-wider text-primary uppercase">
+            <Layers className="h-3 w-3" />
+            <span>{t.process.eyebrow}</span>
+          </div>
+
           <h2
             id="process-heading"
-            className="mt-3 text-balance text-3xl font-semibold tracking-tight sm:text-5xl"
+            className="mt-4 text-balance text-3xl font-medium tracking-tight text-foreground sm:text-5xl"
           >
             {t.process.title}
           </h2>
-          <p className="mt-4 text-base text-muted-foreground sm:text-lg">
+          <p className="mt-3 text-base text-muted-foreground sm:text-lg">
             {t.process.description}
           </p>
         </div>
@@ -57,32 +60,35 @@ export function Process() {
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((s, index) => (
             <div
-              key={s.step}
-              className="relative flex flex-col justify-between rounded-3xl border border-border bg-card p-7 transition-all duration-300 hover:border-primary/40 hover:shadow-[var(--shadow-soft)]"
+              key={s.num}
+              className="group relative flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-white/[0.02] p-7 transition-all duration-300 hover:border-white/[0.14] hover:bg-white/[0.04]"
             >
               <div>
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-3xl font-bold tracking-tighter text-foreground/25 dark:text-foreground/20">
-                    {s.step}
+                  <span className="font-mono text-2xl font-medium text-white/30 group-hover:text-primary transition-colors">
+                    {s.num}
                   </span>
-                  <span className="rounded-full bg-secondary px-2.5 py-0.5 text-[10px] font-mono text-muted-foreground">
+                  <span className="rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-0.5 text-[10px] font-mono text-muted-foreground">
                     {s.tag}
                   </span>
                 </div>
 
-                <h3 className="mt-6 text-lg font-semibold tracking-tight text-foreground">
+                <h3 className="mt-6 text-base font-medium tracking-tight text-foreground">
                   {s.title}
                 </h3>
 
-                <p className="mt-3 text-xs sm:text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-muted-foreground">
                   {s.description}
                 </p>
               </div>
 
-              <div className="mt-8 border-t border-border/60 pt-3">
-                <span className="text-[10px] font-mono text-muted-foreground/80">
-                  {t.process.stepPrefix} {index + 1} / 4
+              <div className="mt-8 flex items-center justify-between border-t border-white/[0.06] pt-4">
+                <span className="text-[10px] font-mono text-muted-foreground/70">
+                  {t.process.stepPrefix || "Etapa"} {index + 1} de 4
                 </span>
+                {index < 3 && (
+                  <ArrowRight className="h-3 w-3 text-muted-foreground/40 group-hover:text-primary transition-colors hidden lg:block" />
+                )}
               </div>
             </div>
           ))}
