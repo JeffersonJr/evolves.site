@@ -49,6 +49,7 @@
     "SF Pro Display", "Helvetica Neue", sans-serif;
   --font-mono: "Geist Mono", "JetBrains Mono", "SF Mono", "Fira Code",
     "Cascadia Code", monospace;
+  /* font-display:optional prevents invisible text / layout shift from font swap */
 
   /* Dark-tuned shadows — no heavy drop shadows, only diffuse glow */
   --shadow-soft: 0 4px 24px -8px rgba(0, 0, 0, 0.5);
@@ -82,7 +83,7 @@
   --surface-foreground: oklch(0.1 0.008 264);
 
   --muted: oklch(0.96 0.002 264);
-  --muted-foreground: oklch(0.35 0.01 264);
+  --muted-foreground: oklch(0.28 0.01 264);
 
   --accent: oklch(0.94 0.03 271);
   --accent-foreground: oklch(0.45 0.22 271);
@@ -288,4 +289,24 @@
     opacity: 1;
     transform: none;
   }
+}
+
+/* ── GPU-composited ping override (Lighthouse: non-composited animations) ── */
+/* Replace Tailwind's scale()-based ping with scale3d so it runs on compositor */
+@keyframes ping-composited {
+  0%    { opacity: 0.75; transform: scale3d(1, 1, 1); }
+  75%,
+  100%  { opacity: 0;    transform: scale3d(2, 2, 1); }
+}
+
+.animate-ping {
+  animation: ping-composited 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* ── CSS Containment for off-screen sections (CLS + paint performance) ── */
+section {
+  contain: layout style;
 }

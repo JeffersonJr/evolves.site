@@ -71,6 +71,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         { property: "og:site_name", content: "Evolves" },
         { property: "og:locale", content: "pt_BR" },
         { name: "twitter:card", content: "summary_large_image" },
+        // Hint browser to preload the Geist font subset used above the fold
+        { name: "theme-color", content: "#fbfbfd" },
       ],
       links: [
         { rel: "dns-prefetch", href: "https://fonts.googleapis.com" },
@@ -78,9 +80,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         { rel: "preconnect", href: "https://fonts.googleapis.com" },
         { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
         { rel: "stylesheet", href: appCss },
+        // Non-blocking font load: media=print + onload swap eliminates render-blocking
         {
           rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap",
+          href: "https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=optional",
+          media: "print",
+          // @ts-expect-error onload is valid HTML but not in TanStack types
+          onload: "this.media='all'",
         },
         { rel: "describedby", href: "/llms.txt", type: "text/plain" },
         { rel: "icon", href: "/favicon.png", type: "image/png" },

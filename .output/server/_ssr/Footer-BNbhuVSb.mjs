@@ -1,0 +1,512 @@
+import { n as __toESM } from "../_runtime.mjs";
+import { c as require_react, s as require_jsx_runtime } from "../_libs/@radix-ui/react-accordion+[...].mjs";
+import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
+import { r as useI18n } from "./I18nContext-CciqnXLk.mjs";
+import { C as Menu, D as Linkedin, J as ArrowUpRight, T as Mail, U as ChevronDown, W as Check, b as Moon, n as X, o as Sun } from "../_libs/lucide-react.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/Footer-BNbhuVSb.js
+var import_react = /* @__PURE__ */ __toESM(require_react());
+var import_jsx_runtime = require_jsx_runtime();
+var evolves_logo_default = "data:image/webp;base64,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";
+var evolves_logo_gray_default = "/assets/evolves-logo-gray-Ca0NJuQs.png";
+var evolves_logo_white_default = "data:image/webp;base64,UklGRt4LAABXRUJQVlA4WAoAAAAQAAAAvwAALwAAQUxQSFkHAAAB8EVr2/K22bbtksyoxLHDnHSEmR1OyszMjGEoM0OgzK1LYWbGMoWZwY1r5sqWt4Xrus5Ljj1034sRMQH6H7Tl7a+98UgvT9jW8v1cgMCKoeGZf2ImjhUZ7cIv3007AAp/3nASIOeltDBr4BqAwFcdvWowIRNg/31RYVTbT8sB1g2VbYv3SgE2n1tLRd76dMdaJuWpLIA9N0fIue9igOD3nWulUXA4rTaJvHUvQNaTfplf+QdA/htptdAsIL0WGb4eoOyjNnIdP/o4wJGHY2qdGRCsPfwfBQBWpCukjacUA2zqHsYkLAfYdoNXoe4+twrI7BG+vAqcmZCk6rzkZ+DPpHCleR7saKdqTvwceCBceRlK+qjaY3+H1b4w5SRs9FSfxsLxZKNGN0yds2TBR3e0cLj46XYu6o1/NNmp5W3vzV06/5P72obEc8nT7VykjBud4nTOvR8vWDrnzatTXTS9edq8JQs/erCTHTBDZ+G1kFvPIO31TOxz3k6z3FrF3jpG3oWQ4bFp/Xku9gWzuoTgejhQ1+wHmO216ZJRiP3RMVEGaVOysC9d2s9h5tlwndngPZhu7yjpReBhoz4B2OqzXHcK07x73T0NPGTUNwC/RVjuyMN0nt+h7TZMix+rIcMLgPKtn7/+0dZKYH9TqUsJ/B1n8h3woCTdWg5wat2C1YexTnbVvgD2Jpt8BjwoSQ9UArkrP3zj6+0AC6JtYjYAVTsWzlm8MwgEr6oRjQ8Bs3t4JfmG/wnM8EoZwC0GnUvhoF9S/xJg721pkpIv+wmouMyN3gduMWhfBIf9koaWQWBKG0mKvfEUMMZmOHDgvDhJcUNWAV/ViA+AaV7ZN9wGlYOkbiWwNcLpPeBRSTE/AVuayD75O2CP302XMvglxukd4ClJsb9Bxe1y7J0DJ1It44AHZB//9tEdQ2pC63xYHynn9DL4RNIMCF7q0CIPjtSRdAVwsqmck/4C7nWjH4ArHJplwfFUSZcDU2Q4GrjHMhYY5SAlxqomPALBC2S6CvbESQMrYJ3X7nngGUn6Dhgl00urYJXHTc9SWO2zewZ4SpIy4N8mJnWPwwzLcOBQfyfbs+87OFgnItLZNwlK20ieBRAYaNMgE041kBS/B7IbGsXvh8w0N5oJlRfYpByBrMaSYnfBfE+koXcubI+WFLUGKF36SM+6Nce7GYq37zDcdgyC/SUNqoQFHsso4GlJapIPm7xGmg3Bzq4GV8Jim9HAG5LUKAv+3bbDcNu/cMYvSa23YQ0eXT6pRw2J+oNQDpLkWwP/dZfkPwjZTS0tAzBX5u8D6a58S6Gsr6T4XZDVzNKqmBDmp1rUYFo29uXLhtWM36HK1a+pknRJFXwh6S5gimz+gwUuPgIGuNLQSvhB0p3AVFlbFkGVm8rPfDZSq1FLjlZiDYyvCZ41sHNgunnfZFkj1kNJO8X9BTktbRpkwW8RZksh0M6dbx0UtVfkT1DUwSb1JMztm248sGekTOt2vfOHHKDqmhqg9yG3kUJ7JTBFVwJTZRv1BxS3N6qXCUf97nRlFXyky6vgY9n6foJfVd3nLAZ+iawBVwKvhSjmT8hpuwpKOtppGvC20aPALDlUGURugbyWy6C4vZ1eh+A11aWUY5DdtAYk7oOS80Ojm4DNZfCFHNMroXiEQbtM4FKbj4BrnHQVsK4YvpVjt3I41CoUAz6eGOekTZDX0jLjbLgW8ux0L/DP1U7pX3/U3Cn2T6wlnZ28M4F/LnbotRtYH2XzCLDI6xS7DWt5Xyd9Cuzo4XT1jOcTLR3zYEkLh/75cDBBx2HD2TAOTiTbRXwLBL8dnhIdVWfQZ6Uw1+Og+2x+kGHTA0DgywubpTQaNiUfyOku2w6lwKIXxqXZ6A6bmTJM2wbkT+mTHBlV/4r5wATLNQCnXhnWNCWt5+QzwDvSK1Dar/pifoXVPjslzMJ6+s/fTwYBvjXw7wcCA0zU9yjWgpx8rHkXyt7zKbYZdnF/A4F0E3XYCVBx/Lc/s7A+bEnZiG1BTu5/AEebSK0LYWen6or9DLhHzrEvFmNYPD1Fhg8Bc2Xedq3F8a/+ck75yWab10b3ASu9Rmr4PabZ4yIsqvNeqcVxbz9JehXIGp9cLRf/AvyVYCB1/eBI0FJ56N2uMk5ax6nuLhRz88ZCm9KfH0yWaeoHOZB9n+wTlnOmn1x6Ll6QZVO27dnWcu4xdVeZTfDgq2myxi0D2H69N2Q9ZwNk9pJLf/otj425tV+i3MYPbSH3nraXPTD24as7R8hti/MuaSnn+GGtFcJG5945ZvR1XaNlHtvtqgfGjLplQLIc/e9XAKwYGJrGU4sAtnZXWDt8A0D5x63dxY06DnDk0ViFuZG37QbIeqKumeeq3wEKXmugMLjek9kAu2+LMOizBCA4o5PC5DaflQGsG2LX/L0ygM3nKowesgqg4stuPqWOzwQ4cE+MwmrfDbsASn7eeAIg56VUhd3Jk8/gGMhop7C81fRcS8WqoQrbW9788ptjenv1/3IAVlA4IF4EAACQGACdASrAADAAPi0ShkKhoQ5sspIMAWJZy9XIAHeDGAHgAVra59p55tDRQH6VP8nu2ufJ5wDrM95j8wD+YTUDFJ9h8p2JCIA5qnvc6BXUq9AD9K0hf/TzOoD3h0tvJqB9oFzAKTkqtYgNP5l1/ZMhcjgT1WxtZHqj7++bXsWOseZlb4Au9Zpkk2sEdqcwzzrRvqlU1eZ9uBskUXITKQCFnxHDnFoUDD/9PeqChL/s/yluVv1SP+dqPJjS3di72sYz9an2RS/fhZGCnmeAAP7+xL8TVT8eu3AKPIAZ6GbljDTqE5WwhSrVDP/beAho7iZaRiuUkb/9paNPt3A/zP7m7w8nZ//RZ2Se6vrd7NZHwrm/bUCNbMO3U3bd505B8oT1LHsmIJxehZ/cRtSoWUFLtAClL9f/wLzwru/wdN/D7OSBP1dfzFwL4SbXz+QLa//+WYT6NPdig9AOGlRBrMVhRly9AWf/y9XwKW/Wvf//2lEPl79Wk4Q/+LB0LtY8mkWlP8wQBN33t3yVhTMKR7sRnPcWgl7f+nK7fzjl0r0Pk5n7/scdQ9dHdCj0Q+NcrdfZgdVw7m776cP7tr78wLy4AnrOwksZuMeqZAJG2d87mAdynNJdQ7AEATPIZSmtkGbIR5ppSsWRTu5dl7895zBdMXWJrJSgAbSVqBH02zGscAmHFjHfP17AGrNcWS9sSmHqDJmX2Ncp9RDLbXEON6FNJu7FyXlZL/uc7KSRo2tSFqPyZGm6H+yMKKYqpIA5k/ropmMpGXrEzfxFgkBK+qesfRMtLFx9duFMm0kBawEn8R4H1B9gI7aEkx3dCyC0/tW1+L77XvS3MXXUQSEKwO9z/3Nf5Gqm/nDEaefQ+iZhe/GD5Mbnvad24plB+8TNaqh8YjYso36aKTfCVjSzGeA1CuCMcTYxs1BHRdSMzFxYfynne0zV3JV0HGIqLzaEno+DmkFXYupK/sSI9KyE8au2klhRpjRyXNy23wywywQC68P5SCh14TB87DPo2KAfDIHyapuWFj8QYTOmN2GSDfk3LseaouIyC+bT+tdv94XXRm75N86WOiTYsxuvv4ZrJDRouGVa7t49us3PlxdgLmBsCG1hVqB5Wj+qz4XPkk80uDbYmjvwOwLB16ug9uKslGEv/XFyL+GVNMgLHZy+CPpV5u4oF+veg+z8/yV4/8n+J3Cb8JQArweOVRN//81hKet4ceBMDuH8Qrg9tpTAtr3rpJRd6Wbm+YrStn0eDm/fpKSwt2wCkns3UBZVWS1fbBA8/0//2SWCG2KqBvgQQ+BfOOeMJTzU1sNxuYkUxxLOMBHLdJvUKg50TizV0/z4HlwVB+w/KthDCEr78cPEbqEZhMjBPVel9rwVolSQkk6eFUYF5iTPG0Lktl0DfhPrdI0p/9vfsCpZV7/GL9pEdw6Ddaj+EKbMrrpxRwcRcbRIpQh6BDqQAcG9IJNHvbI+fWBGtauApDBvKsbgBNvAAA==";
+function ThemeToggle() {
+	const [theme, setTheme] = (0, import_react.useState)("light");
+	(0, import_react.useEffect)(() => {
+		if (localStorage.getItem("evolves_theme") === "dark") {
+			setTheme("dark");
+			document.documentElement.classList.add("dark");
+		} else {
+			setTheme("light");
+			document.documentElement.classList.remove("dark");
+		}
+	}, []);
+	const toggleTheme = () => {
+		if (theme === "dark") {
+			setTheme("light");
+			document.documentElement.classList.remove("dark");
+			localStorage.setItem("evolves_theme", "light");
+		} else {
+			setTheme("dark");
+			document.documentElement.classList.add("dark");
+			localStorage.setItem("evolves_theme", "dark");
+		}
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+		onClick: toggleTheme,
+		className: "flex h-9 w-9 cursor-pointer items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-black/[0.05] hover:text-foreground dark:hover:bg-white/[0.06]",
+		"aria-label": "Alternar tema claro/escuro",
+		title: "Alternar tema",
+		children: theme === "dark" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sun, {
+			className: "h-4 w-4",
+			"aria-hidden": "true"
+		}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Moon, {
+			className: "h-4 w-4",
+			"aria-hidden": "true"
+		})
+	});
+}
+function LanguageSelector({ className = "" }) {
+	const { language, setLanguage, languages, currentLanguageOption } = useI18n();
+	const [open, setOpen] = (0, import_react.useState)(false);
+	const containerRef = (0, import_react.useRef)(null);
+	(0, import_react.useEffect)(() => {
+		function handleClickOutside(event) {
+			if (containerRef.current && !containerRef.current.contains(event.target)) setOpen(false);
+		}
+		if (open) {
+			document.addEventListener("mousedown", handleClickOutside);
+			return () => document.removeEventListener("mousedown", handleClickOutside);
+		}
+	}, [open]);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		ref: containerRef,
+		className: `relative inline-block text-left ${className}`,
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+			type: "button",
+			onClick: () => setOpen((prev) => !prev),
+			"aria-haspopup": "listbox",
+			"aria-expanded": open,
+			className: "inline-flex items-center gap-1.5 rounded-full border border-black/[0.08] bg-black/[0.03] px-2.5 py-1 text-xs font-mono transition-all hover:bg-black/[0.06] dark:border-white/10 dark:bg-white/[0.05] dark:hover:bg-white/[0.08] cursor-pointer",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: "text-sm leading-none",
+					"aria-hidden": "true",
+					children: currentLanguageOption.flag
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: "text-[11px] font-medium text-foreground",
+					children: currentLanguageOption.short
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronDown, {
+					className: `h-3 w-3 text-muted-foreground transition-transform duration-200 ${open ? "rotate-180" : ""}`,
+					"aria-hidden": "true"
+				})
+			]
+		}), open && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			role: "listbox",
+			"aria-label": "Selecionar Idioma",
+			className: "absolute right-0 mt-1.5 w-48 origin-top-right rounded-2xl border border-border bg-background/95 p-1.5 shadow-[var(--shadow-card)] backdrop-blur-xl z-[120] animate-fade-up focus:outline-none",
+			children: languages.map((item) => {
+				const isSelected = item.code === language;
+				return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+					type: "button",
+					role: "option",
+					"aria-selected": isSelected,
+					onClick: () => {
+						setLanguage(item.code);
+						setOpen(false);
+					},
+					className: `flex w-full items-center justify-between rounded-xl px-2.5 py-1.5 text-xs transition-colors cursor-pointer ${isSelected ? "bg-primary/10 text-primary font-medium" : "text-foreground hover:bg-secondary"}`,
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "flex items-center gap-2",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "text-sm leading-none",
+							"aria-hidden": "true",
+							children: item.flag
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: item.name })]
+					}), isSelected && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, {
+						className: "h-3.5 w-3.5",
+						"aria-hidden": "true"
+					})]
+				}, item.code);
+			})
+		})]
+	});
+}
+function Navbar() {
+	const [scrolled, setScrolled] = (0, import_react.useState)(false);
+	const [open, setOpen] = (0, import_react.useState)(false);
+	const { t } = useI18n();
+	const drawerRef = (0, import_react.useRef)(null);
+	const links = [
+		{
+			label: t.nav.services,
+			href: "/#services"
+		},
+		{
+			label: t.nav.cases,
+			href: "/cases"
+		},
+		{
+			label: t.nav.infrastructure,
+			href: "/#infrastructure"
+		},
+		{
+			label: t.nav.pricing,
+			href: "/#pricing"
+		},
+		{
+			label: "Blog",
+			href: "/blog"
+		},
+		{
+			label: t.nav.about,
+			href: "/about"
+		}
+	];
+	(0, import_react.useEffect)(() => {
+		const onScroll = () => setScrolled(window.scrollY > 12);
+		onScroll();
+		window.addEventListener("scroll", onScroll, { passive: true });
+		return () => window.removeEventListener("scroll", onScroll);
+	}, []);
+	(0, import_react.useEffect)(() => {
+		document.body.style.overflow = open ? "hidden" : "";
+		return () => {
+			document.body.style.overflow = "";
+		};
+	}, [open]);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("header", {
+			className: "fixed inset-x-0 top-0 z-50",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("nav", {
+				className: `mx-auto flex h-14 items-center justify-between px-4 transition-all duration-300 sm:px-6 lg:px-8 max-w-7xl ${scrolled || open ? "border-b border-black/[.06] bg-white/85 shadow-xs backdrop-blur-xl dark:border-white/10 dark:bg-zinc-950/85" : "bg-transparent"}`,
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "flex items-center gap-5",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
+							to: "/",
+							className: "flex items-center gap-1.5 focus:outline-none",
+							onClick: () => setOpen(false),
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+									src: evolves_logo_default,
+									alt: "Evolves",
+									width: 96,
+									height: 24,
+									fetchPriority: "high",
+									decoding: "async",
+									className: "h-6 w-auto block dark:hidden"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+									src: scrolled || open ? evolves_logo_gray_default : evolves_logo_white_default,
+									alt: "Evolves",
+									width: 96,
+									height: 24,
+									fetchPriority: "high",
+									decoding: "async",
+									className: "h-6 w-auto hidden dark:block"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-[10px] text-muted-foreground font-medium",
+									children: "®"
+								})
+							]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "hidden xl:inline-block text-[11px] font-mono uppercase tracking-wider text-muted-foreground border-l border-border pl-3",
+							children: t.nav.tagline
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "hidden items-center gap-6 lg:gap-7 md:flex",
+						children: links.map((l) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+							href: l.href,
+							className: "text-xs font-medium text-muted-foreground transition-colors hover:text-foreground",
+							children: l.label
+						}, l.label))
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "flex items-center gap-2 sm:gap-2.5",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "hidden md:block",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LanguageSelector, {})
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ThemeToggle, {}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+								href: "/contact",
+								className: "hidden items-center gap-1.5 rounded-full border border-black/15 bg-zinc-900 px-3.5 py-1.5 text-xs font-medium text-white transition-all hover:bg-zinc-800 dark:border-white/20 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white md:inline-flex",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: t.nav.startProject }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowUpRight, {
+									className: "h-3.5 w-3.5",
+									"aria-hidden": "true"
+								})]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+								onClick: () => setOpen((v) => !v),
+								className: "flex h-9 w-9 cursor-pointer items-center justify-center rounded-full transition-colors hover:bg-secondary text-foreground md:hidden focus:outline-none",
+								"aria-label": open ? "Fechar menu" : "Abrir menu",
+								"aria-expanded": open,
+								"aria-controls": "mobile-drawer",
+								children: open ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, {
+									className: "h-5 w-5",
+									"aria-hidden": "true"
+								}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Menu, {
+									className: "h-5 w-5",
+									"aria-hidden": "true"
+								})
+							})
+						]
+					})
+				]
+			})
+		}),
+		open && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "fixed inset-0 z-40 bg-foreground/10 backdrop-blur-sm md:hidden",
+			"aria-hidden": "true",
+			onClick: () => setOpen(false)
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			id: "mobile-drawer",
+			ref: drawerRef,
+			role: "dialog",
+			"aria-modal": "true",
+			"aria-label": "Navegação",
+			className: `fixed inset-x-0 top-14 z-40 md:hidden transition-all duration-300 ease-out ${open ? "pointer-events-auto translate-y-0 opacity-100" : "pointer-events-none -translate-y-3 opacity-0"}`,
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "mx-3 mt-1.5 overflow-hidden rounded-2xl border border-border bg-background/98 shadow-[var(--shadow-card)] backdrop-blur-2xl",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "flex items-center justify-between border-b border-border/60 px-5 py-3",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "flex items-center gap-2",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LanguageSelector, {})
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ThemeToggle, {})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("nav", {
+						className: "px-3 py-3",
+						children: links.map((l, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+							href: l.href,
+							onClick: () => setOpen(false),
+							className: "flex items-center justify-between rounded-xl px-3 py-3.5 text-sm font-medium text-foreground transition-colors hover:bg-secondary",
+							style: { animationDelay: `${i * 40}ms` },
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: l.label }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowUpRight, {
+								className: "h-3.5 w-3.5 text-muted-foreground",
+								"aria-hidden": "true"
+							})]
+						}, l.label))
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "border-t border-border/60 px-4 pb-4 pt-3",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+							href: "/contact",
+							onClick: () => setOpen(false),
+							className: "flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-medium text-background transition-all hover:opacity-90",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: t.nav.startProject }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowUpRight, {
+								className: "h-4 w-4",
+								"aria-hidden": "true"
+							})]
+						})
+					})
+				]
+			})
+		})
+	] });
+}
+function Footer() {
+	const { t } = useI18n();
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("footer", {
+		className: "relative border-t border-black/[0.08] bg-surface/30 text-foreground dark:border-white/[0.08]",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "mx-auto max-w-6xl px-6 pt-20 pb-16",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "relative overflow-hidden rounded-2xl border border-black/[0.08] bg-card p-8 sm:p-12 lg:p-16 shadow-[var(--shadow-card)] text-center dark:border-white/[0.08] dark:bg-white/[0.02]",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "mx-auto max-w-2xl",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "inline-flex items-center gap-2 rounded-full border border-black/[0.08] bg-black/[0.03] px-3 py-1 text-[11px] font-mono tracking-wider text-primary uppercase dark:border-white/[0.08] dark:bg-white/[0.03]",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: t.footer.preTitle })
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+							className: "mt-4 text-balance text-2xl font-medium tracking-tight sm:text-4xl text-foreground",
+							children: t.footer.preHeadline
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "mt-3 text-sm text-muted-foreground leading-relaxed",
+							children: t.footer.preSub
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "mt-8 flex flex-wrap items-center justify-center gap-3",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+								href: "https://wa.me/5513981326869?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20uma%20proposta%20t%C3%A9cnica%20para%20o%20site%20da%20minha%20empresa.",
+								target: "_blank",
+								rel: "noreferrer",
+								className: "inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-xs font-medium text-background transition-all hover:opacity-90 shadow-sm",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: t.footer.btnWhatsapp }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowUpRight, {
+									className: "h-3.5 w-3.5",
+									"aria-hidden": "true"
+								})]
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+								href: "mailto:contato@evolvestecnologia.com.br",
+								className: "inline-flex items-center gap-2 rounded-full border border-black/[0.12] bg-card px-6 py-3 text-xs font-medium text-foreground transition-all hover:bg-secondary dark:border-white/[0.12] dark:bg-white/[0.04] dark:hover:bg-white/[0.08]",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Mail, {
+									className: "h-3.5 w-3.5 text-muted-foreground",
+									"aria-hidden": "true"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: t.footer.btnEmail })]
+							})]
+						})
+					]
+				})
+			})
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "mx-auto max-w-6xl px-6 pb-16 pt-6",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "grid gap-10 sm:grid-cols-2 lg:grid-cols-5",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "lg:col-span-2",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
+								to: "/",
+								className: "inline-flex items-center gap-1 mb-4",
+								children: [
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+										src: evolves_logo_default,
+										alt: "Evolves",
+										width: 96,
+										height: 24,
+										loading: "lazy",
+										decoding: "async",
+										className: "h-6 w-auto block dark:hidden"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+										src: evolves_logo_white_default,
+										alt: "Evolves",
+										width: 96,
+										height: 24,
+										loading: "lazy",
+										decoding: "async",
+										className: "h-6 w-auto hidden dark:block"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										className: "text-[10px] text-muted-foreground font-medium",
+										children: "®"
+									})
+								]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "text-xs sm:text-sm text-muted-foreground leading-relaxed pr-4 max-w-sm",
+								children: t.footer.brandDesc
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "mt-5 flex items-center gap-2 text-xs font-mono text-muted-foreground",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+									className: "relative flex h-2 w-2",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75 [will-change:transform,opacity]" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "relative inline-flex h-2 w-2 rounded-full bg-emerald-500" })]
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: t.footer.systemStatus })]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "mt-6 flex items-center gap-2.5",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+									href: "https://www.linkedin.com/company/71072104/",
+									target: "_blank",
+									rel: "noreferrer",
+									className: "flex h-8 w-8 items-center justify-center rounded-full border border-black/[0.08] bg-card text-muted-foreground hover:text-foreground hover:border-black/[0.16] dark:border-white/[0.08] dark:bg-white/[0.03] dark:hover:border-white/[0.16] transition-colors",
+									"aria-label": "LinkedIn da Evolves",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Linkedin, { className: "h-3.5 w-3.5" })
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+									href: "https://wa.me/5513981326869",
+									target: "_blank",
+									rel: "noreferrer",
+									className: "flex h-8 w-8 items-center justify-center rounded-full border border-black/[0.08] bg-card text-muted-foreground hover:text-emerald-500 hover:border-black/[0.16] dark:border-white/[0.08] dark:bg-white/[0.03] dark:hover:border-white/[0.16] transition-colors",
+									"aria-label": "WhatsApp da Evolves",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
+										viewBox: "0 0 24 24",
+										fill: "currentColor",
+										className: "h-3.5 w-3.5",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" })
+									})
+								})]
+							})
+						]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+						className: "text-[11px] font-mono uppercase tracking-wider text-foreground mb-4",
+						children: t.footer.navTitle
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("ul", {
+						className: "space-y-2.5 text-xs text-muted-foreground",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+								href: "/#services",
+								className: "hover:text-foreground transition-colors",
+								children: t.nav.services
+							}) }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+								to: "/cases",
+								className: "hover:text-foreground transition-colors",
+								children: t.nav.cases
+							}) }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+								href: "/#infrastructure",
+								className: "hover:text-foreground transition-colors",
+								children: t.nav.infrastructure
+							}) }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+								href: "/#pricing",
+								className: "hover:text-foreground transition-colors",
+								children: t.nav.pricing
+							}) }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+								to: "/blog",
+								className: "hover:text-foreground transition-colors",
+								children: "Blog"
+							}) }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+								to: "/about",
+								className: "hover:text-foreground transition-colors",
+								children: t.nav.about
+							}) }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+								to: "/contact",
+								className: "hover:text-foreground transition-colors",
+								children: t.nav.contact
+							}) })
+						]
+					})] }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+						className: "text-[11px] font-mono uppercase tracking-wider text-foreground mb-4",
+						children: t.footer.complianceTitle
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("ul", {
+						className: "space-y-2.5 text-xs text-muted-foreground",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+								to: "/privacy",
+								className: "hover:text-foreground transition-colors",
+								children: "Privacidade (RGPD/LGPD)"
+							}) }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+								to: "/cookies",
+								className: "hover:text-foreground transition-colors",
+								children: "Gestão de Cookies"
+							}) }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+								to: "/about",
+								className: "hover:text-foreground transition-colors",
+								children: "Sobre a Evolves"
+							}) }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+								to: "/contact",
+								className: "hover:text-foreground transition-colors",
+								children: "Canal de Contacto"
+							}) })
+						]
+					})] }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+						className: "text-[11px] font-mono uppercase tracking-wider text-foreground mb-4",
+						children: t.footer.opsTitle
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("ul", {
+						className: "space-y-2.5 text-xs text-muted-foreground font-mono",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", { children: ["🇵🇹 ", t.footer.countryPT] }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", { children: ["🇬🇧 ", t.footer.countryUK] }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", { children: ["🇧🇷 ", t.footer.countryBR] }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", { children: ["🇳🇿 ", t.footer.countryNZ] }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", {
+								className: "pt-2 text-foreground font-sans text-xs",
+								children: t.footer.opsDesc
+							})
+						]
+					})] })
+				]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "mt-14 border-t border-black/[0.08] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground font-mono dark:border-white/[0.08]",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: t.footer.copyright }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "text-[11px]",
+					children: t.footer.subCopyright
+				})]
+			})]
+		})]
+	});
+}
+//#endregion
+export { Navbar as n, Footer as t };

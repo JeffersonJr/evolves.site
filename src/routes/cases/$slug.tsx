@@ -182,6 +182,8 @@ function CaseStudyPage() {
             <div className="relative overflow-hidden bg-black/5 p-3 sm:p-5 dark:bg-black/60">
               <img
                 src={project.img}
+                srcSet={project.imgSm ? `${project.imgSm} 640w, ${project.img} 1200w` : undefined}
+                sizes="(max-width: 768px) 100vw, 1200px"
                 alt={`Mockup e interface do projeto ${project.title}`}
                 width={1200}
                 height={677}

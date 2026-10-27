@@ -1,6 +1,9 @@
 import caseHidrolinfa from "@/assets/case-hidrolinfa.webp";
+import caseHidrolinfaSm from "@/assets/case-hidrolinfa-sm.webp";
 import caseUniaofraternal from "@/assets/case-uniaofraternal.webp";
+import caseUniaofraternalSm from "@/assets/case-uniaofraternal-sm.webp";
 import caseGlebra from "@/assets/case-glebra.webp";
+import caseGlebraSm from "@/assets/case-glebra-sm.webp";
 
 export interface CaseFeature {
   title: string;
@@ -10,6 +13,7 @@ export interface CaseFeature {
 export interface CaseStudy {
   slug: string;
   img: string;
+  imgSm?: string;
   category: string;
   title: string;
   client?: string;
@@ -31,6 +35,7 @@ export const casesData: CaseStudy[] = [
   {
     slug: "hidrolinfa-portugal",
     img: caseHidrolinfa,
+    imgSm: caseHidrolinfaSm,
     category: "Clínica & Bem-Estar · Portugal",
     title: "Hidrolinfa Detox Portugal",
     client: "Hidrolinfa Detox Europa",
@@ -77,6 +82,7 @@ export const casesData: CaseStudy[] = [
   {
     slug: "uniao-fraternal",
     img: caseUniaofraternal,
+    imgSm: caseUniaofraternalSm,
     category: "Instituição Tradicional & Portal Web",
     title: "ARLS União Fraternal nº 3567",
     client: "ARLS União Fraternal (Baixada Santista)",
@@ -127,6 +133,7 @@ export const casesData: CaseStudy[] = [
   {
     slug: "glebra-grande-loja-egipcia",
     img: caseGlebra,
+    imgSm: caseGlebraSm,
     category: "Potência Maçônica & Biblioteca Digital",
     title: "GLEBRA · Grande Loja Egípcia Brasileira",
     client: "GLEBRA (Rito Antigo e Primitivo de Memphis-Misraïm)",

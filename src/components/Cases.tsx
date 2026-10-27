@@ -164,9 +164,11 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
                   <div className="relative overflow-hidden bg-black/5 p-2 sm:p-3 dark:bg-black/60">
                     <img
                       src={featuredCase.img}
+                      srcSet={featuredCase.imgSm ? `${featuredCase.imgSm} 640w, ${featuredCase.img} 1200w` : undefined}
+                      sizes="(max-width: 768px) 100vw, 1200px"
                       alt={featuredCase.title}
                       width={1200}
-                      height={900}
+                      height={677}
                       loading="lazy"
                       decoding="async"
                       className="w-full h-auto object-contain rounded-lg transition-transform duration-500 hover:scale-[1.01]"
@@ -193,9 +195,11 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
                   <div className="relative flex aspect-[16/10] items-center justify-center overflow-hidden bg-secondary/40 p-5 border-b border-black/[0.06] dark:bg-black/40 dark:border-white/[0.06]">
                     <img
                       src={c.img}
+                      srcSet={c.imgSm ? `${c.imgSm} 640w, ${c.img} 1200w` : undefined}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
                       alt={c.title}
-                      width={768}
-                      height={576}
+                      width={640}
+                      height={361}
                       loading="lazy"
                       decoding="async"
                       className="h-full w-full object-contain filter drop-shadow-md transition-all duration-500 group-hover:scale-105"
