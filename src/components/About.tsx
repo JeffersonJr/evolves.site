@@ -140,7 +140,7 @@ export function About() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {methodology.map((m) => (
               <div key={m.step} className="rounded-3xl border border-border bg-card p-7 shadow-xs">
-                <span className="font-mono text-2xl font-bold text-foreground/30 mb-4 block">
+                <span className="font-mono text-2xl font-bold text-foreground/60 dark:text-foreground/50 mb-4 block">
                   {m.step}
                 </span>
                 <h3 className="text-base font-semibold text-foreground mb-2">

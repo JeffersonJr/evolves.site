@@ -154,7 +154,7 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
                     </div>
 
                     {/* Telemetry pill */}
-                    <div className="hidden sm:flex items-center gap-1 text-[10px] font-mono text-emerald-600 dark:text-emerald-400">
+                    <div className="hidden sm:flex items-center gap-1 text-[10px] font-mono font-medium text-emerald-700 dark:text-emerald-400">
                       <Zap className="h-3 w-3" />
                       <span>80ms TTFB</span>
                     </div>

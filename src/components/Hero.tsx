@@ -106,28 +106,28 @@ export function Hero() {
           {[
             {
               icon: <Zap className="h-4 w-4" aria-hidden="true" />,
-              color: "text-indigo-500 dark:text-indigo-400",
+              color: "text-indigo-600 dark:text-indigo-400",
               label: t.hero.metric1Label,
               value: t.hero.metric1Value,
               desc:  t.hero.metric1Desc,
             },
             {
               icon: <Shield className="h-4 w-4" aria-hidden="true" />,
-              color: "text-emerald-500 dark:text-emerald-400",
+              color: "text-emerald-600 dark:text-emerald-400",
               label: t.hero.metric2Label,
               value: t.hero.metric2Value,
               desc:  t.hero.metric2Desc,
             },
             {
               icon: <Globe className="h-4 w-4" aria-hidden="true" />,
-              color: "text-sky-500 dark:text-sky-400",
+              color: "text-sky-600 dark:text-sky-400",
               label: t.hero.metric3Label,
               value: t.hero.metric3Value,
               desc:  t.hero.metric3Desc,
             },
             {
               icon: <Cpu className="h-4 w-4" aria-hidden="true" />,
-              color: "text-violet-500 dark:text-violet-400",
+              color: "text-violet-600 dark:text-violet-400",
               label: t.hero.metric4Label,
               value: t.hero.metric4Value,
               desc:  t.hero.metric4Desc,

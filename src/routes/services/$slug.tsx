@@ -126,7 +126,7 @@ function ServicePage() {
                   key={idx}
                   className="rounded-3xl border border-border bg-card p-6 shadow-xs"
                 >
-                  <span className="font-mono text-2xl font-bold text-foreground/25 mb-3 block">
+                  <span className="font-mono text-2xl font-bold text-foreground/60 dark:text-foreground/50 mb-3 block">
                     0{idx + 1}
                   </span>
                   <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{reason}</p>

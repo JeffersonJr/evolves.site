@@ -65,7 +65,7 @@ export function Process() {
             >
               <div>
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-2xl font-medium text-foreground/30 group-hover:text-primary transition-colors">
+                  <span className="font-mono text-2xl font-medium text-foreground/60 group-hover:text-primary transition-colors dark:text-foreground/50">
                     {s.num}
                   </span>
                   <span className="rounded-full border border-black/[0.08] bg-black/[0.03] px-2.5 py-0.5 text-[10px] font-mono text-muted-foreground dark:border-white/[0.08] dark:bg-white/[0.03]">
