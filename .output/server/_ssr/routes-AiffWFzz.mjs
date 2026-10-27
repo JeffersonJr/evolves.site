@@ -3,13 +3,13 @@ import { a as Trigger2, c as require_react, i as Root2, n as Header, r as Item, 
 import { i as useRegion, r as useI18n } from "./I18nContext-CciqnXLk.mjs";
 import { A as Layers, E as Lock, J as ArrowUpRight, L as Cpu, N as Globe, U as ChevronDown, V as CircleQuestionMark, W as Check, Y as ArrowRight, _ as Pen, d as Server, h as RefreshCw, j as Headphones, k as LifeBuoy, l as Shield, t as Zap, u as ShieldCheck, x as MessageSquare } from "../_libs/lucide-react.mjs";
 import { n as Navbar, t as Footer } from "./Footer-BNbhuVSb.mjs";
-import { t as Cases } from "./Cases-BuFYC8zY.mjs";
+import { t as Cases } from "./Cases-BdDoqx7R.mjs";
 import { t as Toaster } from "../_libs/sonner.mjs";
 import { t as Contact } from "./Contact-DzXL2UwS.mjs";
 import { t as Services } from "./Services-LhZcSbww.mjs";
 import { t as clsx } from "../_libs/clsx.mjs";
 import { t as twMerge } from "../_libs/tailwind-merge.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-LrB8KwWb.js
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-AiffWFzz.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 function Hero() {

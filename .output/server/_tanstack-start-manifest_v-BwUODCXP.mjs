@@ -1,4 +1,4 @@
-//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-DscOssqz.js
+//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-BwUODCXP.js
 var tsrStartManifest = () => ({ routes: {
 	__root__: {
 		filePath: "/Users/jefferson/evolves/evolves.site/src/routes/__root.tsx",
@@ -17,7 +17,7 @@ var tsrStartManifest = () => ({ routes: {
 			"/blog/categoria/$categoria"
 		],
 		preloads: [
-			"/assets/index-DkimDf6B.js",
+			"/assets/index-CrMD7LLh.js",
 			"/assets/useStore-DAs5vFz2.js",
 			"/assets/I18nContext-CfWLIMO-.js",
 			"/assets/matchContext-BmN0_Z1Z.js",
@@ -27,28 +27,28 @@ var tsrStartManifest = () => ({ routes: {
 		scripts: [{ attrs: {
 			type: "module",
 			async: !0,
-			src: "/assets/index-DkimDf6B.js"
+			src: "/assets/index-CrMD7LLh.js"
 		} }]
 	},
 	"/": {
 		filePath: "/Users/jefferson/evolves/evolves.site/src/routes/index.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/routes-DKHUk9Oq.js",
+			"/assets/routes-BZI1BdRh.js",
 			"/assets/Footer-BVXEdSlo.js",
 			"/assets/shield-CzhBEZFO.js",
-			"/assets/Cases-BZb6phvB.js",
+			"/assets/Cases-DwRNOdIt.js",
 			"/assets/layers-DRNqu8Vj.js",
 			"/assets/zap-DzTLsnj3.js",
-			"/assets/Contact-CR5h2qV4.js",
-			"/assets/Services-CKVRHkN-.js"
+			"/assets/Contact-CLW7fjb1.js",
+			"/assets/Services-BJjTh9TN.js"
 		]
 	},
 	"/about": {
 		filePath: "/Users/jefferson/evolves/evolves.site/src/routes/about.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/about-CnPl50zV.js",
+			"/assets/about-tDJvw4Wr.js",
 			"/assets/Footer-BVXEdSlo.js",
 			"/assets/shield-CzhBEZFO.js",
 			"/assets/target-DjXmp6Ly.js"
@@ -58,9 +58,9 @@ var tsrStartManifest = () => ({ routes: {
 		filePath: "/Users/jefferson/evolves/evolves.site/src/routes/contact.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/contact-FKue_fYu.js",
+			"/assets/contact-BHU7DJcp.js",
 			"/assets/Footer-BVXEdSlo.js",
-			"/assets/Contact-CR5h2qV4.js"
+			"/assets/Contact-CLW7fjb1.js"
 		]
 	},
 	"/cookies": {
@@ -76,13 +76,13 @@ var tsrStartManifest = () => ({ routes: {
 	"/services": {
 		filePath: "/Users/jefferson/evolves/evolves.site/src/routes/services.tsx",
 		children: ["/services/$slug", "/services/"],
-		preloads: ["/assets/services-DXj0gx_Q.js"]
+		preloads: ["/assets/services-C3JWQRb9.js"]
 	},
 	"/blog/$slug": {
 		filePath: "/Users/jefferson/evolves/evolves.site/src/routes/blog/$slug.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/_slug-BlaAAlam.js",
+			"/assets/_slug-CRnDq2E9.js",
 			"/assets/Footer-BVXEdSlo.js",
 			"/assets/related-content-BZrqKI7y.js"
 		]
@@ -91,7 +91,7 @@ var tsrStartManifest = () => ({ routes: {
 		filePath: "/Users/jefferson/evolves/evolves.site/src/routes/cases/$slug.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/_slug-BBdJz32g.js",
+			"/assets/_slug-BvGN8pWD.js",
 			"/assets/Footer-BVXEdSlo.js",
 			"/assets/circle-check-B-ZkZkyg.js",
 			"/assets/layers-DRNqu8Vj.js",
@@ -104,7 +104,7 @@ var tsrStartManifest = () => ({ routes: {
 		filePath: "/Users/jefferson/evolves/evolves.site/src/routes/services/$slug.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/_slug-D2g07cg0.js",
+			"/assets/_slug-xVPiH0tl.js",
 			"/assets/Footer-BVXEdSlo.js",
 			"/assets/circle-check-B-ZkZkyg.js",
 			"/assets/related-content-BZrqKI7y.js"
@@ -113,35 +113,35 @@ var tsrStartManifest = () => ({ routes: {
 	"/blog/": {
 		filePath: "/Users/jefferson/evolves/evolves.site/src/routes/blog/index.tsx",
 		children: void 0,
-		preloads: ["/assets/blog-BCbAIms0.js", "/assets/BlogIndex-BLX53D3M.js"]
+		preloads: ["/assets/blog-BIC_21wg.js", "/assets/BlogIndex-4DcDICdm.js"]
 	},
 	"/cases/": {
 		filePath: "/Users/jefferson/evolves/evolves.site/src/routes/cases/index.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/cases-B1TiHFYG.js",
+			"/assets/cases-CKBWyW0c.js",
 			"/assets/Footer-BVXEdSlo.js",
-			"/assets/Cases-BZb6phvB.js"
+			"/assets/Cases-DwRNOdIt.js"
 		]
 	},
 	"/services/": {
 		filePath: "/Users/jefferson/evolves/evolves.site/src/routes/services/index.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/services-BddEe2Re.js",
+			"/assets/services-CHcWKdKq.js",
 			"/assets/Footer-BVXEdSlo.js",
-			"/assets/Services-CKVRHkN-.js"
+			"/assets/Services-BJjTh9TN.js"
 		]
 	},
 	"/blog/busca/$termo": {
 		filePath: "/Users/jefferson/evolves/evolves.site/src/routes/blog/busca/$termo.tsx",
 		children: void 0,
-		preloads: ["/assets/_termo-XbegjbU8.js", "/assets/BlogIndex-BLX53D3M.js"]
+		preloads: ["/assets/_termo-CEsrEOGd.js", "/assets/BlogIndex-4DcDICdm.js"]
 	},
 	"/blog/categoria/$categoria": {
 		filePath: "/Users/jefferson/evolves/evolves.site/src/routes/blog/categoria/$categoria.tsx",
 		children: void 0,
-		preloads: ["/assets/_categoria-Bus79JrK.js", "/assets/BlogIndex-BLX53D3M.js"]
+		preloads: ["/assets/_categoria-BB48z3jk.js", "/assets/BlogIndex-4DcDICdm.js"]
 	}
 } });
 //#endregion

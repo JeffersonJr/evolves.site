@@ -148,14 +148,14 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
                     </div>
 
                     {/* Address Pill */}
-                    <div className="flex items-center gap-1.5 rounded-md border border-black/[0.08] bg-white px-3 py-1 text-[11px] font-mono text-muted-foreground dark:border-white/[0.08] dark:bg-black/40 shadow-xs">
-                      <Lock className="h-3 w-3 text-emerald-500" />
+                    <div className="flex items-center gap-1.5 rounded-md border border-black/[0.08] bg-white px-3 py-1 text-[11px] font-mono text-zinc-700 dark:border-white/[0.08] dark:bg-black/40 dark:text-zinc-300 shadow-xs">
+                      <Lock className="h-3 w-3 text-emerald-700 dark:text-emerald-400" />
                       <span>hidrolinfadetox.com</span>
                     </div>
 
                     {/* Telemetry pill */}
-                    <div className="hidden sm:flex items-center gap-1 text-[10px] font-mono font-medium text-emerald-700 dark:text-emerald-400">
-                      <Zap className="h-3 w-3" />
+                    <div className="hidden sm:flex items-center gap-1 text-[10px] font-mono font-bold text-emerald-800 dark:text-emerald-400">
+                      <Zap className="h-3 w-3 text-emerald-800 dark:text-emerald-400" />
                       <span>80ms TTFB</span>
                     </div>
                   </div>

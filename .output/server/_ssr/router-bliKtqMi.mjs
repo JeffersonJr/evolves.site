@@ -12,10 +12,10 @@ import { t as Route$13 } from "../_slug-7d5onBJA.mjs";
 import { t as Route$14 } from "../_termo-KPa9wJW8.mjs";
 import { t as QueryClient } from "../_libs/tanstack__query-core.mjs";
 import { t as QueryClientProvider } from "../_libs/tanstack__react-query.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/router-ClVFP2SH.js
+//#region node_modules/.nitro/vite/services/ssr/assets/router-bliKtqMi.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
-var styles_default = "/assets/styles-D_CndAno.css";
+var styles_default = "/assets/styles-BxxanLsQ.css";
 function reportLovableError(error, context = {}) {
 	if (typeof window === "undefined") return;
 	window.__lovableEvents?.captureException?.(error, {
@@ -1114,7 +1114,7 @@ var Route$4 = createFileRoute("/about")({
 	}])]),
 	component: lazyRouteComponent($$splitComponentImporter$4, "component")
 });
-var $$splitComponentImporter$3 = () => import("./routes-LrB8KwWb.mjs");
+var $$splitComponentImporter$3 = () => import("./routes-AiffWFzz.mjs");
 var Route$3 = createFileRoute("/")({
 	head: () => pageHead("/", [organizationSchema, websiteSchema], {
 		title: "Evolves® · Engenharia Digital & Plataformas Web de Alta Performance",
@@ -1139,7 +1139,7 @@ var Route$2 = createFileRoute("/services/")({
 	}])]),
 	component: lazyRouteComponent($$splitComponentImporter$2, "component")
 });
-var $$splitComponentImporter$1 = () => import("./cases-R6R6znzW.mjs");
+var $$splitComponentImporter$1 = () => import("./cases-IGNJzZ3h.mjs");
 var Route$1 = createFileRoute("/cases/")({
 	head: () => pageHead("/cases", [{
 		"@context": "https://schema.org",

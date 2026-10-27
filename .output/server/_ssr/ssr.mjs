@@ -53,7 +53,7 @@ function renderErrorPage() {
 }
 var serverEntryPromise;
 async function getServerEntry() {
-	if (!serverEntryPromise) serverEntryPromise = import("./server-CW0Zc6CE.mjs").then((m) => m.default ?? m);
+	if (!serverEntryPromise) serverEntryPromise = import("./server-CGH3QENa.mjs").then((m) => m.default ?? m);
 	return serverEntryPromise;
 }
 async function normalizeCatastrophicSsrResponse(response) {
@@ -77,7 +77,20 @@ function isH3SwallowedErrorBody(body) {
 }
 var server_default = { async fetch(request, env, ctx) {
 	try {
-		return await normalizeCatastrophicSsrResponse(await (await getServerEntry()).fetch(request, env, ctx));
+		let response = await (await getServerEntry()).fetch(request, env, ctx);
+		response = await normalizeCatastrophicSsrResponse(response);
+		if (request.method === "GET" && response.status === 200) {
+			if ((response.headers.get("content-type") ?? "").includes("text/html")) {
+				const newHeaders = new Headers(response.headers);
+				newHeaders.set("Cache-Control", "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400");
+				return new Response(response.body, {
+					status: response.status,
+					statusText: response.statusText,
+					headers: newHeaders
+				});
+			}
+		}
+		return response;
 	} catch (error) {
 		console.error(error);
 		return new Response(renderErrorPage(), {

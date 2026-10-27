@@ -1,7 +1,7 @@
 import { s as require_jsx_runtime } from "../_libs/@radix-ui/react-accordion+[...].mjs";
 import { n as Navbar, t as Footer } from "./Footer-BNbhuVSb.mjs";
-import { t as Cases } from "./Cases-BuFYC8zY.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/cases-R6R6znzW.js
+import { t as Cases } from "./Cases-BdDoqx7R.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/cases-IGNJzZ3h.js
 var import_jsx_runtime = require_jsx_runtime();
 function CasesIndexPage() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
