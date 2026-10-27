@@ -8,7 +8,7 @@ export function Infrastructure() {
     <section
       id="infrastructure"
       aria-labelledby="infrastructure-heading"
-      className="border-t border-white/[0.06] bg-background py-24 sm:py-32"
+      className="border-t border-black/[0.06] bg-background py-24 sm:py-32 dark:border-white/[0.06]"
     >
       <div className="mx-auto max-w-6xl px-6">
 
@@ -35,14 +35,14 @@ export function Infrastructure() {
         <div className="mt-14 grid auto-rows-[1fr] grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-12 lg:auto-rows-auto">
 
           {/* Box 1 — Large (span 7): Global Infrastructure */}
-          <div className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 sm:p-8 lg:col-span-7 transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.05]">
+          <div className="group relative overflow-hidden rounded-2xl border border-black/[0.08] bg-black/[0.02] p-6 sm:p-8 lg:col-span-7 transition-all duration-300 hover:border-black/[0.14] dark:border-white/[0.08] dark:bg-white/[0.03] dark:hover:border-white/[0.12] dark:hover:bg-white/[0.05]">
             {/* Glow on hover */}
             <div
               aria-hidden="true"
               className="pointer-events-none absolute -top-12 -left-12 h-40 w-40 rounded-full bg-indigo-500/10 blur-3xl transition-opacity duration-500 opacity-0 group-hover:opacity-100"
             />
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.05]">
-              <Globe className="h-5 w-5 text-indigo-400" strokeWidth={1.5} aria-hidden="true" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-black/[0.08] bg-black/[0.04] dark:border-white/[0.08] dark:bg-white/[0.05]">
+              <Globe className="h-5 w-5 text-indigo-500 dark:text-indigo-400" strokeWidth={1.5} aria-hidden="true" />
             </div>
             <h3 className="mt-5 text-base font-medium tracking-tight text-foreground sm:text-lg">
               {t.infrastructure.p1Title}
@@ -54,14 +54,14 @@ export function Infrastructure() {
             {/* Mini server map visual */}
             <div className="mt-6 flex flex-wrap gap-2 text-[10px] font-mono">
               {[
-                { dot: "bg-emerald-400", loc: "Frankfurt · EU" },
-                { dot: "bg-sky-400",     loc: "São Paulo · BR" },
-                { dot: "bg-violet-400",  loc: "Auckland · NZ" },
-                { dot: "bg-amber-400",   loc: "London · GB" },
+                { dot: "bg-emerald-500", loc: "Frankfurt · EU" },
+                { dot: "bg-sky-500",     loc: "São Paulo · BR" },
+                { dot: "bg-violet-500",  loc: "Auckland · NZ" },
+                { dot: "bg-amber-500",   loc: "London · GB" },
               ].map((n) => (
                 <span
                   key={n.loc}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.04] px-2.5 py-1 text-muted-foreground"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-black/[0.08] bg-black/[0.03] px-2.5 py-1 text-muted-foreground dark:border-white/[0.08] dark:bg-white/[0.04]"
                 >
                   <span className={`h-1.5 w-1.5 rounded-full ${n.dot}`} />
                   {n.loc}
@@ -69,7 +69,7 @@ export function Infrastructure() {
               ))}
             </div>
 
-            <div className="mt-6 border-t border-white/[0.06] pt-4">
+            <div className="mt-6 border-t border-black/[0.06] pt-4 dark:border-white/[0.06]">
               <span className="text-[11px] font-mono text-muted-foreground">
                 {t.infrastructure.p1Metric}
               </span>
@@ -77,13 +77,13 @@ export function Infrastructure() {
           </div>
 
           {/* Box 2 — Medium (span 5): Design Editorial */}
-          <div className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 sm:p-7 lg:col-span-5 transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.05]">
+          <div className="group relative overflow-hidden rounded-2xl border border-black/[0.08] bg-black/[0.02] p-6 sm:p-7 lg:col-span-5 transition-all duration-300 hover:border-black/[0.14] dark:border-white/[0.08] dark:bg-white/[0.03] dark:hover:border-white/[0.12] dark:hover:bg-white/[0.05]">
             <div
               aria-hidden="true"
               className="pointer-events-none absolute -top-8 right-0 h-32 w-32 rounded-full bg-violet-500/10 blur-2xl transition-opacity duration-500 opacity-0 group-hover:opacity-100"
             />
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.05]">
-              <Pen className="h-5 w-5 text-violet-400" strokeWidth={1.5} aria-hidden="true" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-black/[0.08] bg-black/[0.04] dark:border-white/[0.08] dark:bg-white/[0.05]">
+              <Pen className="h-5 w-5 text-violet-500 dark:text-violet-400" strokeWidth={1.5} aria-hidden="true" />
             </div>
             <h3 className="mt-5 text-base font-medium tracking-tight text-foreground">
               {t.infrastructure.p2Title}
@@ -91,7 +91,7 @@ export function Infrastructure() {
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
               {t.infrastructure.p2Desc}
             </p>
-            <div className="mt-6 border-t border-white/[0.06] pt-4">
+            <div className="mt-6 border-t border-black/[0.06] pt-4 dark:border-white/[0.06]">
               <span className="text-[11px] font-mono text-muted-foreground">
                 {t.infrastructure.p2Metric}
               </span>
@@ -99,13 +99,13 @@ export function Infrastructure() {
           </div>
 
           {/* Box 3 — Medium (span 5): AI & Engineering */}
-          <div className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 sm:p-7 lg:col-span-5 transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.05]">
+          <div className="group relative overflow-hidden rounded-2xl border border-black/[0.08] bg-black/[0.02] p-6 sm:p-7 lg:col-span-5 transition-all duration-300 hover:border-black/[0.14] dark:border-white/[0.08] dark:bg-white/[0.03] dark:hover:border-white/[0.12] dark:hover:bg-white/[0.05]">
             <div
               aria-hidden="true"
               className="pointer-events-none absolute bottom-0 left-0 h-28 w-28 rounded-full bg-cyan-500/10 blur-2xl transition-opacity duration-500 opacity-0 group-hover:opacity-100"
             />
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.05]">
-              <Cpu className="h-5 w-5 text-cyan-400" strokeWidth={1.5} aria-hidden="true" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-black/[0.08] bg-black/[0.04] dark:border-white/[0.08] dark:bg-white/[0.05]">
+              <Cpu className="h-5 w-5 text-cyan-600 dark:text-cyan-400" strokeWidth={1.5} aria-hidden="true" />
             </div>
             <h3 className="mt-5 text-base font-medium tracking-tight text-foreground">
               {t.infrastructure.p3Title}
@@ -113,7 +113,7 @@ export function Infrastructure() {
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
               {t.infrastructure.p3Desc}
             </p>
-            <div className="mt-6 border-t border-white/[0.06] pt-4">
+            <div className="mt-6 border-t border-black/[0.06] pt-4 dark:border-white/[0.06]">
               <span className="text-[11px] font-mono text-muted-foreground">
                 {t.infrastructure.p3Metric}
               </span>
@@ -121,13 +121,13 @@ export function Infrastructure() {
           </div>
 
           {/* Box 4 — Small (span 7): Support SLA */}
-          <div className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 sm:p-7 lg:col-span-7 transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.05]">
+          <div className="group relative overflow-hidden rounded-2xl border border-black/[0.08] bg-black/[0.02] p-6 sm:p-7 lg:col-span-7 transition-all duration-300 hover:border-black/[0.14] dark:border-white/[0.08] dark:bg-white/[0.03] dark:hover:border-white/[0.12] dark:hover:bg-white/[0.05]">
             <div
               aria-hidden="true"
               className="pointer-events-none absolute -bottom-8 right-0 h-28 w-28 rounded-full bg-emerald-500/10 blur-2xl transition-opacity duration-500 opacity-0 group-hover:opacity-100"
             />
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.05]">
-              <LifeBuoy className="h-5 w-5 text-emerald-400" strokeWidth={1.5} aria-hidden="true" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-black/[0.08] bg-black/[0.04] dark:border-white/[0.08] dark:bg-white/[0.05]">
+              <LifeBuoy className="h-5 w-5 text-emerald-500 dark:text-emerald-400" strokeWidth={1.5} aria-hidden="true" />
             </div>
             <h3 className="mt-5 text-base font-medium tracking-tight text-foreground">
               {t.infrastructure.p4Title ?? "Suporte & SLA Ativo"}
@@ -137,7 +137,7 @@ export function Infrastructure() {
             </p>
             <div className="mt-4 flex flex-wrap gap-2 text-[10px] font-mono text-muted-foreground">
               {["99.99% Uptime SLA", "24/7 Monitoring", "< 4h Response", "Auto Backups"].map((tag) => (
-                <span key={tag} className="rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-1">
+                <span key={tag} className="rounded-full border border-black/[0.08] bg-black/[0.03] px-2.5 py-1 dark:border-white/[0.08] dark:bg-white/[0.03]">
                   {tag}
                 </span>
               ))}
@@ -146,7 +146,7 @@ export function Infrastructure() {
         </div>
 
         {/* ── Stack banner ── */}
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 border-t border-white/[0.06] pt-10 text-[11px] font-mono text-muted-foreground/70">
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 border-t border-black/[0.06] pt-10 text-[11px] font-mono text-muted-foreground/70 dark:border-white/[0.06]">
           <div className="flex items-center gap-2">
             <Server className="h-3.5 w-3.5 text-primary" />
             <span>{t.infrastructure.specsCloud}</span>

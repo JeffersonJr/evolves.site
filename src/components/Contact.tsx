@@ -61,17 +61,17 @@ export function Contact({ standalone = false }: { standalone?: boolean } = {}) {
   }
 
   const field =
-    "w-full rounded-xl border border-white/[0.08] bg-black/30 px-4 py-3 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground/50 focus:border-primary/60 focus:ring-1 focus:ring-primary/40";
+    "w-full rounded-xl border border-black/[0.08] bg-card px-4 py-3 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground/50 focus:border-primary/60 focus:ring-1 focus:ring-primary/40 dark:border-white/[0.08] dark:bg-black/30 shadow-xs";
 
   return (
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="relative border-t border-white/[0.08] bg-surface/20 py-24 sm:py-32"
+      className="relative border-t border-black/[0.08] bg-surface/20 py-24 sm:py-32 dark:border-white/[0.08]"
     >
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-[11px] font-mono tracking-wider text-primary uppercase">
+          <div className="inline-flex items-center gap-2 rounded-full border border-black/[0.08] bg-black/[0.03] px-3 py-1 text-[11px] font-mono tracking-wider text-primary uppercase dark:border-white/[0.08] dark:bg-white/[0.03]">
             <Send className="h-3 w-3" />
             <span>{t.contact.eyebrow}</span>
           </div>
@@ -90,7 +90,7 @@ export function Contact({ standalone = false }: { standalone?: boolean } = {}) {
         <div className="mt-14 grid gap-6 md:grid-cols-12">
           {/* Direct Channels */}
           <div className="space-y-4 md:col-span-5">
-            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 shadow-xs">
+            <div className="rounded-2xl border border-black/[0.08] bg-card p-6 shadow-xs dark:border-white/[0.08] dark:bg-white/[0.02]">
               <div className="flex items-center gap-3 text-primary mb-2">
                 <Mail className="h-4 w-4" />
                 <span className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground">E-mail Corporativo</span>
@@ -104,8 +104,8 @@ export function Contact({ standalone = false }: { standalone?: boolean } = {}) {
               <p className="mt-1 text-xs text-muted-foreground/70 font-mono">Retorno formal em até 24h úteis.</p>
             </div>
 
-            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 shadow-xs">
-              <div className="flex items-center gap-3 text-emerald-400 mb-2">
+            <div className="rounded-2xl border border-black/[0.08] bg-card p-6 shadow-xs dark:border-white/[0.08] dark:bg-white/[0.02]">
+              <div className="flex items-center gap-3 text-emerald-600 dark:text-emerald-400 mb-2">
                 <MessageCircle className="h-4 w-4" />
                 <span className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground">WhatsApp Corporativo</span>
               </div>
@@ -113,14 +113,14 @@ export function Contact({ standalone = false }: { standalone?: boolean } = {}) {
                 href="https://wa.me/5513981326869"
                 target="_blank"
                 rel="noreferrer"
-                className="text-sm font-medium text-foreground hover:text-emerald-400 transition-colors font-mono"
+                className="text-sm font-medium text-foreground hover:text-emerald-500 transition-colors font-mono"
               >
                 +55 (13) 98132-6869
               </a>
               <p className="mt-1 text-xs text-muted-foreground/70 font-mono">Atendimento direto com engenheiro de software.</p>
             </div>
 
-            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 shadow-xs">
+            <div className="rounded-2xl border border-black/[0.08] bg-card p-6 shadow-xs dark:border-white/[0.08] dark:bg-white/[0.02]">
               <div className="flex items-center gap-3 text-primary mb-2">
                 <MapPin className="h-4 w-4" />
                 <span className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground">{t.footer.opsTitle}</span>
@@ -135,7 +135,7 @@ export function Contact({ standalone = false }: { standalone?: boolean } = {}) {
           {/* Contact Form */}
           <form
             onSubmit={handleSubmit}
-            className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-7 md:col-span-7 shadow-xs space-y-5"
+            className="rounded-2xl border border-black/[0.08] bg-card p-7 md:col-span-7 shadow-xs space-y-5 dark:border-white/[0.08] dark:bg-white/[0.02]"
           >
             <div>
               <label htmlFor="name" className="block text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-2">

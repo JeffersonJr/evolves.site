@@ -13,12 +13,12 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
     <section
       id="cases"
       aria-labelledby="cases-heading"
-      className="relative border-t border-white/[0.08] bg-surface/20 py-24 sm:py-32"
+      className="relative border-t border-black/[0.08] bg-surface/20 py-24 sm:py-32 dark:border-white/[0.08]"
     >
       <div className="mx-auto max-w-6xl px-6">
         {/* Section Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-[11px] font-mono tracking-wider text-primary uppercase">
+          <div className="inline-flex items-center gap-2 rounded-full border border-black/[0.08] bg-black/[0.03] px-3 py-1 text-[11px] font-mono tracking-wider text-primary uppercase dark:border-white/[0.08] dark:bg-white/[0.03]">
             <Gauge className="h-3 w-3" />
             <span>{t.cases.eyebrow}</span>
           </div>
@@ -35,7 +35,7 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
 
         {/* Featured Editorial Case: Hidrolinfa Portugal */}
         {featuredCase && (
-          <div className="mt-14 overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 sm:p-10 lg:p-12 shadow-[0_0_40px_rgba(0,0,0,0.3)]">
+          <div className="mt-14 overflow-hidden rounded-2xl border border-black/[0.08] bg-card p-6 sm:p-10 lg:p-12 shadow-[var(--shadow-card)] dark:border-white/[0.08] dark:bg-white/[0.02]">
             <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
               {/* Left Column: Story & Engineering Breakdown */}
               <div className="lg:col-span-6 flex flex-col justify-between">
@@ -44,7 +44,7 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
                     <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-mono font-medium text-primary">
                       <span>🇵🇹</span> Portugal · Estética & Saúde
                     </span>
-                    <span className="rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-1 text-[11px] font-mono text-muted-foreground">
+                    <span className="rounded-full border border-black/[0.08] bg-black/[0.03] px-2.5 py-1 text-[11px] font-mono text-muted-foreground dark:border-white/[0.08] dark:bg-white/[0.03]">
                       {t.cases.featuredBadge || "Estudo de Caso de Engenharia"}
                     </span>
                   </div>
@@ -58,39 +58,39 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
                   </p>
 
                   {/* Challenge, Solution & Result */}
-                  <div className="mt-6 space-y-4 border-y border-white/[0.08] py-5">
+                  <div className="mt-6 space-y-4 border-y border-black/[0.08] py-5 dark:border-white/[0.08]">
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
                         <h4 className="text-xs font-mono uppercase tracking-wider text-foreground">
                           {t.cases.challengeTitle || "O Desafio"}
                         </h4>
                       </div>
-                      <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground leading-relaxed pl-3.5 border-l border-white/[0.06]">
+                      <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground leading-relaxed pl-3.5 border-l border-black/[0.08] dark:border-white/[0.06]">
                         {featuredCase.challenge || "Redesenho e otimização para o mercado de estética de alto padrão na Europa."}
                       </p>
                     </div>
 
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-cyan-500" />
                         <h4 className="text-xs font-mono uppercase tracking-wider text-foreground">
                           {t.cases.solutionTitle || "A Solução de Engenharia"}
                         </h4>
                       </div>
-                      <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground leading-relaxed pl-3.5 border-l border-white/[0.06]">
+                      <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground leading-relaxed pl-3.5 border-l border-black/[0.08] dark:border-white/[0.06]">
                         {featuredCase.solution || "Stack moderna com tempo de resposta de 80ms no continente europeu e fluxo de agendamento ágil."}
                       </p>
                     </div>
 
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
                         <h4 className="text-xs font-mono uppercase tracking-wider text-foreground">
                           Resultado Obtido
                         </h4>
                       </div>
-                      <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground leading-relaxed pl-3.5 border-l border-white/[0.06]">
+                      <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground leading-relaxed pl-3.5 border-l border-black/[0.08] dark:border-white/[0.06]">
                         Elevação instantânea de autoridade da marca e aumento de 40% em captação orgânica de clientes qualificados.
                       </p>
                     </div>
@@ -99,7 +99,7 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
                   {/* Telemetry Stats Row */}
                   <div className="mt-6 grid grid-cols-3 gap-3">
                     {featuredCase.stats.map((st) => (
-                      <div key={st.label} className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3 text-center sm:text-left">
+                      <div key={st.label} className="rounded-xl border border-black/[0.06] bg-black/[0.02] p-3 text-center sm:text-left dark:border-white/[0.06] dark:bg-white/[0.02]">
                         <p className="text-xl sm:text-2xl font-medium tracking-tight text-foreground">
                           {st.value}{st.suffix}
                         </p>
@@ -137,9 +137,9 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
 
               {/* Right Column: Apple Safari / MacBook Clean Frame Mockup */}
               <div className="lg:col-span-6 flex items-center justify-center">
-                <div className="w-full overflow-hidden rounded-2xl border border-white/[0.12] bg-[#0A0C10] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                <div className="w-full overflow-hidden rounded-2xl border border-black/[0.1] bg-zinc-100 shadow-[0_20px_50px_rgba(0,0,0,0.12)] dark:border-white/[0.12] dark:bg-[#0A0C10] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
                   {/* Safari Chrome Titlebar */}
-                  <div className="flex items-center justify-between border-b border-white/[0.08] bg-white/[0.03] px-4 py-2.5">
+                  <div className="flex items-center justify-between border-b border-black/[0.08] bg-zinc-200/60 px-4 py-2.5 dark:border-white/[0.08] dark:bg-white/[0.03]">
                     {/* Window Controls */}
                     <div className="flex items-center gap-1.5">
                       <span className="h-2.5 w-2.5 rounded-full bg-rose-500/80" />
@@ -148,20 +148,20 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
                     </div>
 
                     {/* Address Pill */}
-                    <div className="flex items-center gap-1.5 rounded-md border border-white/[0.08] bg-black/40 px-3 py-1 text-[11px] font-mono text-muted-foreground/80">
-                      <Lock className="h-3 w-3 text-emerald-400" />
+                    <div className="flex items-center gap-1.5 rounded-md border border-black/[0.08] bg-white px-3 py-1 text-[11px] font-mono text-muted-foreground dark:border-white/[0.08] dark:bg-black/40 dark:text-muted-foreground/80 shadow-xs">
+                      <Lock className="h-3 w-3 text-emerald-500" />
                       <span>hidrolinfadetox.com</span>
                     </div>
 
                     {/* Telemetry pill */}
-                    <div className="hidden sm:flex items-center gap-1 text-[10px] font-mono text-emerald-400">
+                    <div className="hidden sm:flex items-center gap-1 text-[10px] font-mono text-emerald-600 dark:text-emerald-400">
                       <Zap className="h-3 w-3" />
                       <span>80ms TTFB</span>
                     </div>
                   </div>
 
                   {/* Browser content */}
-                  <div className="relative overflow-hidden bg-black/60 p-2 sm:p-3">
+                  <div className="relative overflow-hidden bg-black/5 p-2 sm:p-3 dark:bg-black/60">
                     <img
                       src={featuredCase.img}
                       alt={featuredCase.title}
@@ -184,10 +184,10 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
               key={c.slug}
               to="/cases/$slug"
               params={{ slug: c.slug }}
-              className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.02] transition-all duration-300 hover:border-white/[0.16] hover:bg-white/[0.04]"
+              className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-black/[0.08] bg-card transition-all duration-300 hover:border-black/[0.16] hover:shadow-[var(--shadow-card)] dark:border-white/[0.08] dark:bg-white/[0.02] dark:hover:border-white/[0.16] dark:hover:bg-white/[0.04]"
             >
               <div>
-                <div className="relative flex aspect-[16/10] items-center justify-center overflow-hidden bg-black/40 p-6 border-b border-white/[0.06]">
+                <div className="relative flex aspect-[16/10] items-center justify-center overflow-hidden bg-secondary/40 p-6 border-b border-black/[0.06] dark:bg-black/40 dark:border-white/[0.06]">
                   <img
                     src={c.img}
                     alt={c.title}
@@ -210,10 +210,10 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
                 </div>
               </div>
 
-              <div className="border-t border-white/[0.06] p-6 pt-4 flex items-center justify-between">
+              <div className="border-t border-black/[0.06] p-6 pt-4 flex items-center justify-between dark:border-white/[0.06]">
                 <div className="flex flex-wrap gap-1.5">
                   {c.tags.slice(0, 3).map((t) => (
-                    <span key={t} className="rounded-md border border-white/[0.06] bg-white/[0.02] px-2 py-0.5 text-[10px] font-mono text-muted-foreground">
+                    <span key={t} className="rounded-md border border-black/[0.06] bg-black/[0.02] px-2 py-0.5 text-[10px] font-mono text-muted-foreground dark:border-white/[0.06] dark:bg-white/[0.02]">
                       {t}
                     </span>
                   ))}
@@ -231,7 +231,7 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
           <div className="mt-12 text-center">
             <Link
               to="/cases"
-              className="inline-flex items-center gap-2 rounded-full border border-white/[0.12] bg-white/[0.03] px-7 py-3 text-xs font-medium text-foreground transition-all hover:bg-white/[0.08] hover:border-white/[0.2]"
+              className="inline-flex items-center gap-2 rounded-full border border-black/[0.12] bg-card px-7 py-3 text-xs font-medium text-foreground transition-all hover:bg-secondary hover:border-black/[0.2] dark:border-white/[0.12] dark:bg-white/[0.03] dark:hover:bg-white/[0.08] dark:hover:border-white/[0.2] shadow-xs"
             >
               <span>{t.cases.viewAllCasesCta}</span>
               <ArrowRight className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
@@ -240,10 +240,10 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
         )}
 
         {/* Transcontinental Presence Banner */}
-        <div className="mt-14 rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 backdrop-blur-xs">
+        <div className="mt-14 rounded-2xl border border-black/[0.08] bg-card p-6 backdrop-blur-xs shadow-xs dark:border-white/[0.08] dark:bg-white/[0.02]">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.04] text-primary shrink-0">
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-black/[0.08] bg-black/[0.03] text-primary shrink-0 dark:border-white/[0.08] dark:bg-white/[0.04]">
                 <Globe2 className="h-4.5 w-4.5" />
               </div>
               <div>
@@ -257,16 +257,16 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
             </div>
 
             <div className="flex flex-wrap items-center gap-2.5 text-xs font-mono text-muted-foreground">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-black/[0.08] bg-black/[0.03] px-3 py-1 dark:border-white/[0.08] dark:bg-white/[0.03]">
                 <span>🇵🇹</span> {t.footer.countryPT}
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-black/[0.08] bg-black/[0.03] px-3 py-1 dark:border-white/[0.08] dark:bg-white/[0.03]">
                 <span>🇬🇧</span> {t.footer.countryUK}
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-black/[0.08] bg-black/[0.03] px-3 py-1 dark:border-white/[0.08] dark:bg-white/[0.03]">
                 <span>🇧🇷</span> {t.footer.countryBR}
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-black/[0.08] bg-black/[0.03] px-3 py-1 dark:border-white/[0.08] dark:bg-white/[0.03]">
                 <span>🇳🇿</span> {t.footer.countryNZ}
               </span>
             </div>

@@ -35,12 +35,12 @@ export function Process() {
     <section
       id="process"
       aria-labelledby="process-heading"
-      className="relative border-t border-white/[0.08] bg-background py-24 sm:py-32"
+      className="relative border-t border-black/[0.08] bg-background py-24 sm:py-32 dark:border-white/[0.08]"
     >
       <div className="mx-auto max-w-6xl px-6">
         {/* Section Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-[11px] font-mono tracking-wider text-primary uppercase">
+          <div className="inline-flex items-center gap-2 rounded-full border border-black/[0.08] bg-black/[0.03] px-3 py-1 text-[11px] font-mono tracking-wider text-primary uppercase dark:border-white/[0.08] dark:bg-white/[0.03]">
             <Layers className="h-3 w-3" />
             <span>{t.process.eyebrow}</span>
           </div>
@@ -61,14 +61,14 @@ export function Process() {
           {steps.map((s, index) => (
             <div
               key={s.num}
-              className="group relative flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-white/[0.02] p-7 transition-all duration-300 hover:border-white/[0.14] hover:bg-white/[0.04]"
+              className="group relative flex flex-col justify-between rounded-2xl border border-black/[0.08] bg-card p-7 transition-all duration-300 hover:border-black/[0.14] dark:border-white/[0.08] dark:bg-white/[0.02] dark:hover:border-white/[0.14] dark:hover:bg-white/[0.04] shadow-xs"
             >
               <div>
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-2xl font-medium text-white/30 group-hover:text-primary transition-colors">
+                  <span className="font-mono text-2xl font-medium text-foreground/30 group-hover:text-primary transition-colors">
                     {s.num}
                   </span>
-                  <span className="rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-0.5 text-[10px] font-mono text-muted-foreground">
+                  <span className="rounded-full border border-black/[0.08] bg-black/[0.03] px-2.5 py-0.5 text-[10px] font-mono text-muted-foreground dark:border-white/[0.08] dark:bg-white/[0.03]">
                     {s.tag}
                   </span>
                 </div>
@@ -82,7 +82,7 @@ export function Process() {
                 </p>
               </div>
 
-              <div className="mt-8 flex items-center justify-between border-t border-white/[0.06] pt-4">
+              <div className="mt-8 flex items-center justify-between border-t border-black/[0.06] pt-4 dark:border-white/[0.06]">
                 <span className="text-[10px] font-mono text-muted-foreground/70">
                   {t.process.stepPrefix || "Etapa"} {index + 1} de 4
                 </span>

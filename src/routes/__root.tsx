@@ -93,14 +93,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    /* Dark class on <html> — dark mode is the default experience */
-    <html lang="pt-BR" className="dark">
+    /* Light mode is the default experience */
+    <html lang="pt-BR">
       <head>
         <HeadContent />
-        {/* Prevent flash of unstyled content — apply saved theme before paint */}
+        {/* Prevent flash of unstyled content — apply saved theme before paint (default: light) */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('evolves_theme');if(t==='light'){document.documentElement.classList.remove('dark');}else{document.documentElement.classList.add('dark');}}catch(e){}})();`,
+            __html: `(function(){try{var t=localStorage.getItem('evolves_theme');if(t==='dark'){document.documentElement.classList.add('dark');}else{document.documentElement.classList.remove('dark');}}catch(e){}})();`,
           }}
         />
       </head>

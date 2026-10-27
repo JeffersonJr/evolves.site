@@ -8,12 +8,12 @@ export function Footer() {
   const { t } = useI18n();
 
   return (
-    <footer className="relative border-t border-white/[0.08] bg-surface/30 text-foreground">
+    <footer className="relative border-t border-black/[0.08] bg-surface/30 text-foreground dark:border-white/[0.08]">
       {/* Pre-Footer Action Block */}
       <div className="mx-auto max-w-6xl px-6 pt-20 pb-16">
-        <div className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.02] p-8 sm:p-12 lg:p-16 shadow-[0_0_40px_rgba(0,0,0,0.3)] text-center">
+        <div className="relative overflow-hidden rounded-2xl border border-black/[0.08] bg-card p-8 sm:p-12 lg:p-16 shadow-[var(--shadow-card)] text-center dark:border-white/[0.08] dark:bg-white/[0.02]">
           <div className="mx-auto max-w-2xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-[11px] font-mono tracking-wider text-primary uppercase">
+            <div className="inline-flex items-center gap-2 rounded-full border border-black/[0.08] bg-black/[0.03] px-3 py-1 text-[11px] font-mono tracking-wider text-primary uppercase dark:border-white/[0.08] dark:bg-white/[0.03]">
               <span>{t.footer.preTitle}</span>
             </div>
             <h2 className="mt-4 text-balance text-2xl font-medium tracking-tight sm:text-4xl text-foreground">
@@ -36,7 +36,7 @@ export function Footer() {
 
               <a
                 href="mailto:contato@evolvestecnologia.com.br"
-                className="inline-flex items-center gap-2 rounded-full border border-white/[0.12] bg-white/[0.04] px-6 py-3 text-xs font-medium text-foreground transition-all hover:bg-white/[0.08]"
+                className="inline-flex items-center gap-2 rounded-full border border-black/[0.12] bg-card px-6 py-3 text-xs font-medium text-foreground transition-all hover:bg-secondary dark:border-white/[0.12] dark:bg-white/[0.04] dark:hover:bg-white/[0.08]"
               >
                 <Mail className="h-3.5 w-3.5 text-muted-foreground" aria-hidden="true" />
                 <span>{t.footer.btnEmail}</span>
@@ -74,7 +74,7 @@ export function Footer() {
                 href="https://www.linkedin.com/company/71072104/"
                 target="_blank"
                 rel="noreferrer"
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03] text-muted-foreground hover:text-foreground hover:border-white/[0.16] transition-colors"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-black/[0.08] bg-card text-muted-foreground hover:text-foreground hover:border-black/[0.16] dark:border-white/[0.08] dark:bg-white/[0.03] dark:hover:border-white/[0.16] transition-colors"
                 aria-label="LinkedIn da Evolves"
               >
                 <Linkedin className="h-3.5 w-3.5" />
@@ -83,7 +83,7 @@ export function Footer() {
                 href="https://wa.me/5513981326869"
                 target="_blank"
                 rel="noreferrer"
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03] text-muted-foreground hover:text-emerald-400 hover:border-white/[0.16] transition-colors"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-black/[0.08] bg-card text-muted-foreground hover:text-emerald-500 hover:border-black/[0.16] dark:border-white/[0.08] dark:bg-white/[0.03] dark:hover:border-white/[0.16] transition-colors"
                 aria-label="WhatsApp da Evolves"
               >
                 <svg viewBox="0 0 24 24" fill="currentColor" className="h-3.5 w-3.5">
@@ -139,7 +139,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-14 border-t border-white/[0.08] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground/70 font-mono">
+        <div className="mt-14 border-t border-black/[0.08] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground/70 font-mono dark:border-white/[0.08]">
           <p>{t.footer.copyright}</p>
           <p className="text-[11px]">{t.footer.subCopyright}</p>
         </div>

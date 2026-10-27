@@ -36,7 +36,7 @@ export function Hero() {
       <div className="mx-auto max-w-5xl text-center">
 
         {/* ── Eyebrow badge ── */}
-        <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04] px-3.5 py-1 text-[11px] font-mono uppercase tracking-[0.08em] text-muted-foreground backdrop-blur-sm">
+        <div className="inline-flex items-center gap-2 rounded-full border border-black/[0.08] bg-black/[0.03] px-3.5 py-1 text-[11px] font-mono uppercase tracking-[0.08em] text-muted-foreground backdrop-blur-sm dark:border-white/[0.08] dark:bg-white/[0.04]">
           <span className="relative flex h-1.5 w-1.5">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
@@ -89,7 +89,7 @@ export function Hero() {
           {/* Secondary CTA */}
           <a
             href="#cases"
-            className="inline-flex items-center gap-2 rounded-full border border-white/[0.1] bg-white/[0.04] px-6 py-3 text-sm font-medium text-foreground backdrop-blur-sm transition-all hover:bg-white/[0.08]"
+            className="inline-flex items-center gap-2 rounded-full border border-black/[0.1] bg-black/[0.03] px-6 py-3 text-sm font-medium text-foreground backdrop-blur-sm transition-all hover:bg-black/[0.06] dark:border-white/[0.1] dark:bg-white/[0.04] dark:hover:bg-white/[0.08]"
           >
             <span>{t.hero.ctaSecondary}</span>
             <ArrowUpRight className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
@@ -106,28 +106,28 @@ export function Hero() {
           {[
             {
               icon: <Zap className="h-4 w-4" aria-hidden="true" />,
-              color: "text-indigo-400",
+              color: "text-indigo-500 dark:text-indigo-400",
               label: t.hero.metric1Label,
               value: t.hero.metric1Value,
               desc:  t.hero.metric1Desc,
             },
             {
               icon: <Shield className="h-4 w-4" aria-hidden="true" />,
-              color: "text-emerald-400",
+              color: "text-emerald-500 dark:text-emerald-400",
               label: t.hero.metric2Label,
               value: t.hero.metric2Value,
               desc:  t.hero.metric2Desc,
             },
             {
               icon: <Globe className="h-4 w-4" aria-hidden="true" />,
-              color: "text-sky-400",
+              color: "text-sky-500 dark:text-sky-400",
               label: t.hero.metric3Label,
               value: t.hero.metric3Value,
               desc:  t.hero.metric3Desc,
             },
             {
               icon: <Cpu className="h-4 w-4" aria-hidden="true" />,
-              color: "text-violet-400",
+              color: "text-violet-500 dark:text-violet-400",
               label: t.hero.metric4Label,
               value: t.hero.metric4Value,
               desc:  t.hero.metric4Desc,
@@ -135,7 +135,7 @@ export function Hero() {
           ].map((m) => (
             <div
               key={m.label}
-              className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-4 sm:p-5 backdrop-blur-xs transition-colors duration-300 hover:border-white/[0.14] hover:bg-white/[0.05]"
+              className="rounded-2xl border border-black/[0.08] bg-black/[0.02] p-4 sm:p-5 backdrop-blur-xs transition-colors duration-300 hover:border-black/[0.14] dark:border-white/[0.08] dark:bg-white/[0.03] dark:hover:border-white/[0.14] dark:hover:bg-white/[0.05]"
             >
               <div className={`flex items-center gap-2 ${m.color}`}>
                 {m.icon}

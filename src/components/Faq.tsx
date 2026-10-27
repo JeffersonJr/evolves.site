@@ -140,12 +140,12 @@ export function Faq() {
     <section
       id="faq"
       aria-labelledby="faq-heading"
-      className="relative border-t border-white/[0.08] bg-background py-24 sm:py-32"
+      className="relative border-t border-black/[0.08] bg-background py-24 sm:py-32 dark:border-white/[0.08]"
     >
       <div className="mx-auto max-w-4xl px-6">
         {/* Section Header */}
         <div className="text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-[11px] font-mono tracking-wider text-primary uppercase">
+          <div className="inline-flex items-center gap-2 rounded-full border border-black/[0.08] bg-black/[0.03] px-3 py-1 text-[11px] font-mono tracking-wider text-primary uppercase dark:border-white/[0.08] dark:bg-white/[0.03]">
             <HelpCircle className="h-3 w-3" />
             <span>{t.faq.eyebrow}</span>
           </div>
@@ -162,10 +162,10 @@ export function Faq() {
         </div>
 
         {/* Accordion Component */}
-        <div className="mt-12 rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 sm:p-8 shadow-xs">
+        <div className="mt-12 rounded-2xl border border-black/[0.08] bg-card p-6 sm:p-8 shadow-xs dark:border-white/[0.08] dark:bg-white/[0.02]">
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((f) => (
-              <AccordionItem key={f.id} value={f.id} className="border-white/[0.06] py-2">
+              <AccordionItem key={f.id} value={f.id} className="border-black/[0.06] py-2 dark:border-white/[0.06]">
                 <AccordionTrigger className="text-left font-medium text-foreground hover:no-underline hover:text-primary transition-colors text-sm sm:text-base cursor-pointer">
                   {f.question}
                 </AccordionTrigger>

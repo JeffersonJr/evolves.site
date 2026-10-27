@@ -525,12 +525,12 @@ export function Pricing() {
     <section
       id="pricing"
       aria-labelledby="pricing-heading"
-      className="relative border-t border-white/[0.08] bg-surface/20 py-24 sm:py-32"
+      className="relative border-t border-black/[0.08] bg-surface/20 py-24 sm:py-32 dark:border-white/[0.08]"
     >
       <div className="mx-auto max-w-6xl px-6">
         {/* Section Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-[11px] font-mono tracking-wider text-primary uppercase">
+          <div className="inline-flex items-center gap-2 rounded-full border border-black/[0.08] bg-black/[0.03] px-3 py-1 text-[11px] font-mono tracking-wider text-primary uppercase dark:border-white/[0.08] dark:bg-white/[0.03]">
             <Zap className="h-3 w-3" />
             <span>{t.pricing.eyebrow}</span>
           </div>
@@ -546,7 +546,7 @@ export function Pricing() {
           </p>
 
           {/* Dedicated Currency Selector on Pricing Section */}
-          <div className="mt-8 inline-flex flex-col sm:flex-row items-center justify-center gap-3 rounded-2xl border border-white/[0.08] bg-white/[0.02] p-2 sm:px-4 sm:py-2">
+          <div className="mt-8 inline-flex flex-col sm:flex-row items-center justify-center gap-3 rounded-2xl border border-black/[0.08] bg-card p-2 sm:px-4 sm:py-2 dark:border-white/[0.08] dark:bg-white/[0.02] shadow-xs">
             <span className="text-xs font-mono text-muted-foreground">
               {region === "BRL"
                 ? "Moeda da proposta:"
@@ -568,8 +568,8 @@ export function Pricing() {
               key={p.name}
               className={`relative flex flex-col justify-between rounded-2xl border p-7 sm:p-8 transition-all duration-300 ${
                 p.highlight
-                  ? "border-primary/50 bg-white/[0.04] ring-1 ring-primary/20 shadow-[0_0_30px_rgba(83,58,253,0.12)] lg:-translate-y-2 dark:border-primary/50 dark:bg-white/[0.04]"
-                  : "border-white/[0.08] bg-white/[0.02] hover:border-white/[0.14] hover:bg-white/[0.03] dark:border-white/[0.08] dark:bg-white/[0.02]"
+                  ? "border-primary/50 bg-primary/[0.03] ring-1 ring-primary/20 shadow-[0_0_30px_rgba(83,58,253,0.12)] lg:-translate-y-2 dark:border-primary/50 dark:bg-white/[0.04]"
+                  : "border-black/[0.08] bg-card hover:border-black/[0.14] dark:border-white/[0.08] dark:bg-white/[0.02] dark:hover:border-white/[0.14] dark:hover:bg-white/[0.03] shadow-xs"
               }`}
             >
               {p.highlight && p.badge && (
@@ -585,7 +585,7 @@ export function Pricing() {
                   <h3 className="text-lg font-medium tracking-tight text-foreground">
                     {p.name}
                   </h3>
-                  <span className="rounded-full border border-white/[0.08] bg-white/[0.04] px-2.5 py-0.5 text-[10px] font-mono text-muted-foreground">
+                  <span className="rounded-full border border-black/[0.08] bg-black/[0.03] px-2.5 py-0.5 text-[10px] font-mono text-muted-foreground dark:border-white/[0.08] dark:bg-white/[0.04]">
                     {currencySymbol} {region}
                   </span>
                 </div>
@@ -595,7 +595,7 @@ export function Pricing() {
                 </p>
 
                 {/* Price block */}
-                <div className="mt-5 border-y border-white/[0.08] py-4">
+                <div className="mt-5 border-y border-black/[0.08] py-4 dark:border-white/[0.08]">
                   <p className="text-2xl sm:text-3xl font-medium tracking-tight text-foreground">
                     {p.price}
                   </p>
@@ -621,7 +621,7 @@ export function Pricing() {
                 </ul>
               </div>
 
-              <div className="mt-7 pt-4 border-t border-white/[0.08]">
+              <div className="mt-7 pt-4 border-t border-black/[0.08] dark:border-white/[0.08]">
                 <a
                   href={p.ctaHref}
                   target="_blank"
@@ -629,7 +629,7 @@ export function Pricing() {
                   className={`flex w-full items-center justify-center gap-2 rounded-full py-2.5 text-xs font-medium transition-all duration-200 ${
                     p.highlight
                       ? "bg-foreground text-background hover:opacity-90 shadow-sm"
-                      : "border border-white/[0.12] bg-white/[0.04] text-foreground hover:bg-white/[0.08]"
+                      : "border border-black/[0.12] bg-card text-foreground hover:bg-black/[0.04] dark:border-white/[0.12] dark:bg-white/[0.04] dark:hover:bg-white/[0.08]"
                   }`}
                 >
                   <span>{p.ctaText}</span>
@@ -645,10 +645,10 @@ export function Pricing() {
         </div>
 
         {/* Maintenance Recurrent Pillars Box */}
-        <div className="mt-14 rounded-2xl border border-white/[0.08] bg-white/[0.02] p-7 sm:p-9 shadow-sm">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-white/[0.08] pb-6">
+        <div className="mt-14 rounded-2xl border border-black/[0.08] bg-card p-7 sm:p-9 shadow-xs dark:border-white/[0.08] dark:bg-white/[0.02]">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-black/[0.08] pb-6 dark:border-white/[0.08]">
             <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.04] text-emerald-400">
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-black/[0.08] bg-black/[0.03] text-emerald-600 dark:border-white/[0.08] dark:bg-white/[0.04] dark:text-emerald-400">
                 <ShieldCheck className="h-4.5 w-4.5" />
               </div>
               <div>
@@ -665,7 +665,7 @@ export function Pricing() {
               </div>
             </div>
 
-            <span className="shrink-0 self-start sm:self-auto rounded-full border border-white/[0.08] bg-white/[0.04] px-3 py-1 text-[11px] font-mono text-muted-foreground">
+            <span className="shrink-0 self-start sm:self-auto rounded-full border border-black/[0.08] bg-black/[0.03] px-3 py-1 text-[11px] font-mono text-muted-foreground dark:border-white/[0.08] dark:bg-white/[0.04]">
               99.99% Uptime SLA
             </span>
           </div>
@@ -674,8 +674,8 @@ export function Pricing() {
             {maintenancePillars.map((item) => {
               const Icon = item.icon;
               return (
-                <div key={item.title} className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 transition-colors hover:border-white/[0.12]">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.04] text-primary">
+                <div key={item.title} className="rounded-xl border border-black/[0.06] bg-black/[0.02] p-4 transition-colors hover:border-black/[0.12] dark:border-white/[0.06] dark:bg-white/[0.02] dark:hover:border-white/[0.12]">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-black/[0.08] bg-black/[0.03] text-primary dark:border-white/[0.08] dark:bg-white/[0.04]">
                     <Icon className="h-4 w-4" strokeWidth={1.5} />
                   </div>
                   <p className="mt-3 text-xs font-medium text-foreground">{item.title}</p>

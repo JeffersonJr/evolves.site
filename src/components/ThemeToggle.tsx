@@ -2,17 +2,17 @@ import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export function ThemeToggle() {
-  // Default is dark — matches the html.dark class set in __root.tsx
-  const [theme, setTheme] = useState<"light" | "dark">("dark");
+  // Default is light — matches the <html> tag in __root.tsx
+  const [theme, setTheme] = useState<"light" | "dark">("light");
 
   useEffect(() => {
     const stored = localStorage.getItem("evolves_theme");
-    if (stored === "light") {
-      setTheme("light");
-      document.documentElement.classList.remove("dark");
-    } else {
+    if (stored === "dark") {
       setTheme("dark");
       document.documentElement.classList.add("dark");
+    } else {
+      setTheme("light");
+      document.documentElement.classList.remove("dark");
     }
   }, []);
 
@@ -31,14 +31,15 @@ export function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-white/[0.06] hover:text-foreground"
-      aria-label="Toggle dark/light theme"
-      title="Toggle theme"
+      className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-black/[0.05] hover:text-foreground dark:hover:bg-white/[0.06]"
+      aria-label="Alternar tema claro/escuro"
+      title="Alternar tema"
     >
-      {theme === "dark"
-        ? <Sun  className="h-4 w-4" aria-hidden="true" />
-        : <Moon className="h-4 w-4" aria-hidden="true" />
-      }
+      {theme === "dark" ? (
+        <Sun className="h-4 w-4" aria-hidden="true" />
+      ) : (
+        <Moon className="h-4 w-4" aria-hidden="true" />
+      )}
     </button>
   );
 }
