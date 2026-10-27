@@ -15,7 +15,7 @@ export const contentConnections = [
         label: "Princípios para interfaces UI/UX claras",
       },
     ],
-    cases: ["projecti"],
+    cases: ["uniao-fraternal"],
   },
   {
     service: {
@@ -40,7 +40,7 @@ export const contentConnections = [
         label: "Como melhorar a conversão B2B",
       },
     ],
-    cases: ["zion-tecnologia", "projecti", "uniao-fraternal", "glebra-grande-loja-egipcia", "hidrolinfa-portugal"],
+    cases: ["uniao-fraternal", "glebra-grande-loja-egipcia", "hidrolinfa-portugal"],
   },
   {
     service: {
@@ -57,7 +57,7 @@ export const contentConnections = [
         label: "Inteligência artificial no desenvolvimento web",
       },
     ],
-    cases: ["duimpweb", "uniao-fraternal"],
+    cases: ["uniao-fraternal"],
   },
   {
     service: {
@@ -87,7 +87,7 @@ export const contentConnections = [
         label: "Branding e percepção de valor",
       },
     ],
-    cases: ["projecti", "glebra-grande-loja-egipcia"],
+    cases: ["glebra-grande-loja-egipcia", "hidrolinfa-portugal"],
   },
   {
     service: {
@@ -104,7 +104,7 @@ export const contentConnections = [
         label: "Planejamento técnico de uma migração de site",
       },
     ],
-    cases: ["zion-tecnologia", "uniao-fraternal", "hidrolinfa-portugal"],
+    cases: ["uniao-fraternal", "hidrolinfa-portugal"],
   },
   {
     service: {
@@ -117,7 +117,7 @@ export const contentConnections = [
         label: "Inteligência artificial em produtos digitais",
       },
     ],
-    cases: ["duimpweb", "uniao-fraternal"],
+    cases: ["uniao-fraternal"],
   },
   {
     service: {

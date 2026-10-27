@@ -115,10 +115,11 @@ export function Footer() {
               {t.footer.navTitle}
             </h3>
             <ul className="space-y-2.5 text-xs text-muted-foreground">
-              <li><a href="#services" className="hover:text-foreground transition-colors">{t.nav.services}</a></li>
+              <li><a href="/#services" className="hover:text-foreground transition-colors">{t.nav.services}</a></li>
               <li><Link to="/cases" className="hover:text-foreground transition-colors">{t.nav.cases}</Link></li>
-              <li><a href="#infrastructure" className="hover:text-foreground transition-colors">{t.nav.infrastructure}</a></li>
-              <li><a href="#pricing" className="hover:text-foreground transition-colors">{t.nav.pricing}</a></li>
+              <li><a href="/#infrastructure" className="hover:text-foreground transition-colors">{t.nav.infrastructure}</a></li>
+              <li><a href="/#pricing" className="hover:text-foreground transition-colors">{t.nav.pricing}</a></li>
+              <li><Link to="/blog" className="hover:text-foreground transition-colors">Blog</Link></li>
               <li><Link to="/about" className="hover:text-foreground transition-colors">{t.nav.about}</Link></li>
               <li><Link to="/contact" className="hover:text-foreground transition-colors">{t.nav.contact}</Link></li>
             </ul>

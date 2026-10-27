@@ -1,0 +1,164 @@
+import { s as require_jsx_runtime } from "../_libs/@radix-ui/react-accordion+[...].mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/related-content-BalcZZac.js
+var import_jsx_runtime = require_jsx_runtime();
+function RelatedLinks({ title, links }) {
+	if (!links.length) return null;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+		className: "mt-12 rounded-3xl bg-[#f5f5f7] p-6 dark:bg-surface sm:p-8",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+			className: "text-2xl font-semibold tracking-tight mb-5",
+			children: title
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
+			className: "space-y-3",
+			children: links.map((link) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+				href: link.href,
+				className: "text-primary underline underline-offset-4 hover:opacity-80",
+				children: link.label
+			}) }, link.href))
+		})]
+	});
+}
+var contentConnections = [
+	{
+		service: {
+			href: "/services/consultoria-ux-ui",
+			label: "Consultoria UX/UI e Design de Produto"
+		},
+		articles: [{
+			href: "/blog/o-guia-definitivo-de-acessibilidade-web",
+			label: "Acessibilidade em projetos web"
+		}, {
+			href: "/blog/tendencias-de-ui-ux-para-2024",
+			label: "Princípios para interfaces UI/UX claras"
+		}],
+		cases: ["uniao-fraternal"]
+	},
+	{
+		service: {
+			href: "/services/sites-inteligentes",
+			label: "Criação de Sites Profissionais"
+		},
+		articles: [
+			{
+				href: "/blog/importancia-de-um-site-rapido-para-seo",
+				label: "Velocidade de sites e SEO"
+			},
+			{
+				href: "/blog/migrando-do-wordpress-para-react",
+				label: "Planejando a migração de WordPress para React"
+			},
+			{
+				href: "/blog/lgpd-o-que-voce-precisa-saber",
+				label: "Privacidade em sites institucionais"
+			},
+			{
+				href: "/blog/estrategias-de-conversao-b2b",
+				label: "Como melhorar a conversão B2B"
+			}
+		],
+		cases: [
+			"uniao-fraternal",
+			"glebra-grande-loja-egipcia",
+			"hidrolinfa-portugal"
+		]
+	},
+	{
+		service: {
+			href: "/services/sistemas-customizados",
+			label: "Desenvolvimento de Sistemas Sob Medida"
+		},
+		articles: [{
+			href: "/blog/sistemas-customizados-vs-prontos",
+			label: "Sistemas customizados ou prontos?"
+		}, {
+			href: "/blog/como-a-ia-esta-mudando-o-desenvolvimento-web",
+			label: "Inteligência artificial no desenvolvimento web"
+		}],
+		cases: ["uniao-fraternal"]
+	},
+	{
+		service: {
+			href: "/services/hospedagem-performance",
+			label: "Hospedagem Cloud e Performance"
+		},
+		articles: [{
+			href: "/blog/o-que-e-hospedagem-cloud",
+			label: "Como funciona a hospedagem cloud"
+		}, {
+			href: "/blog/importancia-de-um-site-rapido-para-seo",
+			label: "Core Web Vitals e velocidade de sites"
+		}],
+		cases: ["hidrolinfa-portugal", "glebra-grande-loja-egipcia"]
+	},
+	{
+		service: {
+			href: "/services/branding-design",
+			label: "Branding B2B e Identidade Visual"
+		},
+		articles: [{
+			href: "/blog/impacto-do-branding-na-percepcao-de-valor",
+			label: "Branding e percepção de valor"
+		}],
+		cases: ["glebra-grande-loja-egipcia", "hidrolinfa-portugal"]
+	},
+	{
+		service: {
+			href: "/services/seo-tecnico",
+			label: "SEO Técnico para Sites"
+		},
+		articles: [{
+			href: "/blog/importancia-de-um-site-rapido-para-seo",
+			label: "Velocidade, rastreamento e SEO técnico"
+		}, {
+			href: "/blog/migrando-do-wordpress-para-react",
+			label: "Planejamento técnico de uma migração de site"
+		}],
+		cases: ["uniao-fraternal", "hidrolinfa-portugal"]
+	},
+	{
+		service: {
+			href: "/services/inteligencia-artificial",
+			label: "Inteligência Artificial para Empresas"
+		},
+		articles: [{
+			href: "/blog/como-a-ia-esta-mudando-o-desenvolvimento-web",
+			label: "Inteligência artificial em produtos digitais"
+		}],
+		cases: ["uniao-fraternal"]
+	},
+	{
+		service: {
+			href: "/services/lojas-virtuais",
+			label: "Desenvolvimento de Lojas Virtuais"
+		},
+		articles: [],
+		cases: []
+	},
+	{
+		service: {
+			href: "/services/acessibilidade-digital",
+			label: "Acessibilidade Digital para Sites"
+		},
+		articles: [{
+			href: "/blog/o-guia-definitivo-de-acessibilidade-web",
+			label: "Acessibilidade digital e critérios WCAG"
+		}],
+		cases: []
+	},
+	{
+		service: {
+			href: "/services/consultoria-tech",
+			label: "Consultoria Tech e Arquitetura de Software"
+		},
+		articles: [{
+			href: "/blog/sistemas-customizados-vs-prontos",
+			label: "Como avaliar sistemas sob medida e soluções prontas"
+		}, {
+			href: "/blog/migrando-do-wordpress-para-react",
+			label: "Como planejar uma mudança de arquitetura web"
+		}],
+		cases: []
+	}
+];
+//#endregion
+export { contentConnections as n, RelatedLinks as t };

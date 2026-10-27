@@ -1,1 +1,0 @@
-import{o as e}from"./useStore-DAs5vFz2.js";import{n as t,t as n}from"./Footer-BicBWbCm.js";import{t as r}from"./Cases-CoJ0ijoL.js";var i=e();function a(){return(0,i.jsxs)(`div`,{className:`min-h-screen bg-background flex flex-col`,children:[(0,i.jsx)(t,{}),(0,i.jsx)(`main`,{className:`flex-1 pt-20`,children:(0,i.jsx)(r,{standalone:!0})}),(0,i.jsx)(n,{})]})}export{a as component};

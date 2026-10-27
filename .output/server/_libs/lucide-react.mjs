@@ -492,6 +492,26 @@ var Earth = createLucideIcon("earth", [
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
+var ExternalLink = createLucideIcon("external-link", [
+	["path", {
+		d: "M15 3h6v6",
+		key: "1q9fwt"
+	}],
+	["path", {
+		d: "M10 14 21 3",
+		key: "gplh6r"
+	}],
+	["path", {
+		d: "M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6",
+		key: "a6xqqp"
+	}]
+]);
+/**
+* @license lucide-react v0.575.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
 var Gauge = createLucideIcon("gauge", [["path", {
 	d: "m12 14 4-4",
 	key: "9kzdfg"
@@ -1033,6 +1053,32 @@ var Skull = createLucideIcon("skull", [
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
+var Sparkles = createLucideIcon("sparkles", [
+	["path", {
+		d: "M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z",
+		key: "1s2grr"
+	}],
+	["path", {
+		d: "M20 2v4",
+		key: "1rf3ol"
+	}],
+	["path", {
+		d: "M22 4h-4",
+		key: "gwowj6"
+	}],
+	["circle", {
+		cx: "4",
+		cy: "20",
+		r: "2",
+		key: "6kqj1y"
+	}]
+]);
+/**
+* @license lucide-react v0.575.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
 var Sun = createLucideIcon("sun", [
 	["circle", {
 		cx: "12",
@@ -1170,4 +1216,4 @@ var Zap = createLucideIcon("zap", [["path", {
 	key: "1xq2db"
 }]]);
 //#endregion
-export { Headphones as A, CircleCheck as B, MapPin as C, Lightbulb as D, Linkedin as E, Cpu as F, Bot as G, Check as H, Cookie as I, ArrowLeft as J, ArrowUpRight as K, CodeXml as L, Globe as M, Gauge as N, LifeBuoy as O, Earth as P, Clock as R, Menu as S, Lock as T, Calendar as U, ChevronDown as V, Bug as W, PenTool as _, Target as a, MessageSquare as b, Shield as c, Send as d, Search as f, Pen as g, RefreshCcw as h, Trophy as i, Handshake as j, Layers as k, ShieldCheck as l, RefreshCw as m, X as n, Sun as o, Rocket as p, ArrowRight as q, User as r, Skull as s, Zap as t, Server as u, Palette as v, Mail as w, MessageCircle as x, Moon as y, CircleQuestionMark as z };
+export { Layers as A, Clock as B, Menu as C, Linkedin as D, Lock as E, ExternalLink as F, Calendar as G, CircleCheck as H, Earth as I, ArrowUpRight as J, Bug as K, Cpu as L, Handshake as M, Globe as N, Lightbulb as O, Gauge as P, Cookie as R, MessageCircle as S, Mail as T, ChevronDown as U, CircleQuestionMark as V, Check as W, ArrowLeft as X, ArrowRight as Y, Pen as _, Target as a, Moon as b, Skull as c, Server as d, Send as f, RefreshCcw as g, RefreshCw as h, Trophy as i, Headphones as j, LifeBuoy as k, Shield as l, Rocket as m, X as n, Sun as o, Search as p, Bot as q, User as r, Sparkles as s, Zap as t, ShieldCheck as u, PenTool as v, MapPin as w, MessageSquare as x, Palette as y, CodeXml as z };

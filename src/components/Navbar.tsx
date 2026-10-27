@@ -4,7 +4,6 @@ import logo from "@/assets/evolves-logo.webp";
 import logoGray from "@/assets/evolves-logo-gray.png";
 import logoWhite from "@/assets/evolves-logo-white.webp";
 import { ThemeToggle } from "./ThemeToggle";
-import { CurrencyToggle } from "./CurrencyToggle";
 import { LanguageSelector } from "./LanguageSelector";
 import { useI18n } from "@/contexts/I18nContext";
 import { ArrowUpRight, X, Menu } from "lucide-react";
@@ -20,6 +19,7 @@ export function Navbar() {
     { label: t.nav.cases,          href: "/cases" },
     { label: t.nav.infrastructure, href: "/#infrastructure" },
     { label: t.nav.pricing,        href: "/#pricing" },
+    { label: "Blog",               href: "/blog" },
     { label: t.nav.about,          href: "/about" },
   ];
 
@@ -94,9 +94,6 @@ export function Navbar() {
             <div className="hidden md:block">
               <LanguageSelector />
             </div>
-            <div className="hidden md:block">
-              <CurrencyToggle />
-            </div>
             <ThemeToggle />
 
             <a
@@ -149,12 +146,12 @@ export function Navbar() {
       >
         <div className="mx-3 mt-1.5 overflow-hidden rounded-2xl border border-border bg-background/98 shadow-[var(--shadow-card)] backdrop-blur-2xl">
 
-          {/* Controls row: Language + Currency */}
-          <div className="flex items-center justify-between border-b border-border/60 px-5 py-3.5">
+          {/* Controls row: Language */}
+          <div className="flex items-center justify-between border-b border-border/60 px-5 py-3">
             <div className="flex items-center gap-2">
               <LanguageSelector />
             </div>
-            <CurrencyToggle />
+            <ThemeToggle />
           </div>
 
           {/* Nav links */}

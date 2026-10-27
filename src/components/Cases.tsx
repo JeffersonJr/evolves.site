@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { casesData } from "@/data/cases";
-import { ArrowUpRight, ArrowRight, Globe2, Lock, Zap, Gauge } from "lucide-react";
+import { ArrowUpRight, ArrowRight, Globe2, Lock, Zap, Gauge, Sparkles } from "lucide-react";
 import { useI18n } from "@/contexts/I18nContext";
 
 export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
@@ -247,6 +247,65 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
               </Link>
             );
           })}
+
+          {/* Card: O Próximo Case Pode Ser o Seu */}
+          <Link
+            to="/contact"
+            className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-dashed border-primary/40 bg-gradient-to-b from-primary/[0.04] via-card to-card p-0 transition-all duration-300 hover:border-primary hover:shadow-[0_0_30px_rgba(83,58,253,0.15)] dark:border-primary/40 dark:bg-gradient-to-b dark:from-primary/[0.06] dark:via-white/[0.02] dark:to-white/[0.02] dark:hover:border-primary"
+          >
+            <div>
+              {/* Graphic Blueprint Top Area */}
+              <div className="relative flex aspect-[16/10] flex-col items-center justify-center overflow-hidden border-b border-black/[0.06] bg-primary/[0.03] p-5 text-center dark:border-white/[0.06] dark:bg-white/[0.02]">
+                <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl border border-primary/30 bg-primary/10 text-primary shadow-xs transition-transform duration-500 group-hover:scale-110">
+                  <Sparkles className="h-6 w-6" />
+                  <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75 [will-change:transform,opacity]" />
+                    <span className="relative inline-flex h-3 w-3 rounded-full bg-primary" />
+                  </span>
+                </div>
+                <p className="mt-3 text-[11px] font-mono uppercase tracking-wider text-primary">
+                  Sua Empresa · 2026
+                </p>
+                <p className="mt-0.5 text-xs text-muted-foreground font-mono">
+                  Seu Próximo Case de Alta Performance
+                </p>
+                <span className="absolute top-3 right-3 rounded-full border border-primary/30 bg-primary/10 px-2.5 py-0.5 text-[10px] font-mono text-primary shadow-2xs">
+                  Próxima Vaga
+                </span>
+              </div>
+
+              <div className="p-6">
+                <p className="text-[11px] font-mono uppercase tracking-wider text-primary">
+                  Engenharia & Alta Conversão
+                </p>
+                <h3 className="mt-2 text-base font-medium tracking-tight text-foreground transition-colors group-hover:text-primary">
+                  O próximo case de sucesso pode ser o seu
+                </h3>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                  Transforme a presença digital da sua empresa com velocidade instantânea, design de padrão global e captação qualificada sob medida.
+                </p>
+
+                <div className="mt-4 flex items-center gap-2 rounded-lg border border-primary/20 bg-primary/[0.04] px-3 py-1.5 text-xs font-mono">
+                  <Zap className="h-3 w-3 text-primary shrink-0" />
+                  <span className="font-medium text-foreground">
+                    100/100
+                  </span>
+                  <span className="text-[10px] text-muted-foreground truncate">
+                    · Core Web Vitals & SLA 99.9%
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div className="border-t border-black/[0.06] p-6 pt-4 flex items-center justify-between dark:border-white/[0.06]">
+              <span className="text-[10px] font-mono text-muted-foreground">
+                Fale com um engenheiro
+              </span>
+              <span className="text-xs font-mono font-medium text-primary flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+                Iniciar Projeto <ArrowRight className="h-3 w-3" />
+              </span>
+            </div>
+          </Link>
         </div>
 
         {/* CTA to /cases page */}

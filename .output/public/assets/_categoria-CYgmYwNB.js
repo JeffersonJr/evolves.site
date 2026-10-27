@@ -1,0 +1,1 @@
+import{o as e}from"./useStore-DAs5vFz2.js";import{t}from"./BlogIndex-C7TVCJAX.js";import{n}from"./index-CtPvn36j.js";var r=e();function i(){let{category:e}=n.useLoaderData();return(0,r.jsx)(t,{initialCategory:e})}export{i as component};
