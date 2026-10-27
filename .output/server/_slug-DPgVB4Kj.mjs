@@ -1,8 +1,8 @@
 import { c as siteUrl, n as breadcrumbSchema, o as seoHead, r as faqSchema, s as serviceSchema } from "./_ssr/seo-CfNvlcX9.mjs";
 import { f as lazyRouteComponent, j as notFound, p as createFileRoute } from "./_libs/@tanstack/react-router+[...].mjs";
 import { t as servicesData } from "./_ssr/services-Df_LQmgL.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/_slug-Dt9CGNwa.js
-var $$splitComponentImporter = () => import("./_slug-CxpVLHiG.mjs");
+//#region node_modules/.nitro/vite/services/ssr/assets/_slug-DPgVB4Kj.js
+var $$splitComponentImporter = () => import("./_slug-mrxgLz73.mjs");
 var Route = createFileRoute("/services/$slug")({
 	loader: ({ params }) => {
 		const service = servicesData.find((s) => s.slug === params.slug);

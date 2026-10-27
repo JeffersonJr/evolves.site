@@ -1,4 +1,4 @@
-//#region \0tanstack-start-manifest:v
+//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-BNsD4e9Z.js
 var tsrStartManifest = () => ({ routes: {
 	__root__: {
 		filePath: "/Users/jefferson/evolves/evolves.site/src/routes/__root.tsx",
@@ -17,7 +17,7 @@ var tsrStartManifest = () => ({ routes: {
 			"/blog/categoria/$categoria"
 		],
 		preloads: [
-			"/assets/index-BPidJMkE.js",
+			"/assets/index-BtntPKJ4.js",
 			"/assets/useStore-DAs5vFz2.js",
 			"/assets/I18nContext-CfWLIMO-.js",
 			"/assets/matchContext-BmN0_Z1Z.js",
@@ -27,28 +27,28 @@ var tsrStartManifest = () => ({ routes: {
 		scripts: [{ attrs: {
 			type: "module",
 			async: !0,
-			src: "/assets/index-BPidJMkE.js"
+			src: "/assets/index-BtntPKJ4.js"
 		} }]
 	},
 	"/": {
 		filePath: "/Users/jefferson/evolves/evolves.site/src/routes/index.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/routes-DfoGPwPu.js",
+			"/assets/routes-Dis1jOrb.js",
 			"/assets/Footer-BVXEdSlo.js",
 			"/assets/shield-CzhBEZFO.js",
-			"/assets/Cases-4SCIYwbb.js",
+			"/assets/Cases-5IqePMbn.js",
 			"/assets/layers-DRNqu8Vj.js",
 			"/assets/zap-DzTLsnj3.js",
-			"/assets/Contact-BlR-NiwS.js",
-			"/assets/Services-BYv_ICVO.js"
+			"/assets/Contact-BNlzV50T.js",
+			"/assets/Services-C07-_ke0.js"
 		]
 	},
 	"/about": {
 		filePath: "/Users/jefferson/evolves/evolves.site/src/routes/about.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/about-Def2asNE.js",
+			"/assets/about-C-jCvKvB.js",
 			"/assets/Footer-BVXEdSlo.js",
 			"/assets/shield-CzhBEZFO.js",
 			"/assets/target-DjXmp6Ly.js"
@@ -58,9 +58,9 @@ var tsrStartManifest = () => ({ routes: {
 		filePath: "/Users/jefferson/evolves/evolves.site/src/routes/contact.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/contact-C83wRE9H.js",
+			"/assets/contact-CUAevy-g.js",
 			"/assets/Footer-BVXEdSlo.js",
-			"/assets/Contact-BlR-NiwS.js"
+			"/assets/Contact-BNlzV50T.js"
 		]
 	},
 	"/cookies": {
@@ -76,13 +76,13 @@ var tsrStartManifest = () => ({ routes: {
 	"/services": {
 		filePath: "/Users/jefferson/evolves/evolves.site/src/routes/services.tsx",
 		children: ["/services/$slug", "/services/"],
-		preloads: ["/assets/services-Br8C_tL7.js"]
+		preloads: ["/assets/services-Bk9oZtnP.js"]
 	},
 	"/blog/$slug": {
 		filePath: "/Users/jefferson/evolves/evolves.site/src/routes/blog/$slug.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/_slug-XiC27EC4.js",
+			"/assets/_slug-HfY1x3eY.js",
 			"/assets/Footer-BVXEdSlo.js",
 			"/assets/related-content-BZrqKI7y.js"
 		]
@@ -91,7 +91,7 @@ var tsrStartManifest = () => ({ routes: {
 		filePath: "/Users/jefferson/evolves/evolves.site/src/routes/cases/$slug.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/_slug-DJElXA4_.js",
+			"/assets/_slug-KFYN5ube.js",
 			"/assets/Footer-BVXEdSlo.js",
 			"/assets/circle-check-B-ZkZkyg.js",
 			"/assets/layers-DRNqu8Vj.js",
@@ -104,7 +104,7 @@ var tsrStartManifest = () => ({ routes: {
 		filePath: "/Users/jefferson/evolves/evolves.site/src/routes/services/$slug.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/_slug-CSwH6tUY.js",
+			"/assets/_slug-CgHtaHGV.js",
 			"/assets/Footer-BVXEdSlo.js",
 			"/assets/circle-check-B-ZkZkyg.js",
 			"/assets/related-content-BZrqKI7y.js"
@@ -113,35 +113,35 @@ var tsrStartManifest = () => ({ routes: {
 	"/blog/": {
 		filePath: "/Users/jefferson/evolves/evolves.site/src/routes/blog/index.tsx",
 		children: void 0,
-		preloads: ["/assets/blog-Cs0fODeo.js", "/assets/BlogIndex-D-cEtlsj.js"]
+		preloads: ["/assets/blog-D2fjfoYM.js", "/assets/BlogIndex-gpf7Cmsc.js"]
 	},
 	"/cases/": {
 		filePath: "/Users/jefferson/evolves/evolves.site/src/routes/cases/index.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/cases-CUfCzlwW.js",
+			"/assets/cases-Dhm7L7zs.js",
 			"/assets/Footer-BVXEdSlo.js",
-			"/assets/Cases-4SCIYwbb.js"
+			"/assets/Cases-5IqePMbn.js"
 		]
 	},
 	"/services/": {
 		filePath: "/Users/jefferson/evolves/evolves.site/src/routes/services/index.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/services-D-4-hpyo.js",
+			"/assets/services-CDPqqjYr.js",
 			"/assets/Footer-BVXEdSlo.js",
-			"/assets/Services-BYv_ICVO.js"
+			"/assets/Services-C07-_ke0.js"
 		]
 	},
 	"/blog/busca/$termo": {
 		filePath: "/Users/jefferson/evolves/evolves.site/src/routes/blog/busca/$termo.tsx",
 		children: void 0,
-		preloads: ["/assets/_termo-CrSWB_e-.js", "/assets/BlogIndex-D-cEtlsj.js"]
+		preloads: ["/assets/_termo-D0bYP7Qg.js", "/assets/BlogIndex-gpf7Cmsc.js"]
 	},
 	"/blog/categoria/$categoria": {
 		filePath: "/Users/jefferson/evolves/evolves.site/src/routes/blog/categoria/$categoria.tsx",
 		children: void 0,
-		preloads: ["/assets/_categoria-CeboRCIA.js", "/assets/BlogIndex-D-cEtlsj.js"]
+		preloads: ["/assets/_categoria-CTcHA7qy.js", "/assets/BlogIndex-gpf7Cmsc.js"]
 	}
 } });
 //#endregion

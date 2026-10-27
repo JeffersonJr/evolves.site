@@ -3,6 +3,7 @@ import type { LucideIcon } from "lucide-react";
 
 export interface ServiceProcessPhase {
   name: string;
+  description?: string;
   steps: { id: number; title: string; detail: string }[];
 }
 

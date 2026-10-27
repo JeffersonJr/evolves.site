@@ -136,23 +136,37 @@ function ServicePage() {
           </div>
 
           {/* Processo */}
-          {service.phases && (
+          {service.phases && service.phases.length > 0 && (
             <div className="mb-20">
               <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-foreground mb-10 text-center">
                 Fases de Execução
               </h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {service.phases.map((phase, pIdx) => (
-                  <div key={pIdx} className="rounded-2xl border border-border bg-surface/50 p-5">
-                    <span className="text-[10px] font-mono uppercase text-primary tracking-wider">
-                      Fase 0{pIdx + 1}
-                    </span>
-                    <h3 className="mt-2 text-sm font-semibold text-foreground">
-                      {phase.name}
-                    </h3>
-                    <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
-                      {phase.description}
-                    </p>
+                  <div key={pIdx} className="rounded-2xl border border-border bg-surface/50 p-5 flex flex-col justify-between">
+                    <div>
+                      <span className="text-[10px] font-mono uppercase text-primary tracking-wider">
+                        Fase 0{pIdx + 1}
+                      </span>
+                      <h3 className="mt-2 text-sm font-semibold text-foreground">
+                        {phase.name}
+                      </h3>
+                      {phase.description && (
+                        <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
+                          {phase.description}
+                        </p>
+                      )}
+                      {phase.steps && phase.steps.length > 0 && (
+                        <ul className="mt-3 space-y-2 border-t border-border/60 pt-3">
+                          {phase.steps.map((st) => (
+                            <li key={st.id} className="text-xs text-muted-foreground leading-relaxed">
+                              <span className="font-medium text-foreground block">{st.title}</span>
+                              <span className="text-[11px] text-muted-foreground">{st.detail}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
                   </div>
                 ))}
               </div>

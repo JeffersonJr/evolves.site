@@ -3,10 +3,10 @@ import { h as Link } from "./_libs/@tanstack/react-router+[...].mjs";
 import { H as CircleCheck, J as ArrowUpRight, X as ArrowLeft } from "./_libs/lucide-react.mjs";
 import { n as Navbar, t as Footer } from "./_ssr/Footer-BNbhuVSb.mjs";
 import { n as contentConnections, t as RelatedLinks } from "./_ssr/related-content-BalcZZac.mjs";
-import { t as servicesData } from "./_ssr/services-Df_LQmgL.mjs";
-import { t as Route } from "./_slug-Dt9CGNwa.mjs";
 import { t as casesData } from "./_ssr/cases-DvONSuRz.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/_slug-CxpVLHiG.js
+import { t as servicesData } from "./_ssr/services-Df_LQmgL.mjs";
+import { t as Route } from "./_slug-DPgVB4Kj.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/_slug-mrxgLz73.js
 var import_jsx_runtime = require_jsx_runtime();
 function ServicePage() {
 	const { service } = Route.useLoaderData();
@@ -82,16 +82,16 @@ function ServicePage() {
 							}, idx))
 						})]
 					}),
-					service.phases && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					service.phases && service.phases.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 						className: "mb-20",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
 							className: "text-xl sm:text-2xl font-semibold tracking-tight text-foreground mb-10 text-center",
 							children: "Fases de Execução"
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 							className: "grid sm:grid-cols-2 lg:grid-cols-4 gap-4",
-							children: service.phases.map((phase, pIdx) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "rounded-2xl border border-border bg-surface/50 p-5",
-								children: [
+							children: service.phases.map((phase, pIdx) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "rounded-2xl border border-border bg-surface/50 p-5 flex flex-col justify-between",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
 									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
 										className: "text-[10px] font-mono uppercase text-primary tracking-wider",
 										children: ["Fase 0", pIdx + 1]
@@ -100,11 +100,24 @@ function ServicePage() {
 										className: "mt-2 text-sm font-semibold text-foreground",
 										children: phase.name
 									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									phase.description && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 										className: "mt-1 text-xs text-muted-foreground leading-relaxed",
 										children: phase.description
+									}),
+									phase.steps && phase.steps.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
+										className: "mt-3 space-y-2 border-t border-border/60 pt-3",
+										children: phase.steps.map((st) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
+											className: "text-xs text-muted-foreground leading-relaxed",
+											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+												className: "font-medium text-foreground block",
+												children: st.title
+											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+												className: "text-[11px] text-muted-foreground",
+												children: st.detail
+											})]
+										}, st.id))
 									})
-								]
+								] })
 							}, pIdx))
 						})]
 					}),

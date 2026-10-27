@@ -7,12 +7,12 @@ import { t as Route$10 } from "../_categoria-BzYpYOt4.mjs";
 import { n as RegionProvider, r as useI18n, t as I18nProvider } from "./I18nContext-CciqnXLk.mjs";
 import { J as ArrowUpRight, K as Bug, R as Cookie, S as MessageCircle, X as ArrowLeft, Y as ArrowRight, c as Skull, g as RefreshCcw, i as Trophy, m as Rocket, n as X, q as Bot } from "../_libs/lucide-react.mjs";
 import { t as Route$11 } from "../_slug-BSEd0_jp.mjs";
-import { t as Route$12 } from "../_slug-Dt9CGNwa.mjs";
-import { t as Route$13 } from "../_slug-7d5onBJA.mjs";
+import { t as Route$12 } from "../_slug-7d5onBJA.mjs";
+import { t as Route$13 } from "../_slug-DPgVB4Kj.mjs";
 import { t as Route$14 } from "../_termo-KPa9wJW8.mjs";
 import { t as QueryClient } from "../_libs/tanstack__query-core.mjs";
 import { t as QueryClientProvider } from "../_libs/tanstack__react-query.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/router-DD9-2K8r.js
+//#region node_modules/.nitro/vite/services/ssr/assets/router-UPH88phW.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var styles_default = "/assets/styles-BxxanLsQ.css";
@@ -1226,12 +1226,12 @@ var BlogIndexRoute = Route.update({
 	path: "/blog/",
 	getParentRoute: () => Route$9
 });
-var ServicesSlugRoute = Route$12.update({
+var ServicesSlugRoute = Route$13.update({
 	id: "/$slug",
 	path: "/$slug",
 	getParentRoute: () => ServicesRoute
 });
-var CasesSlugRoute = Route$13.update({
+var CasesSlugRoute = Route$12.update({
 	id: "/cases/$slug",
 	path: "/cases/$slug",
 	getParentRoute: () => Route$9
