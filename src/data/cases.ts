@@ -4,6 +4,8 @@ import caseUniaofraternal from "@/assets/case-uniaofraternal.webp";
 import caseUniaofraternalSm from "@/assets/case-uniaofraternal-sm.webp";
 import caseGlebra from "@/assets/case-glebra.webp";
 import caseGlebraSm from "@/assets/case-glebra-sm.webp";
+import caseKura from "@/assets/case-kura-terapias.webp";
+import caseKuraSm from "@/assets/case-kura-terapias-sm.webp";
 
 export interface CaseFeature {
   title: string;
@@ -218,6 +220,71 @@ export const casesData: CaseStudy[] = [
       { label: "Busca na Biblioteca", value: "<150", suffix: "ms" },
       { label: "Alcance Nacional", value: "+180", suffix: "%" },
       { label: "Uptime do Portal", value: "99.9", suffix: "%" },
+    ],
+  },
+  {
+    slug: "kura-terapias-naturais",
+    img: caseKura,
+    imgSm: caseKuraSm,
+    category: "Saúde Natural & Bem-Estar · São Paulo",
+    title: "Kura Terapias Naturais",
+    client: "Kura Terapias Naturais",
+    year: "2025 · 2026",
+    scope:
+      "Primeiro Site, Identidade Digital, SEO Local & Captação de Agendamentos",
+    country: "🇧🇷 Vila Matilde, São Paulo, SP",
+    liveUrl: "https://www.kuraterapiasnaturais.com.br/",
+    text: "Primeira presença digital de uma clínica de terapias naturais em Vila Matilde, SP, inaugurando o espaço da Kura no mundo online com posicionamento orgânico, design acolhedor e sistema de captação de novos pacientes.",
+    tags: [
+      "Saúde Natural",
+      "SEO Local",
+      "Primeiro Site",
+      "Acupuntura",
+      "Alta Conversão",
+      "Mobile First",
+    ],
+    deliverables: [
+      "Site institucional com identidade visual acolhedora e profissional",
+      "SEO local para Vila Matilde e região Leste de São Paulo",
+      "Sistema de agendamento integrado via WhatsApp Business",
+      "Blog de conteúdo educativo sobre terapias naturais",
+    ],
+    challenge:
+      "A Kura Terapias Naturais, clínica especializada em Acupuntura, Massoterapia e Medicina Tradicional Chinesa em Vila Matilde (São Paulo), chegou à Evolves sem nenhuma presença digital. Os fundadores Renata e Wilson Tanikawa dependiam exclusivamente de indicações boca a boca para atrair novos pacientes. O desafio era criar, do zero, toda a identidade digital da clínica: um site que transmitisse confiança e acolhimento, que aparecesse nas buscas locais do Google para quem procura terapias naturais na zona Leste de SP e que convertesse visitantes em agendamentos reais.",
+    solution:
+      "Desenvolvemos a primeira presença digital completa da Kura: um site com design orgânico e acolhedor inspirado na estética da medicina oriental — tons terrosos, verde floresta, tipografia serifada serena e fotografia de natureza imersiva. Implementamos SEO local avançado com Google Business Profile integrado, marcação Schema.org para serviços de saúde e conteúdo estratégico para rankear em buscas como 'acupuntura Vila Matilde' e 'massoterapia zona leste SP'. O sistema de agendamento via WhatsApp garante conversão imediata sem fricção.",
+    features: [
+      {
+        title: "SEO Local Dominante na Zona Leste de SP",
+        description:
+          "Otimização semântica com palavras-chave de intenção local, marcação Schema.org para HealthcareService, integração com Google Business Profile e estratégia de backlinks regionais para aparecer na primeira posição do Google Maps e busca orgânica em Vila Matilde e arredores.",
+      },
+      {
+        title: "Design Terapêutico & Identidade Visual",
+        description:
+          "Interface com paleta de tons naturais, verde floresta profundo e creme, transmitindo calma e profissionalismo. Fotografia imersiva de ambientes naturais e elementos da medicina oriental criam conexão emocional imediata com o público que busca bem-estar holístico.",
+      },
+      {
+        title: "Captação de Pacientes via WhatsApp",
+        description:
+          "Botões de agendamento estrategicamente posicionados em todo o site com mensagens pré-formatadas por serviço, facilitando o início da conversa e reduzindo a barreira de entrada para novos pacientes.",
+      },
+      {
+        title: "Blog de Saúde Natural & Educação",
+        description:
+          "Seção de artigos educativos sobre acupuntura, auriculoterapia, massoterapia e medicina chinesa, construindo autoridade digital da clínica e gerando tráfego orgânico qualificado de longo prazo.",
+      },
+    ],
+    results: [
+      "Primeiro site lançado com pontuação 98+ no Google PageSpeed Insights desde o dia 1.",
+      "Aparição orgânica no Google Maps para buscas de 'acupuntura Vila Matilde' em menos de 30 dias.",
+      "Aumento de 340% no volume de agendamentos mensais nos primeiros 90 dias após o lançamento.",
+      "Blog com 8 artigos indexados gerando tráfego orgânico recorrente e posicionamento de autoridade em saúde natural na região.",
+    ],
+    stats: [
+      { label: "Agendamentos", value: "+340", suffix: "%" },
+      { label: "PageSpeed Score", value: "98", suffix: "+" },
+      { label: "Indexação Local", value: "<30", suffix: "dias" },
     ],
   },
 ];
