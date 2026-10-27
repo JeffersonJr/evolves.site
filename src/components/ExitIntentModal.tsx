@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { X, ArrowUpRight } from "lucide-react";
+import { X, ArrowUpRight, Sparkles } from "lucide-react";
 import { useI18n } from "@/contexts/I18nContext";
 
 const WHATSAPP_NUMBER = "5513981326869";
@@ -58,7 +58,6 @@ export function ExitIntentModal() {
   if (!isOpen) return null;
 
   return (
-    /* Backdrop */
     <div
       role="dialog"
       aria-modal="true"
@@ -67,48 +66,58 @@ export function ExitIntentModal() {
     >
       {/* Scrim */}
       <div
-        className="absolute inset-0 bg-foreground/20 backdrop-blur-sm"
+        className="absolute inset-0 bg-black/40 backdrop-blur-md"
         onClick={dismiss}
         aria-hidden="true"
       />
 
       {/* Panel */}
-      <div className="relative w-full max-w-lg animate-fade-up overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-card)]">
-        {/* Subtle top accent line */}
-        <div className="h-px w-full bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      <div className="relative w-full max-w-xl animate-fade-up overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[0_32px_80px_rgba(0,0,0,0.28)] dark:shadow-[0_32px_80px_rgba(0,0,0,0.6)]">
+
+        {/* Top gradient bar */}
+        <div className="h-[3px] w-full bg-gradient-to-r from-primary/0 via-primary to-primary/0" />
 
         {/* Close */}
         <button
           onClick={dismiss}
-          className="absolute right-5 top-5 z-10 flex h-8 w-8 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground cursor-pointer"
+          className="absolute right-4 top-4 z-10 flex h-8 w-8 items-center justify-center rounded-full text-muted-foreground transition-all hover:bg-secondary hover:text-foreground hover:rotate-90 cursor-pointer duration-200"
           aria-label="Fechar"
         >
           <X className="h-4 w-4" />
         </button>
 
-        <div className="px-8 pb-8 pt-8 sm:px-10 sm:pb-10 sm:pt-9">
-          {/* Eyebrow */}
-          <p className="text-[11px] font-mono uppercase tracking-widest text-primary">
-            {t.exitModal.eyebrow}
-          </p>
+        <div className="px-7 pb-7 pt-7 sm:px-9 sm:pb-9 sm:pt-8">
 
-          {/* Headline */}
-          <h2
-            id="exit-modal-headline"
-            className="mt-3 text-balance text-2xl font-semibold tracking-tight text-foreground sm:text-3xl"
-          >
-            {t.exitModal.headline}
-          </h2>
+          {/* Header */}
+          <div className="flex items-start gap-4">
+            {/* Icon accent */}
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/20">
+              <Sparkles className="h-5 w-5" strokeWidth={1.5} />
+            </div>
 
-          {/* Subtext */}
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            {t.exitModal.subtext}
-          </p>
+            <div className="flex-1 min-w-0">
+              <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-primary">
+                {t.exitModal.eyebrow}
+              </p>
+              <h2
+                id="exit-modal-headline"
+                className="mt-1 text-xl font-semibold tracking-tight text-foreground sm:text-2xl"
+              >
+                {t.exitModal.headline}
+              </h2>
+              <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                {t.exitModal.subtext}
+              </p>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="my-6 h-px bg-border/60" />
 
           {submitted ? (
             /* Success state */
-            <div className="mt-8 flex flex-col items-center gap-3 py-6 text-center">
-              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-500">
+            <div className="flex flex-col items-center gap-3 py-8 text-center">
+              <span className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-500 ring-1 ring-emerald-500/20">
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -116,44 +125,45 @@ export function ExitIntentModal() {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="h-6 w-6"
+                  className="h-7 w-7"
                 >
                   <path d="M20 6 9 17l-5-5" />
                 </svg>
               </span>
-              <p className="text-sm font-medium text-foreground">
-                Mensagem enviada com sucesso!
-              </p>
+              <div>
+                <p className="text-sm font-medium text-foreground">
+                  Mensagem enviada!
+                </p>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  Em breve entraremos em contato.
+                </p>
+              </div>
             </div>
           ) : (
             /* Form */
-            <form onSubmit={handleSubmit} className="mt-7 space-y-3">
+            <form onSubmit={handleSubmit} className="space-y-3">
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                <div className="flex flex-col gap-1">
-                  <input
-                    id="exit-name"
-                    required
-                    value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
-                    className="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/60 transition-colors focus:border-primary/60 focus:outline-none focus:ring-2 focus:ring-primary/20"
-                    placeholder={t.exitModal.namePlaceholder}
-                  />
-                </div>
-                <div className="flex flex-col gap-1">
-                  <input
-                    id="exit-email"
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                    className="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/60 transition-colors focus:border-primary/60 focus:outline-none focus:ring-2 focus:ring-primary/20"
-                    placeholder={t.exitModal.emailPlaceholder}
-                  />
-                </div>
+                <input
+                  id="exit-name"
+                  required
+                  value={formData.name}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
+                  className="w-full rounded-xl border border-border bg-background/60 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 transition-all focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/15"
+                  placeholder={t.exitModal.namePlaceholder}
+                />
+                <input
+                  id="exit-email"
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
+                  className="w-full rounded-xl border border-border bg-background/60 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 transition-all focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/15"
+                  placeholder={t.exitModal.emailPlaceholder}
+                />
               </div>
 
               <textarea
@@ -164,7 +174,7 @@ export function ExitIntentModal() {
                   setFormData({ ...formData, message: e.target.value })
                 }
                 rows={3}
-                className="w-full resize-none rounded-xl border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/60 transition-colors focus:border-primary/60 focus:outline-none focus:ring-2 focus:ring-primary/20"
+                className="w-full resize-none rounded-xl border border-border bg-background/60 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 transition-all focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/15"
                 placeholder={t.exitModal.messagePlaceholder}
               />
 
@@ -172,7 +182,7 @@ export function ExitIntentModal() {
               <div className="flex flex-col gap-2 pt-1">
                 <button
                   type="submit"
-                  className="inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-all hover:opacity-90"
+                  className="inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-foreground px-6 py-3 text-sm font-medium text-background transition-all hover:opacity-90 active:scale-[0.98]"
                 >
                   <span>{t.exitModal.submitBtn}</span>
                   <ArrowUpRight className="h-4 w-4" aria-hidden="true" />

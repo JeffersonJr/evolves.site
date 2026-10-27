@@ -1,6 +1,5 @@
 import { useRegion, type Region } from "@/contexts/RegionContext";
 import { useI18n } from "@/contexts/I18nContext";
-import { CurrencyToggle } from "./CurrencyToggle";
 import {
   Check,
   ArrowRight,
@@ -633,23 +632,17 @@ export function Pricing() {
             {t.pricing.description}
           </p>
 
-          {/* Dedicated Currency Selector on Pricing Section */}
-          <div className="mt-8 inline-flex flex-col sm:flex-row items-center justify-center gap-3 rounded-2xl border border-black/[0.08] bg-card p-2 sm:px-4 sm:py-2 dark:border-white/[0.08] dark:bg-white/[0.02] shadow-xs">
-            <span className="text-xs font-mono text-muted-foreground">
+          {/* Currency info badge — read only, auto-detected from region */}
+          <div className="mt-8 inline-flex items-center gap-2.5 rounded-full border border-black/[0.08] bg-black/[0.03] px-4 py-1.5 dark:border-white/[0.08] dark:bg-white/[0.04]">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+            <span className="text-[11px] font-mono text-muted-foreground">
               {region === "BRL"
-                ? "Moeda da proposta:"
+                ? "Moeda exibida: Real Brasileiro (R$)"
                 : region === "USD"
-                  ? "Proposal currency:"
-                  : "Moeda da proposta:"}
-            </span>
-            <CurrencyToggle />
-            <span className="text-[11px] font-mono text-muted-foreground hidden md:inline">
-              ·{" "}
-              {region === "BRL"
-                ? "Faturamento BRL com NF"
-                : region === "USD"
-                  ? "Global B2B Billing (USD)"
-                  : "Faturação Europeia em EUR"}
+                  ? "Displaying prices in: US Dollar ($)"
+                  : region === "EUR"
+                    ? "Moeda exibida: Euro (€)"
+                    : "Moeda exibida: Real Brasileiro (R$)"}
             </span>
           </div>
         </div>
