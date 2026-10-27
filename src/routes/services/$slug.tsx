@@ -2,7 +2,9 @@ import { RelatedLinks } from "@/components/RelatedLinks";
 import { contentConnections } from "@/data/related-content";
 import {
   breadcrumbSchema,
+  faqSchema,
   organizationSchema,
+  serviceSchema,
   seoHead,
   siteUrl,
 } from "@/lib/seo";
@@ -25,26 +27,23 @@ export const Route = createFileRoute("/services/$slug")({
     const item = loaderData?.service;
     if (!item)
       return { meta: [{ name: "robots", content: "noindex, follow" }] };
+    const serviceUrl = new URL(`/services/${item.slug}`, siteUrl).href;
     return seoHead({
       title: item.seoTitle,
       description: item.seoDescription,
       path: `/services/${item.slug}`,
       structuredData: [
-        {
-          "@context": "https://schema.org",
-          "@type": "Service",
+        serviceSchema({
           name: item.title,
-          serviceType: item.title,
           description: item.seoDescription,
-          url: new URL(`/services/${item.slug}`, siteUrl).href,
-          provider: organizationSchema,
-          areaServed: { "@type": "Country", name: "Brasil" },
-        },
+          url: serviceUrl,
+        }),
         breadcrumbSchema([
           { name: "Início", path: "/" },
           { name: "Serviços", path: "/services" },
           { name: item.title, path: `/services/${item.slug}` },
         ]),
+        ...(item.faq && item.faq.length > 0 ? [faqSchema(item.faq)] : []),
       ],
     });
   },

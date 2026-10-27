@@ -1,0 +1,371 @@
+//#region node_modules/.nitro/vite/services/ssr/assets/seo-CfNvlcX9.js
+var site_default = {
+	url: "https://www.evolves.site",
+	name: "Evolves Tecnologia",
+	image: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/fb55e15d-dd84-4441-8254-64bd5127bd10",
+	pages: [
+		{
+			"path": "/",
+			"title": "Criação de Sites Profissionais, Sistemas e Soluções Digitais | Evolves",
+			"description": "Evolves: empresa especializada em criação de sites profissionais, sistemas customizados, SEO técnico, hospedagem cloud de alta performance, UX/UI e branding digital para empresas no Brasil e em Portugal."
+		},
+		{
+			"path": "/about",
+			"title": "Sobre a Evolves Tecnologia | Empresa de Desenvolvimento Web e Design Digital",
+			"description": "Conheça a Evolves: empresa de tecnologia especializada em desenvolvimento web, sistemas sob medida, inteligência artificial, SEO técnico e design de produto para negócios digitais no Brasil e exterior."
+		},
+		{
+			"path": "/services",
+			"title": "Serviços de Desenvolvimento Web, SEO Técnico, Sistemas e Cloud | Evolves",
+			"description": "Serviços especializados da Evolves: criação de sites profissionais, desenvolvimento de sistemas customizados, SEO técnico, hospedagem cloud, consultoria UX/UI, inteligência artificial e branding B2B para empresas."
+		},
+		{
+			"path": "/cases",
+			"title": "Projetos e Cases: Sites, Portais e Sistemas para Empresas | Evolves",
+			"description": "Conheça os projetos reais da Evolves: portal europeu de alta conversão para Hidrolinfa Detox, presença digital para a ARLS União Fraternal e portal institucional da GLEBRA. Resultados, tecnologias e desafios de cada case."
+		},
+		{
+			"path": "/blog",
+			"title": "Blog: Desenvolvimento Web, SEO Técnico, IA e Design Digital | Evolves",
+			"description": "Artigos aprofundados sobre criação de sites, SEO técnico, Core Web Vitals, sistemas customizados, hospedagem cloud, inteligência artificial e branding para empresas que querem dominar o digital."
+		},
+		{
+			"path": "/contact",
+			"title": "Solicitar Orçamento de Site, Sistema ou Hospedagem | Evolves",
+			"description": "Solicite uma proposta técnica para seu projeto de site profissional, sistema customizado, hospedagem cloud ou branding digital. A Evolves atende empresas no Brasil e em Portugal."
+		},
+		{
+			"path": "/privacy",
+			"title": "Política de Privacidade e Proteção de Dados | Evolves",
+			"description": "Saiba como a Evolves coleta, trata e protege dados pessoais em conformidade com a LGPD e o RGPD. Transparência total sobre finalidades, base legal e seus direitos como titular."
+		},
+		{
+			"path": "/cookies",
+			"title": "Política de Cookies | Evolves",
+			"description": "Entenda o uso de cookies no site da Evolves, suas finalidades e as opções disponíveis para gerenciar suas preferências de privacidade e navegação."
+		}
+	]
+};
+var siteUrl = site_default.url;
+function seoHead({ title, description, path, image = site_default.image, type = "website", structuredData }) {
+	const url = `${site_default.url}${path === "/" ? "/" : path.replace(/\/$/, "")}`;
+	const schemaEntries = [{
+		"@type": "WebPage",
+		"@id": `${url}#webpage`,
+		url,
+		name: title,
+		description,
+		inLanguage: "pt-BR",
+		isPartOf: { "@id": `${site_default.url}/#website` },
+		...type === "article" ? { mainEntity: { "@id": `${url}#article` } } : {}
+	}, ...Array.isArray(structuredData) ? structuredData : structuredData ? [structuredData] : []];
+	return {
+		meta: [
+			{ title },
+			{
+				name: "description",
+				content: description
+			},
+			{
+				property: "og:title",
+				content: title
+			},
+			{
+				property: "og:description",
+				content: description
+			},
+			{
+				property: "og:url",
+				content: url
+			},
+			{
+				property: "og:type",
+				content: type
+			},
+			{
+				property: "og:site_name",
+				content: site_default.name
+			},
+			{
+				property: "og:locale",
+				content: "pt_BR"
+			},
+			{
+				property: "og:image",
+				content: new URL(image, site_default.url).href
+			},
+			{
+				name: "twitter:card",
+				content: "summary_large_image"
+			},
+			{
+				name: "twitter:title",
+				content: title
+			},
+			{
+				name: "twitter:description",
+				content: description
+			},
+			{
+				name: "twitter:image",
+				content: new URL(image, site_default.url).href
+			},
+			{ "script:ld+json": {
+				"@context": "https://schema.org",
+				"@graph": schemaEntries
+			} }
+		],
+		links: [{
+			rel: "canonical",
+			href: url
+		}]
+	};
+}
+function breadcrumbSchema(items) {
+	return {
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		itemListElement: items.map((item, index) => ({
+			"@type": "ListItem",
+			position: index + 1,
+			name: item.name,
+			item: new URL(item.path, site_default.url).href
+		}))
+	};
+}
+var organizationSchema = {
+	"@context": "https://schema.org",
+	"@type": ["Organization", "ProfessionalService"],
+	"@id": `${site_default.url}/#organization`,
+	name: site_default.name,
+	alternateName: "Evolves",
+	url: site_default.url,
+	logo: new URL("/favicon.png", site_default.url).href,
+	email: "contato@evolves.site",
+	telephone: "+55-13-98132-6869",
+	foundingDate: "2020",
+	contactPoint: {
+		"@type": "ContactPoint",
+		contactType: "sales",
+		email: "contato@evolves.site",
+		telephone: "+55-13-98132-6869",
+		availableLanguage: ["Portuguese", "English"]
+	},
+	sameAs: ["https://www.linkedin.com/company/71072104/", "https://evolvestecnologia.com.br"],
+	areaServed: [
+		{
+			"@type": "Country",
+			name: "Brasil"
+		},
+		{
+			"@type": "Country",
+			name: "Portugal"
+		},
+		{
+			"@type": "Country",
+			name: "Reino Unido"
+		}
+	],
+	knowsAbout: [
+		"Criação de sites profissionais",
+		"Desenvolvimento web React e Next.js",
+		"Sistemas customizados sob medida",
+		"Hospedagem cloud de alta performance",
+		"SEO técnico e Core Web Vitals",
+		"Branding B2B e identidade visual",
+		"Inteligência artificial aplicada a produtos digitais",
+		"Design UI/UX e consultoria de produto",
+		"Acessibilidade digital WCAG 2.2",
+		"Lojas virtuais e e-commerce",
+		"Otimização de conversão (CRO)",
+		"Schema.org e dados estruturados",
+		"Infraestrutura cloud e CDN",
+		"Performance web e LCP/INP/CLS"
+	],
+	hasOfferCatalog: {
+		"@type": "OfferCatalog",
+		name: "Serviços Evolves",
+		itemListElement: [
+			{
+				"@type": "Offer",
+				itemOffered: {
+					"@type": "Service",
+					name: "Criação de Sites Profissionais"
+				}
+			},
+			{
+				"@type": "Offer",
+				itemOffered: {
+					"@type": "Service",
+					name: "Sistemas Customizados"
+				}
+			},
+			{
+				"@type": "Offer",
+				itemOffered: {
+					"@type": "Service",
+					name: "SEO Técnico"
+				}
+			},
+			{
+				"@type": "Offer",
+				itemOffered: {
+					"@type": "Service",
+					name: "Hospedagem Cloud"
+				}
+			},
+			{
+				"@type": "Offer",
+				itemOffered: {
+					"@type": "Service",
+					name: "Consultoria UX/UI"
+				}
+			},
+			{
+				"@type": "Offer",
+				itemOffered: {
+					"@type": "Service",
+					name: "Branding Digital"
+				}
+			},
+			{
+				"@type": "Offer",
+				itemOffered: {
+					"@type": "Service",
+					name: "Inteligência Artificial"
+				}
+			},
+			{
+				"@type": "Offer",
+				itemOffered: {
+					"@type": "Service",
+					name: "Lojas Virtuais"
+				}
+			}
+		]
+	}
+};
+var websiteSchema = {
+	"@type": "WebSite",
+	"@id": `${site_default.url}/#website`,
+	name: "Evolves",
+	alternateName: site_default.name,
+	url: site_default.url,
+	inLanguage: "pt-BR",
+	publisher: { "@id": `${site_default.url}/#organization` },
+	potentialAction: {
+		"@type": "SearchAction",
+		target: {
+			"@type": "EntryPoint",
+			urlTemplate: `${site_default.url}/blog/busca/{search_term_string}`
+		},
+		"query-input": "required name=search_term_string"
+	}
+};
+function blogPostingSchema(post) {
+	const monthNumber = {
+		jan: "01",
+		fev: "02",
+		feb: "02",
+		mar: "03",
+		abr: "04",
+		apr: "04",
+		mai: "05",
+		may: "05",
+		jun: "06",
+		jul: "07",
+		ago: "08",
+		aug: "08",
+		set: "09",
+		sep: "09",
+		out: "10",
+		oct: "10",
+		nov: "11",
+		dez: "12",
+		dec: "12"
+	};
+	const [, day, month, year] = post.date.match(/^(\d{1,2})\s+([\p{L}.]+)\s+(\d{4})$/u) ?? [];
+	const monthValue = month ? monthNumber[month.slice(0, 3).toLowerCase()] : void 0;
+	const published = day && year && monthValue ? `${year}-${monthValue}-${day.padStart(2, "0")}` : void 0;
+	const [, modifiedDay, modifiedMonth, modifiedYear] = post.dateModified ? post.dateModified.match(/^(\d{1,2})\s+([\p{L}.]+)\s+(\d{4})$/u) ?? [] : [];
+	const modifiedMonthValue = modifiedMonth ? monthNumber[modifiedMonth.slice(0, 3).toLowerCase()] : void 0;
+	const modified = modifiedDay && modifiedYear && modifiedMonthValue ? `${modifiedYear}-${modifiedMonthValue}-${modifiedDay.padStart(2, "0")}` : void 0;
+	const url = new URL(`/blog/${post.slug}`, site_default.url).href;
+	return {
+		"@context": "https://schema.org",
+		"@type": "BlogPosting",
+		"@id": `${url}#article`,
+		headline: post.title,
+		description: post.excerpt,
+		image: new URL(post.image, site_default.url).href,
+		url,
+		mainEntityOfPage: url,
+		inLanguage: "pt-BR",
+		articleSection: post.category,
+		...published ? { datePublished: published } : {},
+		...modified ? { dateModified: modified } : {},
+		author: {
+			"@type": "Person",
+			name: post.author,
+			url: "https://www.linkedin.com/in/jeffersonjunior/"
+		},
+		publisher: {
+			"@type": "Organization",
+			name: site_default.name,
+			url: site_default.url,
+			logo: {
+				"@type": "ImageObject",
+				url: new URL("/favicon.png", site_default.url).href
+			}
+		}
+	};
+}
+function faqSchema(items) {
+	return {
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		mainEntity: items.map((item) => ({
+			"@type": "Question",
+			name: item.question,
+			acceptedAnswer: {
+				"@type": "Answer",
+				text: item.answer
+			}
+		}))
+	};
+}
+function serviceSchema({ name, description, url }) {
+	return {
+		"@context": "https://schema.org",
+		"@type": "Service",
+		name,
+		serviceType: name,
+		description,
+		url,
+		provider: organizationSchema,
+		areaServed: [{
+			"@type": "Country",
+			name: "Brasil"
+		}, {
+			"@type": "Country",
+			name: "Portugal"
+		}],
+		offers: {
+			"@type": "Offer",
+			availability: "https://schema.org/InStock",
+			priceCurrency: "BRL"
+		}
+	};
+}
+function pageHead(path, structuredData, overrides) {
+	const page = site_default.pages.find((page) => page.path === path);
+	if (!page) throw new Error(`Missing SEO metadata for ${path}`);
+	return seoHead({
+		...page,
+		...overrides?.title ? { title: overrides.title } : {},
+		...overrides?.description ? { description: overrides.description } : {},
+		structuredData
+	});
+}
+//#endregion
+export { pageHead as a, siteUrl as c, organizationSchema as i, websiteSchema as l, breadcrumbSchema as n, seoHead as o, faqSchema as r, serviceSchema as s, blogPostingSchema as t };

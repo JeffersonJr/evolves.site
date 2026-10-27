@@ -77,7 +77,7 @@ export function breadcrumbSchema(items: { name: string; path: string }[]) {
 
 export const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": ["Organization", "ProfessionalService"],
   "@id": `${site.url}/#organization`,
   name: site.name,
   alternateName: "Evolves",
@@ -85,29 +85,53 @@ export const organizationSchema = {
   logo: new URL("/favicon.png", site.url).href,
   email: "contato@evolves.site",
   telephone: "+55-13-98132-6869",
+  foundingDate: "2020",
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "sales",
     email: "contato@evolves.site",
     telephone: "+55-13-98132-6869",
-    availableLanguage: ["Portuguese"],
+    availableLanguage: ["Portuguese", "English"],
   },
-  sameAs: ["https://www.linkedin.com/company/71072104/"],
-  areaServed: { "@type": "Country", name: "Brasil" },
-  knowsAbout: [
-    "Criação de sites",
-    "Sistemas customizados",
-    "Hospedagem cloud",
-    "SEO técnico",
-    "Branding B2B",
-    "Inteligência artificial aplicada a produtos digitais",
-    "Design UI/UX",
-    "Consultoria tech",
-    "Desenvolvimento web",
-    "Lojas virtuais",
-    "Acessibilidade digital",
-    "Alta performance web",
+  sameAs: [
+    "https://www.linkedin.com/company/71072104/",
+    "https://evolvestecnologia.com.br",
   ],
+  areaServed: [
+    { "@type": "Country", name: "Brasil" },
+    { "@type": "Country", name: "Portugal" },
+    { "@type": "Country", name: "Reino Unido" },
+  ],
+  knowsAbout: [
+    "Criação de sites profissionais",
+    "Desenvolvimento web React e Next.js",
+    "Sistemas customizados sob medida",
+    "Hospedagem cloud de alta performance",
+    "SEO técnico e Core Web Vitals",
+    "Branding B2B e identidade visual",
+    "Inteligência artificial aplicada a produtos digitais",
+    "Design UI/UX e consultoria de produto",
+    "Acessibilidade digital WCAG 2.2",
+    "Lojas virtuais e e-commerce",
+    "Otimização de conversão (CRO)",
+    "Schema.org e dados estruturados",
+    "Infraestrutura cloud e CDN",
+    "Performance web e LCP/INP/CLS",
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Serviços Evolves",
+    itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Criação de Sites Profissionais" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Sistemas Customizados" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "SEO Técnico" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Hospedagem Cloud" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Consultoria UX/UI" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Branding Digital" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Inteligência Artificial" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Lojas Virtuais" } },
+    ],
+  },
 };
 
 export const websiteSchema = {
@@ -118,6 +142,14 @@ export const websiteSchema = {
   url: site.url,
   inLanguage: "pt-BR",
   publisher: { "@id": `${site.url}/#organization` },
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${site.url}/blog/busca/{search_term_string}`,
+    },
+    "query-input": "required name=search_term_string",
+  },
 };
 
 export function blogPostingSchema(post: {
@@ -210,11 +242,61 @@ export function noIndexHead(title: string, description: string, path: string) {
   };
 }
 
+export function faqSchema(items: { question: string; answer: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+}
+
+export function serviceSchema({
+  name,
+  description,
+  url,
+}: {
+  name: string;
+  description: string;
+  url: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name,
+    serviceType: name,
+    description,
+    url,
+    provider: organizationSchema,
+    areaServed: [
+      { "@type": "Country", name: "Brasil" },
+      { "@type": "Country", name: "Portugal" },
+    ],
+    offers: {
+      "@type": "Offer",
+      availability: "https://schema.org/InStock",
+      priceCurrency: "BRL",
+    },
+  };
+}
+
 export function pageHead(
   path: string,
   structuredData?: Record<string, unknown> | Record<string, unknown>[],
+  overrides?: { title?: string; description?: string },
 ) {
   const page = site.pages.find((page) => page.path === path);
   if (!page) throw new Error(`Missing SEO metadata for ${path}`);
-  return seoHead({ ...page, structuredData });
+  return seoHead({
+    ...page,
+    ...(overrides?.title ? { title: overrides.title } : {}),
+    ...(overrides?.description ? { description: overrides.description } : {}),
+    structuredData,
+  });
 }

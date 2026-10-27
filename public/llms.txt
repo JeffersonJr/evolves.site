@@ -1,17 +1,41 @@
 # Evolves Tecnologia
 
-> Desenvolvimento de sites e sistemas, consultoria UX/UI, hospedagem e branding para empresas.
+> Empresa especializada em criação de sites profissionais, sistemas customizados, SEO técnico, hospedagem cloud de alta performance e branding digital para empresas no Brasil e em Portugal.
 
 Site oficial: https://www.evolves.site. Conteúdo em português do Brasil. Propostas e condições comerciais devem ser consultadas na página de contato. Os cases descrevem projetos individuais; seus resultados não são garantias para outros projetos.
 
+## Expertise
+
+- Criação de sites profissionais e landing pages de alta conversão
+- Desenvolvimento de sistemas customizados (SaaS, portais, intranets)
+- SEO técnico: Core Web Vitals, Schema.org, dados estruturados
+- Hospedagem cloud com SLA 99.9% e CDN global
+- Consultoria UX/UI e design de produto digital
+- Inteligência artificial aplicada a produtos e fluxos digitais
+- Branding B2B e identidade visual para empresas de tecnologia
+- Acessibilidade digital WCAG 2.2
+- Lojas virtuais e e-commerce
+
+## Categorias do Blog
+
+- [SEO](https://www.evolves.site/blog/categoria/seo): Artigos sobre SEO.
+- [Sistemas](https://www.evolves.site/blog/categoria/sistemas): Artigos sobre Sistemas.
+- [Tecnologia](https://www.evolves.site/blog/categoria/tecnologia): Artigos sobre Tecnologia.
+- [Design](https://www.evolves.site/blog/categoria/design): Artigos sobre Design.
+- [Desenvolvimento](https://www.evolves.site/blog/categoria/desenvolvimento): Artigos sobre Desenvolvimento.
+- [Segurança](https://www.evolves.site/blog/categoria/seguranca): Artigos sobre Segurança.
+- [Infraestrutura](https://www.evolves.site/blog/categoria/infraestrutura): Artigos sobre Infraestrutura.
+- [Marketing](https://www.evolves.site/blog/categoria/marketing): Artigos sobre Marketing.
+- [Branding](https://www.evolves.site/blog/categoria/branding): Artigos sobre Branding.
+
 ## Institucional
 
-- [Criação de Sites, Sistemas e Soluções Digitais | Evolves](https://www.evolves.site/): A Evolves cria sites profissionais, sistemas customizados e produtos digitais para empresas, com desenvolvimento web, UX/UI, SEO técnico, hospedagem cloud e branding B2B.
-- [Sobre a Evolves | Tecnologia e Design para Empresas](https://www.evolves.site/about): Conheça a Evolves Tecnologia e nossa abordagem de desenvolvimento web, inteligência artificial e design para negócios digitais.
-- [Sites, Sistemas, SEO e Design Digital | Serviços Evolves](https://www.evolves.site/services): Conheça os serviços da Evolves para empresas: criação de sites, sistemas customizados, SEO técnico, hospedagem cloud, UX/UI, inteligência artificial e branding B2B.
-- [Cases de Sites, Sistemas e Branding | Evolves](https://www.evolves.site/cases): Explore os projetos da Evolves para Zion Tecnologia, DuimpWeb e ProjecTi: desafios, soluções, tecnologias e resultados apresentados em cada case.
-- [Blog de Tecnologia, SEO e Design | Evolves](https://www.evolves.site/blog): Artigos sobre desenvolvimento web, SEO, inteligência artificial, UX/UI, hospedagem e branding para ajudar sua empresa a planejar projetos digitais.
-- [Contato e Propostas para Projetos Digitais | Evolves](https://www.evolves.site/contact): Converse com a Evolves sobre seu projeto de site, sistema, hospedagem ou branding. Conte suas necessidades e solicite uma proposta.
+- [Criação de Sites Profissionais, Sistemas e Soluções Digitais | Evolves](https://www.evolves.site/): Evolves: empresa especializada em criação de sites profissionais, sistemas customizados, SEO técnico, hospedagem cloud de alta performance, UX/UI e branding digital para empresas no Brasil e em Portugal.
+- [Sobre a Evolves Tecnologia | Empresa de Desenvolvimento Web e Design Digital](https://www.evolves.site/about): Conheça a Evolves: empresa de tecnologia especializada em desenvolvimento web, sistemas sob medida, inteligência artificial, SEO técnico e design de produto para negócios digitais no Brasil e exterior.
+- [Serviços de Desenvolvimento Web, SEO Técnico, Sistemas e Cloud | Evolves](https://www.evolves.site/services): Serviços especializados da Evolves: criação de sites profissionais, desenvolvimento de sistemas customizados, SEO técnico, hospedagem cloud, consultoria UX/UI, inteligência artificial e branding B2B para empresas.
+- [Projetos e Cases: Sites, Portais e Sistemas para Empresas | Evolves](https://www.evolves.site/cases): Conheça os projetos reais da Evolves: portal europeu de alta conversão para Hidrolinfa Detox, presença digital para a ARLS União Fraternal e portal institucional da GLEBRA. Resultados, tecnologias e desafios de cada case.
+- [Blog: Desenvolvimento Web, SEO Técnico, IA e Design Digital | Evolves](https://www.evolves.site/blog): Artigos aprofundados sobre criação de sites, SEO técnico, Core Web Vitals, sistemas customizados, hospedagem cloud, inteligência artificial e branding para empresas que querem dominar o digital.
+- [Solicitar Orçamento de Site, Sistema ou Hospedagem | Evolves](https://www.evolves.site/contact): Solicite uma proposta técnica para seu projeto de site profissional, sistema customizado, hospedagem cloud ou branding digital. A Evolves atende empresas no Brasil e em Portugal.
 
 ## Serviços
 

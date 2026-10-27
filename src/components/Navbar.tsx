@@ -97,7 +97,7 @@ export function Navbar() {
             <ThemeToggle />
 
             <a
-              href="#contact"
+              href="/contact"
               className="hidden items-center gap-1.5 rounded-full border border-black/15 bg-zinc-900 px-3.5 py-1.5 text-xs font-medium text-white transition-all hover:bg-zinc-800 dark:border-white/20 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white md:inline-flex"
             >
               <span>{t.nav.startProject}</span>
@@ -173,7 +173,7 @@ export function Navbar() {
           {/* CTA */}
           <div className="border-t border-border/60 px-4 pb-4 pt-3">
             <a
-              href="#contact"
+              href="/contact"
               onClick={() => setOpen(false)}
               className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-medium text-background transition-all hover:opacity-90"
             >
