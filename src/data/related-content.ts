@@ -40,7 +40,7 @@ export const contentConnections = [
         label: "Como melhorar a conversão B2B",
       },
     ],
-    cases: ["zion-tecnologia", "projecti"],
+    cases: ["zion-tecnologia", "projecti", "uniao-fraternal", "glebra-grande-loja-egipcia", "hidrolinfa-portugal"],
   },
   {
     service: {
@@ -57,7 +57,7 @@ export const contentConnections = [
         label: "Inteligência artificial no desenvolvimento web",
       },
     ],
-    cases: ["duimpweb"],
+    cases: ["duimpweb", "uniao-fraternal"],
   },
   {
     service: {
@@ -74,7 +74,7 @@ export const contentConnections = [
         label: "Core Web Vitals e velocidade de sites",
       },
     ],
-    cases: [],
+    cases: ["hidrolinfa-portugal", "glebra-grande-loja-egipcia"],
   },
   {
     service: {
@@ -87,7 +87,7 @@ export const contentConnections = [
         label: "Branding e percepção de valor",
       },
     ],
-    cases: ["projecti"],
+    cases: ["projecti", "glebra-grande-loja-egipcia"],
   },
   {
     service: {
@@ -104,7 +104,7 @@ export const contentConnections = [
         label: "Planejamento técnico de uma migração de site",
       },
     ],
-    cases: ["zion-tecnologia"],
+    cases: ["zion-tecnologia", "uniao-fraternal", "hidrolinfa-portugal"],
   },
   {
     service: {
@@ -117,7 +117,7 @@ export const contentConnections = [
         label: "Inteligência artificial em produtos digitais",
       },
     ],
-    cases: ["duimpweb"],
+    cases: ["duimpweb", "uniao-fraternal"],
   },
   {
     service: {

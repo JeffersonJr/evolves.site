@@ -179,53 +179,74 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
         )}
 
         {/* Other Projects Grid */}
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {otherCases.map((c) => (
-            <Link
-              key={c.slug}
-              to="/cases/$slug"
-              params={{ slug: c.slug }}
-              className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-black/[0.08] bg-card transition-all duration-300 hover:border-black/[0.16] hover:shadow-[var(--shadow-card)] dark:border-white/[0.08] dark:bg-white/[0.02] dark:hover:border-white/[0.16] dark:hover:bg-white/[0.04]"
-            >
-              <div>
-                <div className="relative flex aspect-[16/10] items-center justify-center overflow-hidden bg-secondary/40 p-6 border-b border-black/[0.06] dark:bg-black/40 dark:border-white/[0.06]">
-                  <img
-                    src={c.img}
-                    alt={c.title}
-                    width={768}
-                    height={576}
-                    loading="lazy"
-                    decoding="async"
-                    className="h-full w-full object-contain filter drop-shadow-md transition-all duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-6">
-                  <p className="text-[11px] font-mono uppercase tracking-wider text-primary">
-                    {c.category}
-                  </p>
-                  <h3 className="mt-2 text-base font-medium tracking-tight text-foreground transition-colors group-hover:text-primary">
-                    {c.title}
-                  </h3>
-                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground line-clamp-2">
-                    {c.text}
-                  </p>
-                </div>
-              </div>
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {otherCases.map((c) => {
+            const highlightStat = c.stats?.[0];
+            return (
+              <Link
+                key={c.slug}
+                to="/cases/$slug"
+                params={{ slug: c.slug }}
+                className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-black/[0.08] bg-card transition-all duration-300 hover:border-black/[0.16] hover:shadow-[var(--shadow-card)] dark:border-white/[0.08] dark:bg-white/[0.02] dark:hover:border-white/[0.16] dark:hover:bg-white/[0.04]"
+              >
+                <div>
+                  <div className="relative flex aspect-[16/10] items-center justify-center overflow-hidden bg-secondary/40 p-5 border-b border-black/[0.06] dark:bg-black/40 dark:border-white/[0.06]">
+                    <img
+                      src={c.img}
+                      alt={c.title}
+                      width={768}
+                      height={576}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-contain filter drop-shadow-md transition-all duration-500 group-hover:scale-105"
+                    />
+                    {c.country && (
+                      <span className="absolute top-3 right-3 rounded-full border border-black/[0.08] bg-white/80 px-2.5 py-0.5 text-[10px] font-mono backdrop-blur-xs dark:border-white/[0.08] dark:bg-black/60 shadow-2xs">
+                        {c.country}
+                      </span>
+                    )}
+                  </div>
 
-              <div className="border-t border-black/[0.06] p-6 pt-4 flex items-center justify-between dark:border-white/[0.06]">
-                <div className="flex flex-wrap gap-1.5">
-                  {c.tags.slice(0, 3).map((t) => (
-                    <span key={t} className="rounded-md border border-black/[0.06] bg-black/[0.02] px-2 py-0.5 text-[10px] font-mono text-muted-foreground dark:border-white/[0.06] dark:bg-white/[0.02]">
-                      {t}
-                    </span>
-                  ))}
+                  <div className="p-6">
+                    <p className="text-[11px] font-mono uppercase tracking-wider text-primary">
+                      {c.category}
+                    </p>
+                    <h3 className="mt-2 text-base font-medium tracking-tight text-foreground transition-colors group-hover:text-primary">
+                      {c.title}
+                    </h3>
+                    <p className="mt-2 text-xs leading-relaxed text-muted-foreground line-clamp-2">
+                      {c.text}
+                    </p>
+
+                    {highlightStat && (
+                      <div className="mt-4 flex items-center gap-2 rounded-lg border border-black/[0.05] bg-black/[0.02] px-3 py-1.5 text-xs font-mono dark:border-white/[0.05] dark:bg-white/[0.02]">
+                        <Zap className="h-3 w-3 text-emerald-500 shrink-0" />
+                        <span className="font-medium text-foreground">
+                          {highlightStat.value}{highlightStat.suffix}
+                        </span>
+                        <span className="text-[10px] text-muted-foreground truncate">
+                          · {highlightStat.label}
+                        </span>
+                      </div>
+                    )}
+                  </div>
                 </div>
-                <span className="text-xs font-mono text-primary flex items-center gap-0.5">
-                  Ver <ArrowUpRight className="h-3 w-3" />
-                </span>
-              </div>
-            </Link>
-          ))}
+
+                <div className="border-t border-black/[0.06] p-6 pt-4 flex items-center justify-between dark:border-white/[0.06]">
+                  <div className="flex flex-wrap gap-1.5">
+                    {c.tags.slice(0, 2).map((t) => (
+                      <span key={t} className="rounded-md border border-black/[0.06] bg-black/[0.02] px-2 py-0.5 text-[10px] font-mono text-muted-foreground dark:border-white/[0.06] dark:bg-white/[0.02]">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  <span className="text-xs font-mono text-primary flex items-center gap-0.5 group-hover:underline">
+                    Ver Estudo <ArrowUpRight className="h-3 w-3" />
+                  </span>
+                </div>
+              </Link>
+            );
+          })}
         </div>
 
         {/* CTA to /cases page */}
