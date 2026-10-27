@@ -10,7 +10,7 @@ export function LgpdModal() {
   useEffect(() => {
     const consent = localStorage.getItem(STORAGE_KEY);
     if (!consent) {
-      const timer = setTimeout(() => setShow(true), 800);
+      const timer = setTimeout(() => setShow(true), 2500);
       return () => clearTimeout(timer);
     }
   }, []);

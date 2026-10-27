@@ -12,7 +12,7 @@ import { t as Route$13 } from "../_slug-7d5onBJA.mjs";
 import { t as Route$14 } from "../_termo-KPa9wJW8.mjs";
 import { t as QueryClient } from "../_libs/tanstack__query-core.mjs";
 import { t as QueryClientProvider } from "../_libs/tanstack__react-query.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/router-bliKtqMi.js
+//#region node_modules/.nitro/vite/services/ssr/assets/router-DD9-2K8r.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var styles_default = "/assets/styles-BxxanLsQ.css";
@@ -33,7 +33,7 @@ function LgpdModal() {
 	const [show, setShow] = (0, import_react.useState)(false);
 	(0, import_react.useEffect)(() => {
 		if (!localStorage.getItem(STORAGE_KEY$1)) {
-			const timer = setTimeout(() => setShow(true), 800);
+			const timer = setTimeout(() => setShow(true), 2500);
 			return () => clearTimeout(timer);
 		}
 	}, []);
