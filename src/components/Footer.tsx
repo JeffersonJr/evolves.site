@@ -52,8 +52,24 @@ export function Footer() {
           {/* Brand info */}
           <div className="lg:col-span-2">
             <Link to="/" className="inline-flex items-center gap-1 mb-4">
-              <img src={logo} alt="Evolves" className="h-6 w-auto block dark:hidden" />
-              <img src={logoWhite} alt="Evolves" className="h-6 w-auto hidden dark:block" />
+              <img
+                src={logo}
+                alt="Evolves"
+                width={96}
+                height={24}
+                loading="lazy"
+                decoding="async"
+                className="h-6 w-auto block dark:hidden"
+              />
+              <img
+                src={logoWhite}
+                alt="Evolves"
+                width={96}
+                height={24}
+                loading="lazy"
+                decoding="async"
+                className="h-6 w-auto hidden dark:block"
+              />
               <span className="text-[10px] text-muted-foreground font-medium">®</span>
             </Link>
 
@@ -63,7 +79,7 @@ export function Footer() {
 
             <div className="mt-5 flex items-center gap-2 text-xs font-mono text-muted-foreground">
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75 [will-change:transform,opacity]"></span>
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
               </span>
               <span>{t.footer.systemStatus}</span>
@@ -139,7 +155,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-14 border-t border-black/[0.08] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground/70 font-mono dark:border-white/[0.08]">
+        <div className="mt-14 border-t border-black/[0.08] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground font-mono dark:border-white/[0.08]">
           <p>{t.footer.copyright}</p>
           <p className="text-[11px]">{t.footer.subCopyright}</p>
         </div>

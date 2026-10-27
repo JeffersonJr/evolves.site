@@ -95,6 +95,10 @@ function CaseStudyPage() {
             <img
               src={project.img}
               alt={`Mockup do projeto ${project.title}`}
+              width={1200}
+              height={900}
+              loading="lazy"
+              decoding="async"
               className="w-full h-auto object-contain rounded-2xl drop-shadow-xl transition-transform duration-700 hover:scale-[1.01]"
             />
           </div>

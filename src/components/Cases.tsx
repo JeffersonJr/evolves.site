@@ -148,7 +148,7 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
                     </div>
 
                     {/* Address Pill */}
-                    <div className="flex items-center gap-1.5 rounded-md border border-black/[0.08] bg-white px-3 py-1 text-[11px] font-mono text-muted-foreground dark:border-white/[0.08] dark:bg-black/40 dark:text-muted-foreground/80 shadow-xs">
+                    <div className="flex items-center gap-1.5 rounded-md border border-black/[0.08] bg-white px-3 py-1 text-[11px] font-mono text-muted-foreground dark:border-white/[0.08] dark:bg-black/40 shadow-xs">
                       <Lock className="h-3 w-3 text-emerald-500" />
                       <span>hidrolinfadetox.com</span>
                     </div>
@@ -168,6 +168,7 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
                       width={1200}
                       height={900}
                       loading="lazy"
+                      decoding="async"
                       className="w-full h-auto object-contain rounded-lg transition-transform duration-500 hover:scale-[1.01]"
                     />
                   </div>
@@ -191,9 +192,10 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
                   <img
                     src={c.img}
                     alt={c.title}
-                    width={800}
-                    height={500}
+                    width={768}
+                    height={576}
                     loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-contain filter drop-shadow-md transition-all duration-500 group-hover:scale-105"
                   />
                 </div>

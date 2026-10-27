@@ -146,7 +146,7 @@ export function Infrastructure() {
         </div>
 
         {/* ── Stack banner ── */}
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 border-t border-black/[0.06] pt-10 text-[11px] font-mono text-muted-foreground/70 dark:border-white/[0.06]">
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 border-t border-black/[0.06] pt-10 text-[11px] font-mono text-muted-foreground dark:border-white/[0.06]">
           <div className="flex items-center gap-2">
             <Server className="h-3.5 w-3.5 text-primary" />
             <span>{t.infrastructure.specsCloud}</span>

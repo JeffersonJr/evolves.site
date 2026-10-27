@@ -101,7 +101,7 @@ export function Contact({ standalone = false }: { standalone?: boolean } = {}) {
               >
                 contato@evolvestecnologia.com.br
               </a>
-              <p className="mt-1 text-xs text-muted-foreground/70 font-mono">Retorno formal em até 24h úteis.</p>
+              <p className="mt-1 text-xs text-muted-foreground font-mono">Retorno formal em até 24h úteis.</p>
             </div>
 
             <div className="rounded-2xl border border-black/[0.08] bg-card p-6 shadow-xs dark:border-white/[0.08] dark:bg-white/[0.02]">
@@ -117,7 +117,7 @@ export function Contact({ standalone = false }: { standalone?: boolean } = {}) {
               >
                 +55 (13) 98132-6869
               </a>
-              <p className="mt-1 text-xs text-muted-foreground/70 font-mono">Atendimento direto com engenheiro de software.</p>
+              <p className="mt-1 text-xs text-muted-foreground font-mono">Atendimento direto com engenheiro de software.</p>
             </div>
 
             <div className="rounded-2xl border border-black/[0.08] bg-card p-6 shadow-xs dark:border-white/[0.08] dark:bg-white/[0.02]">
@@ -128,7 +128,7 @@ export function Contact({ standalone = false }: { standalone?: boolean } = {}) {
               <p className="text-xs sm:text-sm font-medium text-foreground">
                 🇵🇹 {t.footer.countryPT} · 🇬🇧 {t.footer.countryUK} · 🇧🇷 {t.footer.countryBR} · 🇳🇿 {t.footer.countryNZ}
               </p>
-              <p className="mt-1 text-xs text-muted-foreground/70 font-mono">{t.footer.opsDesc}</p>
+              <p className="mt-1 text-xs text-muted-foreground font-mono">{t.footer.opsDesc}</p>
             </div>
           </div>
 

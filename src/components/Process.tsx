@@ -83,11 +83,11 @@ export function Process() {
               </div>
 
               <div className="mt-8 flex items-center justify-between border-t border-black/[0.06] pt-4 dark:border-white/[0.06]">
-                <span className="text-[10px] font-mono text-muted-foreground/70">
+                <span className="text-[10px] font-mono text-muted-foreground">
                   {t.process.stepPrefix || "Etapa"} {index + 1} de 4
                 </span>
                 {index < 3 && (
-                  <ArrowRight className="h-3 w-3 text-muted-foreground/40 group-hover:text-primary transition-colors hidden lg:block" />
+                  <ArrowRight className="h-3 w-3 text-muted-foreground group-hover:text-primary transition-colors hidden lg:block" />
                 )}
               </div>
             </div>

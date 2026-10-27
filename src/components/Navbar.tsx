@@ -49,12 +49,28 @@ export function Navbar() {
           {/* Brand */}
           <div className="flex items-center gap-5">
             <Link to="/" className="flex items-center gap-1.5 focus:outline-none" onClick={() => setOpen(false)}>
-              <img src={logo}      alt="Evolves" className="h-6 w-auto block dark:hidden" />
-              <img src={scrolled || open ? logoGray : logoWhite} alt="Evolves" className="h-6 w-auto hidden dark:block" />
+              <img
+                src={logo}
+                alt="Evolves"
+                width={96}
+                height={24}
+                fetchPriority="high"
+                decoding="async"
+                className="h-6 w-auto block dark:hidden"
+              />
+              <img
+                src={scrolled || open ? logoGray : logoWhite}
+                alt="Evolves"
+                width={96}
+                height={24}
+                fetchPriority="high"
+                decoding="async"
+                className="h-6 w-auto hidden dark:block"
+              />
               <span className="text-[10px] text-muted-foreground font-medium">®</span>
             </Link>
 
-            <span className="hidden xl:inline-block text-[11px] font-mono uppercase tracking-wider text-muted-foreground/70 border-l border-border pl-3">
+            <span className="hidden xl:inline-block text-[11px] font-mono uppercase tracking-wider text-muted-foreground border-l border-border pl-3">
               {t.nav.tagline}
             </span>
           </div>

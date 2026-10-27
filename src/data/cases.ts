@@ -1,7 +1,7 @@
-import caseHidrolinfa from "@/assets/case-hidrolinfa.png";
-import caseZion from "@/assets/case-zion.png";
-import caseDuimp from "@/assets/case-duimp.png";
-import caseProjecti from "@/assets/case-projecti.png";
+import caseHidrolinfa from "@/assets/case-hidrolinfa.webp";
+import caseZion from "@/assets/case-zion.webp";
+import caseDuimp from "@/assets/case-duimp.webp";
+import caseProjecti from "@/assets/case-projecti.webp";
 
 export interface CaseStudy {
   slug: string;

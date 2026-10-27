@@ -38,7 +38,7 @@ export function Hero() {
         {/* ── Eyebrow badge ── */}
         <div className="inline-flex items-center gap-2 rounded-full border border-black/[0.08] bg-black/[0.03] px-3.5 py-1 text-[11px] font-mono uppercase tracking-[0.08em] text-muted-foreground backdrop-blur-sm dark:border-white/[0.08] dark:bg-white/[0.04]">
           <span className="relative flex h-1.5 w-1.5">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75 [will-change:transform,opacity]" />
             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
           </span>
           <span>{t.hero.badge}</span>
@@ -97,7 +97,7 @@ export function Hero() {
         </div>
 
         {/* ── Micro-copy ── */}
-        <p className="mt-4 text-[11px] font-mono tracking-wide text-muted-foreground/60">
+        <p className="mt-4 text-[11px] font-mono tracking-wide text-muted-foreground">
           {t.hero.microCopy}
         </p>
 

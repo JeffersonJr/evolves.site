@@ -33,7 +33,7 @@ export function Services({
           <p className="mt-3 text-base text-muted-foreground sm:text-lg">
             {t.services.description}
           </p>
-          <p className="mx-auto mt-3 text-xs font-mono text-muted-foreground/80">
+          <p className="mx-auto mt-3 text-xs font-mono text-muted-foreground">
             {t.services.differential}
           </p>
         </div>

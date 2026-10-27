@@ -555,7 +555,7 @@ export function Pricing() {
                 : "Moeda da proposta:"}
             </span>
             <CurrencyToggle />
-            <span className="text-[11px] font-mono text-muted-foreground/60 hidden md:inline">
+            <span className="text-[11px] font-mono text-muted-foreground hidden md:inline">
               · {region === "BRL" ? "Faturamento BRL com NF" : region === "USD" ? "Global B2B Billing (USD)" : "Faturação Europeia em EUR"}
             </span>
           </div>
@@ -599,7 +599,7 @@ export function Pricing() {
                   <p className="text-2xl sm:text-3xl font-medium tracking-tight text-foreground">
                     {p.price}
                   </p>
-                  <p className="mt-0.5 text-[11px] font-mono text-muted-foreground/80">
+                  <p className="mt-0.5 text-[11px] font-mono text-muted-foreground">
                     {p.priceSub}
                   </p>
 
@@ -636,7 +636,7 @@ export function Pricing() {
                   <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                 </a>
 
-                <p className="mt-3 text-center text-[10px] font-mono text-muted-foreground/80">
+                <p className="mt-3 text-center text-[10px] font-mono text-muted-foreground">
                   {p.paymentNotes}
                 </p>
               </div>
