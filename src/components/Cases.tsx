@@ -1,6 +1,14 @@
 import { Link } from "@tanstack/react-router";
 import { casesData } from "@/data/cases";
-import { ArrowUpRight, ArrowRight, Globe2, Lock, Zap, Gauge, Sparkles } from "lucide-react";
+import {
+  ArrowUpRight,
+  ArrowRight,
+  Globe2,
+  Lock,
+  Zap,
+  Gauge,
+  Sparkles,
+} from "lucide-react";
 import { useI18n } from "@/contexts/I18nContext";
 
 export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
@@ -67,7 +75,8 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
                         </h4>
                       </div>
                       <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground leading-relaxed pl-3.5 border-l border-black/[0.08] dark:border-white/[0.06]">
-                        {featuredCase.challenge || "Redesenho e otimização para o mercado de estética de alto padrão na Europa."}
+                        {featuredCase.challenge ||
+                          "Redesenho e otimização para o mercado de estética de alto padrão na Europa."}
                       </p>
                     </div>
 
@@ -79,7 +88,8 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
                         </h4>
                       </div>
                       <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground leading-relaxed pl-3.5 border-l border-black/[0.08] dark:border-white/[0.06]">
-                        {featuredCase.solution || "Stack moderna com tempo de resposta de 80ms no continente europeu e fluxo de agendamento ágil."}
+                        {featuredCase.solution ||
+                          "Stack moderna com tempo de resposta de 80ms no continente europeu e fluxo de agendamento ágil."}
                       </p>
                     </div>
 
@@ -91,7 +101,8 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
                         </h4>
                       </div>
                       <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground leading-relaxed pl-3.5 border-l border-black/[0.08] dark:border-white/[0.06]">
-                        Elevação instantânea de autoridade da marca e aumento de 40% em captação orgânica de clientes qualificados.
+                        Elevação instantânea de autoridade da marca e aumento de
+                        40% em captação orgânica de clientes qualificados.
                       </p>
                     </div>
                   </div>
@@ -99,9 +110,13 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
                   {/* Telemetry Stats Row */}
                   <div className="mt-6 grid grid-cols-3 gap-3">
                     {featuredCase.stats.map((st) => (
-                      <div key={st.label} className="rounded-xl border border-black/[0.06] bg-black/[0.02] p-3 text-center sm:text-left dark:border-white/[0.06] dark:bg-white/[0.02]">
+                      <div
+                        key={st.label}
+                        className="rounded-xl border border-black/[0.06] bg-black/[0.02] p-3 text-center sm:text-left dark:border-white/[0.06] dark:bg-white/[0.02]"
+                      >
                         <p className="text-xl sm:text-2xl font-medium tracking-tight text-foreground">
-                          {st.value}{st.suffix}
+                          {st.value}
+                          {st.suffix}
                         </p>
                         <p className="mt-0.5 text-[10px] font-mono text-muted-foreground uppercase tracking-wider">
                           {st.label}
@@ -120,7 +135,10 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
                       className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-5 py-2.5 text-xs font-medium text-background transition hover:opacity-90"
                     >
                       <span>{t.cases.viewLive} (hidrolinfadetox.com)</span>
-                      <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                      <ArrowUpRight
+                        className="h-3.5 w-3.5"
+                        aria-hidden="true"
+                      />
                     </a>
                   )}
 
@@ -164,7 +182,11 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
                   <div className="relative overflow-hidden bg-black/5 p-2 sm:p-3 dark:bg-black/60">
                     <img
                       src={featuredCase.img}
-                      srcSet={featuredCase.imgSm ? `${featuredCase.imgSm} 640w, ${featuredCase.img} 1200w` : undefined}
+                      srcSet={
+                        featuredCase.imgSm
+                          ? `${featuredCase.imgSm} 640w, ${featuredCase.img} 1200w`
+                          : undefined
+                      }
                       sizes="(max-width: 768px) 100vw, 1200px"
                       alt={featuredCase.title}
                       width={1200}
@@ -195,7 +217,9 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
                   <div className="relative flex aspect-[16/10] items-center justify-center overflow-hidden bg-secondary/40 p-5 border-b border-black/[0.06] dark:bg-black/40 dark:border-white/[0.06]">
                     <img
                       src={c.img}
-                      srcSet={c.imgSm ? `${c.imgSm} 640w, ${c.img} 1200w` : undefined}
+                      srcSet={
+                        c.imgSm ? `${c.imgSm} 640w, ${c.img} 1200w` : undefined
+                      }
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
                       alt={c.title}
                       width={640}
@@ -226,7 +250,8 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
                       <div className="mt-4 flex items-center gap-2 rounded-lg border border-black/[0.05] bg-black/[0.02] px-3 py-1.5 text-xs font-mono dark:border-white/[0.05] dark:bg-white/[0.02]">
                         <Zap className="h-3 w-3 text-emerald-500 shrink-0" />
                         <span className="font-medium text-foreground">
-                          {highlightStat.value}{highlightStat.suffix}
+                          {highlightStat.value}
+                          {highlightStat.suffix}
                         </span>
                         <span className="text-[10px] text-muted-foreground truncate">
                           · {highlightStat.label}
@@ -239,7 +264,10 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
                 <div className="border-t border-black/[0.06] p-6 pt-4 flex items-center justify-between dark:border-white/[0.06]">
                   <div className="flex flex-wrap gap-1.5">
                     {c.tags.slice(0, 2).map((t) => (
-                      <span key={t} className="rounded-md border border-black/[0.06] bg-black/[0.02] px-2 py-0.5 text-[10px] font-mono text-muted-foreground dark:border-white/[0.06] dark:bg-white/[0.02]">
+                      <span
+                        key={t}
+                        className="rounded-md border border-black/[0.06] bg-black/[0.02] px-2 py-0.5 text-[10px] font-mono text-muted-foreground dark:border-white/[0.06] dark:bg-white/[0.02]"
+                      >
                         {t}
                       </span>
                     ))}
@@ -286,14 +314,14 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
                   O próximo case de sucesso pode ser o seu
                 </h3>
                 <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                  Transforme a presença digital da sua empresa com velocidade instantânea, design de padrão global e captação qualificada sob medida.
+                  Transforme a presença digital da sua empresa com velocidade
+                  instantânea, design de padrão global e captação qualificada
+                  sob medida.
                 </p>
 
                 <div className="mt-4 flex items-center gap-2 rounded-lg border border-primary/20 bg-primary/[0.04] px-3 py-1.5 text-xs font-mono">
                   <Zap className="h-3 w-3 text-primary shrink-0" />
-                  <span className="font-medium text-foreground">
-                    100/100
-                  </span>
+                  <span className="font-medium text-foreground">100/100</span>
                   <span className="text-[10px] text-muted-foreground truncate">
                     · Core Web Vitals & SLA 99.9%
                   </span>
@@ -320,7 +348,10 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
               className="inline-flex items-center gap-2 rounded-full border border-black/[0.12] bg-card px-7 py-3 text-xs font-medium text-foreground transition-all hover:bg-secondary hover:border-black/[0.2] dark:border-white/[0.12] dark:bg-white/[0.03] dark:hover:bg-white/[0.08] dark:hover:border-white/[0.2] shadow-xs"
             >
               <span>{t.cases.viewAllCasesCta}</span>
-              <ArrowRight className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
+              <ArrowRight
+                className="h-3.5 w-3.5 text-primary"
+                aria-hidden="true"
+              />
             </Link>
           </div>
         )}

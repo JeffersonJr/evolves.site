@@ -9,7 +9,10 @@ export const Route = createFileRoute("/blog/busca/$termo")({
     const term = fromFriendlySlug(params.termo);
     const matchedPosts = blogPosts.filter((p) => {
       const normalize = (s: string) =>
-        s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+        s
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .toLowerCase();
       const hay = normalize(`${p.title} ${p.excerpt} ${p.category}`);
       return normalize(term)
         .split(" ")

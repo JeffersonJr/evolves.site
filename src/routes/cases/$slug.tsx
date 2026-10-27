@@ -65,7 +65,8 @@ function CaseStudyPage() {
   const { project } = Route.useLoaderData();
 
   const currentIndex = casesData.findIndex((c) => c.slug === project.slug);
-  const prevProject = casesData[(currentIndex - 1 + casesData.length) % casesData.length];
+  const prevProject =
+    casesData[(currentIndex - 1 + casesData.length) % casesData.length];
   const nextProject = casesData[(currentIndex + 1) % casesData.length];
 
   const cleanHostname = project.liveUrl
@@ -128,26 +129,42 @@ function CaseStudyPage() {
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-6 text-left">
               {project.client && (
                 <div>
-                  <p className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">Cliente</p>
-                  <p className="mt-1 text-xs sm:text-sm font-medium text-foreground">{project.client}</p>
+                  <p className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
+                    Cliente
+                  </p>
+                  <p className="mt-1 text-xs sm:text-sm font-medium text-foreground">
+                    {project.client}
+                  </p>
                 </div>
               )}
               {project.country && (
                 <div>
-                  <p className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">Localização</p>
-                  <p className="mt-1 text-xs sm:text-sm font-medium text-foreground">{project.country}</p>
+                  <p className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
+                    Localização
+                  </p>
+                  <p className="mt-1 text-xs sm:text-sm font-medium text-foreground">
+                    {project.country}
+                  </p>
                 </div>
               )}
               {project.year && (
                 <div>
-                  <p className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">Período / Ano</p>
-                  <p className="mt-1 text-xs sm:text-sm font-medium text-foreground font-mono">{project.year}</p>
+                  <p className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
+                    Período / Ano
+                  </p>
+                  <p className="mt-1 text-xs sm:text-sm font-medium text-foreground font-mono">
+                    {project.year}
+                  </p>
                 </div>
               )}
               {project.scope && (
                 <div>
-                  <p className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">Escopo de Atuação</p>
-                  <p className="mt-1 text-xs sm:text-sm font-medium text-foreground line-clamp-1">{project.scope}</p>
+                  <p className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
+                    Escopo de Atuação
+                  </p>
+                  <p className="mt-1 text-xs sm:text-sm font-medium text-foreground line-clamp-1">
+                    {project.scope}
+                  </p>
                 </div>
               )}
             </div>
@@ -167,13 +184,17 @@ function CaseStudyPage() {
               {/* Address Pill */}
               <div className="flex items-center gap-2 rounded-md border border-black/[0.08] bg-white px-4 py-1 text-[11px] font-mono text-muted-foreground dark:border-white/[0.08] dark:bg-black/50 shadow-xs max-w-sm w-full justify-center">
                 <Lock className="h-3 w-3 text-emerald-500 shrink-0" />
-                <span className="truncate">{cleanHostname || project.slug}</span>
+                <span className="truncate">
+                  {cleanHostname || project.slug}
+                </span>
               </div>
 
               {/* Telemetry pill */}
               <div className="flex items-center gap-1.5 text-[10px] font-mono text-emerald-600 dark:text-emerald-400 shrink-0">
                 <Zap className="h-3 w-3" />
-                <span className="hidden sm:inline">100/100 Core Web Vitals</span>
+                <span className="hidden sm:inline">
+                  100/100 Core Web Vitals
+                </span>
                 <span className="sm:hidden">100/100</span>
               </div>
             </div>
@@ -182,7 +203,11 @@ function CaseStudyPage() {
             <div className="relative overflow-hidden bg-black/5 p-3 sm:p-5 dark:bg-black/60">
               <img
                 src={project.img}
-                srcSet={project.imgSm ? `${project.imgSm} 640w, ${project.img} 1200w` : undefined}
+                srcSet={
+                  project.imgSm
+                    ? `${project.imgSm} 640w, ${project.img} 1200w`
+                    : undefined
+                }
                 sizes="(max-width: 768px) 100vw, 1200px"
                 alt={`Mockup e interface do projeto ${project.title}`}
                 width={1200}
@@ -203,7 +228,10 @@ function CaseStudyPage() {
               </div>
               <div className="grid gap-3 sm:grid-cols-2">
                 {project.deliverables.map((item) => (
-                  <div key={item} className="flex items-center gap-2.5 text-xs sm:text-sm text-foreground/90">
+                  <div
+                    key={item}
+                    className="flex items-center gap-2.5 text-xs sm:text-sm text-foreground/90"
+                  >
                     <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
                     <span>{item}</span>
                   </div>
@@ -337,12 +365,15 @@ function CaseStudyPage() {
           {project.liveUrl && cleanHostname && (
             <div className="mt-14 rounded-2xl border border-primary/30 bg-primary/[0.03] p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 dark:border-primary/40 dark:bg-primary/[0.05]">
               <div>
-                <p className="text-[11px] font-mono text-primary uppercase tracking-wider">Ambiente de Produção Ativo</p>
+                <p className="text-[11px] font-mono text-primary uppercase tracking-wider">
+                  Ambiente de Produção Ativo
+                </p>
                 <h3 className="text-lg font-medium tracking-tight text-foreground mt-1">
                   Deseja testar a velocidade e usabilidade deste projeto?
                 </h3>
                 <p className="text-xs text-muted-foreground mt-1">
-                  Acesse o domínio oficial ({cleanHostname}) e experimente a velocidade em tempo real.
+                  Acesse o domínio oficial ({cleanHostname}) e experimente a
+                  velocidade em tempo real.
                 </p>
               </div>
 
@@ -401,7 +432,8 @@ function CaseStudyPage() {
               Quer resultados com esse padrão de engenharia?
             </h3>
             <p className="text-muted-foreground text-sm max-w-lg mx-auto mb-8 leading-relaxed">
-              Vamos conversar sobre o seu projeto e estruturar uma proposta técnica com prazos ágeis, arquitetura moderna e preço fixo.
+              Vamos conversar sobre o seu projeto e estruturar uma proposta
+              técnica com prazos ágeis, arquitetura moderna e preço fixo.
             </p>
             <Link
               to="/contact"

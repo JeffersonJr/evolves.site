@@ -129,7 +129,9 @@ function ServicePage() {
                   <span className="font-mono text-2xl font-bold text-foreground/60 dark:text-foreground/50 mb-3 block">
                     0{idx + 1}
                   </span>
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{reason}</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    {reason}
+                  </p>
                 </div>
               ))}
             </div>
@@ -143,7 +145,10 @@ function ServicePage() {
               </h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {service.phases.map((phase, pIdx) => (
-                  <div key={pIdx} className="rounded-2xl border border-border bg-surface/50 p-5 flex flex-col justify-between">
+                  <div
+                    key={pIdx}
+                    className="rounded-2xl border border-border bg-surface/50 p-5 flex flex-col justify-between"
+                  >
                     <div>
                       <span className="text-[10px] font-mono uppercase text-primary tracking-wider">
                         Fase 0{pIdx + 1}
@@ -159,9 +164,16 @@ function ServicePage() {
                       {phase.steps && phase.steps.length > 0 && (
                         <ul className="mt-3 space-y-2 border-t border-border/60 pt-3">
                           {phase.steps.map((st) => (
-                            <li key={st.id} className="text-xs text-muted-foreground leading-relaxed">
-                              <span className="font-medium text-foreground block">{st.title}</span>
-                              <span className="text-[11px] text-muted-foreground">{st.detail}</span>
+                            <li
+                              key={st.id}
+                              className="text-xs text-muted-foreground leading-relaxed"
+                            >
+                              <span className="font-medium text-foreground block">
+                                {st.title}
+                              </span>
+                              <span className="text-[11px] text-muted-foreground">
+                                {st.detail}
+                              </span>
                             </li>
                           ))}
                         </ul>
@@ -179,7 +191,8 @@ function ServicePage() {
               Pronto para implementar essa solução?
             </h3>
             <p className="text-muted-foreground text-sm max-w-lg mx-auto mb-8 leading-relaxed">
-              Vamos conversar sobre o seu projeto e estruturar uma proposta com prazos ágeis e preço fixo.
+              Vamos conversar sobre o seu projeto e estruturar uma proposta com
+              prazos ágeis e preço fixo.
             </p>
             <Link
               to="/contact"

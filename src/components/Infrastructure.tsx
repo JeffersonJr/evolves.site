@@ -11,7 +11,6 @@ export function Infrastructure() {
       className="border-t border-black/[0.06] bg-background py-24 sm:py-32 dark:border-white/[0.06]"
     >
       <div className="mx-auto max-w-6xl px-6">
-
         {/* Section header */}
         <div className="mx-auto max-w-2xl">
           <p className="text-[11px] font-mono uppercase tracking-[0.08em] text-primary">
@@ -33,7 +32,6 @@ export function Infrastructure() {
 
         {/* ── Bento Grid ── */}
         <div className="mt-14 grid auto-rows-[1fr] grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-12 lg:auto-rows-auto">
-
           {/* Box 1 — Large (span 7): Global Infrastructure */}
           <div className="group relative overflow-hidden rounded-2xl border border-black/[0.08] bg-black/[0.02] p-6 sm:p-8 lg:col-span-7 transition-all duration-300 hover:border-black/[0.14] dark:border-white/[0.08] dark:bg-white/[0.03] dark:hover:border-white/[0.12] dark:hover:bg-white/[0.05]">
             {/* Glow on hover */}
@@ -42,7 +40,11 @@ export function Infrastructure() {
               className="pointer-events-none absolute -top-12 -left-12 h-40 w-40 rounded-full bg-indigo-500/10 blur-3xl transition-opacity duration-500 opacity-0 group-hover:opacity-100"
             />
             <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-black/[0.08] bg-black/[0.04] dark:border-white/[0.08] dark:bg-white/[0.05]">
-              <Globe className="h-5 w-5 text-indigo-500 dark:text-indigo-400" strokeWidth={1.5} aria-hidden="true" />
+              <Globe
+                className="h-5 w-5 text-indigo-500 dark:text-indigo-400"
+                strokeWidth={1.5}
+                aria-hidden="true"
+              />
             </div>
             <h3 className="mt-5 text-base font-medium tracking-tight text-foreground sm:text-lg">
               {t.infrastructure.p1Title}
@@ -55,9 +57,9 @@ export function Infrastructure() {
             <div className="mt-6 flex flex-wrap gap-2 text-[10px] font-mono">
               {[
                 { dot: "bg-emerald-500", loc: "Frankfurt · EU" },
-                { dot: "bg-sky-500",     loc: "São Paulo · BR" },
-                { dot: "bg-violet-500",  loc: "Auckland · NZ" },
-                { dot: "bg-amber-500",   loc: "London · GB" },
+                { dot: "bg-sky-500", loc: "São Paulo · BR" },
+                { dot: "bg-violet-500", loc: "Auckland · NZ" },
+                { dot: "bg-amber-500", loc: "London · GB" },
               ].map((n) => (
                 <span
                   key={n.loc}
@@ -83,7 +85,11 @@ export function Infrastructure() {
               className="pointer-events-none absolute -top-8 right-0 h-32 w-32 rounded-full bg-violet-500/10 blur-2xl transition-opacity duration-500 opacity-0 group-hover:opacity-100"
             />
             <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-black/[0.08] bg-black/[0.04] dark:border-white/[0.08] dark:bg-white/[0.05]">
-              <Pen className="h-5 w-5 text-violet-500 dark:text-violet-400" strokeWidth={1.5} aria-hidden="true" />
+              <Pen
+                className="h-5 w-5 text-violet-500 dark:text-violet-400"
+                strokeWidth={1.5}
+                aria-hidden="true"
+              />
             </div>
             <h3 className="mt-5 text-base font-medium tracking-tight text-foreground">
               {t.infrastructure.p2Title}
@@ -105,7 +111,11 @@ export function Infrastructure() {
               className="pointer-events-none absolute bottom-0 left-0 h-28 w-28 rounded-full bg-cyan-500/10 blur-2xl transition-opacity duration-500 opacity-0 group-hover:opacity-100"
             />
             <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-black/[0.08] bg-black/[0.04] dark:border-white/[0.08] dark:bg-white/[0.05]">
-              <Cpu className="h-5 w-5 text-cyan-600 dark:text-cyan-400" strokeWidth={1.5} aria-hidden="true" />
+              <Cpu
+                className="h-5 w-5 text-cyan-600 dark:text-cyan-400"
+                strokeWidth={1.5}
+                aria-hidden="true"
+              />
             </div>
             <h3 className="mt-5 text-base font-medium tracking-tight text-foreground">
               {t.infrastructure.p3Title}
@@ -127,17 +137,30 @@ export function Infrastructure() {
               className="pointer-events-none absolute -bottom-8 right-0 h-28 w-28 rounded-full bg-emerald-500/10 blur-2xl transition-opacity duration-500 opacity-0 group-hover:opacity-100"
             />
             <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-black/[0.08] bg-black/[0.04] dark:border-white/[0.08] dark:bg-white/[0.05]">
-              <LifeBuoy className="h-5 w-5 text-emerald-500 dark:text-emerald-400" strokeWidth={1.5} aria-hidden="true" />
+              <LifeBuoy
+                className="h-5 w-5 text-emerald-500 dark:text-emerald-400"
+                strokeWidth={1.5}
+                aria-hidden="true"
+              />
             </div>
             <h3 className="mt-5 text-base font-medium tracking-tight text-foreground">
               {t.infrastructure.p4Title ?? "Suporte & SLA Ativo"}
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              {t.infrastructure.p4Desc ?? "Monitoramento 24/7, backups automáticos e SLA de resposta garantido. Atendimento via canal dedicado com tempo de resposta inferior a 4 horas."}
+              {t.infrastructure.p4Desc ??
+                "Monitoramento 24/7, backups automáticos e SLA de resposta garantido. Atendimento via canal dedicado com tempo de resposta inferior a 4 horas."}
             </p>
             <div className="mt-4 flex flex-wrap gap-2 text-[10px] font-mono text-muted-foreground">
-              {["99.99% Uptime SLA", "24/7 Monitoring", "< 4h Response", "Auto Backups"].map((tag) => (
-                <span key={tag} className="rounded-full border border-black/[0.08] bg-black/[0.03] px-2.5 py-1 dark:border-white/[0.08] dark:bg-white/[0.03]">
+              {[
+                "99.99% Uptime SLA",
+                "24/7 Monitoring",
+                "< 4h Response",
+                "Auto Backups",
+              ].map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-black/[0.08] bg-black/[0.03] px-2.5 py-1 dark:border-white/[0.08] dark:bg-white/[0.03]"
+                >
                   {tag}
                 </span>
               ))}

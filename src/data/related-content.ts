@@ -40,7 +40,11 @@ export const contentConnections = [
         label: "Como melhorar a conversão B2B",
       },
     ],
-    cases: ["uniao-fraternal", "glebra-grande-loja-egipcia", "hidrolinfa-portugal"],
+    cases: [
+      "uniao-fraternal",
+      "glebra-grande-loja-egipcia",
+      "hidrolinfa-portugal",
+    ],
   },
   {
     service: {

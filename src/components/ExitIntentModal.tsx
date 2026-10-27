@@ -8,7 +8,11 @@ const STORAGE_KEY = "evolves_exit_dismissed";
 export function ExitIntentModal() {
   const { t } = useI18n();
   const [isOpen, setIsOpen] = useState(false);
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
   const [submitted, setSubmitted] = useState(false);
 
   const dismiss = useCallback(() => {
@@ -70,7 +74,6 @@ export function ExitIntentModal() {
 
       {/* Panel */}
       <div className="relative w-full max-w-lg animate-fade-up overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-card)]">
-
         {/* Subtle top accent line */}
         <div className="h-px w-full bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
@@ -106,7 +109,15 @@ export function ExitIntentModal() {
             /* Success state */
             <div className="mt-8 flex flex-col items-center gap-3 py-6 text-center">
               <span className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-500">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="h-6 w-6"
+                >
                   <path d="M20 6 9 17l-5-5" />
                 </svg>
               </span>
@@ -123,7 +134,9 @@ export function ExitIntentModal() {
                     id="exit-name"
                     required
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
                     className="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/60 transition-colors focus:border-primary/60 focus:outline-none focus:ring-2 focus:ring-primary/20"
                     placeholder={t.exitModal.namePlaceholder}
                   />
@@ -134,7 +147,9 @@ export function ExitIntentModal() {
                     type="email"
                     required
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
                     className="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/60 transition-colors focus:border-primary/60 focus:outline-none focus:ring-2 focus:ring-primary/20"
                     placeholder={t.exitModal.emailPlaceholder}
                   />
@@ -145,7 +160,9 @@ export function ExitIntentModal() {
                 id="exit-msg"
                 required
                 value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, message: e.target.value })
+                }
                 rows={3}
                 className="w-full resize-none rounded-xl border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/60 transition-colors focus:border-primary/60 focus:outline-none focus:ring-2 focus:ring-primary/20"
                 placeholder={t.exitModal.messagePlaceholder}

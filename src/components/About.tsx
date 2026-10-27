@@ -84,7 +84,9 @@ export function About() {
               <div key={idx} className="text-center md:px-6">
                 <div className="text-3xl sm:text-4xl font-semibold tracking-tight text-foreground mb-1">
                   {stat.value}
-                  <span className="text-primary font-normal ml-0.5">{stat.suffix}</span>
+                  <span className="text-primary font-normal ml-0.5">
+                    {stat.suffix}
+                  </span>
                 </div>
                 <p className="text-xs font-mono text-muted-foreground uppercase tracking-wider">
                   {stat.label}
@@ -106,8 +108,10 @@ export function About() {
               Nossa Missão
             </h2>
             <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-              Desenvolver plataformas digitais e infraestruturas em nuvem de altíssima performance técnica,
-              permitindo que empresas no Brasil e na Europa operem com a mesma sofisticação dos líderes globais da tecnologia.
+              Desenvolver plataformas digitais e infraestruturas em nuvem de
+              altíssima performance técnica, permitindo que empresas no Brasil e
+              na Europa operem com a mesma sofisticação dos líderes globais da
+              tecnologia.
             </p>
           </div>
 
@@ -119,8 +123,9 @@ export function About() {
               Nossa Visão
             </h2>
             <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-              Consolidar a Evolves como referência de estúdio de engenharia digital e arquitetura web sóbria,
-              reconhecida internacionalmente pela entrega pontual, velocidade técnica e rigor estético.
+              Consolidar a Evolves como referência de estúdio de engenharia
+              digital e arquitetura web sóbria, reconhecida internacionalmente
+              pela entrega pontual, velocidade técnica e rigor estético.
             </p>
           </div>
         </div>
@@ -128,18 +133,24 @@ export function About() {
         {/* Methodology */}
         <div className="mb-28">
           <div className="text-center mb-14">
-            <p className="text-xs font-mono uppercase tracking-widest text-primary mb-2">Metodologia</p>
+            <p className="text-xs font-mono uppercase tracking-widest text-primary mb-2">
+              Metodologia
+            </p>
             <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-foreground">
               Como trabalhamos
             </h2>
             <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto mt-3">
-              Processo validado para garantir previsibilidade, transparência e velocidade desde o primeiro alinhamento até a produção.
+              Processo validado para garantir previsibilidade, transparência e
+              velocidade desde o primeiro alinhamento até a produção.
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {methodology.map((m) => (
-              <div key={m.step} className="rounded-3xl border border-border bg-card p-7 shadow-xs">
+              <div
+                key={m.step}
+                className="rounded-3xl border border-border bg-card p-7 shadow-xs"
+              >
                 <span className="font-mono text-2xl font-bold text-foreground/60 dark:text-foreground/50 mb-4 block">
                   {m.step}
                 </span>
@@ -157,12 +168,15 @@ export function About() {
         {/* Pillars Grid */}
         <div className="mb-28">
           <div className="text-center mb-14">
-            <p className="text-xs font-mono uppercase tracking-widest text-primary mb-2">Engenharia & Ética</p>
+            <p className="text-xs font-mono uppercase tracking-widest text-primary mb-2">
+              Engenharia & Ética
+            </p>
             <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-foreground">
               Princípios Fundamentais
             </h2>
             <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto mt-3">
-              Os pilares inegociáveis que norteiam todas as nossas decisões técnicas e estratégicas.
+              Os pilares inegociáveis que norteiam todas as nossas decisões
+              técnicas e estratégicas.
             </p>
           </div>
 
@@ -196,7 +210,8 @@ export function About() {
               Pronto para construir o futuro digital da sua empresa?
             </h2>
             <p className="text-sm sm:text-base text-muted-foreground mb-8 leading-relaxed">
-              Converse diretamente com os nossos engenheiros de software e receba uma proposta técnica estruturada em até 24 horas úteis.
+              Converse diretamente com os nossos engenheiros de software e
+              receba uma proposta técnica estruturada em até 24 horas úteis.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
               <a

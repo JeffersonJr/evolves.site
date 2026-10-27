@@ -15,7 +15,8 @@ import { Footer } from "@/components/Footer";
 export const Route = createFileRoute("/")({
   head: () =>
     pageHead("/", [organizationSchema, websiteSchema], {
-      title: "Evolves® · Engenharia Digital & Plataformas Web de Alta Performance",
+      title:
+        "Evolves® · Engenharia Digital & Plataformas Web de Alta Performance",
       description:
         "Estúdio de desenvolvimento de websites corporativos, landing pages de alta conversão e infraestrutura em nuvem de alta velocidade para empresas na Europa e no Brasil.",
     }),

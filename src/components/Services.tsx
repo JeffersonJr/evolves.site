@@ -58,7 +58,10 @@ export function Services({
                 </p>
                 <ul className="mt-6 space-y-2 mb-8">
                   {s.features.slice(0, 4).map((f) => (
-                    <li key={f} className="flex items-center gap-2.5 text-xs sm:text-sm text-foreground/85">
+                    <li
+                      key={f}
+                      className="flex items-center gap-2.5 text-xs sm:text-sm text-foreground/85"
+                    >
                       <span className="text-primary">
                         <Check className="h-3.5 w-3.5" strokeWidth={2} />
                       </span>

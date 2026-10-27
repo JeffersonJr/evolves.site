@@ -1,7 +1,16 @@
 import { useRegion, type Region } from "@/contexts/RegionContext";
 import { useI18n } from "@/contexts/I18nContext";
 import { CurrencyToggle } from "./CurrencyToggle";
-import { Check, ArrowRight, ShieldCheck, Server, Lock, RefreshCw, Headphones, Zap } from "lucide-react";
+import {
+  Check,
+  ArrowRight,
+  ShieldCheck,
+  Server,
+  Lock,
+  RefreshCw,
+  Headphones,
+  Zap,
+} from "lucide-react";
 
 interface PlanItem {
   name: string;
@@ -25,11 +34,12 @@ export function Pricing() {
   const getLocalizedPlans = (): PlanItem[] => {
     // ── 1. USD ($) — GLOBAL / INTERNATIONAL ──
     if (region === "USD") {
-      if (language === "en") {
+      if (language === "en" || language.startsWith("en")) {
         return [
           {
             name: "Start Plan",
-            target: "Independent consultants, boutique clinics, and high-conversion landing pages.",
+            target:
+              "Independent consultants, boutique clinics, and high-conversion landing pages.",
             price: "$400 – $600",
             priceSub: "one-time engineering investment",
             maintenance: "$25",
@@ -41,15 +51,18 @@ export function Pricing() {
               "Direct WhatsApp & corporate email integration",
               "Spam-protected contact forms with telemetry",
               "Technical on-page SEO & OpenGraph metadata",
-              "Delivery turnaround: 5 to 10 business days",
+              "Agile delivery: 10 to 30 business days",
             ],
-            paymentNotes: "Stripe, Wise, Wire Transfer, or Corporate Card in USD.",
+            paymentNotes:
+              "Stripe, Wise, Wire Transfer, or Corporate Card in USD.",
             ctaText: "Select Start Plan ($)",
-            ctaHref: "https://wa.me/5513981326869?text=Hello%2C%20I%20am%20interested%20in%20the%20Start%20Plan%20(USD)%20from%20Evolves.",
+            ctaHref:
+              "https://wa.me/5513981326869?text=Hello%2C%20I%20am%20interested%20in%20the%20Start%20Plan%20(USD)%20from%20Evolves.",
           },
           {
             name: "Pro Plan",
-            target: "Established companies requiring corporate authority, multi-pages, and global SEO.",
+            target:
+              "Established companies requiring corporate authority, multi-pages, and global SEO.",
             price: "$850 – $1,350",
             priceSub: "one-time engineering investment",
             maintenance: "$40",
@@ -62,16 +75,18 @@ export function Pricing() {
               "Prepared multilingual architecture (EN / ES / PT / FR)",
               "GA4, Google Tag Manager & Meta Pixel conversion tracking",
               "CRM or automated booking calendar integration",
-              "Headless CMS for effortless content publishing",
-              "Delivery turnaround: 10 to 20 business days",
+              "Agile delivery: 10 to 30 business days",
             ],
-            paymentNotes: "Billed in USD. Installments or milestone-based payments available.",
+            paymentNotes:
+              "Billed in USD. Installments or milestone-based payments available.",
             ctaText: "Choose Pro Plan ($)",
-            ctaHref: "https://wa.me/5513981326869?text=Hello%2C%20I%20would%20like%20to%20start%20the%20Pro%20Plan%20(USD)%20with%20Evolves.",
+            ctaHref:
+              "https://wa.me/5513981326869?text=Hello%2C%20I%20would%20like%20to%20start%20the%20Pro%20Plan%20(USD)%20with%20Evolves.",
           },
           {
             name: "Max Plan",
-            target: "High-volume e-commerce, custom SaaS, and tailored web applications.",
+            target:
+              "High-volume e-commerce, custom SaaS, and tailored web applications.",
             price: "From $1,700",
             priceSub: "tailored software development",
             maintenance: "$60",
@@ -87,7 +102,8 @@ export function Pricing() {
             ],
             paymentNotes: "Milestone-based contract with guaranteed SLA.",
             ctaText: "Request Custom Proposal ($)",
-            ctaHref: "https://wa.me/5513981326869?text=Hello%2C%20I%20need%20a%20custom%20proposal%20for%20the%20Max%20Plan%20(USD).",
+            ctaHref:
+              "https://wa.me/5513981326869?text=Hello%2C%20I%20need%20a%20custom%20proposal%20for%20the%20Max%20Plan%20(USD).",
           },
         ];
       }
@@ -96,7 +112,8 @@ export function Pricing() {
         return [
           {
             name: "Plan Start",
-            target: "Consultores, clínicas privadas y profesionales de alto impacto.",
+            target:
+              "Consultores, clínicas privadas y profesionales de alto impacto.",
             price: "$400 a $600",
             priceSub: "inversión única de desarrollo",
             maintenance: "$25",
@@ -108,15 +125,17 @@ export function Pricing() {
               "Integración con WhatsApp comercial y correo corporativo",
               "Formularios seguros con protección anti-spam nativa",
               "SEO técnico on-page para indexación global en Google",
-              "Plazo de entrega: 5 a 10 días hábiles",
+              "Plazo de entrega ágil: 10 a 30 días hábiles",
             ],
             paymentNotes: "Pago vía Stripe, Wise o tarjeta en USD ($).",
             ctaText: "Seleccionar Plan Start ($)",
-            ctaHref: "https://wa.me/5513981326869?text=Hola%2C%20me%20interesa%20el%20Plan%20Start%20(USD)%20de%20Evolves.",
+            ctaHref:
+              "https://wa.me/5513981326869?text=Hola%2C%20me%20interesa%20el%20Plan%20Start%20(USD)%20de%20Evolves.",
           },
           {
             name: "Plan Pro",
-            target: "Empresas consolidadas que requieren presencia corporativa y SEO orgánico.",
+            target:
+              "Empresas consolidadas que requieren presencia corporativa y SEO orgánico.",
             price: "$850 a $1.350",
             priceSub: "inversión única de desarrollo",
             maintenance: "$40",
@@ -129,16 +148,18 @@ export function Pricing() {
               "Arquitectura multilingüe preparada (ES / EN / PT)",
               "Integración Google Analytics 4, Tag Manager y Meta Pixel",
               "Integración con CRM de ventas o reservas online",
-              "Panel de edición intuitivo sin complejidad técnica",
-              "Plazo de entrega: 10 a 20 días hábiles",
+              "Plazo de entrega ágil: 10 a 30 días hábiles",
             ],
-            paymentNotes: "Facturación internacional en USD ($). Pago en etapas.",
+            paymentNotes:
+              "Facturación internacional en USD ($). Pago en etapas.",
             ctaText: "Contratar Plan Pro ($)",
-            ctaHref: "https://wa.me/5513981326869?text=Hola%2C%20quiero%20iniciar%20el%20Plan%20Pro%20(USD)%20con%20Evolves.",
+            ctaHref:
+              "https://wa.me/5513981326869?text=Hola%2C%20quiero%20iniciar%20el%20Plan%20Pro%20(USD)%20con%20Evolves.",
           },
           {
             name: "Plan Max",
-            target: "E-commerce, reservas automatizadas y plataformas digitales a medida.",
+            target:
+              "E-commerce, reservas automatizadas y plataformas digitales a medida.",
             price: "A partir de $1.700",
             priceSub: "desarrollo de software a medida",
             maintenance: "$60",
@@ -152,9 +173,11 @@ export function Pricing() {
               "Infraestructura dedicada para altos picos de tráfico",
               "Consultoría técnica de arquitectura de software",
             ],
-            paymentNotes: "Contrato personalizado con hitos de entrega garantizados.",
+            paymentNotes:
+              "Contrato personalizado con hitos de entrega garantizados.",
             ctaText: "Solicitar Propuesta Max ($)",
-            ctaHref: "https://wa.me/5513981326869?text=Hola%2C%20necesito%20una%20propuesta%20del%20Plan%20Max%20(USD).",
+            ctaHref:
+              "https://wa.me/5513981326869?text=Hola%2C%20necesito%20una%20propuesta%20del%20Plan%20Max%20(USD).",
           },
         ];
       }
@@ -163,7 +186,8 @@ export function Pricing() {
       return [
         {
           name: "Plano Start",
-          target: "Consultores, clínicas privadas e landing pages de conversão direta.",
+          target:
+            "Consultores, clínicas privadas e landing pages de conversão direta.",
           price: "$400 a $600",
           priceSub: "investimento único de desenvolvimento",
           maintenance: "$25",
@@ -175,15 +199,18 @@ export function Pricing() {
             "Integração com WhatsApp comercial e e-mail corporativo",
             "Formulário seguro com proteção anti-spam nativa",
             "SEO técnico on-page para indexação global no Google",
-            "Prazo de entrega ágil: 5 a 10 dias úteis",
+            "Prazo de entrega ágil: 10 a 30 dias úteis",
           ],
-          paymentNotes: "Pagamento via Stripe, Wise ou Cartão Corporativo em Dólares ($).",
+          paymentNotes:
+            "Pagamento via Stripe, Wise ou Cartão Corporativo em Dólares ($).",
           ctaText: "Selecionar Plano Start ($)",
-          ctaHref: "https://wa.me/5513981326869?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20Plano%20Start%20(USD)%20da%20Evolves.",
+          ctaHref:
+            "https://wa.me/5513981326869?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20Plano%20Start%20(USD)%20da%20Evolves.",
         },
         {
           name: "Plano Pro",
-          target: "Empresas consolidadas que exigem autoridade internacional e tráfego orgânico.",
+          target:
+            "Empresas consolidadas que exigem autoridade internacional e tráfego orgânico.",
           price: "$850 a $1.350",
           priceSub: "investimento único de desenvolvimento",
           maintenance: "$40",
@@ -196,16 +223,18 @@ export function Pricing() {
             "Arquitetura multilíngue preparada (EN / PT / ES / FR)",
             "Telemetria Google Analytics 4, Tag Manager e Meta Pixel",
             "Integração com CRM de vendas ou agendamento online",
-            "Painel simples para atualização de conteúdos",
-            "Prazo de entrega: 10 a 20 dias úteis",
+            "Prazo de entrega ágil: 10 a 30 dias úteis",
           ],
-          paymentNotes: "Faturamento internacional em USD ($). Parcelamento por etapas.",
+          paymentNotes:
+            "Faturamento internacional em USD ($). Parcelamento por etapas.",
           ctaText: "Escolher Plano Pro ($)",
-          ctaHref: "https://wa.me/5513981326869?text=Ol%C3%A1%2C%20gostaria%20de%20fechar%20o%20Plano%20Pro%20(USD)%20com%20a%20Evolves.",
+          ctaHref:
+            "https://wa.me/5513981326869?text=Ol%C3%A1%2C%20gostaria%20de%20fechar%20o%20Plano%20Pro%20(USD)%20com%20a%20Evolves.",
         },
         {
           name: "Plano Max",
-          target: "E-commerce global, plataformas sob medida e portais de membros.",
+          target:
+            "E-commerce global, plataformas sob medida e portais de membros.",
           price: "A partir de $1.700",
           priceSub: "desenvolvimento de software sob medida",
           maintenance: "$60",
@@ -219,20 +248,23 @@ export function Pricing() {
             "Infraestrutura de nuvem dedicada para alto tráfego concorrente",
             "Consultoria técnica direta com Arquiteto de Software",
           ],
-          paymentNotes: "Contrato personalizado atrelado a marcos de entrega (milestones).",
+          paymentNotes:
+            "Contrato personalizado atrelado a marcos de entrega (milestones).",
           ctaText: "Solicitar Proposta Max ($)",
-          ctaHref: "https://wa.me/5513981326869?text=Ol%C3%A1%2C%20preciso%20de%20um%20projeto%20personalizado%20no%20Plano%20Max%20(USD).",
+          ctaHref:
+            "https://wa.me/5513981326869?text=Ol%C3%A1%2C%20preciso%20de%20um%20projeto%20personalizado%20no%20Plano%20Max%20(USD).",
         },
       ];
     }
 
     // ── 2. EUR (€) — EUROPE ──
     if (region === "EUR") {
-      if (language === "en") {
+      if (language === "en" || language.startsWith("en")) {
         return [
           {
             name: "Start Plan",
-            target: "Consultants, local clinics, and independent European professionals.",
+            target:
+              "Consultants, local clinics, and independent European professionals.",
             price: "€350 – €500",
             priceSub: "one-time engineering investment",
             maintenance: "€20",
@@ -244,15 +276,18 @@ export function Pricing() {
               "Direct WhatsApp & corporate email integration",
               "Secure form with native anti-spam & GDPR consent",
               "Technical on-page SEO for top Google indexation",
-              "Rapid delivery: 5 to 10 business days",
+              "Agile delivery: 10 to 30 business days",
             ],
-            paymentNotes: "SEPA bank transfer, MB WAY, corporate card, or Wise.",
+            paymentNotes:
+              "SEPA bank transfer, MB WAY, corporate card, or Wise.",
             ctaText: "Select Start Plan (€)",
-            ctaHref: "https://wa.me/5513981326869?text=Hello%2C%20I%20am%20interested%20in%20the%20Start%20Plan%20(EUR)%20from%20Evolves.",
+            ctaHref:
+              "https://wa.me/5513981326869?text=Hello%2C%20I%20am%20interested%20in%20the%20Start%20Plan%20(EUR)%20from%20Evolves.",
           },
           {
             name: "Pro Plan",
-            target: "Established European companies demanding corporate authority and SEO.",
+            target:
+              "Established European companies demanding corporate authority and SEO.",
             price: "€750 – €1,200",
             priceSub: "one-time engineering investment",
             maintenance: "€35",
@@ -265,16 +300,18 @@ export function Pricing() {
               "Pre-configured multilingual architecture (PT / EN / ES / FR)",
               "GA4, Google Tag Manager & Meta Pixel telemetry",
               "CRM or online booking integration",
-              "Intuitive CMS with zero technical complexity",
-              "Delivery turnaround: 10 to 20 business days",
+              "Agile delivery: 10 to 30 business days",
             ],
-            paymentNotes: "European B2B invoice in EUR. Installment plans available.",
+            paymentNotes:
+              "European B2B invoice in EUR. Installment plans available.",
             ctaText: "Choose Pro Plan (€)",
-            ctaHref: "https://wa.me/5513981326869?text=Hello%2C%20I%20would%20like%20to%20start%20the%20Pro%20Plan%20(EUR)%20with%20Evolves.",
+            ctaHref:
+              "https://wa.me/5513981326869?text=Hello%2C%20I%20would%20like%20to%20start%20the%20Pro%20Plan%20(EUR)%20with%20Evolves.",
           },
           {
             name: "Max Plan",
-            target: "E-commerce, automated bookings, and custom digital platforms.",
+            target:
+              "E-commerce, automated bookings, and custom digital platforms.",
             price: "From €1,500",
             priceSub: "tailored software development",
             maintenance: "€50",
@@ -288,9 +325,11 @@ export function Pricing() {
               "Dedicated cloud infrastructure for high concurrent traffic",
               "Dedicated software architecture consultation",
             ],
-            paymentNotes: "Custom milestone-based contract with defined deliverables.",
+            paymentNotes:
+              "Custom milestone-based contract with defined deliverables.",
             ctaText: "Request Custom Proposal (€)",
-            ctaHref: "https://wa.me/5513981326869?text=Hello%2C%20I%20need%20a%20custom%20proposal%20for%20the%20Max%20Plan%20(EUR).",
+            ctaHref:
+              "https://wa.me/5513981326869?text=Hello%2C%20I%20need%20a%20custom%20proposal%20for%20the%20Max%20Plan%20(EUR).",
           },
         ];
       }
@@ -299,7 +338,8 @@ export function Pricing() {
         return [
           {
             name: "Plan Start",
-            target: "Profesionales independientes, consultores y servicios locales en Europa.",
+            target:
+              "Profesionales independientes, consultores y servicios locales en Europa.",
             price: "€350 a €500",
             priceSub: "inversión única de desarrollo",
             maintenance: "€20",
@@ -311,15 +351,17 @@ export function Pricing() {
               "Integración con WhatsApp comercial y correo profesional",
               "Formulario seguro con protección anti-spam y RGPD nativo",
               "SEO técnico on-page para indexación en Google",
-              "Plazo de entrega: 5 a 10 días hábiles",
+              "Plazo de entrega ágil: 10 a 30 días hábiles",
             ],
             paymentNotes: "Transferencia SEPA, MB WAY, Bizum o Wise.",
             ctaText: "Seleccionar Plan Start (€)",
-            ctaHref: "https://wa.me/5513981326869?text=Hola%2C%20me%20interesa%20el%20Plan%20Start%20(EUR)%20de%20Evolves.",
+            ctaHref:
+              "https://wa.me/5513981326869?text=Hola%2C%20me%20interesa%20el%20Plan%20Start%20(EUR)%20de%20Evolves.",
           },
           {
             name: "Plan Pro",
-            target: "Empresas consolidadas que requieren presencia corporativa y SEO.",
+            target:
+              "Empresas consolidadas que requieren presencia corporativa y SEO.",
             price: "€750 a €1.200",
             priceSub: "inversión única de desarrollo",
             maintenance: "€35",
@@ -332,16 +374,17 @@ export function Pricing() {
               "Arquitectura multilingüe preparada (ES / EN / PT / FR)",
               "Integración Google Analytics 4, Tag Manager y Meta Pixel",
               "Integración con CRM de ventas o reservas online",
-              "Panel de edición intuitivo sin complejidad técnica",
-              "Plazo de entrega: 10 a 20 días hábiles",
+              "Plazo de entrega ágil: 10 a 30 días hábiles",
             ],
             paymentNotes: "Facturación europea en EUR. Con factura oficial.",
             ctaText: "Contratar Plan Pro (€)",
-            ctaHref: "https://wa.me/5513981326869?text=Hola%2C%20quiero%20iniciar%20el%20Plan%20Pro%20(EUR)%20con%20Evolves.",
+            ctaHref:
+              "https://wa.me/5513981326869?text=Hola%2C%20quiero%20iniciar%20el%20Plan%20Pro%20(EUR)%20con%20Evolves.",
           },
           {
             name: "Plan Max",
-            target: "E-commerce, reservas avanzadas y plataformas a medida en Europa.",
+            target:
+              "E-commerce, reservas avanzadas y plataformas a medida en Europa.",
             price: "A partir de €1.500",
             priceSub: "desarrollo de software personalizado",
             maintenance: "€50",
@@ -355,9 +398,11 @@ export function Pricing() {
               "Infraestructura dedicada para altos picos de tráfico",
               "Consultoría técnica de arquitectura de software",
             ],
-            paymentNotes: "Contrato personalizado con hitos de entrega garantizados.",
+            paymentNotes:
+              "Contrato personalizado con hitos de entrega garantizados.",
             ctaText: "Solicitar Propuesta Max (€)",
-            ctaHref: "https://wa.me/5513981326869?text=Hola%2C%20necesito%20una%20propuesta%20del%20Plan%20Max%20(EUR).",
+            ctaHref:
+              "https://wa.me/5513981326869?text=Hola%2C%20necesito%20una%20propuesta%20del%20Plan%20Max%20(EUR).",
           },
         ];
       }
@@ -366,7 +411,8 @@ export function Pricing() {
       return [
         {
           name: "Plano Start",
-          target: "Profissionais liberais, consultores e serviços locais na Europa.",
+          target:
+            "Profissionais liberais, consultores e serviços locais na Europa.",
           price: "€350 a €500",
           priceSub: "investimento único de desenvolvimento",
           maintenance: "€20",
@@ -378,15 +424,18 @@ export function Pricing() {
             "Integração com WhatsApp comercial e e-mail profissional",
             "Formulário seguro com proteção anti-spam e RGPD",
             "SEO técnico on-page para indexação prioritária no Google",
-            "Prazo de entrega ágil: 5 a 10 dias úteis",
+            "Prazo de entrega ágil: 10 a 30 dias úteis",
           ],
-          paymentNotes: "Pagamento via SEPA, MB WAY, Transferência Bancária ou Wise.",
+          paymentNotes:
+            "Pagamento via SEPA, MB WAY, Transferência Bancária ou Wise.",
           ctaText: "Selecionar Plano Start (€)",
-          ctaHref: "https://wa.me/5513981326869?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20Plano%20Start%20(EUR)%20da%20Evolves.",
+          ctaHref:
+            "https://wa.me/5513981326869?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20Plano%20Start%20(EUR)%20da%20Evolves.",
         },
         {
           name: "Plano Pro",
-          target: "Empresas consolidadas que exigem autoridade de marca e SEO na Europa.",
+          target:
+            "Empresas consolidadas que exigem autoridade de marca e SEO na Europa.",
           price: "€750 a €1.200",
           priceSub: "investimento único de desenvolvimento",
           maintenance: "€35",
@@ -399,16 +448,18 @@ export function Pricing() {
             "Arquitetura multilíngue preparada (PT / EN / ES / FR)",
             "Integração Google Analytics 4, Tag Manager e Meta Pixel",
             "Integração com CRM de vendas ou agendamento online",
-            "Painel de edição intuitivo sem complexidade técnica",
-            "Prazo de entrega: 10 a 20 dias úteis",
+            "Prazo de entrega ágil: 10 a 30 dias úteis",
           ],
-          paymentNotes: "Faturação europeia em EUR. Parcelamento disponível sob consulta.",
+          paymentNotes:
+            "Faturação europeia em EUR. Parcelamento disponível sob consulta.",
           ctaText: "Contratar Plano Pro (€)",
-          ctaHref: "https://wa.me/5513981326869?text=Ol%C3%A1%2C%20gostaria%20de%20iniciar%20o%20Plano%20Pro%20(EUR)%20com%20a%20Evolves.",
+          ctaHref:
+            "https://wa.me/5513981326869?text=Ol%C3%A1%2C%20gostaria%20de%20iniciar%20o%20Plano%20Pro%20(EUR)%20com%20a%20Evolves.",
         },
         {
           name: "Plano Max",
-          target: "E-commerce, agendamentos complexos e plataformas customizadas.",
+          target:
+            "E-commerce, agendamentos complexos e plataformas customizadas.",
           price: "A partir de €1.500",
           priceSub: "desenvolvimento sob medida",
           maintenance: "€50",
@@ -422,9 +473,11 @@ export function Pricing() {
             "Infraestrutura dedicada com suporte para alto volume de acessos",
             "Consultoria técnica de arquitetura de software inclusa",
           ],
-          paymentNotes: "Contrato personalizado com etapas de entrega e marcos de validação.",
+          paymentNotes:
+            "Contrato personalizado com etapas de entrega e marcos de validação.",
           ctaText: "Solicitar Proposta Max (€)",
-          ctaHref: "https://wa.me/5513981326869?text=Ol%C3%A1%2C%20preciso%20de%20uma%20proposta%20personalizada%20no%20Plano%20Max%20(EUR).",
+          ctaHref:
+            "https://wa.me/5513981326869?text=Ol%C3%A1%2C%20preciso%20de%20uma%20proposta%20personalizada%20no%20Plano%20Max%20(EUR).",
         },
       ];
     }
@@ -433,7 +486,8 @@ export function Pricing() {
     return [
       {
         name: "Plano Start",
-        target: "Empresas e profissionais que buscam presença digital rápida, sóbria e moderna.",
+        target:
+          "Empresas e profissionais que buscam presença digital rápida, sóbria e moderna.",
         price: "R$ 1.500 a R$ 2.000",
         priceSub: "taxa única de criação e engenharia",
         maintenance: "R$ 100",
@@ -445,15 +499,18 @@ export function Pricing() {
           "Integração direta com WhatsApp comercial e formulário seguro",
           "Velocidade de carregamento otimizada para conexões móveis 4G/5G",
           "Configuração de tags de conversão (Google Ads e Meta Pixel)",
-          "Prazo de entrega ágil: 5 a 10 dias úteis",
+          "Prazo de entrega ágil: 10 a 30 dias úteis",
         ],
-        paymentNotes: "Pagamento via PIX com desconto ou Cartão de Crédito corporativo.",
+        paymentNotes:
+          "Pagamento via PIX com desconto ou Cartão de Crédito corporativo.",
         ctaText: "Selecionar Plano Start (R$)",
-        ctaHref: "https://wa.me/5513981326869?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20Plano%20Start%20(em%20Reais)%20da%20Evolves.",
+        ctaHref:
+          "https://wa.me/5513981326869?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20Plano%20Start%20(em%20Reais)%20da%20Evolves.",
       },
       {
         name: "Plano Pro",
-        target: "Empresas consolidadas que precisam de autoridade de mercado e múltiplos serviços.",
+        target:
+          "Empresas consolidadas que precisam de autoridade de mercado e múltiplos serviços.",
         price: "R$ 2.800 a R$ 4.500",
         priceSub: "taxa única de criação e engenharia",
         maintenance: "R$ 180",
@@ -466,12 +523,13 @@ export function Pricing() {
           "Integração com seu CRM de vendas (RD Station, HubSpot, Pipedrive)",
           "Blog corporativo para construção de autoridade e conteúdos",
           "Design editorial responsivo com micro-animações refinadas",
-          "Painel simples para atualização de textos e imagens",
-          "Prazo de entrega: 10 a 20 dias úteis",
+          "Prazo de entrega ágil: 10 a 30 dias úteis",
         ],
-        paymentNotes: "Entrada + saldo na entrega ou parcelamento em até 12x. Com Nota Fiscal.",
+        paymentNotes:
+          "Entrada + saldo na entrega ou parcelamento em até 12x. Com Nota Fiscal.",
         ctaText: "Escolher Plano Pro (R$)",
-        ctaHref: "https://wa.me/5513981326869?text=Ol%C3%A1%2C%20gostaria%20de%20fechar%20o%20Plano%20Pro%20(em%20Reais)%20com%20a%20Evolves.",
+        ctaHref:
+          "https://wa.me/5513981326869?text=Ol%C3%A1%2C%20gostaria%20de%20fechar%20o%20Plano%20Pro%20(em%20Reais)%20com%20a%20Evolves.",
       },
       {
         name: "Plano Max",
@@ -489,9 +547,11 @@ export function Pricing() {
           "Engenharia escalável pronta para o crescimento da sua operação",
           "Acompanhamento direto com líder de engenharia de software",
         ],
-        paymentNotes: "Cronograma de pagamento atrelado a marcos de entrega (milestones).",
+        paymentNotes:
+          "Cronograma de pagamento atrelado a marcos de entrega (milestones).",
         ctaText: "Falar com Engenheiro (R$)",
-        ctaHref: "https://wa.me/5513981326869?text=Ol%C3%A1%2C%20preciso%20de%20um%20projeto%20personalizado%20no%20Plano%20Max%20(em%20Reais).",
+        ctaHref:
+          "https://wa.me/5513981326869?text=Ol%C3%A1%2C%20preciso%20de%20um%20projeto%20personalizado%20no%20Plano%20Max%20(em%20Reais).",
       },
     ];
   };
@@ -501,23 +561,51 @@ export function Pricing() {
   const maintenancePillars = [
     {
       icon: Server,
-      title: region === "EUR" ? "Hospedagem Cloud Dedicada" : region === "USD" ? "Dedicated Cloud Hosting" : "Hospedagem Cloud Dedicada",
-      desc: region === "EUR" ? "Servidores em nós europeus de baixa latência (Frankfurt/Londres) com isolamento de recursos." : region === "USD" ? "Global edge server nodes (US, EU, APAC) with guaranteed 99.99% uptime and sub-second delivery." : "Servidores em nuvem de alta velocidade com nós locais e CDN global para carregamento imediato.",
+      title:
+        region === "EUR"
+          ? "Hospedagem Cloud Dedicada"
+          : region === "USD"
+            ? "Dedicated Cloud Hosting"
+            : "Hospedagem Cloud Dedicada",
+      desc:
+        region === "EUR"
+          ? "Servidores em nós europeus de baixa latência (Frankfurt/Londres) com isolamento de recursos."
+          : region === "USD"
+            ? "Global edge server nodes (US, EU, APAC) with guaranteed 99.99% uptime and sub-second delivery."
+            : "Servidores em nuvem de alta velocidade com nós locais e CDN global para carregamento imediato.",
     },
     {
       icon: RefreshCw,
-      title: region === "USD" ? "Automated Daily Backups" : "Backups Automáticos Diários",
-      desc: region === "USD" ? "Complete off-site backups with one-click restore points and disaster recovery protocol." : "Cópias completas de segurança diárias com restauração em 1 clique em caso de falha.",
+      title:
+        region === "USD"
+          ? "Automated Daily Backups"
+          : "Backups Automáticos Diários",
+      desc:
+        region === "USD"
+          ? "Complete off-site backups with one-click restore points and disaster recovery protocol."
+          : "Cópias completas de segurança diárias com restauração em 1 clique em caso de falha.",
     },
     {
       icon: Lock,
-      title: region === "USD" ? "Active SSL & Security" : "Certificado SSL & Blindagem",
-      desc: region === "USD" ? "Automated TLS 1.3 certificates, DDoS shield, web application firewall, and bot protection." : "Certificados TLS automáticos, proteção ativa contra ataques DDoS e blindagem contra spam.",
+      title:
+        region === "USD"
+          ? "Active SSL & Security"
+          : "Certificado SSL & Blindagem",
+      desc:
+        region === "USD"
+          ? "Automated TLS 1.3 certificates, DDoS shield, web application firewall, and bot protection."
+          : "Certificados TLS automáticos, proteção ativa contra ataques DDoS e blindagem contra spam.",
     },
     {
       icon: Headphones,
-      title: region === "USD" ? "Ongoing Technical Support" : "Suporte Técnico Contínuo",
-      desc: region === "USD" ? "Direct engineering channel for adjustments, performance audits, and priority bug fixes." : "Canal direto para pequenos ajustes de texto/banners, atualizações de segurança e monitoramento 24/7.",
+      title:
+        region === "USD"
+          ? "Ongoing Technical Support"
+          : "Suporte Técnico Contínuo",
+      desc:
+        region === "USD"
+          ? "Direct engineering channel for adjustments, performance audits, and priority bug fixes."
+          : "Canal direto para pequenos ajustes de texto/banners, atualizações de segurança e monitoramento 24/7.",
     },
   ];
 
@@ -551,12 +639,17 @@ export function Pricing() {
               {region === "BRL"
                 ? "Moeda da proposta:"
                 : region === "USD"
-                ? "Proposal currency:"
-                : "Moeda da proposta:"}
+                  ? "Proposal currency:"
+                  : "Moeda da proposta:"}
             </span>
             <CurrencyToggle />
             <span className="text-[11px] font-mono text-muted-foreground hidden md:inline">
-              · {region === "BRL" ? "Faturamento BRL com NF" : region === "USD" ? "Global B2B Billing (USD)" : "Faturação Europeia em EUR"}
+              ·{" "}
+              {region === "BRL"
+                ? "Faturamento BRL com NF"
+                : region === "USD"
+                  ? "Global B2B Billing (USD)"
+                  : "Faturação Europeia em EUR"}
             </span>
           </div>
         </div>
@@ -605,16 +698,28 @@ export function Pricing() {
 
                   <div className="mt-3 flex items-baseline gap-1 text-xs font-mono text-foreground">
                     <span className="text-muted-foreground">+</span>
-                    <span className="font-medium text-primary text-sm">{p.maintenance}</span>
-                    <span className="text-muted-foreground">/{p.maintenancePeriod} {t.pricing.monthlyMaintenance || "manutenção recorrente"}</span>
+                    <span className="font-medium text-primary text-sm">
+                      {p.maintenance}
+                    </span>
+                    <span className="text-muted-foreground">
+                      /{p.maintenancePeriod}{" "}
+                      {t.pricing.monthlyMaintenance || "manutenção recorrente"}
+                    </span>
                   </div>
                 </div>
 
                 {/* Feature Checklist */}
                 <ul className="mt-5 space-y-2.5">
                   {p.features.map((feat) => (
-                    <li key={feat} className="flex items-start gap-2.5 text-xs text-foreground/85">
-                      <Check className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" strokeWidth={2} aria-hidden="true" />
+                    <li
+                      key={feat}
+                      className="flex items-start gap-2.5 text-xs text-foreground/85"
+                    >
+                      <Check
+                        className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5"
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      />
                       <span className="leading-relaxed">{feat}</span>
                     </li>
                   ))}
@@ -674,12 +779,19 @@ export function Pricing() {
             {maintenancePillars.map((item) => {
               const Icon = item.icon;
               return (
-                <div key={item.title} className="rounded-xl border border-black/[0.06] bg-black/[0.02] p-4 transition-colors hover:border-black/[0.12] dark:border-white/[0.06] dark:bg-white/[0.02] dark:hover:border-white/[0.12]">
+                <div
+                  key={item.title}
+                  className="rounded-xl border border-black/[0.06] bg-black/[0.02] p-4 transition-colors hover:border-black/[0.12] dark:border-white/[0.06] dark:bg-white/[0.02] dark:hover:border-white/[0.12]"
+                >
                   <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-black/[0.08] bg-black/[0.03] text-primary dark:border-white/[0.08] dark:bg-white/[0.04]">
                     <Icon className="h-4 w-4" strokeWidth={1.5} />
                   </div>
-                  <p className="mt-3 text-xs font-medium text-foreground">{item.title}</p>
-                  <p className="mt-1 text-[11px] text-muted-foreground leading-relaxed">{item.desc}</p>
+                  <p className="mt-3 text-xs font-medium text-foreground">
+                    {item.title}
+                  </p>
+                  <p className="mt-1 text-[11px] text-muted-foreground leading-relaxed">
+                    {item.desc}
+                  </p>
                 </div>
               );
             })}

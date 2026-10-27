@@ -15,12 +15,12 @@ export function Navbar() {
   const drawerRef = useRef<HTMLDivElement>(null);
 
   const links = [
-    { label: t.nav.services,       href: "/#services" },
-    { label: t.nav.cases,          href: "/cases" },
+    { label: t.nav.services, href: "/#services" },
+    { label: t.nav.cases, href: "/cases" },
     { label: t.nav.infrastructure, href: "/#infrastructure" },
-    { label: t.nav.pricing,        href: "/#pricing" },
-    { label: "Blog",               href: "/blog" },
-    { label: t.nav.about,          href: "/about" },
+    { label: t.nav.pricing, href: "/#pricing" },
+    { label: "Blog", href: "/blog" },
+    { label: t.nav.about, href: "/about" },
   ];
 
   useEffect(() => {
@@ -33,7 +33,9 @@ export function Navbar() {
   /* Lock body scroll when drawer is open */
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [open]);
 
   return (
@@ -48,7 +50,11 @@ export function Navbar() {
         >
           {/* Brand */}
           <div className="flex items-center gap-5">
-            <Link to="/" className="flex items-center gap-1.5 focus:outline-none" onClick={() => setOpen(false)}>
+            <Link
+              to="/"
+              className="flex items-center gap-1.5 focus:outline-none"
+              onClick={() => setOpen(false)}
+            >
               <img
                 src={logo}
                 alt="Evolves"
@@ -67,7 +73,9 @@ export function Navbar() {
                 decoding="async"
                 className="h-6 w-auto hidden dark:block"
               />
-              <span className="text-[10px] text-muted-foreground font-medium">®</span>
+              <span className="text-[10px] text-muted-foreground font-medium">
+                ®
+              </span>
             </Link>
 
             <span className="hidden xl:inline-block text-[11px] font-mono uppercase tracking-wider text-muted-foreground border-l border-border pl-3">
@@ -112,10 +120,11 @@ export function Navbar() {
               aria-expanded={open}
               aria-controls="mobile-drawer"
             >
-              {open
-                ? <X className="h-5 w-5" aria-hidden="true" />
-                : <Menu className="h-5 w-5" aria-hidden="true" />
-              }
+              {open ? (
+                <X className="h-5 w-5" aria-hidden="true" />
+              ) : (
+                <Menu className="h-5 w-5" aria-hidden="true" />
+              )}
             </button>
           </div>
         </nav>
@@ -145,7 +154,6 @@ export function Navbar() {
         }`}
       >
         <div className="mx-3 mt-1.5 overflow-hidden rounded-2xl border border-border bg-background/98 shadow-[var(--shadow-card)] backdrop-blur-2xl">
-
           {/* Controls row: Language */}
           <div className="flex items-center justify-between border-b border-border/60 px-5 py-3">
             <div className="flex items-center gap-2">
@@ -165,7 +173,10 @@ export function Navbar() {
                 style={{ animationDelay: `${i * 40}ms` }}
               >
                 <span>{l.label}</span>
-                <ArrowUpRight className="h-3.5 w-3.5 text-muted-foreground" aria-hidden="true" />
+                <ArrowUpRight
+                  className="h-3.5 w-3.5 text-muted-foreground"
+                  aria-hidden="true"
+                />
               </a>
             ))}
           </nav>

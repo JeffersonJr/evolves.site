@@ -93,7 +93,9 @@ export function Contact({ standalone = false }: { standalone?: boolean } = {}) {
             <div className="rounded-2xl border border-black/[0.08] bg-card p-6 shadow-xs dark:border-white/[0.08] dark:bg-white/[0.02]">
               <div className="flex items-center gap-3 text-primary mb-2">
                 <Mail className="h-4 w-4" />
-                <span className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground">E-mail Corporativo</span>
+                <span className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground">
+                  E-mail Corporativo
+                </span>
               </div>
               <a
                 href="mailto:contato@evolvestecnologia.com.br"
@@ -101,13 +103,17 @@ export function Contact({ standalone = false }: { standalone?: boolean } = {}) {
               >
                 contato@evolvestecnologia.com.br
               </a>
-              <p className="mt-1 text-xs text-muted-foreground font-mono">Retorno formal em até 24h úteis.</p>
+              <p className="mt-1 text-xs text-muted-foreground font-mono">
+                Retorno formal em até 24h úteis.
+              </p>
             </div>
 
             <div className="rounded-2xl border border-black/[0.08] bg-card p-6 shadow-xs dark:border-white/[0.08] dark:bg-white/[0.02]">
               <div className="flex items-center gap-3 text-emerald-600 dark:text-emerald-400 mb-2">
                 <MessageCircle className="h-4 w-4" />
-                <span className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground">WhatsApp Corporativo</span>
+                <span className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground">
+                  WhatsApp Corporativo
+                </span>
               </div>
               <a
                 href="https://wa.me/5513981326869"
@@ -117,18 +123,25 @@ export function Contact({ standalone = false }: { standalone?: boolean } = {}) {
               >
                 +55 (13) 98132-6869
               </a>
-              <p className="mt-1 text-xs text-muted-foreground font-mono">Atendimento direto com engenheiro de software.</p>
+              <p className="mt-1 text-xs text-muted-foreground font-mono">
+                Atendimento direto com engenheiro de software.
+              </p>
             </div>
 
             <div className="rounded-2xl border border-black/[0.08] bg-card p-6 shadow-xs dark:border-white/[0.08] dark:bg-white/[0.02]">
               <div className="flex items-center gap-3 text-primary mb-2">
                 <MapPin className="h-4 w-4" />
-                <span className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground">{t.footer.opsTitle}</span>
+                <span className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground">
+                  {t.footer.opsTitle}
+                </span>
               </div>
               <p className="text-xs sm:text-sm font-medium text-foreground">
-                🇵🇹 {t.footer.countryPT} · 🇬🇧 {t.footer.countryUK} · 🇧🇷 {t.footer.countryBR} · 🇳🇿 {t.footer.countryNZ}
+                🇵🇹 {t.footer.countryPT} · 🇬🇧 {t.footer.countryUK} · 🇧🇷{" "}
+                {t.footer.countryBR} · 🇳🇿 {t.footer.countryNZ}
               </p>
-              <p className="mt-1 text-xs text-muted-foreground font-mono">{t.footer.opsDesc}</p>
+              <p className="mt-1 text-xs text-muted-foreground font-mono">
+                {t.footer.opsDesc}
+              </p>
             </div>
           </div>
 
@@ -138,7 +151,10 @@ export function Contact({ standalone = false }: { standalone?: boolean } = {}) {
             className="rounded-2xl border border-black/[0.08] bg-card p-7 md:col-span-7 shadow-xs space-y-5 dark:border-white/[0.08] dark:bg-white/[0.02]"
           >
             <div>
-              <label htmlFor="name" className="block text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-2">
+              <label
+                htmlFor="name"
+                className="block text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-2"
+              >
                 {t.contact.nameLabel}
               </label>
               <input
@@ -154,7 +170,10 @@ export function Contact({ standalone = false }: { standalone?: boolean } = {}) {
 
             <div className="grid gap-5 sm:grid-cols-2">
               <div>
-                <label htmlFor="email" className="block text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-2"
+                >
                   {t.contact.emailLabel}
                 </label>
                 <input
@@ -169,17 +188,26 @@ export function Contact({ standalone = false }: { standalone?: boolean } = {}) {
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-2">
+                <label
+                  htmlFor="subject"
+                  className="block text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-2"
+                >
                   {t.contact.subjectLabel}
                 </label>
                 <select
                   id="subject"
                   value={form.subject}
-                  onChange={(e) => setForm({ ...form, subject: e.target.value })}
+                  onChange={(e) =>
+                    setForm({ ...form, subject: e.target.value })
+                  }
                   className={field}
                 >
                   {subjects.map((s) => (
-                    <option key={s} value={s} className="bg-zinc-900 text-white">
+                    <option
+                      key={s}
+                      value={s}
+                      className="bg-zinc-900 text-white"
+                    >
                       {s}
                     </option>
                   ))}
@@ -188,7 +216,10 @@ export function Contact({ standalone = false }: { standalone?: boolean } = {}) {
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-2">
+              <label
+                htmlFor="message"
+                className="block text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-2"
+              >
                 {t.contact.messageLabel}
               </label>
               <textarea

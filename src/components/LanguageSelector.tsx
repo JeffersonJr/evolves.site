@@ -19,12 +19,16 @@ export function LanguageSelector({ className = "" }: { className?: string }) {
 
     if (open) {
       document.addEventListener("mousedown", handleClickOutside);
-      return () => document.removeEventListener("mousedown", handleClickOutside);
+      return () =>
+        document.removeEventListener("mousedown", handleClickOutside);
     }
   }, [open]);
 
   return (
-    <div ref={containerRef} className={`relative inline-block text-left ${className}`}>
+    <div
+      ref={containerRef}
+      className={`relative inline-block text-left ${className}`}
+    >
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
@@ -76,7 +80,9 @@ export function LanguageSelector({ className = "" }: { className?: string }) {
                   </span>
                   <span>{item.name}</span>
                 </div>
-                {isSelected && <Check className="h-3.5 w-3.5" aria-hidden="true" />}
+                {isSelected && (
+                  <Check className="h-3.5 w-3.5" aria-hidden="true" />
+                )}
               </button>
             );
           })}

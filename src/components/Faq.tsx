@@ -11,25 +11,28 @@ export function Faq() {
   const { t, language } = useI18n();
 
   const getFaqs = () => {
-    if (language === "en") {
+    if (language === "en" || language.startsWith("en")) {
       return [
         {
           id: "item-1",
-          question: "How does project management and collaboration work for international clients?",
+          question:
+            "How does project management and collaboration work for international clients?",
           answer:
             "We collaborate routinely with partners across multiple time zones (UK, Europe, New Zealand, and the Americas). We work via an asynchronous client dashboard, direct Slack/WhatsApp priority channels, and targeted Google Meet sessions. We strictly honor commercial hours and agreed milestone timelines.",
         },
         {
           id: "item-2",
-          question: "What international invoicing and payment methods are supported?",
+          question:
+            "What international invoicing and payment methods are supported?",
           answer:
             "We adapt to your business jurisdiction:\n• European & Global Clients: SEPA bank transfer, MB WAY, Wise, or corporate credit cards billed in Euros (€) or USD ($).\n• Brazilian Clients: PIX, Boleto, or corporate card installments up to 12x with electronic invoice (NFS-e).",
         },
         {
           id: "item-3",
-          question: "What is the typical delivery timeframe for a production website?",
+          question:
+            "What is the typical delivery timeframe for a production website?",
           answer:
-            "Landing pages (Start Plan) launch within 5 to 10 business days. Multi-page corporate platforms (Pro Plan) typically deploy within 10 to 20 business days. For urgent launch dates, an expedited roadmap can be defined during the initial briefing.",
+            "Our agile delivery timeframe is 10 to 30 business days across our production tiers. For critical launch deadlines, an expedited roadmap can be scheduled during the initial technical briefing.",
         },
         {
           id: "item-4",
@@ -56,13 +59,15 @@ export function Faq() {
       return [
         {
           id: "item-1",
-          question: "¿Cómo funciona la gestión y colaboración para clientes internacionales?",
+          question:
+            "¿Cómo funciona la gestión y colaboración para clientes internacionales?",
           answer:
             "Trabajamos habitualmente con clientes en múltiples husos horarios (Europa, Reino Unido, Nueva Zelanda y América Latina). El seguimiento es asíncrono y transparente mediante portal de estado, canales directos de WhatsApp/Slack y reuniones puntuales por Google Meet.",
         },
         {
           id: "item-2",
-          question: "¿Cuáles son las opciones de facturación y métodos de pago aceptados?",
+          question:
+            "¿Cuáles son las opciones de facturación y métodos de pago aceptados?",
           answer:
             "Adaptamos el pago a la jurisdicción de su empresa:\n• Europa e Internacional: Transferencia bancaria SEPA, MB WAY, Wise o tarjeta en Euros (€) o USD ($).\n• Brasil: PIX, transferencia o tarjeta corporativa en hasta 12 cuotas con Factura Electrónica (NFS-e).",
         },
@@ -70,11 +75,12 @@ export function Faq() {
           id: "item-3",
           question: "¿Cuál es el plazo medio para publicar mi sitio web?",
           answer:
-            "Proyectos del Plan Start (Landing Pages) se entregan en 5 a 10 días hábiles. Sitios corporativos multipágina (Plan Pro) requieren entre 10 y 20 días hábiles.",
+            "El plazo de entrega ágil es de 10 a 30 días hábiles según el alcance técnico del proyecto. Para fechas críticas de lanzamiento, acordamos un cronograma prioritario.",
         },
         {
           id: "item-4",
-          question: "¿El código fuente y el dominio pertenecen 100% a mi empresa?",
+          question:
+            "¿El código fuente y el dominio pertenecen 100% a mi empresa?",
           answer:
             "Sí, totalmente. Su empresa es la única propietaria del dominio, diseño y todo el código desarrollado. Cero bloqueo de proveedor (vendor lock-in).",
         },
@@ -86,7 +92,8 @@ export function Faq() {
         },
         {
           id: "item-6",
-          question: "¿Cómo se garantiza el cumplimiento del RGPD europeo y la LGPD?",
+          question:
+            "¿Cómo se garantiza el cumplimiento del RGPD europeo y la LGPD?",
           answer:
             "Instalamos gestores de cookies certificados, políticas de privacidad transparentes y formularios cifrados de extremo a extremo.",
         },
@@ -97,13 +104,15 @@ export function Faq() {
     return [
       {
         id: "item-1",
-        question: "Como funciona o atendimento e a gestão de projetos para clientes internacionais?",
+        question:
+          "Como funciona o atendimento e a gestão de projetos para clientes internacionais?",
         answer:
           "Trabalhamos rotineiramente com clientes e equipas em múltiplos fusos horários (Portugal, Reino Unido, Nova Zelândia e Brasil). O acompanhamento é feito de forma assíncrona e transparente por portal de status, canais diretos de WhatsApp / Slack e reuniões pontuais por Google Meet. Respeitamos rigorosamente os horários comerciais e os cronogramas estabelecidos contratualmente.",
       },
       {
         id: "item-2",
-        question: "Quais são as opções de faturação e métodos de pagamento aceites?",
+        question:
+          "Quais são as opções de faturação e métodos de pagamento aceites?",
         answer:
           "Adaptamos a faturação e o meio de pagamento à jurisdição da sua empresa:\n• Clientes na Europa e Internacional: Transferência bancária SEPA, pagamentos via MB WAY, Wise ou faturação eletrónica emitida em Euros (€) ou Dólares ($).\n• Clientes no Brasil: PIX, Boleto bancário ou Cartão de Crédito corporativo em até 12x, com emissão de Nota Fiscal de Serviços eletrónica (NFS-e).",
       },
@@ -111,7 +120,7 @@ export function Faq() {
         id: "item-3",
         question: "Qual é o prazo médio para o meu site estar no ar?",
         answer:
-          "Projetos do Plano Start (Landing Pages) são concluídos e colocados no ar entre 5 a 10 dias úteis. Projetos corporativos multipáginas (Plano Pro) levam entre 10 a 20 dias úteis. Caso a sua empresa possua uma data crítica de lançamento, definimos um cronograma de aceleração dedicado logo no briefing inicial.",
+          "Prazo de entrega ágil: 10 a 30 dias úteis, calibrado de acordo com a complexidade e o escopo acordados (de landing pages diretas a plataformas corporativas completas). Caso a sua empresa possua uma data crítica de lançamento, definimos um cronograma de aceleração dedicado logo no briefing inicial.",
       },
       {
         id: "item-4",
@@ -127,7 +136,8 @@ export function Faq() {
       },
       {
         id: "item-6",
-        question: "Como é tratada a conformidade com o RGPD (GDPR europeu) e a LGPD brasileira?",
+        question:
+          "Como é tratada a conformidade com o RGPD (GDPR europeu) e a LGPD brasileira?",
         answer:
           "Implementamos banners de consentimento de cookies granulares, políticas de privacidade claras, formulários de contacto com criptografia de ponta a ponta e respeito às diretrizes de retenção e eliminação de dados de navegação, protegendo a reputação jurídica da sua empresa.",
       },
@@ -165,7 +175,11 @@ export function Faq() {
         <div className="mt-12 rounded-2xl border border-black/[0.08] bg-card p-6 sm:p-8 shadow-xs dark:border-white/[0.08] dark:bg-white/[0.02]">
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((f) => (
-              <AccordionItem key={f.id} value={f.id} className="border-black/[0.06] py-2 dark:border-white/[0.06]">
+              <AccordionItem
+                key={f.id}
+                value={f.id}
+                className="border-black/[0.06] py-2 dark:border-white/[0.06]"
+              >
                 <AccordionTrigger className="text-left font-medium text-foreground hover:no-underline hover:text-primary transition-colors text-sm sm:text-base cursor-pointer">
                   {f.question}
                 </AccordionTrigger>

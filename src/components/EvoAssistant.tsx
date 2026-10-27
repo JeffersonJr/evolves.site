@@ -208,7 +208,9 @@ export function EvoAssistant() {
             <EvoAvatar small />
             <div className="min-w-0 flex-1">
               <p className="text-sm font-semibold">{t.assistant.agentTitle}</p>
-              <p className="text-xs text-muted-foreground">{t.assistant.agentSub}</p>
+              <p className="text-xs text-muted-foreground">
+                {t.assistant.agentSub}
+              </p>
             </div>
             <button
               type="button"

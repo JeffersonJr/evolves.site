@@ -122,14 +122,41 @@ export const organizationSchema = {
     "@type": "OfferCatalog",
     name: "Serviços Evolves",
     itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Criação de Sites Profissionais" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Sistemas Customizados" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "SEO Técnico" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Hospedagem Cloud" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Consultoria UX/UI" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Branding Digital" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Inteligência Artificial" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Lojas Virtuais" } },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Criação de Sites Profissionais",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Sistemas Customizados" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "SEO Técnico" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Hospedagem Cloud" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Consultoria UX/UI" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Branding Digital" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Inteligência Artificial" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Lojas Virtuais" },
+      },
     ],
   },
 };

@@ -1,4 +1,11 @@
-import { ArrowRight, ArrowUpRight, Zap, Shield, Globe, Cpu } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Zap,
+  Shield,
+  Globe,
+  Cpu,
+} from "lucide-react";
 import { useI18n } from "@/contexts/I18nContext";
 
 export function Hero() {
@@ -29,12 +36,12 @@ export function Hero() {
           backgroundImage:
             "linear-gradient(oklch(0.7 0 0) 1px, transparent 1px), linear-gradient(90deg, oklch(0.7 0 0) 1px, transparent 1px)",
           backgroundSize: "64px 64px",
-          maskImage: "radial-gradient(ellipse 70% 60% at 50% 0%, black 40%, transparent 100%)",
+          maskImage:
+            "radial-gradient(ellipse 70% 60% at 50% 0%, black 40%, transparent 100%)",
         }}
       />
 
       <div className="mx-auto max-w-5xl text-center">
-
         {/* ── Eyebrow badge ── */}
         <div className="inline-flex items-center gap-2 rounded-full border border-black/[0.08] bg-black/[0.03] px-3.5 py-1 text-[11px] font-mono uppercase tracking-[0.08em] text-muted-foreground backdrop-blur-sm dark:border-white/[0.08] dark:bg-white/[0.04]">
           <span className="relative flex h-1.5 w-1.5">
@@ -69,8 +76,10 @@ export function Hero() {
             rel="noreferrer"
             className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full px-6 py-3 text-sm font-medium text-white transition-all duration-300"
             style={{
-              background: "linear-gradient(135deg, oklch(0.52 0.24 271) 0%, oklch(0.55 0.22 250) 100%)",
-              boxShadow: "0 0 0 1px oklch(0.68 0.2 271 / 0.5), 0 4px 24px -4px oklch(0.52 0.24 271 / 0.5)",
+              background:
+                "linear-gradient(135deg, oklch(0.52 0.24 271) 0%, oklch(0.55 0.22 250) 100%)",
+              boxShadow:
+                "0 0 0 1px oklch(0.68 0.2 271 / 0.5), 0 4px 24px -4px oklch(0.52 0.24 271 / 0.5)",
             }}
           >
             {/* Shimmer overlay */}
@@ -92,7 +101,10 @@ export function Hero() {
             className="inline-flex items-center gap-2 rounded-full border border-black/[0.1] bg-black/[0.03] px-6 py-3 text-sm font-medium text-foreground backdrop-blur-sm transition-all hover:bg-black/[0.06] dark:border-white/[0.1] dark:bg-white/[0.04] dark:hover:bg-white/[0.08]"
           >
             <span>{t.hero.ctaSecondary}</span>
-            <ArrowUpRight className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
+            <ArrowUpRight
+              className="h-4 w-4 text-muted-foreground"
+              aria-hidden="true"
+            />
           </a>
         </div>
 
@@ -109,28 +121,28 @@ export function Hero() {
               color: "text-indigo-600 dark:text-indigo-400",
               label: t.hero.metric1Label,
               value: t.hero.metric1Value,
-              desc:  t.hero.metric1Desc,
+              desc: t.hero.metric1Desc,
             },
             {
               icon: <Shield className="h-4 w-4" aria-hidden="true" />,
               color: "text-emerald-600 dark:text-emerald-400",
               label: t.hero.metric2Label,
               value: t.hero.metric2Value,
-              desc:  t.hero.metric2Desc,
+              desc: t.hero.metric2Desc,
             },
             {
               icon: <Globe className="h-4 w-4" aria-hidden="true" />,
               color: "text-sky-600 dark:text-sky-400",
               label: t.hero.metric3Label,
               value: t.hero.metric3Value,
-              desc:  t.hero.metric3Desc,
+              desc: t.hero.metric3Desc,
             },
             {
               icon: <Cpu className="h-4 w-4" aria-hidden="true" />,
               color: "text-violet-600 dark:text-violet-400",
               label: t.hero.metric4Label,
               value: t.hero.metric4Value,
-              desc:  t.hero.metric4Desc,
+              desc: t.hero.metric4Desc,
             },
           ].map((m) => (
             <div

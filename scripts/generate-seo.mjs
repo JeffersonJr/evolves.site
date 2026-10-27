@@ -92,7 +92,10 @@ export function generateSeo() {
     );
 
   /** Build a <url> entry with optional priority + changefreq + lastmod */
-  function urlEntry(url, { priority = "0.5", changefreq = "monthly", lastmod = today } = {}) {
+  function urlEntry(
+    url,
+    { priority = "0.5", changefreq = "monthly", lastmod = today } = {},
+  ) {
     return `  <url><loc>${xml(url)}</loc><lastmod>${lastmod}</lastmod><changefreq>${changefreq}</changefreq><priority>${priority}</priority></url>`;
   }
 
@@ -111,18 +114,32 @@ export function generateSeo() {
     // Privacy & cookies — lower priority, still indexed
     ...site.pages
       .filter((p) => ["/privacy", "/cookies"].includes(p.path))
-      .map((page) => urlEntry(site.url + page.path, { priority: "0.3", changefreq: "yearly" })),
+      .map((page) =>
+        urlEntry(site.url + page.path, {
+          priority: "0.3",
+          changefreq: "yearly",
+        }),
+      ),
     // Service sub-pages
     ...services.map((s) =>
-      urlEntry(`${site.url}/services/${s.slug}`, { priority: "0.9", changefreq: "monthly" }),
+      urlEntry(`${site.url}/services/${s.slug}`, {
+        priority: "0.9",
+        changefreq: "monthly",
+      }),
     ),
     // Case study pages
     ...cases.map((c) =>
-      urlEntry(`${site.url}/cases/${c.slug}`, { priority: "0.8", changefreq: "monthly" }),
+      urlEntry(`${site.url}/cases/${c.slug}`, {
+        priority: "0.8",
+        changefreq: "monthly",
+      }),
     ),
     // Blog posts
     ...blogPosts.map((p) =>
-      urlEntry(`${site.url}/blog/${p.slug}`, { priority: "0.8", changefreq: "weekly" }),
+      urlEntry(`${site.url}/blog/${p.slug}`, {
+        priority: "0.8",
+        changefreq: "weekly",
+      }),
     ),
     // Blog category pages (now indexable)
     ...blogCategories.map((cat) =>
@@ -133,7 +150,10 @@ export function generateSeo() {
     ),
     // Pre-built blog search pages (now indexable)
     ...prebuiltSearchTerms.map((term) =>
-      urlEntry(`${site.url}/blog/busca/${term}`, { priority: "0.6", changefreq: "monthly" }),
+      urlEntry(`${site.url}/blog/busca/${term}`, {
+        priority: "0.6",
+        changefreq: "monthly",
+      }),
     ),
   ];
 
@@ -143,7 +163,9 @@ export function generateSeo() {
     ...services.map((s) => `${site.url}/services/${s.slug}`),
     ...cases.map((c) => `${site.url}/cases/${c.slug}`),
     ...blogPosts.map((p) => `${site.url}/blog/${p.slug}`),
-    ...blogCategories.map((cat) => `${site.url}/blog/categoria/${toFriendlySlug(cat)}`),
+    ...blogCategories.map(
+      (cat) => `${site.url}/blog/categoria/${toFriendlySlug(cat)}`,
+    ),
     ...prebuiltSearchTerms.map((term) => `${site.url}/blog/busca/${term}`),
   ];
   if (new Set(allUrls).size !== allUrls.length)

@@ -1,9 +1,9 @@
 import { useRegion, type Region } from "@/contexts/RegionContext";
 
 const OPTIONS: { value: Region; flag: string; label: string }[] = [
-  { value: "BRL", flag: "🇧🇷", label: "R$"  },
-  { value: "EUR", flag: "🇪🇺", label: "€"   },
-  { value: "USD", flag: "🌐", label: "$"    },
+  { value: "BRL", flag: "🇧🇷", label: "R$" },
+  { value: "EUR", flag: "🇪🇺", label: "€" },
+  { value: "USD", flag: "🌐", label: "$" },
 ];
 
 export function CurrencyToggle({ className = "" }: { className?: string }) {
