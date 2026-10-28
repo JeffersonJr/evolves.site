@@ -1,0 +1,82 @@
+{
+  "locales": ["pt", "en", "es", "it"],
+  "xDefault": "en",
+  "contentDefault": "pt",
+  "htmlLang": {
+    "pt": "pt-BR",
+    "en": "en",
+    "es": "es",
+    "it": "it"
+  },
+  "hreflang": {
+    "pt": "pt-BR",
+    "en": "en",
+    "es": "es",
+    "it": "it"
+  },
+  "segments": {
+    "about": {
+      "internal": "about",
+      "pt": "sobre",
+      "en": "about",
+      "es": "sobre",
+      "it": "chi-siamo"
+    },
+    "services": {
+      "internal": "services",
+      "pt": "servicos",
+      "en": "services",
+      "es": "servicios",
+      "it": "servizi"
+    },
+    "contact": {
+      "internal": "contact",
+      "pt": "contato",
+      "en": "contact",
+      "es": "contacto",
+      "it": "contatto"
+    },
+    "blog": {
+      "internal": "blog",
+      "pt": "blog",
+      "en": "blog",
+      "es": "blog",
+      "it": "blog"
+    },
+    "cases": {
+      "internal": "cases",
+      "pt": "cases",
+      "en": "cases",
+      "es": "casos",
+      "it": "casi"
+    },
+    "privacy": {
+      "internal": "privacy",
+      "pt": "privacidade",
+      "en": "privacy",
+      "es": "privacidad",
+      "it": "privacy"
+    },
+    "cookies": {
+      "internal": "cookies",
+      "pt": "cookies",
+      "en": "cookies",
+      "es": "cookies",
+      "it": "cookies"
+    }
+  },
+  "blogCategory": {
+    "internal": "categoria",
+    "pt": "categoria",
+    "en": "category",
+    "es": "categoria",
+    "it": "categoria"
+  },
+  "blogSearch": {
+    "internal": "busca",
+    "pt": "busca",
+    "en": "search",
+    "es": "busqueda",
+    "it": "ricerca"
+  }
+}

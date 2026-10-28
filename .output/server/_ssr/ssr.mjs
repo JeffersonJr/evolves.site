@@ -1,4 +1,21 @@
+import { n as __exportAll } from "../_runtime.mjs";
+import { v as useParams } from "../_libs/@tanstack/react-router+[...].mjs";
 //#region node_modules/.nitro/vite/services/ssr/index.js
+var ssr_exports = /* @__PURE__ */ __exportAll({
+	a: () => localeFromPathname,
+	c: () => locationRewrite,
+	d: () => useLocale,
+	default: () => server_default,
+	f: () => renderErrorPage,
+	i: () => isLocale,
+	l: () => publicPath,
+	n: () => hreflangLinks,
+	o: () => localizeHref,
+	r: () => htmlLang,
+	s: () => localizedPath,
+	t: () => CONTENT_DEFAULT_LOCALE,
+	u: () => switchLocalePath
+});
 var lastCapturedError;
 var TTL_MS = 5e3;
 function record(error) {
@@ -51,9 +68,267 @@ function renderErrorPage() {
   </body>
 </html>`;
 }
+var i18n_routes_default = {
+	locales: [
+		"pt",
+		"en",
+		"es",
+		"it"
+	],
+	xDefault: "en",
+	contentDefault: "pt",
+	htmlLang: {
+		"pt": "pt-BR",
+		"en": "en",
+		"es": "es",
+		"it": "it"
+	},
+	hreflang: {
+		"pt": "pt-BR",
+		"en": "en",
+		"es": "es",
+		"it": "it"
+	},
+	segments: {
+		"about": {
+			"internal": "about",
+			"pt": "sobre",
+			"en": "about",
+			"es": "sobre",
+			"it": "chi-siamo"
+		},
+		"services": {
+			"internal": "services",
+			"pt": "servicos",
+			"en": "services",
+			"es": "servicios",
+			"it": "servizi"
+		},
+		"contact": {
+			"internal": "contact",
+			"pt": "contato",
+			"en": "contact",
+			"es": "contacto",
+			"it": "contatto"
+		},
+		"blog": {
+			"internal": "blog",
+			"pt": "blog",
+			"en": "blog",
+			"es": "blog",
+			"it": "blog"
+		},
+		"cases": {
+			"internal": "cases",
+			"pt": "cases",
+			"en": "cases",
+			"es": "casos",
+			"it": "casi"
+		},
+		"privacy": {
+			"internal": "privacy",
+			"pt": "privacidade",
+			"en": "privacy",
+			"es": "privacidad",
+			"it": "privacy"
+		},
+		"cookies": {
+			"internal": "cookies",
+			"pt": "cookies",
+			"en": "cookies",
+			"es": "cookies",
+			"it": "cookies"
+		}
+	},
+	blogCategory: {
+		"internal": "categoria",
+		"pt": "categoria",
+		"en": "category",
+		"es": "categoria",
+		"it": "categoria"
+	},
+	blogSearch: {
+		"internal": "busca",
+		"pt": "busca",
+		"en": "search",
+		"es": "busqueda",
+		"it": "ricerca"
+	}
+};
+var LOCALES = i18n_routes_default.locales;
+var X_DEFAULT_LOCALE = i18n_routes_default.xDefault;
+var CONTENT_DEFAULT_LOCALE = i18n_routes_default.contentDefault;
+var SEGMENT_PAGES = Object.keys(i18n_routes_default.segments);
+function isLocale(value) {
+	return LOCALES.includes(value);
+}
+function htmlLang(locale) {
+	return i18n_routes_default.htmlLang[locale];
+}
+function hrefLang(locale) {
+	return i18n_routes_default.hreflang[locale];
+}
+function localeFromPathname(pathname) {
+	const first = pathname.split("/").filter(Boolean)[0];
+	return isLocale(first) ? first : CONTENT_DEFAULT_LOCALE;
+}
+function useLocale() {
+	const params = useParams({ strict: false });
+	return isLocale(params.locale) ? params.locale : CONTENT_DEFAULT_LOCALE;
+}
+function splitPath(pathname) {
+	return pathname.split("/").filter(Boolean);
+}
+function publicSegment(page, locale) {
+	return i18n_routes_default.segments[page][locale];
+}
+function internalSegment(page) {
+	return i18n_routes_default.segments[page].internal;
+}
+function blogCategoryPublic(locale) {
+	return i18n_routes_default.blogCategory[locale];
+}
+function blogSearchPublic(locale) {
+	return i18n_routes_default.blogSearch[locale];
+}
+function pageFromPublicSlug(locale, slug) {
+	return SEGMENT_PAGES.find((page) => publicSegment(page, locale) === slug);
+}
+function pageFromInternalSlug(slug) {
+	return SEGMENT_PAGES.find((page) => internalSegment(page) === slug);
+}
+function restToInternal(locale, rest) {
+	if (rest.length === 0) return [];
+	const page = pageFromPublicSlug(locale, rest[0]) ?? pageFromInternalSlug(rest[0]);
+	if (!page) return null;
+	const mapped = [internalSegment(page), ...rest.slice(1)];
+	if (page === "blog" && mapped[1]) {
+		if (mapped[1] === blogCategoryPublic(locale) || mapped[1] === i18n_routes_default.blogCategory.internal) mapped[1] = i18n_routes_default.blogCategory.internal;
+		else if (mapped[1] === blogSearchPublic(locale) || mapped[1] === i18n_routes_default.blogSearch.internal) mapped[1] = i18n_routes_default.blogSearch.internal;
+	}
+	return mapped;
+}
+function restToPublic(locale, rest) {
+	if (rest.length === 0) return [];
+	const page = pageFromInternalSlug(rest[0]) ?? pageFromPublicSlug(locale, rest[0]);
+	if (!page) return null;
+	const mapped = [publicSegment(page, locale), ...rest.slice(1)];
+	if (page === "blog" && mapped[1]) {
+		if (mapped[1] === i18n_routes_default.blogCategory.internal || mapped[1] === blogCategoryPublic(locale)) mapped[1] = blogCategoryPublic(locale);
+		else if (mapped[1] === i18n_routes_default.blogSearch.internal || mapped[1] === blogSearchPublic(locale)) mapped[1] = blogSearchPublic(locale);
+	}
+	return mapped;
+}
+function joinPath(parts) {
+	return `/${parts.join("/")}`;
+}
+function rewritePublicToInternal(pathname) {
+	const parts = splitPath(pathname);
+	if (!isLocale(parts[0])) return pathname;
+	const rest = restToInternal(parts[0], parts.slice(1));
+	if (!rest) return pathname;
+	return joinPath([parts[0], ...rest]);
+}
+function rewriteInternalToPublic(pathname) {
+	const parts = splitPath(pathname);
+	if (!isLocale(parts[0])) return pathname;
+	const rest = restToPublic(parts[0], parts.slice(1));
+	if (!rest) return pathname;
+	return joinPath([parts[0], ...rest]);
+}
+function localizedPath(locale, page, extra = []) {
+	if (page === "home") return `/${locale}`;
+	const rest = restToPublic(locale, [internalSegment(page), ...extra]);
+	if (!rest) return `/${locale}`;
+	return joinPath([locale, ...rest]);
+}
+function publicPath(pathname) {
+	return rewriteInternalToPublic(pathname);
+}
+function switchLocalePath(pathname, locale) {
+	const parts = splitPath(pathname);
+	if (!isLocale(parts[0])) return `/${locale}`;
+	const internal = restToInternal(parts[0], parts.slice(1));
+	if (!internal) return `/${locale}`;
+	const next = restToPublic(locale, internal);
+	if (!next) return `/${locale}`;
+	return joinPath([locale, ...next]);
+}
+function localizeHref(locale, href) {
+	const url = new URL(href, "https://www.evolves.site");
+	return `${isLocale(splitPath(url.pathname)[0]) ? switchLocalePath(url.pathname, locale) : (() => {
+		const rest = restToInternal("en", splitPath(url.pathname));
+		if (!rest) return `/${locale}`;
+		const pub = restToPublic(locale, rest);
+		return pub ? joinPath([locale, ...pub]) : `/${locale}`;
+	})()}${url.search}${url.hash}`;
+}
+function alternatePaths(pathname) {
+	const parts = splitPath(pathname);
+	const locale = isLocale(parts[0]) ? parts[0] : CONTENT_DEFAULT_LOCALE;
+	const rest = isLocale(parts[0]) ? restToInternal(locale, parts.slice(1)) : restToInternal("en", parts);
+	if (!rest) return LOCALES.map((item) => ({
+		locale: item,
+		hrefLang: hrefLang(item),
+		path: `/${item}`
+	}));
+	return LOCALES.map((item) => {
+		const pub = restToPublic(item, rest) ?? [];
+		return {
+			locale: item,
+			hrefLang: hrefLang(item),
+			path: joinPath([item, ...pub])
+		};
+	});
+}
+function hreflangLinks(pathname, origin) {
+	const alternates = alternatePaths(pathname);
+	const xDefault = alternates.find((item) => item.locale === X_DEFAULT_LOCALE);
+	return [...alternates.map((item) => ({
+		rel: "alternate",
+		hrefLang: item.hrefLang,
+		href: `${origin}${item.path}`
+	})), {
+		rel: "alternate",
+		hrefLang: "x-default",
+		href: `${origin}${xDefault?.path ?? `/${X_DEFAULT_LOCALE}`}`
+	}];
+}
+var STATIC_FILE = /\.[a-z0-9]+$/i;
+function redirectPath(pathname) {
+	if (pathname.startsWith("/assets") || pathname.startsWith("/node_modules") || STATIC_FILE.test(pathname) && !pathname.includes("/blog/")) return null;
+	const normalized = pathname.replace(/\/$/, "") || "/";
+	if (normalized === "/") return `/${CONTENT_DEFAULT_LOCALE}`;
+	const parts = splitPath(normalized);
+	if (isLocale(parts[0])) {
+		const rest = restToInternal(parts[0], parts.slice(1));
+		if (!rest) return null;
+		const canonical = joinPath([parts[0], ...restToPublic(parts[0], rest) ?? rest]);
+		return canonical !== normalized ? canonical : null;
+	}
+	const rest = restToInternal("en", parts);
+	if (!rest) return null;
+	return joinPath([CONTENT_DEFAULT_LOCALE, ...restToPublic(CONTENT_DEFAULT_LOCALE, rest) ?? rest]);
+}
+var locationRewrite = {
+	input: ({ url }) => {
+		const next = rewritePublicToInternal(url.pathname);
+		if (next === url.pathname) return url;
+		const copy = new URL(url);
+		copy.pathname = next;
+		return copy;
+	},
+	output: ({ url }) => {
+		const next = rewriteInternalToPublic(url.pathname);
+		if (next === url.pathname) return url;
+		const copy = new URL(url);
+		copy.pathname = next;
+		return copy;
+	}
+};
 var serverEntryPromise;
 async function getServerEntry() {
-	if (!serverEntryPromise) serverEntryPromise = import("./server-CDTuVyO2.mjs").then((m) => m.default ?? m);
+	if (!serverEntryPromise) serverEntryPromise = import("./server-Ca27fosk.mjs").then((m) => m.default ?? m);
 	return serverEntryPromise;
 }
 async function normalizeCatastrophicSsrResponse(response) {
@@ -77,6 +352,12 @@ function isH3SwallowedErrorBody(body) {
 }
 var server_default = { async fetch(request, env, ctx) {
 	try {
+		const url = new URL(request.url);
+		const redirected = redirectPath(url.pathname);
+		if (redirected) {
+			url.pathname = redirected;
+			return Response.redirect(url, 301);
+		}
 		let response = await (await getServerEntry()).fetch(request, env, ctx);
 		response = await normalizeCatastrophicSsrResponse(response);
 		if (request.method === "GET" && response.status === 200) {
@@ -100,4 +381,4 @@ var server_default = { async fetch(request, env, ctx) {
 	}
 } };
 //#endregion
-export { server_default as default, renderErrorPage as t };
+export { localeFromPathname as a, locationRewrite as c, ssr_exports as d, switchLocalePath as f, isLocale as i, publicPath as l, hreflangLinks as n, localizeHref as o, useLocale as p, htmlLang as r, localizedPath as s, CONTENT_DEFAULT_LOCALE as t, renderErrorPage as u };

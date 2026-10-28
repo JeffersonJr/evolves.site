@@ -2,6 +2,7 @@ import "./lib/error-capture";
 
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
+import { redirectPath } from "./lib/i18n-urls";
 
 type ServerEntry = {
   fetch: (
@@ -58,6 +59,13 @@ function isH3SwallowedErrorBody(body: string): boolean {
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
+      const url = new URL(request.url);
+      const redirected = redirectPath(url.pathname);
+      if (redirected) {
+        url.pathname = redirected;
+        return Response.redirect(url, 301);
+      }
+
       const handler = await getServerEntry();
       let response = await handler.fetch(request, env, ctx);
       response = await normalizeCatastrophicSsrResponse(response);

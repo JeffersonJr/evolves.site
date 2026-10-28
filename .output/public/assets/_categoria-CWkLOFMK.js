@@ -1,0 +1,1 @@
+import{c as e}from"./useStore-r0Kk5vzo.js";import{t}from"./BlogIndex-Bg3AGNsl.js";import{n}from"./index-BPN_hX9S.js";var r=e();function i(){let{category:e}=n.useLoaderData();return(0,r.jsx)(t,{initialCategory:e})}export{i as component};

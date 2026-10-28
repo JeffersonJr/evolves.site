@@ -1,9 +1,13 @@
 import { useState, useRef, useEffect } from "react";
-import { useI18n } from "@/contexts/I18nContext";
+import { useNavigate, useRouterState } from "@tanstack/react-router";
+import { languageToLocale, useI18n } from "@/contexts/I18nContext";
+import { switchLocalePath } from "@/lib/i18n-urls";
 import { ChevronDown, Check } from "lucide-react";
 
 export function LanguageSelector({ className = "" }: { className?: string }) {
   const { language, setLanguage, languages, currentLanguageOption } = useI18n();
+  const navigate = useNavigate();
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -65,8 +69,10 @@ export function LanguageSelector({ className = "" }: { className?: string }) {
                 role="option"
                 aria-selected={isSelected}
                 onClick={() => {
+                  const nextLocale = languageToLocale(item.code);
                   setLanguage(item.code);
                   setOpen(false);
+                  void navigate({ href: switchLocalePath(pathname, nextLocale) });
                 }}
                 className={`flex w-full items-center justify-between rounded-xl px-2.5 py-1.5 text-xs transition-colors cursor-pointer ${
                   isSelected

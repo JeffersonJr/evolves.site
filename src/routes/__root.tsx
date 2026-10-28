@@ -15,6 +15,7 @@ import { LgpdModal } from "../components/LgpdModal";
 import { ExitIntentModal } from "../components/ExitIntentModal";
 import { EvoAssistant } from "../components/EvoAssistant";
 import { NotFoundGame } from "../components/NotFoundGame";
+import { htmlLang, useLocale, hreflangLinks } from "@/lib/i18n-urls";
 
 function NotFoundComponent() {
   return (
@@ -114,9 +115,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 );
 
 function RootShell({ children }: { children: ReactNode }) {
+  const locale = useLocale();
+  const lang = htmlLang(locale);
+
   return (
     /* Light mode is the default experience */
-    <html lang="pt-BR">
+    <html lang={lang}>
       <head>
         <HeadContent />
         {/* Prevent flash of unstyled content — apply saved theme before paint (default: light) */}

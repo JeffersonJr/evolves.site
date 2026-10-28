@@ -1,537 +1,754 @@
-import { useState, useEffect, useRef, useCallback } from "react";
-import { Link } from "@tanstack/react-router";
 import {
-  ArrowLeft,
-  RefreshCcw,
-  Trophy,
-  Bug,
-  Rocket,
-  Bot,
-  Skull,
-} from "lucide-react";
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
+import { Link } from "@tanstack/react-router";
+import { ArrowLeft, RefreshCcw, Trophy } from "lucide-react";
 
-type EnemyType = "bug" | "drone" | "boss";
+type Vec = { x: number; y: number };
 
-type Enemy = {
-  id: number;
-  type: EnemyType;
-  initialX: number;
+type Ship = {
   x: number;
   y: number;
-  speed: number;
-  rotation: number;
-  hp: number;
-  lastShotTime: number;
-  flashEndTime: number;
+  vx: number;
+  vy: number;
+  angle: number;
+  invulnUntil: number;
 };
 
-type Projectile = {
-  id: number;
-  x: number;
-  y: number;
-  isEnemy: boolean;
+type Bullet = Vec & { vx: number; vy: number; life: number };
+
+type Asteroid = Vec & {
+  vx: number;
+  vy: number;
+  angle: number;
+  spin: number;
+  radius: number;
+  size: 1 | 2 | 3;
+  verts: Vec[];
 };
 
-type GameState = {
-  playerX: number;
-  enemies: Enemy[];
-  projectiles: Projectile[];
-  score: number;
-  isPlaying: boolean;
-  gameOver: boolean;
-  highScore: number;
+type Particle = Vec & { vx: number; vy: number; life: number; maxLife: number };
+
+type Keys = {
+  left: boolean;
+  right: boolean;
+  thrust: boolean;
+  fire: boolean;
 };
+
+const HS_KEY = "evolves-404-asteroids-hs";
+const TWO_PI = Math.PI * 2;
+
+const THRUST = 420;
+const TURN = 4.2;
+const FRICTION = 0.992;
+const MAX_SPEED = 520;
+const BULLET_SPEED = 560;
+const BULLET_LIFE = 0.7;
+const FIRE_COOLDOWN = 0.18;
+const SHIP_R = 11;
+
+function wrap(v: number, max: number) {
+  if (v < 0) return v + max;
+  if (v >= max) return v - max;
+  return v;
+}
+
+function dist2(a: Vec, b: Vec) {
+  const dx = a.x - b.x;
+  const dy = a.y - b.y;
+  return dx * dx + dy * dy;
+}
+
+function asteroidVerts(radius: number): Vec[] {
+  const n = 8 + Math.floor(Math.random() * 5);
+  const verts: Vec[] = [];
+  for (let i = 0; i < n; i++) {
+    const a = (i / n) * TWO_PI;
+    const r = radius * (0.72 + Math.random() * 0.36);
+    verts.push({ x: Math.cos(a) * r, y: Math.sin(a) * r });
+  }
+  return verts;
+}
+
+function spawnAsteroid(
+  w: number,
+  h: number,
+  size: 1 | 2 | 3,
+  around?: Vec,
+): Asteroid {
+  const radius = size === 3 ? 42 : size === 2 ? 24 : 13;
+  let x: number;
+  let y: number;
+  if (around) {
+    const a = Math.random() * TWO_PI;
+    x = around.x + Math.cos(a) * 8;
+    y = around.y + Math.sin(a) * 8;
+  } else {
+    x = Math.random() * w;
+    y = Math.random() * h;
+    const cx = w / 2;
+    const cy = h / 2;
+    if (Math.hypot(x - cx, y - cy) < 140) {
+      x = wrap(cx + 180 + Math.random() * 80, w);
+      y = wrap(cy + (Math.random() - 0.5) * 220, h);
+    }
+  }
+  const speed = (size === 3 ? 38 : size === 2 ? 62 : 90) * (0.7 + Math.random());
+  const dir = Math.random() * TWO_PI;
+  return {
+    x,
+    y,
+    vx: Math.cos(dir) * speed,
+    vy: Math.sin(dir) * speed,
+    angle: Math.random() * TWO_PI,
+    spin: (Math.random() - 0.5) * 1.4,
+    radius,
+    size,
+    verts: asteroidVerts(radius),
+  };
+}
+
+function makeShip(w: number, h: number, invulnUntil: number): Ship {
+  return {
+    x: w / 2,
+    y: h / 2,
+    vx: 0,
+    vy: 0,
+    angle: 0,
+    invulnUntil,
+  };
+}
+
+function readHighScore() {
+  if (typeof window === "undefined") return 0;
+  const n = Number(window.localStorage.getItem(HS_KEY));
+  return Number.isFinite(n) ? n : 0;
+}
+
+function oklchToRgb(l: number, c: number, hDeg: number) {
+  const hr = (hDeg * Math.PI) / 180;
+  const a = c * Math.cos(hr);
+  const b = c * Math.sin(hr);
+  const l_ = l + 0.3963377774 * a + 0.2158037573 * b;
+  const m_ = l - 0.1055613458 * a - 0.0638541728 * b;
+  const s_ = l - 0.0894841775 * a - 1.291485548 * b;
+  const lmsL = l_ * l_ * l_;
+  const lmsM = m_ * m_ * m_;
+  const lmsS = s_ * s_ * s_;
+  const toSrgb = (x: number) => {
+    const v = Math.min(1, Math.max(0, x));
+    return v <= 0.0031308 ? 12.92 * v : 1.055 * v ** (1 / 2.4) - 0.055;
+  };
+  const r = toSrgb(4.0767416621 * lmsL - 3.3077115913 * lmsM + 0.2309699292 * lmsS);
+  const g = toSrgb(-1.2684380046 * lmsL + 2.6097574011 * lmsM - 0.3413193965 * lmsS);
+  const bl = toSrgb(-0.0041960863 * lmsL - 0.7034186147 * lmsM + 1.707614701 * lmsS);
+  return `rgb(${Math.round(r * 255)}, ${Math.round(g * 255)}, ${Math.round(bl * 255)})`;
+}
+
+function resolveCssColor(value: string, fallback: string) {
+  const m = value.trim().match(/^oklch\(\s*([\d.]+)(%?)\s+([\d.]+)\s+([\d.]+)/i);
+  if (m) {
+    let l = Number(m[1]);
+    if (m[2] === "%") l /= 100;
+    return oklchToRgb(l, Number(m[3]), Number(m[4]));
+  }
+  if (value.startsWith("rgb") || value.startsWith("#") || value.startsWith("hsl")) {
+    return value;
+  }
+  return fallback;
+}
 
 export function NotFoundGame() {
-  const [renderTick, setRenderTick] = useState(0);
-
-  const gameState = useRef<GameState>({
-    playerX: 50,
-    enemies: [],
-    projectiles: [],
-    score: 0,
-    isPlaying: false,
-    gameOver: false,
-    highScore: 0,
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const primarySwatchRef = useRef<HTMLSpanElement>(null);
+  const paletteRef = useRef({ fg: "#111111", bg: "#ffffff", primary: "#5b5bd6" });
+  const rafRef = useRef(0);
+  const lastRef = useRef(0);
+  const fireAtRef = useRef(0);
+  const keysRef = useRef<Keys>({
+    left: false,
+    right: false,
+    thrust: false,
+    fire: false,
   });
 
-  const requestRef = useRef<number>(0);
-  const lastTimeRef = useRef<number>(0);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const shipRef = useRef<Ship | null>(null);
+  const bulletsRef = useRef<Bullet[]>([]);
+  const asteroidsRef = useRef<Asteroid[]>([]);
+  const particlesRef = useRef<Particle[]>([]);
+  const starsRef = useRef<Vec[]>([]);
+  const playingRef = useRef(false);
+  const livesRef = useRef(3);
+  const scoreRef = useRef(0);
+  const waveRef = useRef(1);
+  const sizeRef = useRef({ w: 1, h: 1, dpr: 1 });
 
-  // Constants
-  const PLAYER_WIDTH = 12;
-  const ENEMY_SIZE = 8;
-  const PROJECTILE_SPEED = 0.08;
-  const ENEMY_PROJECTILE_SPEED = 0.05;
+  const [playing, setPlaying] = useState(false);
+  const [gameOver, setGameOver] = useState(false);
+  const [score, setScore] = useState(0);
+  const [lives, setLives] = useState(3);
+  const [highScore, setHighScore] = useState(0);
 
-  const startGame = useCallback(() => {
-    gameState.current.isPlaying = true;
-    gameState.current.gameOver = false;
-    gameState.current.score = 0;
-    gameState.current.enemies = [];
-    gameState.current.projectiles = [];
-    gameState.current.playerX = 50;
-    lastTimeRef.current = 0;
-
-    // Force a render immediately to show playing state
-    setRenderTick((t) => t + 1);
-
-    if (requestRef.current) cancelAnimationFrame(requestRef.current);
-    requestRef.current = requestAnimationFrame(gameLoop);
-  }, []);
-
-  const stopGame = useCallback(() => {
-    gameState.current.isPlaying = false;
-    gameState.current.gameOver = true;
-    if (gameState.current.score > gameState.current.highScore) {
-      gameState.current.highScore = gameState.current.score;
+  const burst = useCallback((x: number, y: number, n: number, speed: number) => {
+    for (let i = 0; i < n; i++) {
+      const a = Math.random() * TWO_PI;
+      const s = speed * (0.35 + Math.random());
+      const life = 0.25 + Math.random() * 0.45;
+      particlesRef.current.push({
+        x,
+        y,
+        vx: Math.cos(a) * s,
+        vy: Math.sin(a) * s,
+        life,
+        maxLife: life,
+      });
     }
-    cancelAnimationFrame(requestRef.current);
-    setRenderTick((t) => t + 1); // final render for game over screen
   }, []);
 
-  const lastFireTimeRef = useRef<number>(0);
+  const seedField = useCallback((w: number, h: number, count: number) => {
+    asteroidsRef.current = [];
+    for (let i = 0; i < count; i++) {
+      asteroidsRef.current.push(spawnAsteroid(w, h, 3));
+    }
+  }, []);
 
-  const fireProjectile = useCallback(() => {
-    if (!gameState.current.isPlaying || gameState.current.gameOver) return;
-
-    const now = performance.now();
-    if (now - lastFireTimeRef.current < 200) return; // Limite de 5 tiros por segundo
-    lastFireTimeRef.current = now;
-
-    gameState.current.projectiles.push({
-      id: Math.random(),
-      x: gameState.current.playerX,
-      y: 85,
-      isEnemy: false,
+  const endGame = useCallback(() => {
+    playingRef.current = false;
+    shipRef.current = null;
+    keysRef.current = { left: false, right: false, thrust: false, fire: false };
+    setPlaying(false);
+    setGameOver(true);
+    setHighScore((hs) => {
+      const next = Math.max(hs, scoreRef.current);
+      window.localStorage.setItem(HS_KEY, String(next));
+      return next;
     });
   }, []);
 
-  // Controls
+  const startGame = useCallback(() => {
+    const { w, h } = sizeRef.current;
+    playingRef.current = true;
+    scoreRef.current = 0;
+    livesRef.current = 3;
+    waveRef.current = 1;
+    bulletsRef.current = [];
+    particlesRef.current = [];
+    shipRef.current = makeShip(w, h, performance.now() / 1000 + 2);
+    seedField(w, h, 4);
+    lastRef.current = 0;
+    fireAtRef.current = 0;
+    setScore(0);
+    setLives(3);
+    setGameOver(false);
+    setPlaying(true);
+  }, [seedField]);
+
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.code === "Space") {
-        e.preventDefault();
-        fireProjectile();
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [fireProjectile]);
-
-  const handlePointerDown = useCallback(
-    (e: PointerEvent) => {
-      if (!gameState.current.isPlaying || gameState.current.gameOver) return;
-      if ((e.target as HTMLElement).tagName.toLowerCase() === "button") return;
-      fireProjectile();
-    },
-    [fireProjectile],
-  );
-
-  const handlePointerMove = useCallback((e: PointerEvent) => {
-    if (
-      !gameState.current.isPlaying ||
-      gameState.current.gameOver ||
-      !containerRef.current
-    )
-      return;
-    e.preventDefault();
-    const rect = containerRef.current.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    gameState.current.playerX = Math.max(
-      PLAYER_WIDTH / 2,
-      Math.min(100 - PLAYER_WIDTH / 2, x),
-    );
+    setHighScore(readHighScore());
   }, []);
 
   useEffect(() => {
-    const container = containerRef.current;
-    if (container) {
-      container.addEventListener("pointermove", handlePointerMove, {
-        passive: false,
-      });
-      container.addEventListener("pointerdown", handlePointerDown);
-    }
-    return () => {
-      if (container) {
-        container.removeEventListener("pointermove", handlePointerMove);
-        container.removeEventListener("pointerdown", handlePointerDown);
-      }
+    const canvas = canvasRef.current;
+    const wrap = wrapRef.current;
+    if (!canvas || !wrap) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const refreshPalette = () => {
+      const canvasCs = getComputedStyle(canvas);
+      const swatch = primarySwatchRef.current;
+      paletteRef.current = {
+        fg: resolveCssColor(canvasCs.color, "#111111"),
+        bg: resolveCssColor(canvasCs.backgroundColor, "#ffffff"),
+        primary: resolveCssColor(
+          swatch ? getComputedStyle(swatch).color : "",
+          "#5b5bd6",
+        ),
+      };
     };
-  }, [handlePointerMove, handlePointerDown]);
 
-  // Main Loop
-  const gameLoop = useCallback(
-    (time: number) => {
-      if (!gameState.current.isPlaying) return;
+    const resize = () => {
+      const rect = wrap.getBoundingClientRect();
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      sizeRef.current = { w: rect.width, h: rect.height, dpr };
+      canvas.width = Math.max(1, Math.floor(rect.width * dpr));
+      canvas.height = Math.max(1, Math.floor(rect.height * dpr));
+      canvas.style.width = `${rect.width}px`;
+      canvas.style.height = `${rect.height}px`;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-      if (lastTimeRef.current === 0) lastTimeRef.current = time;
-      const deltaTime = time - lastTimeRef.current;
-      lastTimeRef.current = time;
-
-      const state = gameState.current;
-      let isGameOver = false;
-      let scoreToAdd = 0;
-
-      // 1. Spawn Enemies
-      const spawnRate = Math.max(400, 1500 - state.score * 20);
-      if (Math.random() < deltaTime / spawnRate) {
-        let type: EnemyType = "bug";
-        let hp = 1;
-        const rand = Math.random();
-
-        if (state.score > 300 && rand > 0.85) {
-          type = "boss";
-          hp = 3;
-        } else if (state.score > 100 && rand > 0.6) {
-          type = "drone";
-        }
-
-        const initialX = Math.random() * 90 + 5;
-
-        state.enemies.push({
-          id: Math.random(),
-          type,
-          initialX,
-          x: initialX,
-          y: -10,
-          speed: Math.random() * 0.02 + 0.015 + state.score * 0.0003,
-          rotation: type === "bug" ? Math.random() * 360 : 0,
-          hp,
-          lastShotTime: time,
-          flashEndTime: 0,
+      const stars: Vec[] = [];
+      const n = Math.floor((rect.width * rect.height) / 14000);
+      for (let i = 0; i < n; i++) {
+        stars.push({
+          x: Math.random() * rect.width,
+          y: Math.random() * rect.height,
         });
       }
+      starsRef.current = stars;
+      refreshPalette();
 
-      // 2. Move Projectiles
-      for (let i = state.projectiles.length - 1; i >= 0; i--) {
-        const p = state.projectiles[i];
-        p.y = p.isEnemy
-          ? p.y + ENEMY_PROJECTILE_SPEED * deltaTime
-          : p.y - PROJECTILE_SPEED * deltaTime;
-        if (p.y < -10 || p.y > 110) {
-          state.projectiles.splice(i, 1);
+      if (!playingRef.current && asteroidsRef.current.length === 0) {
+        seedField(rect.width, rect.height, 5);
+      }
+    };
+
+    resize();
+    const ro = new ResizeObserver(resize);
+    ro.observe(wrap);
+
+    const themeObserver = new MutationObserver(refreshPalette);
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class", "style"],
+    });
+
+    const drawWrapped = (
+      x: number,
+      y: number,
+      r: number,
+      w: number,
+      h: number,
+      draw: (ox: number, oy: number) => void,
+    ) => {
+      draw(x, y);
+      if (x < r) draw(x + w, y);
+      if (x > w - r) draw(x - w, y);
+      if (y < r) draw(x, y + h);
+      if (y > h - r) draw(x, y - h);
+    };
+
+    const loop = (nowMs: number) => {
+      const now = nowMs / 1000;
+      if (!lastRef.current) lastRef.current = now;
+      let dt = now - lastRef.current;
+      lastRef.current = now;
+      if (dt > 0.05) dt = 0.05;
+
+      const { w, h } = sizeRef.current;
+      const pal = paletteRef.current;
+      const keys = keysRef.current;
+      const ship = shipRef.current;
+      const playingNow = playingRef.current;
+
+      if (playingNow && ship) {
+        if (keys.left) ship.angle -= TURN * dt;
+        if (keys.right) ship.angle += TURN * dt;
+
+        if (keys.thrust) {
+          ship.vx += Math.sin(ship.angle) * THRUST * dt;
+          ship.vy -= Math.cos(ship.angle) * THRUST * dt;
+        }
+
+        const speed = Math.hypot(ship.vx, ship.vy);
+        if (speed > MAX_SPEED) {
+          ship.vx = (ship.vx / speed) * MAX_SPEED;
+          ship.vy = (ship.vy / speed) * MAX_SPEED;
+        }
+
+        ship.vx *= FRICTION;
+        ship.vy *= FRICTION;
+        ship.x = wrap(ship.x + ship.vx * dt, w);
+        ship.y = wrap(ship.y + ship.vy * dt, h);
+
+        if (keys.fire && now - fireAtRef.current > FIRE_COOLDOWN) {
+          fireAtRef.current = now;
+          const nx = Math.sin(ship.angle);
+          const ny = -Math.cos(ship.angle);
+          bulletsRef.current.push({
+            x: ship.x + nx * 14,
+            y: ship.y + ny * 14,
+            vx: ship.vx + nx * BULLET_SPEED,
+            vy: ship.vy + ny * BULLET_SPEED,
+            life: BULLET_LIFE,
+          });
         }
       }
 
-      // 3. Move Enemies and Boss Shots
-      for (let i = state.enemies.length - 1; i >= 0; i--) {
-        const e = state.enemies[i];
-
-        if (e.type === "bug") {
-          e.y += e.speed * deltaTime;
-          e.rotation += 1;
-        } else if (e.type === "drone") {
-          e.y += e.speed * 1.5 * deltaTime;
-          e.x = e.initialX + Math.sin(time / 200) * 15;
-        } else if (e.type === "boss") {
-          e.y += e.speed * 0.5 * deltaTime;
-          if (time - e.lastShotTime > 1500 && e.y > 0 && e.y < 80) {
-            state.projectiles.push({
-              id: Math.random(),
-              x: e.x,
-              y: e.y + 5,
-              isEnemy: true,
-            });
-            e.lastShotTime = time;
-          }
-        }
-
-        // Check Collision with Player
-        if (e.y > 80 && e.y < 95) {
-          const hitRadius = e.type === "boss" ? ENEMY_SIZE * 1.5 : ENEMY_SIZE;
-          if (
-            Math.abs(e.x - state.playerX) <
-            PLAYER_WIDTH / 2 + hitRadius / 2
-          ) {
-            isGameOver = true;
-          }
-        }
-
-        // Remove if off screen
-        if (e.y > 110) {
-          state.enemies.splice(i, 1);
-        }
+      const bullets = bulletsRef.current;
+      for (let i = bullets.length - 1; i >= 0; i--) {
+        const b = bullets[i];
+        b.x = wrap(b.x + b.vx * dt, w);
+        b.y = wrap(b.y + b.vy * dt, h);
+        b.life -= dt;
+        if (b.life <= 0) bullets.splice(i, 1);
       }
 
-      // 4. Projectile Collisions
-      for (let i = state.projectiles.length - 1; i >= 0; i--) {
-        const proj = state.projectiles[i];
-        let projDestroyed = false;
+      const asteroids = asteroidsRef.current;
+      for (const a of asteroids) {
+        a.x = wrap(a.x + a.vx * dt, w);
+        a.y = wrap(a.y + a.vy * dt, h);
+        a.angle += a.spin * dt;
+      }
 
-        if (proj.isEnemy) {
-          // Enemy proj vs Player
-          if (proj.y > 80 && proj.y < 95) {
-            if (Math.abs(proj.x - state.playerX) < PLAYER_WIDTH / 2) {
-              isGameOver = true;
-              projDestroyed = true;
-            }
-          }
-        } else {
-          // Player proj vs Enemy
-          for (let j = state.enemies.length - 1; j >= 0; j--) {
-            const enemy = state.enemies[j];
-            const hitRadius =
-              enemy.type === "boss" ? ENEMY_SIZE * 1.5 : ENEMY_SIZE;
+      const particles = particlesRef.current;
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        p.x += p.vx * dt;
+        p.y += p.vy * dt;
+        p.life -= dt;
+        if (p.life <= 0) particles.splice(i, 1);
+      }
 
-            if (
-              Math.abs(proj.x - enemy.x) < hitRadius &&
-              Math.abs(proj.y - enemy.y) < hitRadius
-            ) {
-              projDestroyed = true;
-              enemy.hp -= 1;
-              enemy.flashEndTime = time + 100;
-
-              if (enemy.hp <= 0) {
-                state.enemies.splice(j, 1);
-                if (enemy.type === "boss") scoreToAdd += 50;
-                else if (enemy.type === "drone") scoreToAdd += 20;
-                else scoreToAdd += 10;
+      if (playingNow && ship) {
+        let scored = 0;
+        for (let i = bullets.length - 1; i >= 0; i--) {
+          const b = bullets[i];
+          for (let j = asteroids.length - 1; j >= 0; j--) {
+            const a = asteroids[j];
+            if (dist2(b, a) < a.radius * a.radius) {
+              bullets.splice(i, 1);
+              asteroids.splice(j, 1);
+              burst(a.x, a.y, 6 + a.size * 3, 80 + a.size * 30);
+              scored += a.size === 3 ? 20 : a.size === 2 ? 50 : 100;
+              if (a.size > 1) {
+                const next = (a.size - 1) as 1 | 2;
+                asteroids.push(spawnAsteroid(w, h, next, a));
+                asteroids.push(spawnAsteroid(w, h, next, a));
               }
               break;
             }
           }
         }
 
-        if (projDestroyed) {
-          state.projectiles.splice(i, 1);
+        if (scored) {
+          scoreRef.current += scored;
+          setScore(scoreRef.current);
+        }
+
+        if (asteroids.length === 0) {
+          waveRef.current += 1;
+          seedField(w, h, Math.min(4 + waveRef.current, 9));
+        }
+
+        const vulnerable = now >= ship.invulnUntil;
+        if (vulnerable) {
+          for (const a of asteroids) {
+            if (dist2(ship, a) < (a.radius + SHIP_R) * (a.radius + SHIP_R)) {
+              burst(ship.x, ship.y, 18, 160);
+              livesRef.current -= 1;
+              setLives(livesRef.current);
+              if (livesRef.current <= 0) {
+                endGame();
+              } else {
+                shipRef.current = makeShip(w, h, now + 2.2);
+              }
+              break;
+            }
+          }
         }
       }
 
-      if (scoreToAdd > 0) {
-        state.score += scoreToAdd;
+      ctx.fillStyle = pal.bg;
+      ctx.fillRect(0, 0, w, h);
+
+      ctx.fillStyle = pal.fg;
+      ctx.globalAlpha = 0.22;
+      for (const s of starsRef.current) {
+        ctx.fillRect(s.x, s.y, 1.2, 1.2);
+      }
+      ctx.globalAlpha = 1;
+
+      ctx.strokeStyle = pal.fg;
+      ctx.lineWidth = 1.5;
+      ctx.lineJoin = "round";
+
+      for (const a of asteroids) {
+        drawWrapped(a.x, a.y, a.radius + 2, w, h, (ox, oy) => {
+          ctx.beginPath();
+          a.verts.forEach((v, i) => {
+            const c = Math.cos(a.angle);
+            const s = Math.sin(a.angle);
+            const px = ox + v.x * c - v.y * s;
+            const py = oy + v.x * s + v.y * c;
+            if (i === 0) ctx.moveTo(px, py);
+            else ctx.lineTo(px, py);
+          });
+          ctx.closePath();
+          ctx.stroke();
+        });
       }
 
-      if (isGameOver) {
-        stopGame();
-        return; // Exit loop, stopGame cancelled the next frame
+      ctx.fillStyle = pal.primary;
+      for (const b of bullets) {
+        ctx.globalAlpha = Math.min(1, b.life / 0.15);
+        ctx.beginPath();
+        ctx.arc(b.x, b.y, 1.8, 0, TWO_PI);
+        ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+
+      ctx.fillStyle = pal.fg;
+      for (const p of particles) {
+        ctx.globalAlpha = p.life / p.maxLife;
+        ctx.fillRect(p.x, p.y, 1.5, 1.5);
+      }
+      ctx.globalAlpha = 1;
+
+      const liveShip = shipRef.current;
+      if (playingNow && liveShip) {
+        const blink =
+          now < liveShip.invulnUntil && Math.floor(now * 12) % 2 === 0;
+        if (!blink) {
+          ctx.strokeStyle = pal.primary;
+          ctx.lineWidth = 1.5;
+          const drawShip = (ox: number, oy: number) => {
+            const c = Math.cos(liveShip.angle);
+            const s = Math.sin(liveShip.angle);
+            const tip = { x: 0, y: -14 };
+            const left = { x: -9, y: 10 };
+            const right = { x: 9, y: 10 };
+            const rot = (p: Vec) => ({
+              x: ox + p.x * c - p.y * s,
+              y: oy + p.x * s + p.y * c,
+            });
+            const t = rot(tip);
+            const l = rot(left);
+            const r = rot(right);
+            ctx.beginPath();
+            ctx.moveTo(t.x, t.y);
+            ctx.lineTo(l.x, l.y);
+            ctx.lineTo(r.x, r.y);
+            ctx.closePath();
+            ctx.stroke();
+
+            if (keys.thrust) {
+              const flame = rot({ x: 0, y: 16 + Math.random() * 5 });
+              ctx.beginPath();
+              ctx.moveTo(rot({ x: -4, y: 10 }).x, rot({ x: -4, y: 10 }).y);
+              ctx.lineTo(flame.x, flame.y);
+              ctx.lineTo(rot({ x: 4, y: 10 }).x, rot({ x: 4, y: 10 }).y);
+              ctx.stroke();
+            }
+          };
+          drawWrapped(liveShip.x, liveShip.y, 18, w, h, drawShip);
+        }
       }
 
-      // Force React to render the new state frame
-      setRenderTick((t) => t + 1);
-
-      // Loop
-      requestRef.current = requestAnimationFrame(gameLoop);
-    },
-    [stopGame],
-  );
-
-  // Clean up on unmount
-  useEffect(() => {
-    return () => {
-      if (requestRef.current) cancelAnimationFrame(requestRef.current);
+      rafRef.current = requestAnimationFrame(loop);
     };
-  }, []);
 
-  const renderEnemy = (enemy: Enemy, time: number) => {
-    const isFlashing = enemy.flashEndTime > time;
-    const baseClass =
-      "absolute will-change-transform flex items-center justify-center transition-all duration-75";
+    rafRef.current = requestAnimationFrame(loop);
+    return () => {
+      cancelAnimationFrame(rafRef.current);
+      ro.disconnect();
+      themeObserver.disconnect();
+    };
+  }, [burst, endGame, seedField]);
 
-    let content = null;
-    let scale = 1;
+  useEffect(() => {
+    const mapKey = (code: string, down: boolean) => {
+      const keys = keysRef.current;
+      if (code === "ArrowLeft" || code === "KeyA") keys.left = down;
+      else if (code === "ArrowRight" || code === "KeyD") keys.right = down;
+      else if (code === "ArrowUp" || code === "KeyW") keys.thrust = down;
+      else if (code === "Space") keys.fire = down;
+    };
 
-    if (enemy.type === "bug") {
-      content = (
-        <div
-          className={`p-3 rounded-xl border transition-colors duration-75 ${isFlashing ? "bg-white text-destructive border-white" : "bg-destructive/10 text-destructive border-destructive/30"}`}
-        >
-          <Bug className="w-8 h-8" />
-        </div>
-      );
-    } else if (enemy.type === "drone") {
-      content = (
-        <div
-          className={`p-3 rounded-full border transition-colors duration-75 ${isFlashing ? "bg-white text-purple-500 border-white" : "bg-purple-500/20 text-purple-500 border-purple-500/40"}`}
-        >
-          <Bot className="w-8 h-8" />
-        </div>
-      );
-    } else if (enemy.type === "boss") {
-      scale = 1.5;
-      content = (
-        <div
-          className={`p-4 rounded-2xl border transition-colors duration-75 ${isFlashing ? "bg-white text-orange-500 border-white" : "bg-orange-500/20 text-orange-500 border-orange-500/40"}`}
-        >
-          <Skull className="w-10 h-10" />
-        </div>
-      );
-    }
+    const onDown = (e: KeyboardEvent) => {
+      if (
+        ["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Space"].includes(
+          e.code,
+        )
+      ) {
+        e.preventDefault();
+      }
+      if (e.code === "Space" && !playingRef.current) {
+        startGame();
+        return;
+      }
+      mapKey(e.code, true);
+    };
+    const onUp = (e: KeyboardEvent) => mapKey(e.code, false);
+    const onBlur = () => {
+      keysRef.current = {
+        left: false,
+        right: false,
+        thrust: false,
+        fire: false,
+      };
+    };
 
-    return (
-      <div
-        key={enemy.id}
-        className={baseClass}
-        style={{
-          left: `${enemy.x}%`,
-          top: `${enemy.y}%`,
-          transform: `translate(-50%, -50%) rotate(${enemy.rotation}deg) scale(${scale})`,
-        }}
-      >
-        {content}
-      </div>
-    );
+    window.addEventListener("keydown", onDown);
+    window.addEventListener("keyup", onUp);
+    window.addEventListener("blur", onBlur);
+    return () => {
+      window.removeEventListener("keydown", onDown);
+      window.removeEventListener("keyup", onUp);
+      window.removeEventListener("blur", onBlur);
+    };
+  }, [startGame]);
+
+  const hold = (key: keyof Keys, pressed: boolean) => {
+    keysRef.current[key] = pressed;
   };
 
-  const {
-    isPlaying,
-    gameOver,
-    score,
-    highScore,
-    projectiles,
-    enemies,
-    playerX,
-  } = gameState.current;
-
   return (
-    <div className="flex min-h-screen flex-col bg-background relative overflow-hidden select-none">
-      <div className="absolute top-0 left-0 right-0 h-20 bg-background/80 backdrop-blur-sm z-50 border-b border-border flex items-center px-6">
+    <div className="relative flex min-h-screen flex-col overflow-hidden bg-background select-none">
+      <div className="absolute top-0 left-0 right-0 z-50 flex h-20 items-center px-6">
         <Link
           to="/"
-          className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+          className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
         >
           <ArrowLeft className="h-4 w-4" />
           Voltar para a Home
         </Link>
       </div>
 
-      <main className="flex-1 flex flex-col items-center justify-center pt-20 px-4 relative z-10">
-        {!isPlaying && !gameOver && (
-          <div className="text-center max-w-2xl animate-fade-up">
-            <h1 className="text-8xl sm:text-9xl font-bold tracking-tighter text-primary mb-6 drop-shadow-2xl">
+      <div ref={wrapRef} className="absolute inset-0">
+        <span ref={primarySwatchRef} className="sr-only text-primary" />
+        <canvas
+          ref={canvasRef}
+          className="block h-full w-full bg-background text-foreground"
+        />
+      </div>
+
+      {playing && (
+        <div className="pointer-events-none absolute top-24 left-6 right-6 z-40 flex items-start justify-between font-mono text-sm tracking-widest text-foreground/80">
+          <div>
+            <p className="text-[11px] uppercase text-muted-foreground">Score</p>
+            <p className="text-2xl tabular-nums text-primary">{score}</p>
+          </div>
+          <div className="flex items-center gap-2 pt-5" aria-label={`${lives} vidas`}>
+            {Array.from({ length: 3 }).map((_, i) => (
+              <span
+                key={i}
+                className={`inline-block h-0 w-0 border-x-[5px] border-b-[10px] border-x-transparent ${
+                  i < lives ? "border-b-primary" : "border-b-border"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {!playing && !gameOver && (
+        <main className="relative z-10 flex flex-1 flex-col items-center justify-center px-4 pt-20">
+          <div className="max-w-xl text-center">
+            <h1 className="mb-4 text-8xl font-bold tracking-tighter text-primary sm:text-9xl">
               404
             </h1>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Invasão Crítica no Sistema
+            <h2 className="mb-3 text-2xl font-bold sm:text-3xl">
+              Página perdida no espaço
             </h2>
-            <p className="text-lg text-muted-foreground mb-12 leading-relaxed">
-              O ciberespaço está sob ataque! Toque na tela ou aperte ESPAÇO para
-              atirar. Arraste para mover a nave e limpe a rede.
+            <p className="mb-3 text-muted-foreground leading-relaxed">
+              Este endereço não existe. Enquanto isso, um asteroids mínimo.
             </p>
-
+            <p className="mb-10 font-mono text-xs uppercase tracking-widest text-muted-foreground/80">
+              ← → girar · ↑ acelerar · espaço atirar
+            </p>
             <button
               onClick={startGame}
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-base font-bold text-primary-foreground transition-all hover:bg-primary/90 hover:scale-105 shadow-xl shadow-primary/25"
+              className="inline-flex items-center rounded-full bg-primary px-8 py-4 text-base font-bold text-primary-foreground shadow-xl shadow-primary/25 transition-all hover:scale-105 hover:bg-primary/90"
             >
-              Iniciar Missão
+              Jogar
             </button>
           </div>
-        )}
+        </main>
+      )}
 
-        {gameOver && (
-          <div className="text-center z-50 bg-card/80 backdrop-blur-xl p-10 rounded-4xl border border-border shadow-[var(--shadow-card)] animate-scale-in pointer-events-auto">
-            <h2 className="text-4xl font-bold text-destructive mb-2">
-              Sistema Corrompido!
-            </h2>
-            <p className="text-muted-foreground mb-8">
-              A nave não suportou os danos.
+      {gameOver && (
+        <main className="relative z-10 flex flex-1 flex-col items-center justify-center px-4 pt-20">
+          <div className="w-full max-w-md rounded-3xl border border-border bg-background/70 p-10 text-center shadow-[var(--shadow-card)] backdrop-blur-md">
+            <h2 className="mb-2 text-3xl font-bold">Nave destruída</h2>
+            <p className="mb-8 text-muted-foreground">
+              Os asteroides ficaram com a rota.
             </p>
-
-            <div className="flex items-center justify-center gap-8 mb-10">
-              <div className="text-center">
-                <p className="text-sm text-muted-foreground font-medium mb-1">
-                  Pontuação Final
+            <div className="mb-10 flex items-center justify-center gap-8">
+              <div>
+                <p className="mb-1 text-sm font-medium text-muted-foreground">
+                  Pontuação
                 </p>
                 <p className="text-5xl font-bold text-primary">{score}</p>
               </div>
-              <div className="w-px h-16 bg-border"></div>
-              <div className="text-center">
-                <p className="text-sm text-muted-foreground font-medium mb-1 flex items-center justify-center gap-1">
-                  <Trophy className="w-4 h-4 text-yellow-500" />
+              <div className="h-16 w-px bg-border" />
+              <div>
+                <p className="mb-1 flex items-center justify-center gap-1 text-sm font-medium text-muted-foreground">
+                  <Trophy className="h-4 w-4 text-yellow-500" />
                   Recorde
                 </p>
                 <p className="text-5xl font-bold">{highScore}</p>
               </div>
             </div>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <button
                 onClick={startGame}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-3 text-sm font-bold text-primary-foreground transition-all hover:bg-primary/90 hover:scale-105"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-8 py-3 text-sm font-bold text-primary-foreground transition-all hover:scale-105 hover:bg-primary/90 sm:w-auto"
               >
-                <RefreshCcw className="w-4 h-4" />
-                Tentar novamente
+                <RefreshCcw className="h-4 w-4" />
+                Jogar de novo
               </button>
               <Link
                 to="/"
-                className="w-full sm:w-auto inline-flex items-center justify-center rounded-full border border-input bg-background/50 backdrop-blur-sm px-8 py-3 text-sm font-medium text-foreground transition-all hover:bg-accent hover:text-accent-foreground"
+                className="inline-flex w-full items-center justify-center rounded-full border border-input bg-background/50 px-8 py-3 text-sm font-medium transition-all hover:bg-accent sm:w-auto"
               >
                 Voltar para o site
               </Link>
             </div>
           </div>
-        )}
+        </main>
+      )}
 
-        {/* Game Area */}
-        <div
-          ref={containerRef}
-          className={`absolute inset-x-0 bottom-0 top-20 overflow-hidden cursor-crosshair touch-none ${isPlaying || gameOver ? "opacity-100" : "opacity-0 pointer-events-none"} transition-opacity duration-500`}
-        >
-          {/* Animated Space Background */}
-          <div className="absolute inset-0 bg-background overflow-hidden -z-20 pointer-events-none">
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-background to-background"></div>
-            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] opacity-50 animate-slide-down"></div>
+      {playing && (
+        <div className="absolute inset-x-0 bottom-6 z-40 flex items-end justify-between px-5 sm:hidden">
+          <div className="flex gap-3">
+            <HoldButton
+              label="Girar esquerda"
+              onHold={(v) => hold("left", v)}
+            >
+              ←
+            </HoldButton>
+            <HoldButton
+              label="Girar direita"
+              onHold={(v) => hold("right", v)}
+            >
+              →
+            </HoldButton>
           </div>
-
-          {isPlaying && (
-            <div className="absolute top-6 right-6 z-40 bg-card/80 backdrop-blur-md border border-border px-6 py-3 rounded-full shadow-[var(--shadow-soft)] flex items-center gap-4 font-bold text-xl pointer-events-none">
-              <span>
-                Score: <span className="text-primary">{score}</span>
-              </span>
-            </div>
-          )}
-
-          {/* Projectiles */}
-          {projectiles.map((proj) => (
-            <div
-              key={proj.id}
-              className={`absolute w-2 h-8 rounded-full will-change-transform pointer-events-none ${proj.isEnemy ? "bg-orange-500 shadow-[0_0_15px_rgba(249,115,22,0.8)]" : "bg-primary shadow-[0_0_15px_rgba(var(--primary),0.8)]"}`}
-              style={{
-                left: `${proj.x}%`,
-                top: `${proj.y}%`,
-                transform: `translate(-50%, -50%)`,
-              }}
-            ></div>
-          ))}
-
-          {/* Enemies */}
-          {enemies.map((e) => renderEnemy(e, performance.now()))}
-
-          {/* Player Ship */}
-          <div
-            className="absolute bottom-8 will-change-transform pointer-events-none"
-            style={{
-              left: `${playerX}%`,
-              transform: "translateX(-50%)",
-            }}
-          >
-            <div className="relative flex flex-col items-center justify-center">
-              <div className="text-primary bg-primary/10 p-3 rounded-full border border-primary/30 shadow-[0_0_30px_rgba(var(--primary),0.2)] backdrop-blur-sm z-10">
-                <Rocket className="w-10 h-10 -rotate-45" />
-              </div>
-
-              {isPlaying && (
-                <div className="w-4 h-12 bg-gradient-to-t from-transparent via-orange-500 to-yellow-300 blur-sm rounded-full absolute -bottom-8 animate-pulse"></div>
-              )}
-            </div>
+          <div className="flex gap-3">
+            <HoldButton label="Acelerar" onHold={(v) => hold("thrust", v)}>
+              ↑
+            </HoldButton>
+            <HoldButton label="Atirar" onHold={(v) => hold("fire", v)}>
+              ●
+            </HoldButton>
           </div>
         </div>
-      </main>
-
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
-        @keyframes slide-down {
-          from { background-position: 0 0; }
-          to { background-position: 0 1000px; }
-        }
-        .animate-slide-down {
-          animation: slide-down 20s linear infinite;
-        }
-      `,
-        }}
-      />
+      )}
     </div>
+  );
+}
+
+function HoldButton({
+  label,
+  onHold,
+  children,
+}: {
+  label: string;
+  onHold: (pressed: boolean) => void;
+  children: ReactNode;
+}) {
+  return (
+    <button
+      type="button"
+      aria-label={label}
+      className="flex h-16 w-16 items-center justify-center rounded-full border border-border/80 bg-background/40 font-mono text-lg text-foreground/90 backdrop-blur-sm active:bg-primary/20"
+      onPointerDown={(e) => {
+        e.preventDefault();
+        (e.currentTarget as HTMLButtonElement).setPointerCapture(e.pointerId);
+        onHold(true);
+      }}
+      onPointerUp={() => onHold(false)}
+      onPointerCancel={() => onHold(false)}
+    >
+      {children}
+    </button>
   );
 }

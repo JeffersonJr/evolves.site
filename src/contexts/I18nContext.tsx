@@ -1,4 +1,6 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect } from "react";
+import { useRouterState } from "@tanstack/react-router";
+import { localeFromPathname, type Locale } from "@/lib/i18n-urls";
 import { useRegion } from "./RegionContext";
 
 export type Language =
@@ -19,14 +21,37 @@ export interface LanguageOption {
 }
 
 export const LANGUAGES: LanguageOption[] = [
-  { code: "pt-BR", name: "Português (BR)", flag: "🇧🇷", short: "PT-BR" },
-  { code: "pt-PT", name: "Português (PT)", flag: "🇵🇹", short: "PT-EU" },
-  { code: "en-US", name: "English (US)", flag: "🇺🇸", short: "EN-US" },
-  { code: "en-GB", name: "English (UK)", flag: "🇬🇧", short: "EN-UK" },
+  { code: "pt-BR", name: "Português", flag: "🇧🇷", short: "PT" },
+  { code: "en-US", name: "English", flag: "🇺🇸", short: "EN" },
   { code: "es", name: "Español", flag: "🇪🇸", short: "ES" },
-  { code: "fr", name: "Français", flag: "🇫🇷", short: "FR" },
   { code: "it", name: "Italiano", flag: "🇮🇹", short: "IT" },
 ];
+
+export function localeToLanguage(locale: Locale): Language {
+  switch (locale) {
+    case "pt":
+      return "pt-BR";
+    case "en":
+      return "en-US";
+    case "es":
+      return "es";
+    case "it":
+      return "it";
+  }
+}
+
+export function languageToLocale(language: Language): Locale {
+  if (language.startsWith("pt")) return "pt";
+  if (language === "es") return "es";
+  if (language === "it") return "it";
+  return "en";
+}
+
+function regionForLanguage(language: Language) {
+  if (language === "pt-BR") return "BRL" as const;
+  if (language === "en-US" || language === "en") return "USD" as const;
+  return "EUR" as const;
+}
 
 export interface Translations {
   nav: {
@@ -1703,87 +1728,25 @@ const I18nContext = createContext<I18nContextType>({
 export const I18nProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [language, setLanguageState] = useState<Language>("pt-BR");
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const language = localeToLanguage(localeFromPathname(pathname));
   const { setRegion } = useRegion();
 
   useEffect(() => {
-    try {
-      const saved = localStorage.getItem(
-        "evolves_lang_preference",
-      ) as Language | null;
-      if (saved && DICTIONARY[saved]) {
-        setLanguageState(saved);
-        if (saved === "pt-BR") {
-          setRegion("BRL");
-        } else if (saved === "en-US" || saved === "en") {
-          setRegion("USD");
-        } else {
-          setRegion("EUR");
-        }
-        return;
-      }
-
-      // Check browser language
-      const navLang = (navigator.language || "").toLowerCase();
-      let detected: Language = "pt-BR";
-      if (navLang.startsWith("pt-pt")) {
-        detected = "pt-PT";
-      } else if (navLang.startsWith("pt")) {
-        detected = "pt-BR";
-      } else if (
-        navLang.startsWith("en-gb") ||
-        navLang.startsWith("en-ie") ||
-        navLang.startsWith("en-uk")
-      ) {
-        detected = "en-GB";
-      } else if (navLang.startsWith("en")) {
-        detected = "en-US";
-      } else if (navLang.startsWith("es")) {
-        detected = "es";
-      } else if (navLang.startsWith("fr")) {
-        detected = "fr";
-      } else if (navLang.startsWith("it")) {
-        detected = "it";
-      } else {
-        detected = "pt-BR";
-      }
-
-      setLanguageState(detected);
-      if (detected === "pt-BR") {
-        setRegion("BRL");
-      } else if (detected === "en-US" || detected === "en") {
-        setRegion("USD");
-      } else {
-        setRegion("EUR");
-      }
-    } catch {
-      setLanguageState("pt-BR");
-    }
-  }, [setRegion]);
+    setRegion(regionForLanguage(language));
+  }, [language, setRegion]);
 
   const setLanguage = (newLang: Language) => {
-    setLanguageState(newLang);
     try {
       localStorage.setItem("evolves_lang_preference", newLang);
     } catch {
       // ignore
     }
-
-    // Automatically adapt regional currency context based on language selection
-    // English (US) -> USD ($), English (UK) -> EUR (€), pt-BR -> BRL (R$), European languages -> EUR (€)
-    if (newLang === "pt-BR") {
-      setRegion("BRL");
-    } else if (newLang === "en-US" || newLang === "en") {
-      setRegion("USD");
-    } else if (newLang === "en-GB") {
-      setRegion("EUR");
-    } else {
-      setRegion("EUR");
-    }
+    setRegion(regionForLanguage(newLang));
   };
 
   const currentLanguageOption =
-    LANGUAGES.find((l) => l.code === language) || LANGUAGES[0];
+    LANGUAGES.find((item) => item.code === language) || LANGUAGES[0];
 
   return (
     <I18nContext.Provider

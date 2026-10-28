@@ -1,0 +1,1 @@
+import{c as e}from"./useStore-r0Kk5vzo.js";import{h as t}from"./index-BPN_hX9S.js";var n=e(),r=()=>(0,n.jsx)(t,{});export{r as component};

@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { useLocale } from "@/lib/i18n-urls";
 import logo from "@/assets/evolves-logo.webp";
 import logoWhite from "@/assets/evolves-logo-white.webp";
 import { Linkedin, Mail, ArrowUpRight } from "lucide-react";
@@ -6,6 +7,7 @@ import { useI18n } from "@/contexts/I18nContext";
 
 export function Footer() {
   const { t } = useI18n();
+  const locale = useLocale();
 
   return (
     <footer className="relative border-t border-black/[0.08] bg-surface/30 text-foreground dark:border-white/[0.08]">
@@ -54,7 +56,11 @@ export function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
           {/* Brand info */}
           <div className="lg:col-span-2">
-            <Link to="/" className="inline-flex items-center gap-1 mb-4">
+            <Link
+              to="/$locale/"
+              params={{ locale }}
+              className="inline-flex items-center gap-1 mb-4"
+            >
               <img
                 src={logo}
                 alt="Evolves"

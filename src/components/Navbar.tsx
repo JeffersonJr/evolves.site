@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
+import { useLocale } from "@/lib/i18n-urls";
 import logo from "@/assets/evolves-logo.webp";
 import logoGray from "@/assets/evolves-logo-gray.png";
 import logoWhite from "@/assets/evolves-logo-white.webp";
@@ -12,15 +13,16 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { t } = useI18n();
+  const locale = useLocale();
   const drawerRef = useRef<HTMLDivElement>(null);
 
   const links = [
-    { label: t.nav.services, href: "/#services" },
-    { label: t.nav.cases, href: "/cases" },
-    { label: t.nav.infrastructure, href: "/#infrastructure" },
-    { label: t.nav.pricing, href: "/#pricing" },
-    { label: "Blog", href: "/blog" },
-    { label: t.nav.about, href: "/about" },
+    { label: t.nav.services, to: "/$locale/" as const, hash: "services" },
+    { label: t.nav.cases, to: "/$locale/cases" as const },
+    { label: t.nav.infrastructure, to: "/$locale/" as const, hash: "infrastructure" },
+    { label: t.nav.pricing, to: "/$locale/" as const, hash: "pricing" },
+    { label: "Blog", to: "/$locale/blog" as const },
+    { label: t.nav.about, to: "/$locale/about" as const },
   ];
 
   useEffect(() => {
@@ -51,7 +53,8 @@ export function Navbar() {
           {/* Brand */}
           <div className="flex items-center gap-5">
             <Link
-              to="/"
+              to="/$locale/"
+              params={{ locale }}
               className="flex items-center gap-1.5 focus:outline-none"
               onClick={() => setOpen(false)}
             >
@@ -86,13 +89,15 @@ export function Navbar() {
           {/* Desktop nav links */}
           <div className="hidden items-center gap-6 lg:gap-7 md:flex">
             {links.map((l) => (
-              <a
+              <Link
                 key={l.label}
-                href={l.href}
+                to={l.to}
+                params={{ locale }}
+                hash={l.hash}
                 className="text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
                 {l.label}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -104,13 +109,14 @@ export function Navbar() {
             </div>
             <ThemeToggle />
 
-            <a
-              href="/contact"
+            <Link
+              to="/$locale/contact"
+              params={{ locale }}
               className="hidden items-center gap-1.5 rounded-full border border-black/15 bg-zinc-900 px-3.5 py-1.5 text-xs font-medium text-white transition-all hover:bg-zinc-800 dark:border-white/20 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white md:inline-flex"
             >
               <span>{t.nav.startProject}</span>
               <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-            </a>
+            </Link>
 
             {/* Hamburger — mobile only */}
             <button
@@ -165,9 +171,11 @@ export function Navbar() {
           {/* Nav links */}
           <nav className="px-3 py-3">
             {links.map((l, i) => (
-              <a
+              <Link
                 key={l.label}
-                href={l.href}
+                to={l.to}
+                params={{ locale }}
+                hash={l.hash}
                 onClick={() => setOpen(false)}
                 className="flex items-center justify-between rounded-xl px-3 py-3.5 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
                 style={{ animationDelay: `${i * 40}ms` }}
@@ -177,20 +185,21 @@ export function Navbar() {
                   className="h-3.5 w-3.5 text-muted-foreground"
                   aria-hidden="true"
                 />
-              </a>
+              </Link>
             ))}
           </nav>
 
           {/* CTA */}
           <div className="border-t border-border/60 px-4 pb-4 pt-3">
-            <a
-              href="/contact"
+            <Link
+              to="/$locale/contact"
+              params={{ locale }}
               onClick={() => setOpen(false)}
               className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-medium text-background transition-all hover:opacity-90"
             >
               <span>{t.nav.startProject}</span>
               <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

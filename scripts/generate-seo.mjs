@@ -5,6 +5,7 @@ import ts from "typescript";
 const root = new URL("../", import.meta.url);
 const read = (path) => readFileSync(new URL(path, root), "utf8");
 const site = JSON.parse(read("src/data/site.json"));
+const i18nRoutes = JSON.parse(read("src/data/i18n-routes.json"));
 
 // Read string fields from the real content arrays without executing JSX or asset imports.
 function records(path, name) {
@@ -52,6 +53,36 @@ function toFriendlySlug(value) {
     .replace(/^-|-$/g, "");
 }
 
+/** Get public slug for a page in a specific locale */
+function getPublicSlug(internal, locale) {
+  if (internal === "home") return "";
+  const segment = i18nRoutes.segments[internal];
+  if (segment && segment[locale]) return segment[locale];
+  return internal;
+}
+
+/** Get blog category slug for a specific locale */
+function getBlogCategorySlug(locale) {
+  return i18nRoutes.blogCategory[locale];
+}
+
+/** Get blog search slug for a specific locale */
+function getBlogSearchSlug(locale) {
+  return i18nRoutes.blogSearch[locale];
+}
+
+/** Generate URL for a specific path in all locales with hreflang tags */
+function generateHreflangLinks(urlPerLocale) {
+  let xhtmlLinks = urlPerLocale.map((item) => {
+    return `    <xhtml:link rel="alternate" hreflang="${i18nRoutes.hreflang[item.locale]}" href="${item.url}" />`;
+  }).join("\n");
+
+  const xDefault = urlPerLocale.find((item) => item.locale === i18nRoutes.xDefault);
+  xhtmlLinks += `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${xDefault.url}" />`;
+
+  return xhtmlLinks;
+}
+
 export function generateSeo() {
   const today = new Date().toISOString().slice(0, 10);
 
@@ -91,89 +122,132 @@ export function generateSeo() {
         })[char],
     );
 
-  /** Build a <url> entry with optional priority + changefreq + lastmod */
+  /** Build a <url> entry with optional priority + changefreq + lastmod + hreflang links */
   function urlEntry(
     url,
-    { priority = "0.5", changefreq = "monthly", lastmod = today } = {},
+    { priority = "0.5", changefreq = "monthly", lastmod = today, hreflangLinks = "" } = {},
   ) {
-    return `  <url><loc>${xml(url)}</loc><lastmod>${lastmod}</lastmod><changefreq>${changefreq}</changefreq><priority>${priority}</priority></url>`;
+    return `  <url>
+    <loc>${xml(url)}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
+${hreflangLinks}
+  </url>`;
   }
 
-  const sitemapEntries = [
-    // Core pages
-    ...site.pages
-      .filter((p) => !["/privacy", "/cookies"].includes(p.path))
-      .map((page) => {
-        const isHome = page.path === "/";
-        const isContact = page.path === "/contact";
-        return urlEntry(site.url + page.path, {
-          priority: isHome ? "1.0" : isContact ? "0.8" : "0.9",
-          changefreq: isHome ? "weekly" : "monthly",
-        });
-      }),
-    // Privacy & cookies — lower priority, still indexed
-    ...site.pages
-      .filter((p) => ["/privacy", "/cookies"].includes(p.path))
-      .map((page) =>
-        urlEntry(site.url + page.path, {
-          priority: "0.3",
-          changefreq: "yearly",
-        }),
-      ),
-    // Service sub-pages
-    ...services.map((s) =>
-      urlEntry(`${site.url}/services/${s.slug}`, {
-        priority: "0.9",
-        changefreq: "monthly",
-      }),
-    ),
-    // Case study pages
-    ...cases.map((c) =>
-      urlEntry(`${site.url}/cases/${c.slug}`, {
-        priority: "0.8",
-        changefreq: "monthly",
-      }),
-    ),
-    // Blog posts
-    ...blogPosts.map((p) =>
-      urlEntry(`${site.url}/blog/${p.slug}`, {
-        priority: "0.8",
-        changefreq: "weekly",
-      }),
-    ),
-    // Blog category pages (now indexable)
-    ...blogCategories.map((cat) =>
-      urlEntry(`${site.url}/blog/categoria/${toFriendlySlug(cat)}`, {
-        priority: "0.7",
-        changefreq: "weekly",
-      }),
-    ),
-    // Pre-built blog search pages (now indexable)
-    ...prebuiltSearchTerms.map((term) =>
-      urlEntry(`${site.url}/blog/busca/${term}`, {
-        priority: "0.6",
-        changefreq: "monthly",
-      }),
-    ),
-  ];
+  const sitemapEntries = [];
 
-  // Collect all URLs for duplicate check
-  const allUrls = [
-    ...site.pages.map((p) => site.url + p.path),
-    ...services.map((s) => `${site.url}/services/${s.slug}`),
-    ...cases.map((c) => `${site.url}/cases/${c.slug}`),
-    ...blogPosts.map((p) => `${site.url}/blog/${p.slug}`),
-    ...blogCategories.map(
-      (cat) => `${site.url}/blog/categoria/${toFriendlySlug(cat)}`,
-    ),
-    ...prebuiltSearchTerms.map((term) => `${site.url}/blog/busca/${term}`),
-  ];
+  // Helper to generate multilingual URL entries
+  function addMultilingualEntry(pathResolver, options = {}) {
+    const urlPerLocale = i18nRoutes.locales.map((locale) => {
+      const path = pathResolver(locale);
+      const url = `${site.url}/${locale}${path}`;
+      return { locale, url };
+    });
+
+    const canonicalUrl = urlPerLocale.find((item) => item.locale === i18nRoutes.contentDefault).url;
+    const hreflangLinks = generateHreflangLinks(urlPerLocale);
+
+    sitemapEntries.push(urlEntry(canonicalUrl, { ...options, hreflangLinks }));
+  }
+
+  // Core pages
+  for (const page of site.pages.filter((p) => !["/privacy", "/cookies"].includes(p.path))) {
+    const isHome = page.path === "/";
+    const isContact = page.path === "/contact";
+    const internalPath = isHome ? "home" : page.path.replace(/^\//, "").replace(/\//g, "-");
+
+    addMultilingualEntry((locale) => {
+      const publicPath = getPublicSlug(internalPath, locale);
+      return publicPath ? `/${publicPath}` : "";
+    }, {
+      priority: isHome ? "1.0" : isContact ? "0.8" : "0.9",
+      changefreq: isHome ? "weekly" : "monthly",
+    });
+  }
+
+  // Privacy & cookies — lower priority, still indexed
+  for (const page of site.pages.filter((p) => ["/privacy", "/cookies"].includes(p.path))) {
+    const internalPath = page.path.replace(/^\//, "");
+    addMultilingualEntry((locale) => {
+      const publicPath = getPublicSlug(internalPath, locale);
+      return `/${publicPath}`;
+    }, {
+      priority: "0.3",
+      changefreq: "yearly",
+    });
+  }
+
+  // Service sub-pages
+  for (const s of services) {
+    addMultilingualEntry((locale) => {
+      const serviceSlug = getPublicSlug("services", locale);
+      return `/${serviceSlug}/${s.slug}`;
+    }, {
+      priority: "0.9",
+      changefreq: "monthly",
+    });
+  }
+
+  // Case study pages
+  for (const c of cases) {
+    addMultilingualEntry((locale) => {
+      const caseSlug = getPublicSlug("cases", locale);
+      return `/${caseSlug}/${c.slug}`;
+    }, {
+      priority: "0.8",
+      changefreq: "monthly",
+    });
+  }
+
+  // Blog posts
+  for (const p of blogPosts) {
+    addMultilingualEntry((locale) => {
+      const blogSlug = getPublicSlug("blog", locale);
+      return `/${blogSlug}/${p.slug}`;
+    }, {
+      priority: "0.8",
+      changefreq: "weekly",
+    });
+  }
+
+  // Blog category pages (now indexable)
+  for (const cat of blogCategories) {
+    addMultilingualEntry((locale) => {
+      const blogSlug = getPublicSlug("blog", locale);
+      const categorySlug = getBlogCategorySlug(locale);
+      return `/${blogSlug}/${categorySlug}/${toFriendlySlug(cat)}`;
+    }, {
+      priority: "0.7",
+      changefreq: "weekly",
+    });
+  }
+
+  // Pre-built blog search pages (now indexable)
+  for (const term of prebuiltSearchTerms) {
+    addMultilingualEntry((locale) => {
+      const blogSlug = getPublicSlug("blog", locale);
+      const searchSlug = getBlogSearchSlug(locale);
+      return `/${blogSlug}/${searchSlug}/${term}`;
+    }, {
+      priority: "0.6",
+      changefreq: "monthly",
+    });
+  }
+
+  // Collect all URLs for duplicate check (canonical URLs only)
+  const allUrls = sitemapEntries.map((entry) => {
+    const match = entry.match(/<loc>(.*?)<\/loc>/);
+    return match ? match[1] : null;
+  }).filter(Boolean);
+
   if (new Set(allUrls).size !== allUrls.length)
     throw new Error("Duplicate sitemap URLs");
 
   writeFileSync(
     new URL("public/sitemap.xml", root),
-    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapEntries.join("\n")}\n</urlset>\n`,
+    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${sitemapEntries.join("\n")}\n</urlset>\n`,
   );
   writeFileSync(
     new URL("public/robots.txt", root),

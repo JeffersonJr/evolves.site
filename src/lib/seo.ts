@@ -1,11 +1,36 @@
+import { PAGE_SEO } from "@/data/page-seo";
 import site from "@/data/site.json";
+import {
+  hreflangLinks,
+  htmlLang,
+  localizedPath,
+  publicPath,
+  type Locale,
+  type PageKey,
+} from "@/lib/i18n-urls";
+
+export function pageUrl(
+  locale: Locale,
+  page: PageKey | "home",
+  extra: string[] = [],
+) {
+  return new URL(localizedPath(locale, page, extra), site.url).href;
+}
 
 export const siteUrl = site.url;
+
+const OG_LOCALES = {
+  pt: ["pt_BR", "en_US", "es_ES", "it_IT"],
+  en: ["en_US", "pt_BR", "es_ES", "it_IT"],
+  es: ["es_ES", "en_US", "pt_BR", "it_IT"],
+  it: ["it_IT", "en_US", "pt_BR", "es_ES"],
+} as const;
 
 export function seoHead({
   title,
   description,
   path,
+  locale,
   image = site.image,
   type = "website",
   structuredData,
@@ -13,18 +38,21 @@ export function seoHead({
   title: string;
   description: string;
   path: string;
+  locale: Locale;
   image?: string;
   type?: "website" | "article";
   structuredData?: Record<string, unknown> | Record<string, unknown>[];
 }) {
-  const url = `${site.url}${path === "/" ? "/" : path.replace(/\/$/, "")}`;
+  const publicHref = publicPath(path);
+  const url = `${site.url}${publicHref}`;
+  const language = htmlLang(locale);
   const pageSchema = {
     "@type": "WebPage",
     "@id": `${url}#webpage`,
     url,
     name: title,
     description,
-    inLanguage: "pt-BR",
+    inLanguage: language,
     isPartOf: { "@id": `${site.url}/#website` },
     ...(type === "article" ? { mainEntity: { "@id": `${url}#article` } } : {}),
   };
@@ -45,7 +73,11 @@ export function seoHead({
       { property: "og:url", content: url },
       { property: "og:type", content: type },
       { property: "og:site_name", content: site.name },
-      { property: "og:locale", content: "pt_BR" },
+      { property: "og:locale", content: OG_LOCALES[locale][0] },
+      ...OG_LOCALES[locale].slice(1).map((content) => ({
+        property: "og:locale:alternate",
+        content,
+      })),
       { property: "og:image", content: new URL(image, site.url).href },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: title },
@@ -58,7 +90,10 @@ export function seoHead({
         },
       },
     ],
-    links: [{ rel: "canonical", href: url }],
+    links: [
+      { rel: "canonical", href: url },
+      ...hreflangLinks(publicHref, site.url),
+    ],
   };
 }
 
@@ -91,7 +126,7 @@ export const organizationSchema = {
     contactType: "sales",
     email: "contato@evolves.site",
     telephone: "+55-13-98132-6869",
-    availableLanguage: ["Portuguese", "English"],
+    availableLanguage: ["Portuguese", "English", "Spanish", "Italian"],
   },
   sameAs: [
     "https://www.linkedin.com/company/71072104/",
@@ -167,28 +202,31 @@ export const websiteSchema = {
   name: "Evolves",
   alternateName: site.name,
   url: site.url,
-  inLanguage: "pt-BR",
+  inLanguage: ["pt-BR", "en", "es", "it"],
   publisher: { "@id": `${site.url}/#organization` },
   potentialAction: {
     "@type": "SearchAction",
     target: {
       "@type": "EntryPoint",
-      urlTemplate: `${site.url}/blog/busca/{search_term_string}`,
+      urlTemplate: `${site.url}/pt/blog/busca/{search_term_string}`,
     },
     "query-input": "required name=search_term_string",
   },
 };
 
-export function blogPostingSchema(post: {
-  slug: string;
-  title: string;
-  excerpt: string;
-  image: string;
-  author: string;
-  date: string;
-  category: string;
-  dateModified?: string;
-}) {
+export function blogPostingSchema(
+  post: {
+    slug: string;
+    title: string;
+    excerpt: string;
+    image: string;
+    author: string;
+    date: string;
+    category: string;
+    dateModified?: string;
+  },
+  locale: Locale = "pt",
+) {
   const monthNumber: Record<string, string> = {
     jan: "01",
     fev: "02",
@@ -229,7 +267,8 @@ export function blogPostingSchema(post: {
     modifiedDay && modifiedYear && modifiedMonthValue
       ? `${modifiedYear}-${modifiedMonthValue}-${modifiedDay.padStart(2, "0")}`
       : undefined;
-  const url = new URL(`/blog/${post.slug}`, site.url).href;
+  const url = new URL(publicPath(`/${locale}/blog/${post.slug}`), site.url)
+    .href;
 
   return {
     "@context": "https://schema.org",
@@ -240,7 +279,7 @@ export function blogPostingSchema(post: {
     image: new URL(post.image, site.url).href,
     url,
     mainEntityOfPage: url,
-    inLanguage: "pt-BR",
+    inLanguage: htmlLang(locale),
     articleSection: post.category,
     ...(published ? { datePublished: published } : {}),
     ...(modified ? { dateModified: modified } : {}),
@@ -261,8 +300,13 @@ export function blogPostingSchema(post: {
   };
 }
 
-export function noIndexHead(title: string, description: string, path: string) {
-  const head = seoHead({ title, description, path });
+export function noIndexHead(
+  title: string,
+  description: string,
+  path: string,
+  locale: Locale,
+) {
+  const head = seoHead({ title, description, path, locale });
   return {
     ...head,
     meta: [...head.meta, { name: "robots", content: "noindex, follow" }],
@@ -314,14 +358,18 @@ export function serviceSchema({
 }
 
 export function pageHead(
-  path: string,
+  locale: Locale,
+  page: PageKey | "home",
   structuredData?: Record<string, unknown> | Record<string, unknown>[],
   overrides?: { title?: string; description?: string },
 ) {
-  const page = site.pages.find((page) => page.path === path);
-  if (!page) throw new Error(`Missing SEO metadata for ${path}`);
+  const copy = PAGE_SEO[page][locale];
+  const path =
+    page === "home" ? `/${locale}` : `/${locale}/${page}`;
   return seoHead({
-    ...page,
+    ...copy,
+    path,
+    locale,
     ...(overrides?.title ? { title: overrides.title } : {}),
     ...(overrides?.description ? { description: overrides.description } : {}),
     structuredData,
