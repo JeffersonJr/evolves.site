@@ -21,8 +21,10 @@ export interface LanguageOption {
 }
 
 export const LANGUAGES: LanguageOption[] = [
-  { code: "pt-BR", name: "Português", flag: "🇧🇷", short: "PT" },
-  { code: "en-US", name: "English", flag: "🇺🇸", short: "EN" },
+  { code: "pt-BR", name: "Português (Brasil)", flag: "🇧🇷", short: "PT-BR" },
+  { code: "pt-PT", name: "Português (Portugal)", flag: "🇵🇹", short: "PT-PT" },
+  { code: "en-US", name: "English (US)", flag: "🇺🇸", short: "EN-US" },
+  { code: "en-GB", name: "English (UK)", flag: "🇬🇧", short: "EN-GB" },
   { code: "es", name: "Español", flag: "🇪🇸", short: "ES" },
   { code: "it", name: "Italiano", flag: "🇮🇹", short: "IT" },
 ];
@@ -31,8 +33,12 @@ export function localeToLanguage(locale: Locale): Language {
   switch (locale) {
     case "pt":
       return "pt-BR";
+    case "pt-pt":
+      return "pt-PT";
     case "en":
       return "en-US";
+    case "en-gb":
+      return "en-GB";
     case "es":
       return "es";
     case "it":
@@ -41,7 +47,10 @@ export function localeToLanguage(locale: Locale): Language {
 }
 
 export function languageToLocale(language: Language): Locale {
-  if (language.startsWith("pt")) return "pt";
+  if (language === "pt-BR") return "pt";
+  if (language === "pt-PT") return "pt-pt";
+  if (language === "en-US" || language === "en") return "en";
+  if (language === "en-GB") return "en-gb";
   if (language === "es") return "es";
   if (language === "it") return "it";
   return "en";
@@ -971,8 +980,246 @@ export const DICTIONARY: Record<Language, Translations> = {
       dismissBtn: "Continue browsing",
     },
   },
-  get "en-GB"(): Translations {
-    return this["en-US"];
+  "en-GB": {
+    nav: {
+      services: "Services",
+      cases: "Case Studies",
+      infrastructure: "Infrastructure",
+      pricing: "Pricing",
+      about: "About",
+      contact: "Contact",
+      startProject: "Start Project",
+      tagline: "Digital Engineering",
+      regionCurrency: "Region & Currency",
+      language: "Language",
+    },
+    hero: {
+      badge:
+        "Active Infrastructure · Frankfurt & São Paulo Nodes · 99.99% Uptime",
+      headlinePart1: "Sober digital engineering.",
+      headlinePart2: "Uncompromising performance.",
+      subheadline:
+        "We engineer high-performance platforms, high-converting landing pages, and cloud infrastructure for brands demanding technical speed, editorial finish, and global stability.",
+      ctaPrimary: "Talk to an Engineer",
+      ctaSecondary: "View Delivered Work",
+      microCopy:
+        "Agile delivery: 10 to 30 business days · Zero generic templates · 100% Code Ownership",
+      metric1Label: "Speed",
+      metric1Value: "< 1.0s",
+      metric1Desc: "Average global load time",
+      metric2Label: "Quality",
+      metric2Value: "100/100",
+      metric2Desc: "Audited Google Core Web Vitals",
+      metric3Label: "Availability",
+      metric3Value: "99.99%",
+      metric3Desc: "Dedicated Cloud uptime with global CDN",
+      metric4Label: "Architecture",
+      metric4Value: "Zero",
+      metric4Desc: "Bloated plugin or theme dependencies",
+    },
+    cases: {
+      eyebrow: "International Case Studies",
+      title: "Engineered to compete in demanding markets.",
+      description:
+        "Real production projects with audited metrics, dedicated architecture, and measurable business ROI.",
+      featuredBadge: "Featured Case Study",
+      challengeTitle: "The Challenge",
+      solutionTitle: "The Engineering Solution",
+      viewLive: "View Live Application",
+      readFullCase: "Read full study",
+      viewAllCasesCta: "Explore All Case Studies",
+      transcontinentalTitle: "Transcontinental Operations",
+      transcontinentalDesc:
+        "Active clients and deployments across multiple timezones:",
+    },
+    infrastructure: {
+      eyebrow: "Infrastructure & Engineering",
+      titlePart1: "The discipline of a software studio.",
+      titlePart2: "Without the shortcuts of legacy agencies.",
+      description:
+        "We build your brand's digital presence as a durable, fast, and secure software asset.",
+      p1Title: "01. Extreme Speed & Edge Optimisation",
+      p1Desc:
+        "Slow pages degrade conversion and hurt search ranking. We deploy on dedicated Cloud nodes with in-memory caching (LiteSpeed/Redis) and global CDN distribution across Lisbon, London, Frankfurt, and São Paulo.",
+      p1Item1: "100% Green Google Core Web Vitals",
+      p1Item2: "Cloudflare Enterprise CDN with HTTP/3 & TLS 1.3",
+      p1Item3: "Brotli compression and modern WebP assets",
+      p1Metric: "Benchmark: Average page load < 1.0s",
+      p2Title: "02. Editorial Design & Conversion",
+      p2Desc:
+        "We never use marketplace themes or bulky visual page-builders. Every layout is mathematically structured, featuring refined typography and clear visual hierarchy optimised for corporate decision-makers.",
+      p2Item1: "Modern, sober editorial design identity",
+      p2Item2: "Responsive 8pt grid across all form factors",
+      p2Item3: "Frictionless direct conversion funnels",
+      p2Metric: "Benchmark: +40% average lead form conversion",
+      p3Title: "03. AI-Assisted Engineering Pipeline",
+      p3Desc:
+        "We leverage AI throughout prototyping, automated testing, and static analysis. This slashes turnaround by up to 60%, delivering enterprise-grade software on strict deadlines and competitive pricing.",
+      p3Item1: "Agile delivery: 10 to 30 business days",
+      p3Item2: "Clean, auditable, and maintainable codebase",
+      p3Item3: "Strict GDPR (Europe) and LGPD (Brazil) compliance",
+      p3Metric: "Benchmark: 60% faster time-to-market",
+      specsCloud: "Dedicated Hostinger Cloud",
+      specsCache: "LiteSpeed & Redis Caching",
+      specsSecurity: "Cloudflare Edge Security & SSL",
+      specsBackups: "Automated Daily Backups",
+    },
+    services: {
+      eyebrow: "Core Services",
+      title: "High-performance digital solutions",
+      description:
+        "Combining cutting-edge web engineering, editorial UI/UX polish, and dedicated cloud hosting.",
+      differential:
+        "Our edge: 8+ years of hands-on software engineering and digital product design.",
+      viewDetails: "View service details",
+      moreSolutions: "More capabilities:",
+    },
+    process: {
+      eyebrow: "Execution Roadmap",
+      title: "From initial briefing to live launch in 4 linear steps.",
+      description:
+        "Agile methodology, guaranteed deadlines, and continuous validation with zero unproductive meetings.",
+      stepPrefix: "Step",
+      s1Title: "01. Technical Briefing & Scope",
+      s1Desc:
+        "We define core business goals, target audience, visual references, and integration needs in a structured format. Fixed scope, fixed deadline, and fixed pricing.",
+      s1Tag: "Alignment",
+      s2Title: "02. Prototype & Editorial Design",
+      s2Desc:
+        "We craft custom typography and UI mockups for all viewports. Your team reviews and approves the full design before any production code is written.",
+      s2Tag: "Validation",
+      s3Title: "03. Engineering & Performance",
+      s3Desc:
+        "We engineer the application with lean code and instant rendering. Deep Core Web Vitals optimisation, technical SEO structure, and cross-browser QA.",
+      s3Tag: "Build",
+      s4Title: "04. Go-Live & Managed Cloud",
+      s4Desc:
+        "Zero-downtime DNS transition, SSL certificate deployment, form validation, and credential handover. Your platform launches backed by 24/7 cloud surveillance.",
+      s4Tag: "Launch",
+    },
+    pricing: {
+      eyebrow: "Transparent Pricing & Plans",
+      title: "High-end engineering with crystal-clear pricing.",
+      description:
+        "Zero hidden fees. Fixed deliverables, agreed turnaround, and continuous managed cloud care.",
+      regionProposal: "Proposal Region:",
+      recommended: "Recommended",
+      mostChosen: "Most Popular",
+      monthlyMaintenance: "(managed Cloud hosting & updates)",
+      maintenanceBoxTitle:
+        "What is strictly included in your monthly managed plan:",
+      maintenanceBoxSubtitle:
+        "Zero operational headache for your team. Your digital assets continuously guarded 24/7.",
+      maintenanceSla: "Priority SLA Support",
+      m1Title: "Dedicated Cloud Hosting",
+      m1Desc:
+        "High-throughput isolated environment with LiteSpeed and Redis in-memory cache.",
+      m2Title: "Automated Daily Backups",
+      m2Desc:
+        "Full daily snapshots stored on offsite encrypted servers with one-click restoration.",
+      m3Title: "SSL & Edge Security",
+      m3Desc:
+        "Native HTTPS encryption and enterprise-grade anti-DDoS shielding via Cloudflare.",
+      m4Title: "Security & Dependency Updates",
+      m4Desc:
+        "Regular kernel, library, and framework patches to prevent emerging vulnerabilities.",
+      m5Title: "Monthly Content Alterations",
+      m5Desc:
+        "Text edits, phone updates, photo replacements, and banner publications included.",
+      m6Title: "Continuous Uptime Monitoring",
+      m6Desc:
+        "Active health-checks with immediate proactive intervention upon any anomaly.",
+    },
+    faq: {
+      eyebrow: "Governance & Transparency",
+      title: "Frequently Asked Questions",
+      description:
+        "Straightforward answers about global operations, payment methods, IP ownership, and deadlines.",
+      needHelp: "Have a specific technical or legal question?",
+      chatWhatsapp: "Talk directly to an engineer via WhatsApp →",
+    },
+    contact: {
+      eyebrow: "Direct Contact",
+      title: "Let's engineer your next digital platform.",
+      description:
+        "Fill out the fields below to receive a preliminary technical roadmap and itemised proposal.",
+      nameLabel: "Your name",
+      emailLabel: "Corporate email address",
+      phoneLabel: "Phone or WhatsApp number",
+      subjectLabel: "Project scope",
+      messageLabel: "Tell us about your objectives and timeframe",
+      submitButton: "Request Proposal",
+      directContact: "Or reach out instantly via WhatsApp:",
+    },
+    footer: {
+      preTitle: "Next Step",
+      preHeadline: "Ready to elevate your brand to the global web benchmark?",
+      preSub:
+        "Speak directly with our senior software engineers. We deliver an itemised technical proposal with fixed scope, timeline, and pricing within 24 business hours.",
+      btnWhatsapp: "Chat via Commercial WhatsApp",
+      btnEmail: "contato@evolvestecnologia.com.br",
+      brandDesc:
+        "Digital engineering and software studio for the modern web. Corporate platforms and high-converting web applications across Europe and the Americas.",
+      systemStatus: "All systems 100% operational",
+      navTitle: "Navigation",
+      complianceTitle: "Compliance",
+      opsTitle: "Operations",
+      opsDesc: "Asynchronous remote collaboration across global timezones.",
+      countryPT: "Portugal",
+      countryUK: "United Kingdom",
+      countryBR: "Brazil",
+      countryNZ: "New Zealand",
+      copyright: "© 2026 Evolves Tecnologia. All rights reserved.",
+      subCopyright:
+        "Engineered with editorial precision and software craftsmanship.",
+    },
+    assistant: {
+      agentTitle: "Evo",
+      agentSub: "Evolves AI Agent",
+      restart: "Restart",
+      close: "Close conversation",
+      initialGreeting:
+        "Hello! My name is Evo from Evolves. What are you looking to build for your business?",
+      services: [
+        "High-Converting Websites",
+        "Custom Software & Systems",
+        "UX/UI Design Consulting",
+        "Managed Cloud Hosting",
+        "Branding & Visual Identity",
+        "Other",
+      ],
+      otherOptions: [
+        "SEO & Organic Growth",
+        "Integrations & Automations",
+        "Digital Strategy & Advisory",
+        "Still defining my scope",
+        "I have a unique idea",
+      ],
+      whichClosest:
+        "Got it. Which of these comes closest to what you have in mind?",
+      tellInFewWords: "Briefly describe your idea or vision.",
+      howToCallYou: "Great. What is your name?",
+      thanksExplaining: "Thank you for sharing. How may I address you?",
+      pleasedMeeting: "Pleasure to meet you",
+      channelsPrompt:
+        "Would you like to connect on WhatsApp or send a message via our form?",
+      continueWhatsapp: "Continue on WhatsApp",
+      fillForm: "Fill Contact Form",
+      placeholder: "Type your response...",
+      whatsappIntro:
+        "Hello! I reached out via Evolves website and chatted with Evo.",
+    },
+    exitModal: {
+      eyebrow: "Before you leave",
+      headline: "Your project deserves a real proposal.",
+      subtext:
+        "Leave your contact details and an Evolves engineer will get back to you within 24 hours with a free technical proposal.",
+      namePlaceholder: "Your name",
+      emailPlaceholder: "your@email.com",
+      messagePlaceholder: "Briefly describe your project or question...",
+      submitBtn: "Send via WhatsApp",
+      dismissBtn: "Continue browsing",
+    },
   },
   get en(): Translations {
     return this["en-US"];

@@ -1,16 +1,20 @@
 {
-  "locales": ["pt", "en", "es", "it"],
+  "locales": ["pt", "pt-pt", "en", "en-gb", "es", "it"],
   "xDefault": "en",
   "contentDefault": "pt",
   "htmlLang": {
     "pt": "pt-BR",
-    "en": "en",
+    "pt-pt": "pt-PT",
+    "en": "en-US",
+    "en-gb": "en-GB",
     "es": "es",
     "it": "it"
   },
   "hreflang": {
     "pt": "pt-BR",
-    "en": "en",
+    "pt-pt": "pt-PT",
+    "en": "en-US",
+    "en-gb": "en-GB",
     "es": "es",
     "it": "it"
   },
@@ -18,49 +22,63 @@
     "about": {
       "internal": "about",
       "pt": "sobre",
+      "pt-pt": "sobre",
       "en": "about",
+      "en-gb": "about",
       "es": "sobre",
       "it": "chi-siamo"
     },
     "services": {
       "internal": "services",
       "pt": "servicos",
+      "pt-pt": "servicos",
       "en": "services",
+      "en-gb": "services",
       "es": "servicios",
       "it": "servizi"
     },
     "contact": {
       "internal": "contact",
       "pt": "contato",
+      "pt-pt": "contactos",
       "en": "contact",
+      "en-gb": "contact",
       "es": "contacto",
       "it": "contatto"
     },
     "blog": {
       "internal": "blog",
       "pt": "blog",
+      "pt-pt": "blog",
       "en": "blog",
+      "en-gb": "blog",
       "es": "blog",
       "it": "blog"
     },
     "cases": {
       "internal": "cases",
       "pt": "cases",
+      "pt-pt": "casos",
       "en": "cases",
+      "en-gb": "case-studies",
       "es": "casos",
       "it": "casi"
     },
     "privacy": {
       "internal": "privacy",
       "pt": "privacidade",
+      "pt-pt": "privacidade",
       "en": "privacy",
+      "en-gb": "privacy",
       "es": "privacidad",
       "it": "privacy"
     },
     "cookies": {
       "internal": "cookies",
       "pt": "cookies",
+      "pt-pt": "cookies",
       "en": "cookies",
+      "en-gb": "cookies",
       "es": "cookies",
       "it": "cookies"
     }
@@ -68,14 +86,18 @@
   "blogCategory": {
     "internal": "categoria",
     "pt": "categoria",
+    "pt-pt": "categoria",
     "en": "category",
+    "en-gb": "category",
     "es": "categoria",
     "it": "categoria"
   },
   "blogSearch": {
     "internal": "busca",
     "pt": "busca",
+    "pt-pt": "pesquisa",
     "en": "search",
+    "en-gb": "search",
     "es": "busqueda",
     "it": "ricerca"
   }
