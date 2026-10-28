@@ -17,7 +17,6 @@ import { EvoAssistant } from "../components/EvoAssistant";
 import { NotFoundGame } from "../components/NotFoundGame";
 import { htmlLang, useLocale, hreflangLinks } from "@/lib/i18n-urls";
 import { SpeedInsights } from "@vercel/speed-insights/react";
-import { Analytics } from "@vercel/analytics/react";
 
 function NotFoundComponent() {
   return (
@@ -141,6 +140,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
         {/* End Google Tag Manager */}
+        {/* Cloudflare Web Analytics */}
+        <script
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "YOUR_CLOUDFLARE_ANALYTICS_TOKEN"}'
+        />
+        {/* End Cloudflare Web Analytics */}
         <HeadContent />
         {/* Prevent flash of unstyled content — apply saved theme before paint (default: light) */}
         <script
@@ -172,7 +178,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
         <Scripts />
         <SpeedInsights />
-        <Analytics />
       </body>
     </html>
   );
