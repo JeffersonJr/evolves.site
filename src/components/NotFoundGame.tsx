@@ -7,6 +7,7 @@ import {
 } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft, RefreshCcw, Trophy } from "lucide-react";
+import { useLocale } from "@/lib/i18n-urls";
 
 type Vec = { x: number; y: number };
 
@@ -164,6 +165,7 @@ function resolveCssColor(value: string, fallback: string) {
 }
 
 export function NotFoundGame() {
+  const locale = useLocale();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
   const primarySwatchRef = useRef<HTMLSpanElement>(null);
@@ -594,7 +596,8 @@ export function NotFoundGame() {
     <div className="relative flex min-h-screen flex-col overflow-hidden bg-background select-none">
       <div className="absolute top-0 left-0 right-0 z-50 flex h-20 items-center px-6">
         <Link
-          to="/"
+          to="/$locale/"
+          params={{ locale }}
           className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
         >
           <ArrowLeft className="h-4 w-4" />
@@ -686,7 +689,8 @@ export function NotFoundGame() {
                 Jogar de novo
               </button>
               <Link
-                to="/"
+                to="/$locale/"
+                params={{ locale }}
                 className="inline-flex w-full items-center justify-center rounded-full border border-input bg-background/50 px-8 py-3 text-sm font-medium transition-all hover:bg-accent sm:w-auto"
               >
                 Voltar para o site

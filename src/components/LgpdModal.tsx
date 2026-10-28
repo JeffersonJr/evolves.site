@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { Link } from "@tanstack/react-router";
 import { Cookie } from "lucide-react";
+import { useLocale } from "@/lib/i18n-urls";
 
 const STORAGE_KEY = "lgpd_consent";
 
 export function LgpdModal() {
   const [show, setShow] = useState(false);
+  const locale = useLocale();
 
   useEffect(() => {
     const consent = localStorage.getItem(STORAGE_KEY);
@@ -34,7 +36,8 @@ export function LgpdModal() {
         <p className="text-xs text-muted-foreground leading-relaxed flex-1">
           Usamos cookies para melhorar sua experiência.{" "}
           <Link
-            to="/privacy"
+            to="/$locale/privacy"
+            params={{ locale }}
             className="text-primary font-medium underline underline-offset-2 hover:text-primary/80"
           >
             Saiba mais

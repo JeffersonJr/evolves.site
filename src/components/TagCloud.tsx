@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { useLocale } from "@/lib/i18n-urls";
 import "./TagCloud.css";
 
 const keywords = [
@@ -17,6 +18,8 @@ const keywords = [
 ];
 
 export function TagCloud() {
+  const locale = useLocale();
+
   return (
     <section
       className="tag-cloud-container border-t border-border/60 py-8 sm:py-10"
@@ -29,8 +32,8 @@ export function TagCloud() {
               <li key={keyword.label} className="tag-cloud-item">
                 <span className="tag-cloud-dot" aria-hidden="true" />
                 <Link
-                  to="/services/$slug"
-                  params={{ slug: keyword.slug }}
+                  to="/$locale/services/$slug"
+                  params={{ locale, slug: keyword.slug }}
                   className="rounded-full outline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
                 >
                   {keyword.label}

@@ -10,12 +10,14 @@ import {
   Sparkles,
 } from "lucide-react";
 import { useI18n } from "@/contexts/I18nContext";
+import { useLocale } from "@/lib/i18n-urls";
 
 export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
   const Heading = standalone ? "h1" : "h2";
   const featuredCase = casesData[0]; // Hidrolinfa Portugal
   const otherCases = casesData.slice(1);
   const { t } = useI18n();
+  const locale = useLocale();
 
   return (
     <section
@@ -143,8 +145,8 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
                   )}
 
                   <Link
-                    to="/cases/$slug"
-                    params={{ slug: featuredCase.slug }}
+                    to="/$locale/cases/$slug"
+                    params={{ locale, slug: featuredCase.slug }}
                     className="inline-flex items-center gap-1 text-xs font-mono text-primary hover:underline"
                   >
                     <span>{t.cases.readFullCase}</span>
@@ -209,8 +211,8 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
             return (
               <Link
                 key={c.slug}
-                to="/cases/$slug"
-                params={{ slug: c.slug }}
+                to="/$locale/cases/$slug"
+                params={{ locale, slug: c.slug }}
                 className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-black/[0.08] bg-card transition-all duration-300 hover:border-black/[0.16] hover:shadow-[var(--shadow-card)] dark:border-white/[0.08] dark:bg-white/[0.02] dark:hover:border-white/[0.16] dark:hover:bg-white/[0.04]"
               >
                 <div>
@@ -282,7 +284,8 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
 
           {/* Card: O Próximo Case Pode Ser o Seu */}
           <Link
-            to="/contact"
+            to="/$locale/contact"
+            params={{ locale }}
             className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-dashed border-primary/40 bg-gradient-to-b from-primary/[0.04] via-card to-card p-0 transition-all duration-300 hover:border-primary hover:shadow-[0_0_30px_rgba(83,58,253,0.15)] dark:border-primary/40 dark:bg-gradient-to-b dark:from-primary/[0.06] dark:via-white/[0.02] dark:to-white/[0.02] dark:hover:border-primary"
           >
             <div>
@@ -344,7 +347,8 @@ export function Cases({ standalone = false }: { standalone?: boolean } = {}) {
         {!standalone && (
           <div className="mt-12 text-center">
             <Link
-              to="/cases"
+              to="/$locale/cases"
+              params={{ locale }}
               className="inline-flex items-center gap-2 rounded-full border border-black/[0.12] bg-card px-7 py-3 text-xs font-medium text-foreground transition-all hover:bg-secondary hover:border-black/[0.2] dark:border-white/[0.12] dark:bg-white/[0.03] dark:hover:bg-white/[0.08] dark:hover:border-white/[0.2] shadow-xs"
             >
               <span>{t.cases.viewAllCasesCta}</span>

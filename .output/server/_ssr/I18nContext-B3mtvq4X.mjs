@@ -1,6 +1,6 @@
 import { r as __toESM } from "../_runtime.mjs";
 import { c as require_react, s as require_jsx_runtime } from "../_libs/@radix-ui/react-accordion+[...].mjs";
-import { l as useRouterState } from "../_libs/@tanstack/react-router+[...].mjs";
+import { f as useRouterState } from "../_libs/@tanstack/react-router+[...].mjs";
 import { a as localeFromPathname } from "./ssr.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/I18nContext-B3mtvq4X.js
 var import_react = /* @__PURE__ */ __toESM(require_react());

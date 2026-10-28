@@ -5,6 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ArrowRight, Search } from "lucide-react";
 import { useState, type FormEvent } from "react";
+import { useLocale } from "@/lib/i18n-urls";
 
 export function BlogIndex({
   initialTerm = "",
@@ -14,6 +15,7 @@ export function BlogIndex({
   initialCategory?: string;
 }) {
   const navigate = useNavigate();
+  const locale = useLocale();
   const [searchQuery, setSearchQuery] = useState(initialTerm);
 
   const normalize = (value: string) =>
@@ -72,7 +74,8 @@ export function BlogIndex({
         <div className="mb-12 flex flex-col gap-6">
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
             <Link
-              to="/blog"
+              to="/$locale/blog"
+              params={{ locale }}
               className={`text-sm font-medium transition-colors ${
                 !initialCategory
                   ? "text-primary"
@@ -84,8 +87,8 @@ export function BlogIndex({
             {categories.map((cat) => (
               <Link
                 key={cat}
-                to="/blog/categoria/$categoria"
-                params={{ categoria: toFriendlySlug(cat) }}
+                to="/$locale/blog/categoria/$categoria"
+                params={{ locale, categoria: toFriendlySlug(cat) }}
                 className={`text-sm font-medium transition-colors ${
                   initialCategory === cat
                     ? "text-primary"
@@ -151,8 +154,8 @@ export function BlogIndex({
         {featuredPost && (
           <div className="mb-16">
             <Link
-              to="/blog/$slug"
-              params={{ slug: featuredPost.slug }}
+              to="/$locale/blog/$slug"
+              params={{ locale, slug: featuredPost.slug }}
               className="group flex flex-col gap-8 rounded-4xl bg-[#f5f5f7] p-6 transition-colors hover:bg-[#efeff2] dark:bg-surface dark:hover:bg-secondary/70 md:flex-row sm:p-10"
             >
               <div className="flex-1 flex flex-col justify-center">
@@ -198,7 +201,8 @@ export function BlogIndex({
             </p>
             <Link
               className="mt-4 inline-block text-primary font-medium hover:underline"
-              to="/blog"
+              to="/$locale/blog"
+              params={{ locale }}
             >
               Limpar filtros
             </Link>
@@ -208,8 +212,8 @@ export function BlogIndex({
             {remainingPosts.map((post) => (
               <Link
                 key={post.slug}
-                to="/blog/$slug"
-                params={{ slug: post.slug }}
+                to="/$locale/blog/$slug"
+                params={{ locale, slug: post.slug }}
                 className="group flex flex-col justify-between overflow-hidden rounded-3xl bg-[#f5f5f7] transition-colors hover:bg-[#efeff2] dark:bg-surface dark:hover:bg-secondary/70"
               >
                 <div className="h-48 w-full shrink-0 overflow-hidden">

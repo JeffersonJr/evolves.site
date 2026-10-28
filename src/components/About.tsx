@@ -9,6 +9,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
+import { useLocale } from "@/lib/i18n-urls";
 
 const stats = [
   { value: "8+", label: "Anos de Experiência Prática", suffix: "" },
@@ -74,6 +75,8 @@ const pillars = [
 ];
 
 export function About() {
+  const locale = useLocale();
+
   return (
     <section id="about" className="overflow-hidden bg-background">
       {/* Stats Section */}
@@ -214,15 +217,18 @@ export function About() {
               receba uma proposta técnica estruturada em até 24 horas úteis.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
-              <a
-                href="#contact"
+              <Link
+                to="/$locale/"
+                params={{ locale }}
+                hash="contact"
                 className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-xs sm:text-sm font-medium text-background transition hover:opacity-90 shadow-sm"
               >
                 <span>Falar com Engenheiro</span>
                 <ArrowRight className="h-4 w-4" />
-              </a>
+              </Link>
               <Link
-                to="/cases"
+                to="/$locale/cases"
+                params={{ locale }}
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-6 py-3 text-xs sm:text-sm font-medium text-foreground transition hover:bg-secondary"
               >
                 <span>Explorar Casos de Estudo</span>

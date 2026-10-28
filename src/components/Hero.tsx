@@ -7,9 +7,12 @@ import {
   Cpu,
 } from "lucide-react";
 import { useI18n } from "@/contexts/I18nContext";
+import { Link } from "@tanstack/react-router";
+import { useLocale } from "@/lib/i18n-urls";
 
 export function Hero() {
   const { t } = useI18n();
+  const locale = useLocale();
 
   return (
     <section
@@ -96,8 +99,10 @@ export function Hero() {
           </a>
 
           {/* Secondary CTA */}
-          <a
-            href="#cases"
+          <Link
+            to="/$locale/"
+            params={{ locale }}
+            hash="cases"
             className="inline-flex items-center gap-2 rounded-full border border-black/[0.1] bg-black/[0.03] px-6 py-3 text-sm font-medium text-foreground backdrop-blur-sm transition-all hover:bg-black/[0.06] dark:border-white/[0.1] dark:bg-white/[0.04] dark:hover:bg-white/[0.08]"
           >
             <span>{t.hero.ctaSecondary}</span>
@@ -105,7 +110,7 @@ export function Hero() {
               className="h-4 w-4 text-muted-foreground"
               aria-hidden="true"
             />
-          </a>
+          </Link>
         </div>
 
         {/* ── Micro-copy ── */}

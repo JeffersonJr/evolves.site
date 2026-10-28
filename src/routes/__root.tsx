@@ -16,6 +16,7 @@ import { ExitIntentModal } from "../components/ExitIntentModal";
 import { EvoAssistant } from "../components/EvoAssistant";
 import { NotFoundGame } from "../components/NotFoundGame";
 import { htmlLang, useLocale, hreflangLinks } from "@/lib/i18n-urls";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function NotFoundComponent() {
   return (
@@ -35,12 +36,13 @@ function ErrorComponent({
 }) {
   console.error(error);
   const router = useRouter();
+  const locale = useLocale();
   useEffect(() => {
     reportLovableError(error, { boundary: "tanstack_root_error_component" });
   }, [error]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+    <div className="flex min-h-screen items-center justify-center bg-background px-4" role="alert">
       <div className="max-w-md text-center">
         <h1 className="text-xl font-semibold tracking-tight text-foreground">
           This page didn't load
@@ -59,12 +61,13 @@ function ErrorComponent({
           >
             Try again
           </button>
-          <a
-            href="/"
+          <Link
+            to="/$locale/"
+            params={{ locale }}
             className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
             Go home
-          </a>
+          </Link>
         </div>
       </div>
     </div>
@@ -154,6 +157,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         {/* End Google Tag Manager (noscript) */}
         {children}
         <Scripts />
+        <SpeedInsights />
       </body>
     </html>
   );

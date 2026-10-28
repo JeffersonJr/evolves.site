@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { Link } from "@tanstack/react-router";
+import { useLocale } from "@/lib/i18n-urls";
 
 export function CookieBanner() {
   const [show, setShow] = useState(false);
+  const locale = useLocale();
 
   useEffect(() => {
     const accepted = localStorage.getItem("cookies_accepted");
@@ -20,14 +22,16 @@ export function CookieBanner() {
           Nós usamos cookies para analisar o tráfego e melhorar sua experiência
           em nosso site. Ao continuar navegando, você concorda com a nossa{" "}
           <Link
-            to="/privacy"
+            to="/$locale/privacy"
+            params={{ locale }}
             className="text-primary font-medium underline underline-offset-4 hover:text-primary/80"
           >
             Política de Privacidade
           </Link>{" "}
           e{" "}
           <Link
-            to="/cookies"
+            to="/$locale/cookies"
+            params={{ locale }}
             className="text-primary font-medium underline underline-offset-4 hover:text-primary/80"
           >
             Política de Cookies

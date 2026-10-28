@@ -1,5 +1,5 @@
 import { n as __exportAll } from "../_runtime.mjs";
-import { v as useParams } from "../_libs/@tanstack/react-router+[...].mjs";
+import { x as useParams } from "../_libs/@tanstack/react-router+[...].mjs";
 //#region node_modules/.nitro/vite/services/ssr/index.js
 var ssr_exports = /* @__PURE__ */ __exportAll({
 	a: () => localeFromPathname,
@@ -328,7 +328,7 @@ var locationRewrite = {
 };
 var serverEntryPromise;
 async function getServerEntry() {
-	if (!serverEntryPromise) serverEntryPromise = import("./server-Ca27fosk.mjs").then((m) => m.default ?? m);
+	if (!serverEntryPromise) serverEntryPromise = import("./server-RfH4Ijwd.mjs").then((m) => m.default ?? m);
 	return serverEntryPromise;
 }
 async function normalizeCatastrophicSsrResponse(response) {

@@ -2,6 +2,7 @@ import { Check, ArrowRight, Code2 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { servicesData } from "@/data/services";
 import { useI18n } from "@/contexts/I18nContext";
+import { useLocale } from "@/lib/i18n-urls";
 
 export function Services({
   standalone = false,
@@ -10,6 +11,7 @@ export function Services({
   const visibleServices = standalone ? servicesData : servicesData.slice(0, 4);
   const additionalServices = standalone ? [] : servicesData.slice(4);
   const { t } = useI18n();
+  const locale = useLocale();
 
   return (
     <section
@@ -42,8 +44,8 @@ export function Services({
           {visibleServices.map((s) => (
             <Link
               key={s.slug}
-              to="/services/$slug"
-              params={{ slug: s.slug }}
+              to="/$locale/services/$slug"
+              params={{ locale, slug: s.slug }}
               className="group flex flex-col justify-between rounded-2xl border border-black/[0.08] bg-card p-8 sm:p-9 transition-all duration-300 hover:border-black/[0.16] shadow-xs dark:border-white/[0.08] dark:bg-white/[0.02] dark:hover:border-white/[0.14] dark:hover:bg-white/[0.04]"
             >
               <div>
@@ -85,8 +87,8 @@ export function Services({
             {additionalServices.map((service) => (
               <Link
                 key={service.slug}
-                to="/services/$slug"
-                params={{ slug: service.slug }}
+                to="/$locale/services/$slug"
+                params={{ locale, slug: service.slug }}
                 className="underline decoration-white/[0.2] underline-offset-4 transition-colors hover:text-primary"
               >
                 {service.title}

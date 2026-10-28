@@ -131,40 +131,48 @@ export function Footer() {
             </h3>
             <ul className="space-y-2.5 text-xs text-muted-foreground">
               <li>
-                <a
-                  href="/#services"
+                <Link
+                  to="/$locale/"
+                  params={{ locale }}
+                  hash="services"
                   className="hover:text-foreground transition-colors"
                 >
                   {t.nav.services}
-                </a>
+                </Link>
               </li>
               <li>
                 <Link
-                  to="/cases"
+                  to="/$locale/cases"
+                  params={{ locale }}
                   className="hover:text-foreground transition-colors"
                 >
                   {t.nav.cases}
                 </Link>
               </li>
               <li>
-                <a
-                  href="/#infrastructure"
+                <Link
+                  to="/$locale/"
+                  params={{ locale }}
+                  hash="infrastructure"
                   className="hover:text-foreground transition-colors"
                 >
                   {t.nav.infrastructure}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/#pricing"
-                  className="hover:text-foreground transition-colors"
-                >
-                  {t.nav.pricing}
-                </a>
+                </Link>
               </li>
               <li>
                 <Link
-                  to="/blog"
+                  to="/$locale/"
+                  params={{ locale }}
+                  hash="pricing"
+                  className="hover:text-foreground transition-colors"
+                >
+                  {t.nav.pricing}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/$locale/blog"
+                  params={{ locale }}
                   className="hover:text-foreground transition-colors"
                 >
                   Blog
@@ -172,7 +180,8 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  to="/about"
+                  to="/$locale/about"
+                  params={{ locale }}
                   className="hover:text-foreground transition-colors"
                 >
                   {t.nav.about}
@@ -180,7 +189,8 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  to="/contact"
+                  to="/$locale/contact"
+                  params={{ locale }}
                   className="hover:text-foreground transition-colors"
                 >
                   {t.nav.contact}
@@ -197,7 +207,8 @@ export function Footer() {
             <ul className="space-y-2.5 text-xs text-muted-foreground">
               <li>
                 <Link
-                  to="/privacy"
+                  to="/$locale/privacy"
+                  params={{ locale }}
                   className="hover:text-foreground transition-colors"
                 >
                   Privacidade (RGPD/LGPD)
@@ -205,7 +216,8 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  to="/cookies"
+                  to="/$locale/cookies"
+                  params={{ locale }}
                   className="hover:text-foreground transition-colors"
                 >
                   Gestão de Cookies
@@ -213,7 +225,8 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  to="/about"
+                  to="/$locale/about"
+                  params={{ locale }}
                   className="hover:text-foreground transition-colors"
                 >
                   Sobre a Evolves
@@ -221,7 +234,8 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  to="/contact"
+                  to="/$locale/contact"
+                  params={{ locale }}
                   className="hover:text-foreground transition-colors"
                 >
                   Canal de Contacto
