@@ -6,7 +6,9 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en" />
@@ -17,7 +19,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/sobre" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/about" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/sobre" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/about" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/about" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/sobre" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/chi-siamo" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/about" />
@@ -28,7 +32,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/servicos" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/services" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/servicos" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/services" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/services" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/servicios" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/servizi" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/services" />
@@ -39,7 +45,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/cases" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/cases" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/casos" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/cases" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/case-studies" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/casos" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/casi" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/cases" />
@@ -50,7 +58,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog" />
@@ -61,7 +71,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/contato" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/contact" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/contactos" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/contact" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/contact" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/contacto" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/contatto" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/contact" />
@@ -72,7 +84,9 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/privacidade" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/privacy" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/privacidade" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/privacy" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/privacy" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/privacidad" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/privacy" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/privacy" />
@@ -83,7 +97,9 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/cookies" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/cookies" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/cookies" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/cookies" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/cookies" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/cookies" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/cookies" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/cookies" />
@@ -94,7 +110,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/servicos/consultoria-ux-ui" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/services/consultoria-ux-ui" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/servicos/consultoria-ux-ui" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/services/consultoria-ux-ui" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/services/consultoria-ux-ui" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/servicios/consultoria-ux-ui" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/servizi/consultoria-ux-ui" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/services/consultoria-ux-ui" />
@@ -105,7 +123,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/servicos/sites-inteligentes" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/services/sites-inteligentes" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/servicos/sites-inteligentes" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/services/sites-inteligentes" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/services/sites-inteligentes" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/servicios/sites-inteligentes" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/servizi/sites-inteligentes" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/services/sites-inteligentes" />
@@ -116,7 +136,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/servicos/sistemas-customizados" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/services/sistemas-customizados" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/servicos/sistemas-customizados" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/services/sistemas-customizados" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/services/sistemas-customizados" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/servicios/sistemas-customizados" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/servizi/sistemas-customizados" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/services/sistemas-customizados" />
@@ -127,7 +149,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/servicos/hospedagem-performance" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/services/hospedagem-performance" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/servicos/hospedagem-performance" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/services/hospedagem-performance" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/services/hospedagem-performance" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/servicios/hospedagem-performance" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/servizi/hospedagem-performance" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/services/hospedagem-performance" />
@@ -138,7 +162,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/servicos/branding-design" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/services/branding-design" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/servicos/branding-design" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/services/branding-design" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/services/branding-design" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/servicios/branding-design" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/servizi/branding-design" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/services/branding-design" />
@@ -149,7 +175,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/servicos/seo-tecnico" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/services/seo-tecnico" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/servicos/seo-tecnico" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/services/seo-tecnico" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/services/seo-tecnico" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/servicios/seo-tecnico" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/servizi/seo-tecnico" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/services/seo-tecnico" />
@@ -160,7 +188,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/servicos/inteligencia-artificial" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/services/inteligencia-artificial" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/servicos/inteligencia-artificial" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/services/inteligencia-artificial" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/services/inteligencia-artificial" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/servicios/inteligencia-artificial" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/servizi/inteligencia-artificial" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/services/inteligencia-artificial" />
@@ -171,7 +201,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/servicos/lojas-virtuais" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/services/lojas-virtuais" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/servicos/lojas-virtuais" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/services/lojas-virtuais" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/services/lojas-virtuais" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/servicios/lojas-virtuais" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/servizi/lojas-virtuais" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/services/lojas-virtuais" />
@@ -182,7 +214,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/servicos/acessibilidade-digital" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/services/acessibilidade-digital" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/servicos/acessibilidade-digital" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/services/acessibilidade-digital" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/services/acessibilidade-digital" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/servicios/acessibilidade-digital" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/servizi/acessibilidade-digital" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/services/acessibilidade-digital" />
@@ -193,7 +227,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/servicos/consultoria-tech" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/services/consultoria-tech" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/servicos/consultoria-tech" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/services/consultoria-tech" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/services/consultoria-tech" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/servicios/consultoria-tech" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/servizi/consultoria-tech" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/services/consultoria-tech" />
@@ -204,7 +240,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/cases/hidrolinfa-portugal" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/cases/hidrolinfa-portugal" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/casos/hidrolinfa-portugal" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/cases/hidrolinfa-portugal" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/case-studies/hidrolinfa-portugal" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/casos/hidrolinfa-portugal" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/casi/hidrolinfa-portugal" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/cases/hidrolinfa-portugal" />
@@ -215,7 +253,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/cases/uniao-fraternal" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/cases/uniao-fraternal" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/casos/uniao-fraternal" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/cases/uniao-fraternal" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/case-studies/uniao-fraternal" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/casos/uniao-fraternal" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/casi/uniao-fraternal" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/cases/uniao-fraternal" />
@@ -226,7 +266,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/cases/glebra-grande-loja-egipcia" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/cases/glebra-grande-loja-egipcia" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/casos/glebra-grande-loja-egipcia" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/cases/glebra-grande-loja-egipcia" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/case-studies/glebra-grande-loja-egipcia" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/casos/glebra-grande-loja-egipcia" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/casi/glebra-grande-loja-egipcia" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/cases/glebra-grande-loja-egipcia" />
@@ -237,7 +279,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/cases/kura-terapias-naturais" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/cases/kura-terapias-naturais" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/casos/kura-terapias-naturais" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/cases/kura-terapias-naturais" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/case-studies/kura-terapias-naturais" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/casos/kura-terapias-naturais" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/casi/kura-terapias-naturais" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/cases/kura-terapias-naturais" />
@@ -248,7 +292,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog/importancia-de-um-site-rapido-para-seo" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog/importancia-de-um-site-rapido-para-seo" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog/importancia-de-um-site-rapido-para-seo" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog/importancia-de-um-site-rapido-para-seo" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog/importancia-de-um-site-rapido-para-seo" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog/importancia-de-um-site-rapido-para-seo" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog/importancia-de-um-site-rapido-para-seo" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog/importancia-de-um-site-rapido-para-seo" />
@@ -259,7 +305,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog/sistemas-customizados-vs-prontos" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog/sistemas-customizados-vs-prontos" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog/sistemas-customizados-vs-prontos" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog/sistemas-customizados-vs-prontos" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog/sistemas-customizados-vs-prontos" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog/sistemas-customizados-vs-prontos" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog/sistemas-customizados-vs-prontos" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog/sistemas-customizados-vs-prontos" />
@@ -270,7 +318,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog/como-a-ia-esta-mudando-o-desenvolvimento-web" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog/como-a-ia-esta-mudando-o-desenvolvimento-web" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog/como-a-ia-esta-mudando-o-desenvolvimento-web" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog/como-a-ia-esta-mudando-o-desenvolvimento-web" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog/como-a-ia-esta-mudando-o-desenvolvimento-web" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog/como-a-ia-esta-mudando-o-desenvolvimento-web" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog/como-a-ia-esta-mudando-o-desenvolvimento-web" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog/como-a-ia-esta-mudando-o-desenvolvimento-web" />
@@ -281,7 +331,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog/o-guia-definitivo-de-acessibilidade-web" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog/o-guia-definitivo-de-acessibilidade-web" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog/o-guia-definitivo-de-acessibilidade-web" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog/o-guia-definitivo-de-acessibilidade-web" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog/o-guia-definitivo-de-acessibilidade-web" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog/o-guia-definitivo-de-acessibilidade-web" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog/o-guia-definitivo-de-acessibilidade-web" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog/o-guia-definitivo-de-acessibilidade-web" />
@@ -292,7 +344,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog/tendencias-de-ui-ux-para-2024" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog/tendencias-de-ui-ux-para-2024" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog/tendencias-de-ui-ux-para-2024" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog/tendencias-de-ui-ux-para-2024" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog/tendencias-de-ui-ux-para-2024" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog/tendencias-de-ui-ux-para-2024" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog/tendencias-de-ui-ux-para-2024" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog/tendencias-de-ui-ux-para-2024" />
@@ -303,7 +357,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog/migrando-do-wordpress-para-react" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog/migrando-do-wordpress-para-react" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog/migrando-do-wordpress-para-react" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog/migrando-do-wordpress-para-react" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog/migrando-do-wordpress-para-react" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog/migrando-do-wordpress-para-react" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog/migrando-do-wordpress-para-react" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog/migrando-do-wordpress-para-react" />
@@ -314,7 +370,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog/lgpd-o-que-voce-precisa-saber" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog/lgpd-o-que-voce-precisa-saber" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog/lgpd-o-que-voce-precisa-saber" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog/lgpd-o-que-voce-precisa-saber" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog/lgpd-o-que-voce-precisa-saber" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog/lgpd-o-que-voce-precisa-saber" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog/lgpd-o-que-voce-precisa-saber" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog/lgpd-o-que-voce-precisa-saber" />
@@ -325,7 +383,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog/o-que-e-hospedagem-cloud" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog/o-que-e-hospedagem-cloud" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog/o-que-e-hospedagem-cloud" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog/o-que-e-hospedagem-cloud" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog/o-que-e-hospedagem-cloud" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog/o-que-e-hospedagem-cloud" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog/o-que-e-hospedagem-cloud" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog/o-que-e-hospedagem-cloud" />
@@ -336,7 +396,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog/estrategias-de-conversao-b2b" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog/estrategias-de-conversao-b2b" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog/estrategias-de-conversao-b2b" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog/estrategias-de-conversao-b2b" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog/estrategias-de-conversao-b2b" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog/estrategias-de-conversao-b2b" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog/estrategias-de-conversao-b2b" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog/estrategias-de-conversao-b2b" />
@@ -347,7 +409,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog/impacto-do-branding-na-percepcao-de-valor" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog/impacto-do-branding-na-percepcao-de-valor" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog/impacto-do-branding-na-percepcao-de-valor" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog/impacto-do-branding-na-percepcao-de-valor" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog/impacto-do-branding-na-percepcao-de-valor" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog/impacto-do-branding-na-percepcao-de-valor" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog/impacto-do-branding-na-percepcao-de-valor" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog/impacto-do-branding-na-percepcao-de-valor" />
@@ -358,7 +422,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog/categoria/seo" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog/category/seo" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog/categoria/seo" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog/category/seo" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog/category/seo" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog/categoria/seo" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog/categoria/seo" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog/category/seo" />
@@ -369,7 +435,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog/categoria/sistemas" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog/category/sistemas" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog/categoria/sistemas" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog/category/sistemas" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog/category/sistemas" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog/categoria/sistemas" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog/categoria/sistemas" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog/category/sistemas" />
@@ -380,7 +448,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog/categoria/tecnologia" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog/category/tecnologia" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog/categoria/tecnologia" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog/category/tecnologia" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog/category/tecnologia" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog/categoria/tecnologia" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog/categoria/tecnologia" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog/category/tecnologia" />
@@ -391,7 +461,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog/categoria/design" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog/category/design" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog/categoria/design" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog/category/design" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog/category/design" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog/categoria/design" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog/categoria/design" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog/category/design" />
@@ -402,7 +474,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog/categoria/desenvolvimento" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog/category/desenvolvimento" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog/categoria/desenvolvimento" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog/category/desenvolvimento" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog/category/desenvolvimento" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog/categoria/desenvolvimento" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog/categoria/desenvolvimento" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog/category/desenvolvimento" />
@@ -413,7 +487,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog/categoria/seguranca" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog/category/seguranca" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog/categoria/seguranca" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog/category/seguranca" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog/category/seguranca" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog/categoria/seguranca" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog/categoria/seguranca" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog/category/seguranca" />
@@ -424,7 +500,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog/categoria/infraestrutura" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog/category/infraestrutura" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog/categoria/infraestrutura" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog/category/infraestrutura" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog/category/infraestrutura" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog/categoria/infraestrutura" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog/categoria/infraestrutura" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog/category/infraestrutura" />
@@ -435,7 +513,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog/categoria/marketing" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog/category/marketing" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog/categoria/marketing" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog/category/marketing" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog/category/marketing" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog/categoria/marketing" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog/categoria/marketing" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog/category/marketing" />
@@ -446,7 +526,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog/categoria/branding" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog/category/branding" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog/categoria/branding" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog/category/branding" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog/category/branding" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog/categoria/branding" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog/categoria/branding" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog/category/branding" />
@@ -457,7 +539,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog/busca/seo-tecnico" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog/search/seo-tecnico" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog/pesquisa/seo-tecnico" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog/search/seo-tecnico" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog/search/seo-tecnico" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog/busqueda/seo-tecnico" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog/ricerca/seo-tecnico" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog/search/seo-tecnico" />
@@ -468,7 +552,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog/busca/desenvolvimento-web" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog/search/desenvolvimento-web" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog/pesquisa/desenvolvimento-web" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog/search/desenvolvimento-web" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog/search/desenvolvimento-web" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog/busqueda/desenvolvimento-web" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog/ricerca/desenvolvimento-web" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog/search/desenvolvimento-web" />
@@ -479,7 +565,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog/busca/hospedagem-cloud" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog/search/hospedagem-cloud" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog/pesquisa/hospedagem-cloud" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog/search/hospedagem-cloud" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog/search/hospedagem-cloud" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog/busqueda/hospedagem-cloud" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog/ricerca/hospedagem-cloud" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog/search/hospedagem-cloud" />
@@ -490,7 +578,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog/busca/sistemas-customizados" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog/search/sistemas-customizados" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog/pesquisa/sistemas-customizados" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog/search/sistemas-customizados" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog/search/sistemas-customizados" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog/busqueda/sistemas-customizados" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog/ricerca/sistemas-customizados" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog/search/sistemas-customizados" />
@@ -501,7 +591,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog/busca/core-web-vitals" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog/search/core-web-vitals" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog/pesquisa/core-web-vitals" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog/search/core-web-vitals" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog/search/core-web-vitals" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog/busqueda/core-web-vitals" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog/ricerca/core-web-vitals" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog/search/core-web-vitals" />
@@ -512,7 +604,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog/busca/branding-digital" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog/search/branding-digital" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog/pesquisa/branding-digital" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog/search/branding-digital" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog/search/branding-digital" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog/busqueda/branding-digital" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog/ricerca/branding-digital" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog/search/branding-digital" />
@@ -523,7 +617,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog/busca/inteligencia-artificial" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog/search/inteligencia-artificial" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog/pesquisa/inteligencia-artificial" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog/search/inteligencia-artificial" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog/search/inteligencia-artificial" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog/busqueda/inteligencia-artificial" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog/ricerca/inteligencia-artificial" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog/search/inteligencia-artificial" />
@@ -534,7 +630,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog/busca/criacao-de-sites" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog/search/criacao-de-sites" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog/pesquisa/criacao-de-sites" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog/search/criacao-de-sites" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog/search/criacao-de-sites" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog/busqueda/criacao-de-sites" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog/ricerca/criacao-de-sites" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog/search/criacao-de-sites" />
@@ -545,7 +643,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog/busca/lojas-virtuais" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog/search/lojas-virtuais" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog/pesquisa/lojas-virtuais" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog/search/lojas-virtuais" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog/search/lojas-virtuais" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog/busqueda/lojas-virtuais" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog/ricerca/lojas-virtuais" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog/search/lojas-virtuais" />
@@ -556,7 +656,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog/busca/acessibilidade" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog/search/acessibilidade" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog/pesquisa/acessibilidade" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog/search/acessibilidade" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog/search/acessibilidade" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog/busqueda/acessibilidade" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog/ricerca/acessibilidade" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog/search/acessibilidade" />
@@ -567,7 +669,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog/busca/ux-ui" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog/search/ux-ui" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog/pesquisa/ux-ui" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog/search/ux-ui" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog/search/ux-ui" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog/busqueda/ux-ui" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog/ricerca/ux-ui" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog/search/ux-ui" />
@@ -578,7 +682,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.evolves.site/pt/blog/busca/lgpd" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.evolves.site/en/blog/search/lgpd" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.evolves.site/pt-pt/blog/pesquisa/lgpd" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.evolves.site/en/blog/search/lgpd" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.evolves.site/en-gb/blog/search/lgpd" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.evolves.site/es/blog/busqueda/lgpd" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.evolves.site/it/blog/ricerca/lgpd" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.evolves.site/en/blog/search/lgpd" />

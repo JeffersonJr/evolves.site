@@ -17,6 +17,7 @@ import { EvoAssistant } from "../components/EvoAssistant";
 import { NotFoundGame } from "../components/NotFoundGame";
 import { htmlLang, useLocale, hreflangLinks } from "@/lib/i18n-urls";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import { Analytics } from "@vercel/analytics/react";
 
 function NotFoundComponent() {
   return (
@@ -171,6 +172,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
         <Scripts />
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
