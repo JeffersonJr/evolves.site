@@ -92,7 +92,7 @@ export function Contact({ standalone = false }: { standalone?: boolean } = {}) {
           <div className="space-y-4 md:col-span-5">
             <div className="rounded-2xl border border-black/[0.08] bg-card p-6 shadow-xs dark:border-white/[0.08] dark:bg-white/[0.02]">
               <div className="flex items-center gap-3 text-primary mb-2">
-                <Mail className="h-4 w-4" />
+                <Mail className="h-4 w-4" aria-hidden="true" />
                 <span className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground">
                   E-mail Corporativo
                 </span>
@@ -110,7 +110,7 @@ export function Contact({ standalone = false }: { standalone?: boolean } = {}) {
 
             <div className="rounded-2xl border border-black/[0.08] bg-card p-6 shadow-xs dark:border-white/[0.08] dark:bg-white/[0.02]">
               <div className="flex items-center gap-3 text-emerald-600 dark:text-emerald-400 mb-2">
-                <MessageCircle className="h-4 w-4" />
+                <MessageCircle className="h-4 w-4" aria-hidden="true" />
                 <span className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground">
                   WhatsApp Corporativo
                 </span>
@@ -130,7 +130,7 @@ export function Contact({ standalone = false }: { standalone?: boolean } = {}) {
 
             <div className="rounded-2xl border border-black/[0.08] bg-card p-6 shadow-xs dark:border-white/[0.08] dark:bg-white/[0.02]">
               <div className="flex items-center gap-3 text-primary mb-2">
-                <MapPin className="h-4 w-4" />
+                <MapPin className="h-4 w-4" aria-hidden="true" />
                 <span className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground">
                   {t.footer.opsTitle}
                 </span>

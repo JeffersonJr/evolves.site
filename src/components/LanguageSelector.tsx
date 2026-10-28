@@ -38,7 +38,7 @@ export function LanguageSelector({ className = "" }: { className?: string }) {
         onClick={() => setOpen((prev) => !prev)}
         aria-haspopup="listbox"
         aria-expanded={open}
-        className="inline-flex items-center gap-1.5 rounded-full border border-black/[0.08] bg-black/[0.03] px-2.5 py-1 text-xs font-mono transition-all hover:bg-black/[0.06] dark:border-white/10 dark:bg-white/[0.05] dark:hover:bg-white/[0.08] cursor-pointer"
+        className="inline-flex items-center gap-1.5 rounded-full border border-black/[0.08] bg-black/[0.03] px-2.5 py-1 text-xs font-mono transition-all hover:bg-black/[0.06] dark:border-white/10 dark:bg-white/[0.05] dark:hover:bg-white/[0.08] cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
       >
         <span className="text-sm leading-none" aria-hidden="true">
           {currentLanguageOption.flag}

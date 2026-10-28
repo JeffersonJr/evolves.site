@@ -81,10 +81,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         { charSet: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
         { title: "Evolves® · Web Engineering & Cloud Infrastructure" },
+        { name: "description", content: "Evolves: Engenharia web e infraestrutura cloud de alta performance. Desenvolvimento de sites, sistemas customizados, SEO técnico e hospedagem cloud para empresas B2B." },
         { name: "author", content: "Evolves Tecnologia" },
+        { name: "robots", content: "index, follow" },
         { property: "og:site_name", content: "Evolves" },
         { property: "og:locale", content: "pt_BR" },
+        { property: "og:type", content: "website" },
         { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:site", content: "@evolvestech" },
         // Hint browser to preload the Geist font subset used above the fold
         { name: "theme-color", content: "#fbfbfd" },
       ],
@@ -155,7 +159,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
         {/* End Google Tag Manager (noscript) */}
-        {children}
+        {/* Skip link for keyboard navigation */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-primary-foreground"
+        >
+          Pular para o conteúdo principal
+        </a>
+        <div id="main-content">
+          {children}
+        </div>
         <Scripts />
         <SpeedInsights />
       </body>

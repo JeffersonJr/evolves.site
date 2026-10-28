@@ -59,7 +59,8 @@ export function Footer() {
             <Link
               to="/$locale/"
               params={{ locale }}
-              className="inline-flex items-center gap-1 mb-4"
+              className="inline-flex items-center gap-1 mb-4 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg"
+              aria-label="Evolves - Ir para página inicial"
             >
               <img
                 src={logo}
@@ -79,7 +80,7 @@ export function Footer() {
                 decoding="async"
                 className="h-6 w-auto hidden dark:block"
               />
-              <span className="text-[10px] text-muted-foreground font-medium">
+              <span className="text-[10px] text-muted-foreground font-medium" aria-hidden="true">
                 ®
               </span>
             </Link>
@@ -89,7 +90,7 @@ export function Footer() {
             </p>
 
             <div className="mt-5 flex items-center gap-2 text-xs font-mono text-muted-foreground">
-              <span className="relative flex h-2 w-2">
+              <span className="relative flex h-2 w-2" aria-hidden="true">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75 [will-change:transform,opacity]"></span>
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
               </span>

@@ -26,7 +26,7 @@ function Index() {
   return (
     <div className="min-h-screen bg-background selection:bg-primary/20 selection:text-foreground">
       <Navbar />
-      <main>
+      <main id="main-content">
         <Hero />
         <Cases />
         <Infrastructure />

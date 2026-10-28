@@ -55,8 +55,9 @@ export function Navbar() {
             <Link
               to="/$locale/"
               params={{ locale }}
-              className="flex items-center gap-1.5 focus:outline-none"
+              className="flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg"
               onClick={() => setOpen(false)}
+              aria-label="Evolves - Ir para página inicial"
             >
               <img
                 src={logo}
@@ -76,7 +77,7 @@ export function Navbar() {
                 decoding="async"
                 className="h-6 w-auto hidden dark:block"
               />
-              <span className="text-[10px] text-muted-foreground font-medium">
+              <span className="text-[10px] text-muted-foreground font-medium" aria-hidden="true">
                 ®
               </span>
             </Link>
